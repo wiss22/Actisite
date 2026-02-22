@@ -17,7 +17,7 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "public,max-age=31536000,immutable"
+            "value": "no-cache"
           }
         ]
       },
@@ -30,6 +30,38 @@
           }
         ]
       }
+    ],
+    "redirects": [
+      { "source": "/index.html", "destination": "/", "type": 301 },
+      { "source": "/blog.html", "destination": "/blog", "type": 301 },
+      { "source": "/article.html", "destination": "/article", "type": 301 },
+      { "source": "/innovation.html", "destination": "/innovation", "type": 301 },
+      { "source": "/nous-rejoindre.html", "destination": "/nous-rejoindre", "type": 301 },
+      { "source": "/equipe-dirigeante.html", "destination": "/equipe-dirigeante", "type": 301 },
+      { "source": "/risques-digitaux.html", "destination": "/risques-digitaux", "type": 301 },
+      { "source": "/cyber-defense.html", "destination": "/cyber-defense", "type": 301 },
+      { "source": "/audit-conformite.html", "destination": "/audit-conformite", "type": 301 },
+      { "source": "/transfo-cyber.html", "destination": "/transfo-cyber", "type": 301 },
+      { "source": "/swift.html", "destination": "/swift", "type": 301 },
+      { "source": "/audit-organisationnel.html", "destination": "/audit-organisationnel", "type": 301 },
+      { "source": "/audit-conformite-nis-dora.html", "destination": "/audit-conformite-nis-dora", "type": 301 }
+    ],
+    "rewrites": [
+      { "source": "/studio", "destination": "/studio/index.html" },
+      { "source": "/studio/**", "destination": "/studio/index.html" },
+      { "source": "/", "destination": "/index.html" },
+      { "source": "/blog", "destination": "/blog.html" },
+      { "source": "/article", "destination": "/article.html" },
+      { "source": "/innovation", "destination": "/innovation.html" },
+      { "source": "/nous-rejoindre", "destination": "/nous-rejoindre.html" },
+      { "source": "/equipe-dirigeante", "destination": "/equipe-dirigeante.html" },
+      { "source": "/risques-digitaux", "destination": "/risques-digitaux.html" },
+      { "source": "/cyber-defense", "destination": "/cyber-defense.html" },
+      { "source": "/audit-conformite", "destination": "/audit-conformite.html" },
+      { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
+      { "source": "/swift", "destination": "/swift.html" },
+      { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
+      { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" }
     ]
   }
 }

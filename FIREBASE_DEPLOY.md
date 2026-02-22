@@ -25,29 +25,21 @@ with your real Firebase project id.
 From `/Users/wissemchouk/Downloads/Actisite`:
 
 ```bash
-firebase deploy --only hosting
+./scripts/build-studio-for-firebase.sh
 ```
 
-## Sanity (Publications via API)
+This builds Sanity Studio from `/Users/wissemchouk/Downloads/Actisite/Publications` and publishes static files to `/Users/wissemchouk/Downloads/Actisite/studio`.
 
-The site is prepared to load publications from Sanity on:
-- home (`index.html`, publications block)
-- articles page (`blog.html`)
-- innovation page (`innovation.html`)
+Then deploy:
 
-Update `/Users/wissemchouk/Downloads/Actisite/sanity.config.js`:
-
-- `projectId`: your Sanity project id
-- `dataset`: usually `production`
-- `apiVersion`: keep as-is unless needed
-- `useCdn`: `true` for public fast reads
-- `maxItems`: optional cap
-
-No build step is required for this integration on Firebase Hosting.
-If Sanity is not configured, static fallback cards remain visible.
+```bash
+firebase deploy --only hosting
+```
 
 ## Notes
 
 - Hosting serves from repo root (`public: "."`).
 - `index.html` is the default entry page.
+- Sanity Studio is exposed at `/studio` on the same site.
+- Example: `https://landing-site-9ce39.web.app/studio`
 - Large local content and dev folders are excluded in `firebase.json` via `ignore`.

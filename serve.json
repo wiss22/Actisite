@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    { "source": "/studio", "destination": "/studio/index.html" },
+    { "source": "/studio/**", "destination": "/studio/index.html" },
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/article", "destination": "/article.html" },
+    { "source": "/innovation", "destination": "/innovation.html" },
+    { "source": "/nous-rejoindre", "destination": "/nous-rejoindre.html" },
+    { "source": "/equipe-dirigeante", "destination": "/equipe-dirigeante.html" },
+    { "source": "/risques-digitaux", "destination": "/risques-digitaux.html" },
+    { "source": "/cyber-defense", "destination": "/cyber-defense.html" },
+    { "source": "/audit-conformite", "destination": "/audit-conformite.html" },
+    { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
+    { "source": "/swift", "destination": "/swift.html" },
+    { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
+    { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" }
+  ]
+}

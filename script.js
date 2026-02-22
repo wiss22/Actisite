@@ -7,6 +7,24 @@
 ════════════════════════════════════════════════ */
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('js-reveal');
+
+  // ── 0. IMAGE SKELETON LOADER ───────────────────
+  const managedImages = Array.from(document.querySelectorAll('img[loading]'));
+  managedImages.forEach((img) => {
+    const wrap = img.parentElement;
+    if (!wrap) return;
+    wrap.classList.add('img-load-wrap');
+
+    const markLoaded = () => wrap.classList.add('is-loaded');
+    if (img.complete && img.naturalWidth > 0) {
+      markLoaded();
+      return;
+    }
+
+    img.addEventListener('load', markLoaded, {once: true});
+    img.addEventListener('error', markLoaded, {once: true});
+  });
 
   // ── 1. NAVBAR SCROLL ──────────────────────────
   const navbar = document.getElementById('navbar');
@@ -273,13 +291,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 border: none;
               }
             </style>
-            <a href="index.html#expertises" onclick="closeMobileNav()">Expertises</a>
-            <a href="index.html#secteurs" onclick="closeMobileNav()">Secteurs</a>
-            <a href="blog.html" onclick="closeMobileNav()">Articles</a>
-            <a href="innovation.html" onclick="closeMobileNav()">Innovation</a>
-            <a href="index.html#apropos" onclick="closeMobileNav()">À propos</a>
-            <a href="nous-rejoindre.html" onclick="closeMobileNav()">Nous rejoindre</a>
-            <a href="index.html#contact" class="m-cta" onclick="closeMobileNav()">Nous contacter</a>
+            <a href="/#expertises" onclick="closeMobileNav()">Expertises</a>
+            <a href="/#secteurs" onclick="closeMobileNav()">Secteurs</a>
+            <a href="/blog" onclick="closeMobileNav()">Articles</a>
+            <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
+            <a href="/#apropos" onclick="closeMobileNav()">À propos</a>
+            <a href="/nous-rejoindre" onclick="closeMobileNav()">Nous rejoindre</a>
+            <a href="/#contact" class="m-cta" onclick="closeMobileNav()">Nous contacter</a>
           `;
           document.body.appendChild(mobileNav);
         } else {

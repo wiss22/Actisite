@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260222">
 </head>
-<body>
+<body class="blog-page">
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img
           src="Logos/logo-blanc.png"
           data-logo-default="Logos/logo-blanc.png"
@@ -27,35 +27,35 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
-            <li><a href="risques-digitaux.html">Risques Digitaux</a></li>
-            <li><a href="cyber-defense.html">Cyber Défense</a></li>
-            <li><a href="audit-conformite.html">Audit et Conformité</a></li>
-            <li><a href="transfo-cyber.html">Transfo Cyber</a></li>
+            <li><a href="/risques-digitaux">Risques Digitaux</a></li>
+            <li><a href="/cyber-defense">Cyber Défense</a></li>
+            <li><a href="/audit-conformite">Audit et Conformité</a></li>
+            <li><a href="/transfo-cyber">Transfo Cyber</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="secteursDropdownTrigger" aria-expanded="false" aria-haspopup="true">Secteurs</button>
           <ul class="nav-dropdown-menu" id="secteursDropdown" aria-label="Sous-menu Secteurs">
-            <li><a href="index.html#secteurs">Banque</a></li>
-            <li><a href="index.html#secteurs">Assurance</a></li>
-            <li><a href="index.html#secteurs">Luxe</a></li>
-            <li><a href="index.html#secteurs">Retail</a></li>
-            <li><a href="index.html#secteurs">Industrie & Transport</a></li>
-            <li><a href="index.html#secteurs">Techno</a></li>
+            <li><a href="/#secteurs">Banque</a></li>
+            <li><a href="/#secteurs">Assurance</a></li>
+            <li><a href="/#secteurs">Luxe</a></li>
+            <li><a href="/#secteurs">Retail</a></li>
+            <li><a href="/#secteurs">Industrie & Transport</a></li>
+            <li><a href="/#secteurs">Techno</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="ressourcesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Publications</button>
           <ul class="nav-dropdown-menu" id="ressourcesDropdown" aria-label="Sous-menu Publications">
-            <li><a href="blog.html">Articles</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="/blog">Articles</a></li>
+            <li><a href="/innovation">Innovation</a></li>
           </ul>
         </li>
-        <li><a href="index.html#apropos">À propos</a></li>
+        <li><a href="/#apropos">À propos</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="nous-rejoindre.html" class="nav-cta nav-cta-join">Nous rejoindre</a>
-        <a href="index.html#contact" class="nav-cta">Nous contacter</a>
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/#contact" class="nav-cta">Nous contacter</a>
       </div>
       <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
@@ -69,22 +69,11 @@
         <p class="section-sub">Une sélection d’articles pratiques sur la gouvernance, la conformité et la sécurité opérationnelle.</p>
       </div>
 
-      <div class="ressources-grid" data-publications="articles">
-        <article class="ressource-card big reveal">
-          <div class="ressource-tag">Article</div>
-          <h3>Préparer NIS2 sans ralentir les métiers</h3>
-          <p>Cadre de priorisation et gouvernance opérationnelle pour déployer NIS2 de façon incrémentale.</p>
-          <a href="#" class="card-link">Lire →</a>
-        </article>
-        <article class="ressource-card reveal" data-delay="80">
-          <div class="ressource-tag">Décryptage</div>
-          <h3>DORA : les preuves attendues par les parties prenantes</h3>
-          <a href="#" class="card-link">Lire →</a>
-        </article>
-        <article class="ressource-card reveal" data-delay="140">
-          <div class="ressource-tag">Retour terrain</div>
-          <h3>SWIFT CSP : erreurs fréquentes observées en audit</h3>
-          <a href="#" class="card-link">Lire →</a>
+      <div class="ressources-grid" id="blogGrid">
+        <article class="ressource-card" id="blogLoadingCard">
+          <div class="ressource-tag">Chargement</div>
+          <h3>Chargement des publications…</h3>
+          <p>Connexion en cours avec Sanity Studio.</p>
         </article>
       </div>
     </div>
@@ -93,7 +82,7 @@
     <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
         </a>
         <p>Cabinet de conseil en gestion des risques digitaux et cybersécurité.</p>
@@ -116,26 +105,26 @@
       <div class="footer-links">
         <div class="footer-col">
           <div class="footer-col-title">Expertises</div>
-          <a href="risques-digitaux.html">Risques Digitaux</a>
-          <a href="cyber-defense.html">Cyber Défense</a>
-          <a href="audit-conformite.html">Audit et Conformité</a>
-          <a href="transfo-cyber.html">Transfo Cyber</a>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Secteurs</div>
-          <a href="index.html#secteurs">Banque</a>
-          <a href="index.html#secteurs">Assurance</a>
-          <a href="index.html#secteurs">Luxe</a>
-          <a href="index.html#secteurs">Retail</a>
-          <a href="index.html#secteurs">Industrie &amp; Transport</a>
-          <a href="index.html#secteurs">Techno</a>
+          <a href="/#secteurs">Banque</a>
+          <a href="/#secteurs">Assurance</a>
+          <a href="/#secteurs">Luxe</a>
+          <a href="/#secteurs">Retail</a>
+          <a href="/#secteurs">Industrie &amp; Transport</a>
+          <a href="/#secteurs">Techno</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
-          <a href="index.html#apropos">À propos</a>
-          <a href="equipe-dirigeante.html">Equipe dirigeante</a>
-          <a href="nous-rejoindre.html">Nous rejoindre</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -148,9 +137,127 @@
       </div>
     </div>
   </footer>
+  <script>
+    (async function () {
+      if (window.location.protocol === 'file:') {
+        const grid = document.getElementById('blogGrid')
+        if (grid) {
+          grid.innerHTML = `
+            <article class="ressource-card big">
+              <div class="ressource-tag">Execution locale</div>
+              <h3>Le blog doit etre ouvert via un serveur local</h3>
+              <p>Vous etes sur file://. Lancez un serveur HTTP local puis ouvrez http://localhost:5500//blog.</p>
+              <a href="http://localhost:5500//blog" class="card-link">Ouvrir le blog en local -></a>
+            </article>
+          `
+        }
+        return
+      }
 
-  <script src="sanity.config.js"></script>
-  <script src="publications.js"></script>
-  <script src="script.js"></script>
+      const projectId = 'vnmxplwi'
+      const dataset = 'production'
+      const apiVersion = '2024-10-01'
+
+      const query = `*[_type == "blogPost"] | order(coalesce(publishedAt, _createdAt) desc){
+        _id,
+        title,
+        "slug": slug.current,
+        "authorName": author->name,
+        excerpt,
+        publicationType,
+        externalUrl,
+        "coverUrl": coverImage.asset->url,
+        "coverAlt": coalesce(coverImage.alt, title),
+        publishedAt
+      }`
+
+      const escapeHtml = (value) =>
+        String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+
+      const grid = document.getElementById('blogGrid')
+      if (!grid) return
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&t=${Date.now()}`,
+      ]
+
+      let lastError = null
+      let items = []
+
+      for (const url of endpoints) {
+        try {
+          const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
+          if (!res.ok) {
+            const body = await res.text()
+            lastError = `HTTP ${res.status} via ${url} :: ${body.slice(0, 180)}`
+            continue
+          }
+          const json = await res.json()
+          const raw = Array.isArray(json.result) ? json.result : []
+          items = raw.filter((item) => {
+            const typeOk = !item.publicationType || item.publicationType === 'article'
+            return typeOk
+          })
+          if (items.length) break
+          lastError = `Aucun article publie trouve via ${url}`
+        } catch (err) {
+          lastError = `${err && err.message ? err.message : err} via ${url}`
+        }
+      }
+
+      if (!items.length) {
+        grid.innerHTML = `
+          <article class="ressource-card">
+            <div class="ressource-tag">Erreur de chargement</div>
+            <h3>Impossible de charger les articles pour le moment</h3>
+            <p>${escapeHtml(lastError || 'Verifiez la publication Sanity et les parametres CORS.')}</p>
+            <a href="http://localhost:3333" target="_blank" rel="noopener noreferrer" class="card-link">Ouvrir Sanity Studio -></a>
+          </article>
+        `
+        console.error('Sanity loading error:', lastError)
+        return
+      }
+
+      grid.innerHTML = items
+        .map((item, i) => {
+          const title = escapeHtml(item.title || 'Publication')
+          const excerpt = escapeHtml(item.excerpt || '')
+          const tag = item.publicationType === 'innovation' ? 'Innovation' : 'Article'
+          const coverUrl = item.coverUrl ? escapeHtml(item.coverUrl) : ''
+          const coverAlt = escapeHtml(item.coverAlt || item.title || 'Image article')
+          const author = escapeHtml(item.authorName || 'Actinuance')
+          const dateObj = item.publishedAt ? new Date(item.publishedAt) : null
+          const dateLabel =
+            dateObj && !Number.isNaN(dateObj.valueOf())
+              ? dateObj.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })
+              : ''
+          const internalHref = item.slug
+            ? `article?slug=${encodeURIComponent(item.slug)}`
+            : (item._id ? `article?id=${encodeURIComponent(item._id)}` : 'blog')
+          const href = item.externalUrl || internalHref
+          const external = /^https?:\/\//i.test(href)
+          return `
+            <article class="ressource-card">
+              <div class="ressource-cover-shell">
+                ${coverUrl ? `<img class="ressource-cover" src="${coverUrl}" alt="${coverAlt}" loading="lazy" decoding="async">` : '<div class="ressource-cover placeholder"></div>'}
+              </div>
+              <div class="ressource-tag">${escapeHtml(tag)}</div>
+              <h3>${title}</h3>
+              <div class="ressource-meta">${author}${dateLabel ? ` • ${escapeHtml(dateLabel)}` : ''}</div>
+              ${excerpt ? `<p>${excerpt}</p>` : ''}
+              <a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>Lire -></a>
+            </article>
+          `
+        })
+        .join('')
+    })()
+  </script>
+  <script src="script.js?v=20260222"></script>
 </body>
 </html>

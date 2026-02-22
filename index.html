@@ -8,13 +8,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260222">
 </head>
 <body>
 
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img
           src="Logos/logo-blanc.png"
           data-logo-default="Logos/logo-blanc.png"
@@ -27,10 +27,10 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
-            <li><a href="risques-digitaux.html">Risques Digitaux</a></li>
-            <li><a href="cyber-defense.html">Cyber Défense</a></li>
-            <li><a href="audit-conformite.html">Audit et Conformité</a></li>
-            <li><a href="transfo-cyber.html">Transfo Cyber</a></li>
+            <li><a href="/risques-digitaux">Risques Digitaux</a></li>
+            <li><a href="/cyber-defense">Cyber Défense</a></li>
+            <li><a href="/audit-conformite">Audit et Conformité</a></li>
+            <li><a href="/transfo-cyber">Transfo Cyber</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -47,14 +47,14 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="ressourcesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Publications</button>
           <ul class="nav-dropdown-menu" id="ressourcesDropdown" aria-label="Sous-menu Publications">
-            <li><a href="blog.html">Articles</a></li>
-            <li><a href="innovation.html">Innovation</a></li>
+            <li><a href="/blog">Articles</a></li>
+            <li><a href="/innovation">Innovation</a></li>
           </ul>
         </li>
         <li><a href="#apropos">À propos</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="nous-rejoindre.html" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
         <a href="#contact" class="nav-cta">Nous contacter</a>
       </div>
       <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
@@ -199,7 +199,7 @@
           <div class="card-tags">
             <span>Analyse de risques</span><span>Sensibilisation cyber</span><span>ISO 27005</span><span>BCP / PCA</span><span>Gestion de crise</span>
           </div>
-          <a href="risques-digitaux.html" class="card-link">En savoir plus →</a>
+          <a href="/risques-digitaux" class="card-link">En savoir plus →</a>
         </div>
 
         <div class="expertise-card reveal" data-delay="100">
@@ -212,7 +212,7 @@
           <div class="card-tags">
             <span>Cloud Security</span><span>DevSecOps</span><span>OT / ICS</span><span>VOC</span>
           </div>
-          <a href="cyber-defense.html" class="card-link">En savoir plus →</a>
+          <a href="/cyber-defense" class="card-link">En savoir plus →</a>
         </div>
 
         <div class="expertise-card reveal" data-delay="200">
@@ -225,7 +225,7 @@
           <div class="card-tags">
             <span>NIS2</span><span>DORA</span><span>LPM</span><span>CRA</span><span>ISO 27001</span><span>AI Act</span>
           </div>
-          <a href="audit-conformite.html" class="card-link">En savoir plus →</a>
+          <a href="/audit-conformite" class="card-link">En savoir plus →</a>
         </div>
 
         <div class="expertise-card reveal" data-delay="300">
@@ -238,7 +238,7 @@
           <div class="card-tags">
             <span>Security by Design</span><span>IAG</span><span>DLP</span><span>Design SOC</span><span>Program Strategy &amp; Delivery</span>
           </div>
-          <a href="transfo-cyber.html" class="card-link">En savoir plus →</a>
+          <a href="/transfo-cyber" class="card-link">En savoir plus →</a>
         </div>
       </div>
       <div class="expertise-dots" id="expertiseDots" aria-label="Navigation expertises"></div>
@@ -276,29 +276,29 @@
         <div class="join-intro reveal">
           <div class="section-eyebrow">02 — Rejoindre Actinuance</div>
           <h2 class="section-heading">Vous faire évoluer<br>nous fait <em>progresser</em></h2>
-          <p class="section-sub">Actinuance Consulting est avant tout une équipe soudée, qui évolue dans un contexte à la fois convivial et exigeant. Notre cabinet existe parce que nous croyons à l'honnêteté intellectuelle, comme socle d'une évolution de carrière durable dans le conseil.</p>
-          <p class="section-sub">Nous recherchons des consultants qui veulent grandir sur des sujets à fort impact, dans un collectif bienveillant et engagé.</p>
-          <div class="join-actions">
-            <a href="nous-rejoindre.html" class="btn-primary">Nous rejoindre</a>
+          <div class="join-principles reveal" data-delay="120">
+            <article class="join-principle">
+              <div class="join-principle-title">Expertise</div>
+              <p>Au coeur de notre démarche, une conviction forte: exceller dans notre domaine. Nous nous consacrons exclusivement à la cybersécurité, avec une spécialisation pointue en GRC.</p>
+            </article>
+            <article class="join-principle">
+              <div class="join-principle-title">Exigence</div>
+              <p>Nous délivrons des prestations de qualité et sur-mesure. Chaque accompagnement est structuré, personnalisé et orienté résultats pour répondre précisément aux enjeux de nos clients.</p>
+            </article>
+            <article class="join-principle">
+              <div class="join-principle-title">Épanouissement</div>
+              <p>Chaque consultant est une pièce maîtresse du cabinet. Nous proposons des missions alignées avec les talents, les compétences et les perspectives d'évolution de chacun.</p>
+            </article>
           </div>
         </div>
 
-        <div class="join-principles reveal" data-delay="120">
+        <div class="join-media reveal" data-delay="160">
           <figure class="join-photo">
             <img src="Photos/photogroupe.JPG" alt="Équipe Actinuance" loading="eager" decoding="async" />
           </figure>
-          <article class="join-principle">
-            <div class="join-principle-title">Expertise</div>
-            <p>Au coeur de notre démarche, une conviction forte: exceller dans notre domaine. Nous nous consacrons exclusivement à la cybersécurité, avec une spécialisation pointue en GRC.</p>
-          </article>
-          <article class="join-principle">
-            <div class="join-principle-title">Exigence</div>
-            <p>Nous délivrons des prestations de qualité et sur-mesure. Chaque accompagnement est structuré, personnalisé et orienté résultats pour répondre précisément aux enjeux de nos clients.</p>
-          </article>
-          <article class="join-principle">
-            <div class="join-principle-title">Épanouissement</div>
-            <p>Chaque consultant est une pièce maîtresse du cabinet. Nous proposons des missions alignées avec les talents, les compétences et les perspectives d'évolution de chacun.</p>
-          </article>
+          <div class="join-actions join-actions-under-photo">
+            <a href="/nous-rejoindre" class="btn-primary">Nous rejoindre</a>
+          </div>
         </div>
       </div>
     </div>
@@ -417,7 +417,7 @@
         <h2 class="section-heading">Notre vision<br>de <em>l'expertise</em></h2>
       </div>
 
-      <div class="ressources-grid" data-publications-home>
+      <div class="ressources-grid">
         <div class="ressource-card big reveal">
           <div class="ressource-tag">Analyse</div>
           <h3>NIS2 : ce qui change pour les entreprises françaises en 2025</h3>
@@ -446,7 +446,7 @@
           <h2 class="section-heading">Expert en risques digitaux,<br>compliance &amp; <em>cybersécurité</em></h2>
           <p>Actinuance est un cabinet de conseil <strong>à taille humaine</strong>, fondé en 2013, spécialisé dans la gestion des risques digitaux, la compliance et la cybersécurité. Nous accompagnons nos clients grands comptes avec un accompagnement sur-mesure, qualitatif et à <strong>haute valeur ajoutée</strong>.</p>
           <p style="margin-top: -10px;">Nous portons une vision exigeante et structurée de la cybersécurité, où la maîtrise des risques s'inscrit au service de la performance. L'<strong>excellence opérationnelle</strong> constitue le socle de chacune de nos interventions.</p>
-          <a href="equipe-dirigeante.html" class="btn-primary">Découvrir l'équipe</a>
+          <a href="/equipe-dirigeante" class="btn-primary">Découvrir l'équipe</a>
         </div>
         <div class="apropos-right reveal" data-delay="150">
           <div class="apropos-commitments">
@@ -482,7 +482,7 @@
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
         </a>
         <p>Cabinet de conseil en gestion des risques digitaux et cybersécurité.</p>
@@ -505,26 +505,26 @@
       <div class="footer-links">
         <div class="footer-col">
           <div class="footer-col-title">Expertises</div>
-          <a href="risques-digitaux.html">Risques Digitaux</a>
-          <a href="cyber-defense.html">Cyber Défense</a>
-          <a href="audit-conformite.html">Audit et Conformité</a>
-          <a href="transfo-cyber.html">Transfo Cyber</a>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Secteurs</div>
-          <a href="index.html#secteurs">Banque</a>
-          <a href="index.html#secteurs">Assurance</a>
-          <a href="index.html#secteurs">Luxe</a>
-          <a href="index.html#secteurs">Retail</a>
-          <a href="index.html#secteurs">Industrie &amp; Transport</a>
-          <a href="index.html#secteurs">Techno</a>
+          <a href="/#secteurs">Banque</a>
+          <a href="/#secteurs">Assurance</a>
+          <a href="/#secteurs">Luxe</a>
+          <a href="/#secteurs">Retail</a>
+          <a href="/#secteurs">Industrie &amp; Transport</a>
+          <a href="/#secteurs">Techno</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
-          <a href="index.html#apropos">À propos</a>
-          <a href="equipe-dirigeante.html">Equipe dirigeante</a>
-          <a href="nous-rejoindre.html">Nous rejoindre</a>
-          <a href="index.html#contact">Contact</a>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
@@ -537,9 +537,6 @@
       </div>
     </div>
   </footer>
-
-  <script src="sanity.config.js"></script>
-  <script src="publications.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=20260222"></script>
 </body>
 </html>
