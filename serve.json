@@ -6,6 +6,7 @@
     { "source": "/blog", "destination": "/blog.html" },
     { "source": "/article", "destination": "/article.html" },
     { "source": "/innovation", "destination": "/innovation.html" },
+    { "source": "/postes-ouverts", "destination": "/postes-ouverts.html" },
     { "source": "/nous-rejoindre", "destination": "/nous-rejoindre.html" },
     { "source": "/equipe-dirigeante", "destination": "/equipe-dirigeante.html" },
     { "source": "/risques-digitaux", "destination": "/risques-digitaux.html" },

@@ -22,6 +22,26 @@
       border: 1px solid rgba(45,33,66,.1);
     }
     .article-content p { color: #2b2b35; line-height: 1.8; margin: 0 0 1rem; }
+    .article-content-image {
+      margin: 1.2rem 0 1.4rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(45,33,66,.12);
+      background: #f3f3f6;
+    }
+    .article-content-image img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+    .article-content-image figcaption {
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      color: rgba(45,33,66,.62);
+      padding: 8px 10px;
+      border-top: 1px solid rgba(45,33,66,.1);
+      background: rgba(255,255,255,.86);
+    }
     .article-content h2 { color: #1c1a24; margin: 1.6rem 0 .8rem; font-size: 1.65rem; }
     .article-content h3 { color: #1c1a24; margin: 1.4rem 0 .7rem; font-size: 1.3rem; }
     .article-content ul, .article-content ol { color: #2b2b35; padding-left: 1.2rem; margin: 0 0 1rem; }
@@ -167,6 +187,8 @@
         "authorName": author->name,
         body[]{
           ...,
+          "url": select(_type == "image" => asset->url, null),
+          "alt": select(_type == "image" => coalesce(alt, title), null),
           markDefs[]{
             ...,
             _type == "link" => {href}
@@ -177,6 +199,11 @@
       const renderPortableText = (blocks) => {
         if (!Array.isArray(blocks) || !blocks.length) return '<p>Contenu en cours de publication.</p>'
         return blocks.map((block) => {
+          if (block && block._type === 'image' && block.url) {
+            const imageUrl = escapeHtml(block.url)
+            const imageAlt = escapeHtml(block.alt || '')
+            return `<figure class="article-content-image"><img src="${imageUrl}" alt="${imageAlt}" loading="lazy" decoding="async">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`
+          }
           if (!block || block._type !== 'block') return ''
           const defs = Array.isArray(block.markDefs) ? block.markDefs : []
           const defByKey = Object.fromEntries(defs.map((d) => [d._key, d]))

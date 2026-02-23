@@ -2300,6 +2300,93 @@ img { max-width: 100%; display: block; }
   margin-top: auto;
 }
 
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.job-card {
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.96);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  min-height: 250px;
+}
+
+.job-card h3 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 1.22rem;
+  letter-spacing: -0.01em;
+  color: #1f1535;
+  margin: 4px 0 10px;
+}
+
+.job-meta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(45,33,66,0.68);
+  margin-bottom: 12px;
+}
+
+.job-card p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: rgba(29,30,32,0.86);
+  margin-bottom: 18px;
+}
+
+.job-expand-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(45,33,66,0.2);
+  background: rgba(255,255,255,0.9);
+  color: #2d2142;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.job-expand-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #2d2142;
+  color: #fff;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.job-detail {
+  border-top: 1px solid rgba(45,33,66,0.12);
+  padding-top: 12px;
+  margin-bottom: 16px;
+}
+
+.job-detail p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.7;
+  color: rgba(29,30,32,0.86);
+  margin: 0 0 10px;
+}
+
+.job-card .btn-primary {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 /* ─── À PROPOS ──────────────────────────────────── */
 .section-apropos {
   background: var(--off-white);
@@ -2576,47 +2663,6 @@ footer {
 }
 
 .footer-legal a:hover { color: rgba(255,255,255,0.5); }
-
-/* ─── IMAGE LOADER ─────────────────────────────── */
-.img-load-wrap {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.04) 100%);
-}
-
-.img-load-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    110deg,
-    rgba(255,255,255,0) 0%,
-    rgba(255,255,255,0.22) 45%,
-    rgba(255,255,255,0) 100%
-  );
-  transform: translateX(-120%);
-  animation: imageShimmer 1.35s ease-in-out infinite;
-  pointer-events: none;
-}
-
-.img-load-wrap > img {
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.img-load-wrap.is-loaded::after {
-  opacity: 0;
-  transition: opacity 0.25s ease;
-  animation: none;
-}
-
-.img-load-wrap.is-loaded > img {
-  opacity: 1;
-}
-
-@keyframes imageShimmer {
-  100% { transform: translateX(120%); }
-}
 
 /* ─── REVEAL ANIMATION ──────────────────────────── */
 .reveal {
@@ -2978,6 +3024,7 @@ footer {
   }
   .ressources-grid { grid-template-columns: 1fr; }
   .blog-page #blogGrid.ressources-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .jobs-grid { grid-template-columns: 1fr; }
   .blog-page #blogGrid .ressource-cover-shell { height: 170px; }
 
   .secteurs-tab-nav {

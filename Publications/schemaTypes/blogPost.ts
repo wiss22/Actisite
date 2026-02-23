@@ -141,7 +141,23 @@ export const blogPostType = defineType({
       name: 'body',
       title: 'Contenu',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'},
+        defineField({
+          name: 'inlineImage',
+          title: 'Image',
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            defineField({
+              name: 'alt',
+              title: 'Texte alternatif',
+              type: 'string',
+              validation: (Rule) => Rule.max(140),
+            }),
+          ],
+        }),
+      ],
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),
