@@ -157,6 +157,49 @@ export const blogPostType = defineType({
             }),
           ],
         }),
+        defineField({
+          name: 'videoEmbed',
+          title: 'Vidéo (embed)',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'videoUrl',
+              title: 'URL vidéo',
+              type: 'url',
+              validation: (Rule) =>
+                Rule.required().uri({
+                  scheme: ['https'],
+                  allowRelative: false,
+                }),
+            }),
+            defineField({
+              name: 'title',
+              title: 'Titre vidéo (optionnel)',
+              type: 'string',
+              validation: (Rule) => Rule.max(140),
+            }),
+          ],
+        }),
+        defineField({
+          name: 'pdfDocument',
+          title: 'Document PDF',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Titre du document',
+              type: 'string',
+              validation: (Rule) => Rule.max(140),
+            }),
+            defineField({
+              name: 'pdfFile',
+              title: 'Fichier PDF',
+              type: 'file',
+              options: {accept: 'application/pdf'},
+              validation: (Rule) => Rule.required(),
+            }),
+          ],
+        }),
       ],
       group: 'content',
       validation: (Rule) => Rule.required(),

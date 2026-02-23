@@ -42,6 +42,36 @@
       border-top: 1px solid rgba(45,33,66,.1);
       background: rgba(255,255,255,.86);
     }
+    .article-content-video,
+    .article-content-pdf {
+      margin: 1.2rem 0 1.4rem;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(45,33,66,.12);
+      background: #f3f3f6;
+    }
+    .article-content-video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+      background: #000;
+    }
+    .article-content-pdf iframe {
+      width: 100%;
+      min-height: 560px;
+      border: 0;
+      display: block;
+      background: #fff;
+    }
+    .media-caption {
+      font-family: 'Poppins', sans-serif;
+      font-size: .78rem;
+      color: rgba(45,33,66,.62);
+      padding: 8px 10px;
+      border-top: 1px solid rgba(45,33,66,.1);
+      background: rgba(255,255,255,.86);
+    }
     .article-content h2 { color: #1c1a24; margin: 1.6rem 0 .8rem; font-size: 1.65rem; }
     .article-content h3 { color: #1c1a24; margin: 1.4rem 0 .7rem; font-size: 1.3rem; }
     .article-content ul, .article-content ol { color: #2b2b35; padding-left: 1.2rem; margin: 0 0 1rem; }
@@ -189,12 +219,39 @@
           ...,
           "url": select(_type == "image" => asset->url, null),
           "alt": select(_type == "image" => coalesce(alt, title), null),
+          "videoUrl": select(_type == "videoEmbed" => videoUrl, null),
+          "videoTitle": select(_type == "videoEmbed" => title, null),
+          "pdfUrl": select(_type == "pdfDocument" => pdfFile.asset->url, null),
+          "pdfTitle": select(_type == "pdfDocument" => coalesce(title, pdfFile.asset->originalFilename), null),
           markDefs[]{
             ...,
             _type == "link" => {href}
           }
         }
       }`
+
+      const toEmbedVideoUrl = (raw) => {
+        if (!raw) return ''
+        try {
+          const u = new URL(raw)
+          const host = u.hostname.replace(/^www\./, '')
+          if (host === 'youtube.com' || host === 'm.youtube.com') {
+            const id = u.searchParams.get('v')
+            return id ? `https://www.youtube.com/embed/${id}` : ''
+          }
+          if (host === 'youtu.be') {
+            const id = u.pathname.replace('/', '')
+            return id ? `https://www.youtube.com/embed/${id}` : ''
+          }
+          if (host === 'vimeo.com') {
+            const id = u.pathname.split('/').filter(Boolean)[0]
+            return id ? `https://player.vimeo.com/video/${id}` : ''
+          }
+          return raw
+        } catch (_) {
+          return ''
+        }
+      }
 
       const renderPortableText = (blocks) => {
         if (!Array.isArray(blocks) || !blocks.length) return '<p>Contenu en cours de publication.</p>'
@@ -203,6 +260,17 @@
             const imageUrl = escapeHtml(block.url)
             const imageAlt = escapeHtml(block.alt || '')
             return `<figure class="article-content-image"><img src="${imageUrl}" alt="${imageAlt}" loading="lazy" decoding="async">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`
+          }
+          if (block && block._type === 'videoEmbed' && block.videoUrl) {
+            const embedUrl = toEmbedVideoUrl(block.videoUrl)
+            if (!embedUrl) return ''
+            const title = escapeHtml(block.videoTitle || 'Vidéo')
+            return `<figure class="article-content-video"><iframe src="${escapeHtml(embedUrl)}" title="${title}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>${title ? `<figcaption class="media-caption">${title}</figcaption>` : ''}</figure>`
+          }
+          if (block && block._type === 'pdfDocument' && block.pdfUrl) {
+            const pdfUrl = escapeHtml(block.pdfUrl)
+            const pdfTitle = escapeHtml(block.pdfTitle || 'Document PDF')
+            return `<figure class="article-content-pdf"><iframe src="${pdfUrl}#view=FitH" title="${pdfTitle}" loading="lazy"></iframe><figcaption class="media-caption">${pdfTitle} · <a href="${pdfUrl}" target="_blank" rel="noopener noreferrer">Ouvrir dans un nouvel onglet</a></figcaption></figure>`
           }
           if (!block || block._type !== 'block') return ''
           const defs = Array.isArray(block.markDefs) ? block.markDefs : []

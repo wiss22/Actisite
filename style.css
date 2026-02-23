@@ -1721,18 +1721,18 @@ img { max-width: 100%; display: block; }
   grid-auto-columns: minmax(var(--expertise-card-min), 1fr);
   gap: 18px;
   overflow-x: auto;
+  overflow-y: hidden;
   overscroll-behavior-x: contain;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: x proximity;
+  touch-action: pan-y;
   padding-bottom: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(104,1,127,0.35) transparent;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .expertise-grid::-webkit-scrollbar {
-  height: 8px;
-}
-.expertise-grid::-webkit-scrollbar-thumb {
-  background: rgba(104,1,127,0.35);
-  border-radius: 999px;
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 .expertise-card {
@@ -1745,6 +1745,8 @@ img { max-width: 100%; display: block; }
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
   cursor: pointer;
   scroll-snap-align: start;
+  text-decoration: none;
+  color: inherit;
 }
 
 .expertise-dots {
@@ -1786,6 +1788,11 @@ img { max-width: 100%; display: block; }
   transform: translateY(-6px);
   box-shadow: var(--card-shadow-hover);
   border-color: rgba(241,136,71,0.28);
+}
+
+.expertise-card:focus-visible {
+  outline: 2px solid rgba(241,136,71,0.65);
+  outline-offset: 2px;
 }
 
 .expertise-card:hover::before { transform: scaleX(1); }
@@ -2819,39 +2826,46 @@ footer {
     font-size: 0.68rem;
   }
   .career-track {
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-top: 12px;
-    padding-bottom: 4px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    overflow: visible;
+    padding-top: 4px;
+    padding-bottom: 0;
+    padding-left: 22px;
     margin-bottom: 12px;
-    scrollbar-width: none;
   }
-  .career-track::-webkit-scrollbar { display: none; }
   .career-track-line {
-    left: 0;
-    right: 0;
-    min-width: 760px;
+    top: 2px;
+    bottom: 2px;
+    left: 4px;
+    right: auto;
+    width: 2px;
+    height: auto;
+    min-width: 0;
+    background: linear-gradient(180deg, #2d2142 0%, #6c3f8e 48%, #f18847 100%);
   }
   .career-track span {
-    min-width: 98px;
-    font-size: 0.62rem;
+    min-width: 0;
+    font-size: 0.66rem;
     text-align: left;
-    padding-top: 12px;
+    padding-top: 0;
+    line-height: 1.35;
   }
   .career-track span::before {
-    left: 8px;
-    transform: none;
+    top: 50%;
+    left: -18px;
+    transform: translateY(-50%);
   }
   .career-grid {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
   }
   .career-card {
-    padding: 12px 12px;
+    padding: 14px 13px;
   }
   .career-rank {
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     margin-bottom: 6px;
   }
   .career-card p {
