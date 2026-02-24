@@ -8,6 +8,173 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('js-reveal');
+  const LANG_STORAGE_KEY = 'actinuance_lang';
+  const frTitle = document.title;
+  const textNodeOriginals = new WeakMap();
+  let currentLang = localStorage.getItem(LANG_STORAGE_KEY) === 'en' ? 'en' : 'fr';
+
+  const pageKey = (() => {
+    const path = (window.location.pathname || '/').toLowerCase().replace(/\/+$/, '');
+    if (!path || path === '/') return 'index';
+    const clean = path.endsWith('.html') ? path.slice(0, -5) : path;
+    return clean.split('/').filter(Boolean).pop() || 'index';
+  })();
+
+  const titleByPageEn = {
+    index: 'Actinuance — Digital Risk, Compliance & Cybersecurity',
+    'risques-digitaux': 'Digital Risk — Actinuance',
+    'cyber-defense': 'Cyber Defense — Actinuance',
+    'audit-conformite': 'Audit & Compliance — Actinuance',
+    'transfo-cyber': 'Cyber Transformation — Actinuance',
+    'nous-rejoindre': 'Join Us — Actinuance',
+    'equipe-dirigeante': 'Leadership Team — Actinuance',
+    blog: 'Actinuance — Blog',
+    innovation: 'Actinuance — Innovation',
+    article: 'Actinuance — Article',
+    'postes-ouverts': 'Open Roles — Actinuance',
+    'audit-organisationnel': 'Organizational Audit — Actinuance',
+    'audit-conformite-nis-dora': 'NIS2 & DORA Compliance Audit — Actinuance',
+    swift: 'SWIFT — Actinuance'
+  };
+
+  const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
+
+  const FR_EN_MAP = {
+    'Expertises': 'Expertise',
+    'Secteurs': 'Industries',
+    'Publications': 'Publications',
+    'Ressources': 'Resources',
+    'À propos': 'About',
+    'Nous rejoindre': 'Join us',
+    'Nous contacter': 'Contact us',
+    'Articles': 'Articles',
+    'Innovation': 'Innovation',
+    'Postes ouverts': 'Open roles',
+    'Demander un échange': 'Request a meeting',
+    'Découvrir nos expertises': 'Discover our expertise',
+    'Prendre contact →': 'Get in touch →',
+    'En savoir plus →': 'Learn more →',
+    'Voir les positions ouvertes': 'See open roles',
+    'Parcours consultant': 'Consultant journey',
+    'Une évolution progressive, lisible et ouverte': 'A clear and progressive growth path',
+    'Afficher': 'Show',
+    'Masquer': 'Hide',
+    'Contexte & enjeux': 'Context & challenges',
+    'Objectifs': 'Objectives',
+    'Notre vision': 'Our vision',
+    'Présentation': 'Overview',
+    'Présentation de l\'expertise': 'Expertise overview',
+    'Nos offres': 'Our offerings',
+    'Expertise': 'Expertise',
+    'Risques Digitaux': 'Digital Risk',
+    'Cyber Défense': 'Cyber Defense',
+    'Audit et Conformité': 'Audit & Compliance',
+    'Transfo Cyber': 'Cyber Transformation',
+    'Nos Expertises': 'Our Expertise',
+    'Nos engagements': 'Our Commitments',
+    'Secteurs d\'activité': 'Industries',
+    'Equipe dirigeante': 'Leadership Team',
+    'Banque': 'Banking',
+    'Assurance': 'Insurance',
+    'Luxe': 'Luxury',
+    'Retail': 'Retail',
+    'Industrie & Transport': 'Industry & Transportation',
+    'Techno': 'Technology',
+    'Banque': 'Banking',
+    'Swift': 'SWIFT',
+    'Vie du cabinet': 'Life at the firm',
+    'Happy at Work 2025': 'Happy at Work 2025',
+    'Certifié par nos collaborateurs': 'Certified by our team',
+    'Cabinet': 'Firm',
+    'Contact': 'Contact',
+    'Mentions légales': 'Legal notice',
+    'Politique des cookies': 'Cookie policy',
+    'Protection des données': 'Data protection',
+    'Lire →': 'Read →',
+    'Retour aux articles': 'Back to articles',
+    'Article introuvable': 'Article not found',
+    'Ouvrir Sanity Studio →': 'Open Sanity Studio →',
+    'Erreur de chargement': 'Loading error'
+  };
+
+  function buildTranslationMap() {
+    const map = new Map();
+    Object.entries(FR_EN_MAP).forEach(([fr, en]) => {
+      map.set(normalizeText(fr), en);
+    });
+    return map;
+  }
+
+  function applyDocumentTranslation(lang) {
+    document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
+    document.title = lang === 'en' ? (titleByPageEn[pageKey] || frTitle) : frTitle;
+
+    const translationMap = buildTranslationMap();
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.parentElement) return NodeFilter.FILTER_REJECT;
+        const tag = node.parentElement.tagName;
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') return NodeFilter.FILTER_REJECT;
+        return normalizeText(node.nodeValue || '') ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+
+    nodes.forEach((node) => {
+      if (!textNodeOriginals.has(node)) {
+        textNodeOriginals.set(node, node.nodeValue);
+      }
+      const original = textNodeOriginals.get(node) || '';
+      if (lang !== 'en') {
+        node.nodeValue = original;
+        return;
+      }
+      const key = normalizeText(original);
+      const translated = translationMap.get(key);
+      if (!translated) {
+        node.nodeValue = original;
+        return;
+      }
+      const leading = original.match(/^\s*/)?.[0] || '';
+      const trailing = original.match(/\s*$/)?.[0] || '';
+      node.nodeValue = `${leading}${translated}${trailing}`;
+    });
+  }
+
+  function createLanguageSwitch() {
+    const navActionsEl = document.querySelector('.nav-actions');
+    if (!navActionsEl || navActionsEl.querySelector('.lang-switch')) return;
+    const switchWrap = document.createElement('div');
+    switchWrap.className = 'lang-switch';
+    switchWrap.innerHTML = `
+      <button type="button" data-lang="fr" aria-label="Français">FR</button>
+      <button type="button" data-lang="en" aria-label="English">EN</button>
+    `;
+    navActionsEl.prepend(switchWrap);
+
+    switchWrap.querySelectorAll('button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const nextLang = btn.dataset.lang === 'en' ? 'en' : 'fr';
+        localStorage.setItem(LANG_STORAGE_KEY, nextLang);
+        currentLang = nextLang;
+        applyLanguage(nextLang);
+      });
+    });
+  }
+
+  function renderLanguageSwitchState() {
+    document.querySelectorAll('.lang-switch button').forEach((btn) => {
+      btn.classList.toggle('active', btn.dataset.lang === currentLang);
+    });
+  }
+
+  function applyLanguage(lang) {
+    currentLang = lang === 'en' ? 'en' : 'fr';
+    applyDocumentTranslation(currentLang);
+    renderLanguageSwitchState();
+  }
 
   // ── 1. NAVBAR SCROLL ──────────────────────────
   const navbar = document.getElementById('navbar');
@@ -218,8 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 5. MOBILE BURGER MENU ─────────────────────
   const burger = document.getElementById('burger');
-  const navLinks = document.querySelector('.nav-links');
-  const navCta   = document.querySelector('.nav-cta');
 
   if (burger) {
     burger.addEventListener('click', () => {
@@ -274,19 +439,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 border: none;
               }
             </style>
-            <a href="/#expertises" onclick="closeMobileNav()">Expertises</a>
-            <a href="/#secteurs" onclick="closeMobileNav()">Secteurs</a>
+            <a href="/#expertises" onclick="closeMobileNav()">${currentLang === 'en' ? 'Expertise' : 'Expertises'}</a>
+            <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industries' : 'Secteurs'}</a>
             <a href="/blog" onclick="closeMobileNav()">Articles</a>
             <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
-            <a href="/#apropos" onclick="closeMobileNav()">À propos</a>
-            <a href="/nous-rejoindre" onclick="closeMobileNav()">Nous rejoindre</a>
-            <a href="/postes-ouverts" onclick="closeMobileNav()">Postes ouverts</a>
-            <a href="/#contact" class="m-cta" onclick="closeMobileNav()">Nous contacter</a>
+            <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
+            <a href="/nous-rejoindre" onclick="closeMobileNav()">${currentLang === 'en' ? 'Join us' : 'Nous rejoindre'}</a>
+            <a href="/postes-ouverts" onclick="closeMobileNav()">${currentLang === 'en' ? 'Open roles' : 'Postes ouverts'}</a>
+            <a href="/#contact" class="m-cta" onclick="closeMobileNav()">${currentLang === 'en' ? 'Contact us' : 'Nous contacter'}</a>
           `;
           document.body.appendChild(mobileNav);
         } else {
           mobileNav.style.display = 'flex';
         }
+        applyLanguage(currentLang);
 
         // Animate burger to X
         const spans = burger.querySelectorAll('span');
@@ -335,7 +501,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!careerSection || !careerToggleBtn || !careerToggleLabel) return;
     careerSection.classList.toggle('is-collapsed', collapsed);
     careerToggleBtn.setAttribute('aria-expanded', collapsed ? 'false' : 'true');
-    careerToggleLabel.textContent = collapsed ? 'Afficher' : 'Masquer';
+    careerToggleLabel.textContent = collapsed
+      ? (currentLang === 'en' ? 'Show' : 'Afficher')
+      : (currentLang === 'en' ? 'Hide' : 'Masquer');
   }
 
   if (careerSection && careerToggleBtn) {
@@ -348,6 +516,22 @@ document.addEventListener('DOMContentLoaded', () => {
   if (careerSection && careerRevealBtn) {
     careerRevealBtn.addEventListener('click', () => {
       setCareerCollapsed(false);
+    });
+  }
+
+  // Hover sync: card -> timeline dot
+  if (careerSection) {
+    const careerCards = Array.from(careerSection.querySelectorAll('.career-card'));
+    const careerTrackSteps = Array.from(careerSection.querySelectorAll('.career-track span'));
+
+    const setCareerHover = (index = -1) => {
+      careerCards.forEach((card, i) => card.classList.toggle('is-hovered', i === index));
+      careerTrackSteps.forEach((step, i) => step.classList.toggle('is-hovered', i === index));
+    };
+
+    careerCards.forEach((card, index) => {
+      card.addEventListener('mouseenter', () => setCareerHover(index));
+      card.addEventListener('mouseleave', () => setCareerHover(-1));
     });
   }
 
@@ -455,5 +639,66 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ── 10. EXPERTISE MATRIX ACCORDION ────────────
+  const matrixCards = Array.from(document.querySelectorAll('.expertise-matrix .expertise-matrix-card'));
+  if (matrixCards.length) {
+    const openCard = (cardToOpen) => {
+      matrixCards.forEach((card) => {
+        const trigger = card.querySelector('.expertise-accordion-trigger');
+        const content = card.querySelector('.expertise-accordion-content');
+        if (!trigger || !content || card.classList.contains('is-hidden-first')) return;
+        const isOpen = card === cardToOpen;
+        card.classList.toggle('is-open', isOpen);
+        trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        content.style.maxHeight = isOpen ? `${content.scrollHeight}px` : '0px';
+      });
+    };
+
+    matrixCards.forEach((card, index) => {
+      if (card.querySelector('.expertise-accordion-trigger')) return;
+      if (index === 0) {
+        card.classList.add('is-hidden-first');
+        return;
+      }
+      const kicker = card.querySelector('.expertise-kicker');
+      const title = card.querySelector('h2');
+      if (!title) return;
+
+      const contentNodes = Array.from(card.children).filter((node) => node !== title && node !== kicker);
+      if (kicker) kicker.remove();
+      const trigger = document.createElement('button');
+      trigger.type = 'button';
+      trigger.className = 'expertise-accordion-trigger';
+      trigger.setAttribute('aria-expanded', 'false');
+
+      const head = document.createElement('div');
+      head.className = 'expertise-accordion-head';
+      head.appendChild(title);
+
+      const icon = document.createElement('span');
+      icon.className = 'expertise-accordion-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = '+';
+
+      const content = document.createElement('div');
+      content.className = 'expertise-accordion-content';
+      content.style.maxHeight = '0px';
+      contentNodes.forEach((node) => content.appendChild(node));
+
+      trigger.appendChild(head);
+      trigger.appendChild(icon);
+      trigger.addEventListener('click', () => {
+        const isAlreadyOpen = card.classList.contains('is-open');
+        openCard(isAlreadyOpen ? null : card);
+      });
+
+      card.appendChild(trigger);
+      card.appendChild(content);
+
+    });
+  }
+
+  createLanguageSwitch();
+  applyLanguage(currentLang);
 
 });
