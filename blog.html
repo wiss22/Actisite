@@ -27,6 +27,7 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
+            <li><a href="/actinuance-cyber-ia" class="nav-ai-link">AI for Cyber</a></li>
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
@@ -65,8 +66,22 @@
     <div class="container">
       <div class="section-intro light">
         <div class="section-eyebrow">Publications — Articles</div>
-        <h1 class="section-heading" style="color:#fff;">Analyses, retours d’expérience<br>et décryptages <em>cyber</em></h1>
-        <p class="section-sub">Une sélection d’articles pratiques sur la gouvernance, la conformité et la sécurité opérationnelle.</p>
+        <h1 class="section-heading" style="color:#fff;">Analyses, inforgraphies<br>et décryptages <em>cyber</em></h1>
+        <p class="section-sub">Une sélection d’articles pratiques sur les tendances cyber, les nouveautés sur l'ecosystème et parfois <em>autre chose</em>.</p>
+      </div>
+
+      <div class="blog-linkedin-band" id="blogLinkedinBand">
+        <div class="blog-linkedin-band-head">
+          <div class="section-eyebrow">Publications — LinkedIn</div>
+        </div>
+        <div class="blog-linkedin-band-wrap">
+          <div class="blog-linkedin-band-track" id="linkedinBandTrack">
+            <a class="blog-linkedin-chip" href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">
+              <span class="chip-source">LinkedIn</span>
+              <strong>Chargement des posts LinkedIn...</strong>
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="ressources-grid" id="blogGrid">
@@ -139,18 +154,28 @@
   </footer>
   <script>
     (async function () {
+      const escapeHtml = (value) =>
+        String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;')
+
+      const grid = document.getElementById('blogGrid')
+      const linkedinBand = document.getElementById('blogLinkedinBand')
+      const linkedinTrack = document.getElementById('linkedinBandTrack')
+      if (!grid) return
+
       if (window.location.protocol === 'file:') {
-        const grid = document.getElementById('blogGrid')
-        if (grid) {
-          grid.innerHTML = `
-            <article class="ressource-card big">
-              <div class="ressource-tag">Execution locale</div>
-              <h3>Le blog doit etre ouvert via un serveur local</h3>
-              <p>Vous etes sur file://. Lancez un serveur HTTP local puis ouvrez http://localhost:5500//blog.</p>
-              <a href="http://localhost:5500//blog" class="card-link">Ouvrir le blog en local -></a>
-            </article>
-          `
-        }
+        grid.innerHTML = `
+          <article class="ressource-card big">
+            <div class="ressource-tag">Execution locale</div>
+            <h3>Le blog doit etre ouvert via un serveur local</h3>
+            <p>Vous etes sur file://. Lancez un serveur HTTP local puis ouvrez http://localhost:5500/blog.</p>
+            <a href="http://localhost:5500/blog" class="card-link">Ouvrir le blog en local -></a>
+          </article>
+        `
         return
       }
 
@@ -158,7 +183,40 @@
       const dataset = 'production'
       const apiVersion = '2024-10-01'
 
-      const query = `*[_type == "blogPost"] | order(coalesce(publishedAt, _createdAt) desc){
+      const buildEndpoint = (query, useCdn, params = {}) => {
+        const host = useCdn ? `${projectId}.apicdn.sanity.io` : `${projectId}.api.sanity.io`
+        const base = `https://${host}/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`
+        const paramsStr = Object.entries(params)
+          .map(([key, value]) => `&$${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`)
+          .join('')
+        const cacheBuster = useCdn ? `&t=${Date.now()}` : ''
+        return `${base}${paramsStr}${cacheBuster}`
+      }
+
+      const runQuery = async (query, params = {}) => {
+        const endpoints = [
+          buildEndpoint(query, false, params),
+          buildEndpoint(query, true, params),
+        ]
+        let lastError = null
+        for (const url of endpoints) {
+          try {
+            const res = await fetch(url, {headers: {Accept: 'application/json'}, cache: 'no-store'})
+            if (!res.ok) {
+              const body = await res.text()
+              lastError = `HTTP ${res.status} via ${url} :: ${body.slice(0, 180)}`
+              continue
+            }
+            const json = await res.json()
+            return {items: Array.isArray(json.result) ? json.result : [], lastError: null}
+          } catch (err) {
+            lastError = `${err && err.message ? err.message : err} via ${url}`
+          }
+        }
+        return {items: [], lastError}
+      }
+
+      const blogQuery = `*[_type == "blogPost" && (!defined(status) || status == "published")] | order(coalesce(publishedAt, _createdAt) desc){
         _id,
         title,
         "slug": slug.current,
@@ -171,91 +229,89 @@
         publishedAt
       }`
 
-      const escapeHtml = (value) =>
-        String(value || '')
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;')
-          .replace(/'/g, '&#39;')
+      const linkedinQuery = `*[_type == "linkedinPost" && (!defined(status) || status == "published")] | order(coalesce(publishedAt, _createdAt) desc){
+        title,
+        externalUrl,
+        publishedAt
+      }`
 
-      const grid = document.getElementById('blogGrid')
-      if (!grid) return
+      const [blogResult, linkedinResult] = await Promise.all([
+        runQuery(blogQuery),
+        runQuery(linkedinQuery),
+      ])
 
-      const endpoints = [
-        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&t=${Date.now()}`,
-      ]
+      const blogItems = (blogResult.items || []).filter((item) => !item.publicationType || item.publicationType === 'article')
 
-      let lastError = null
-      let items = []
-
-      for (const url of endpoints) {
-        try {
-          const res = await fetch(url, { headers: { Accept: 'application/json' }, cache: 'no-store' })
-          if (!res.ok) {
-            const body = await res.text()
-            lastError = `HTTP ${res.status} via ${url} :: ${body.slice(0, 180)}`
-            continue
-          }
-          const json = await res.json()
-          const raw = Array.isArray(json.result) ? json.result : []
-          items = raw.filter((item) => {
-            const typeOk = !item.publicationType || item.publicationType === 'article'
-            return typeOk
-          })
-          if (items.length) break
-          lastError = `Aucun article publie trouve via ${url}`
-        } catch (err) {
-          lastError = `${err && err.message ? err.message : err} via ${url}`
-        }
-      }
-
-      if (!items.length) {
+      if (!blogItems.length) {
         grid.innerHTML = `
           <article class="ressource-card">
             <div class="ressource-tag">Erreur de chargement</div>
             <h3>Impossible de charger les articles pour le moment</h3>
-            <p>${escapeHtml(lastError || 'Verifiez la publication Sanity et les parametres CORS.')}</p>
+            <p>${escapeHtml(blogResult.lastError || 'Verifiez la publication Sanity et les parametres CORS.')}</p>
             <a href="http://localhost:3333" target="_blank" rel="noopener noreferrer" class="card-link">Ouvrir Sanity Studio -></a>
           </article>
         `
-        console.error('Sanity loading error:', lastError)
+      } else {
+        grid.innerHTML = blogItems
+          .map((item) => {
+            const title = escapeHtml(item.title || 'Publication')
+            const excerpt = escapeHtml(item.excerpt || '')
+            const tag = item.publicationType === 'innovation' ? 'Innovation' : 'Article'
+            const coverUrl = item.coverUrl ? escapeHtml(item.coverUrl) : ''
+            const coverAlt = escapeHtml(item.coverAlt || item.title || 'Image article')
+            const author = escapeHtml(item.authorName || 'Actinuance')
+            const dateObj = item.publishedAt ? new Date(item.publishedAt) : null
+            const dateLabel =
+              dateObj && !Number.isNaN(dateObj.valueOf())
+                ? dateObj.toLocaleDateString('fr-FR', {day: '2-digit', month: 'short', year: 'numeric'})
+                : ''
+            const internalHref = item.slug
+              ? `article?slug=${encodeURIComponent(item.slug)}`
+              : (item._id ? `article?id=${encodeURIComponent(item._id)}` : 'blog')
+            const href = item.externalUrl || internalHref
+            const external = /^https?:\/\//i.test(href)
+            return `
+              <article class="ressource-card">
+                <div class="ressource-cover-shell">
+                  ${coverUrl ? `<img class="ressource-cover" src="${coverUrl}" alt="${coverAlt}" loading="lazy" decoding="async">` : '<div class="ressource-cover placeholder"></div>'}
+                </div>
+                <div class="ressource-tag">${escapeHtml(tag)}</div>
+                <h3>${title}</h3>
+                <div class="ressource-meta">${author}${dateLabel ? ` • ${escapeHtml(dateLabel)}` : ''}</div>
+                ${excerpt ? `<p>${excerpt}</p>` : ''}
+                <a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>Lire -></a>
+              </article>
+            `
+          })
+          .join('')
+      }
+
+      const linkedinItems = linkedinResult.items || []
+      if (!linkedinBand || !linkedinTrack) return
+
+      if (!linkedinItems.length) {
+        linkedinBand.style.display = 'none'
         return
       }
 
-      grid.innerHTML = items
-        .map((item, i) => {
-          const title = escapeHtml(item.title || 'Publication')
-          const excerpt = escapeHtml(item.excerpt || '')
-          const tag = item.publicationType === 'innovation' ? 'Innovation' : 'Article'
-          const coverUrl = item.coverUrl ? escapeHtml(item.coverUrl) : ''
-          const coverAlt = escapeHtml(item.coverAlt || item.title || 'Image article')
-          const author = escapeHtml(item.authorName || 'Actinuance')
-          const dateObj = item.publishedAt ? new Date(item.publishedAt) : null
-          const dateLabel =
-            dateObj && !Number.isNaN(dateObj.valueOf())
-              ? dateObj.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' })
-              : ''
-          const internalHref = item.slug
-            ? `article?slug=${encodeURIComponent(item.slug)}`
-            : (item._id ? `article?id=${encodeURIComponent(item._id)}` : 'blog')
-          const href = item.externalUrl || internalHref
-          const external = /^https?:\/\//i.test(href)
-          return `
-            <article class="ressource-card">
-              <div class="ressource-cover-shell">
-                ${coverUrl ? `<img class="ressource-cover" src="${coverUrl}" alt="${coverAlt}" loading="lazy" decoding="async">` : '<div class="ressource-cover placeholder"></div>'}
-              </div>
-              <div class="ressource-tag">${escapeHtml(tag)}</div>
-              <h3>${title}</h3>
-              <div class="ressource-meta">${author}${dateLabel ? ` • ${escapeHtml(dateLabel)}` : ''}</div>
-              ${excerpt ? `<p>${excerpt}</p>` : ''}
-              <a href="${escapeHtml(href)}" class="card-link"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>Lire -></a>
-            </article>
-          `
-        })
-        .join('')
+      const chips = linkedinItems.map((item) => {
+        const title = escapeHtml(item.title || 'Publication LinkedIn')
+        const href = escapeHtml(item.externalUrl || 'https://www.linkedin.com/company/actinuance/')
+        const dateObj = item.publishedAt ? new Date(item.publishedAt) : null
+        const dateLabel =
+          dateObj && !Number.isNaN(dateObj.valueOf())
+            ? dateObj.toLocaleDateString('fr-FR', {day: '2-digit', month: 'short', year: 'numeric'})
+            : ''
+        return `
+          <a class="blog-linkedin-chip" href="${href}" target="_blank" rel="noopener noreferrer">
+            <span class="chip-source">LinkedIn</span>
+            <strong>${title}</strong>
+            ${dateLabel ? `<em>${escapeHtml(dateLabel)}</em>` : ''}
+          </a>
+        `
+      }).join('')
+
+      linkedinTrack.innerHTML = `${chips}${chips}`
     })()
   </script>
   <script src="script.js?v=20260222"></script>

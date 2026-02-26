@@ -213,6 +213,25 @@ export const blogPostType = defineType({
       options: {layout: 'tags'},
     }),
     defineField({
+      name: 'offerTags',
+      title: "Tags d'offre (liaison pages offres)",
+      type: 'array',
+      of: [{type: 'string'}],
+      group: 'content',
+      options: {
+        layout: 'tags',
+        list: [
+          {title: 'SWIFT CSP', value: 'swift-csp'},
+          {title: 'Audit organisationnel', value: 'audit-organisationnel'},
+          {title: 'Audit conformité NIS2/DORA', value: 'audit-conformite-nis-dora'},
+          {title: 'Risques Digitaux', value: 'risques-digitaux'},
+          {title: 'Cyber Défense', value: 'cyber-defense'},
+          {title: 'Transfo Cyber', value: 'transfo-cyber'},
+        ],
+      },
+      description: "Permet d'afficher automatiquement les publications liées sur les pages d'offres.",
+    }),
+    defineField({
       name: 'isFeatured',
       title: 'Mettre en avant',
       type: 'boolean',

@@ -43,7 +43,10 @@
       { "source": "/cyber-defense.html", "destination": "/cyber-defense", "type": 301 },
       { "source": "/audit-conformite.html", "destination": "/audit-conformite", "type": 301 },
       { "source": "/transfo-cyber.html", "destination": "/transfo-cyber", "type": 301 },
+      { "source": "/offres.html", "destination": "/offres", "type": 301 },
       { "source": "/swift.html", "destination": "/swift", "type": 301 },
+      { "source": "/retex-swift-pharma.html", "destination": "/retex-swift-pharma", "type": 301 },
+      { "source": "/retex-swift-betting.html", "destination": "/retex-swift-betting", "type": 301 },
       { "source": "/audit-organisationnel.html", "destination": "/audit-organisationnel", "type": 301 },
       { "source": "/audit-conformite-nis-dora.html", "destination": "/audit-conformite-nis-dora", "type": 301 }
     ],
@@ -61,7 +64,10 @@
       { "source": "/cyber-defense", "destination": "/cyber-defense.html" },
       { "source": "/audit-conformite", "destination": "/audit-conformite.html" },
       { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
+      { "source": "/offres", "destination": "/offres.html" },
       { "source": "/swift", "destination": "/swift.html" },
+      { "source": "/retex-swift-pharma", "destination": "/retex-swift-pharma.html" },
+      { "source": "/retex-swift-betting", "destination": "/retex-swift-betting.html" },
       { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
       { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" }
     ]

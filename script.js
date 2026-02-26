@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     blog: 'Actinuance — Blog',
     innovation: 'Actinuance — Innovation',
     article: 'Actinuance — Article',
+    offres: 'Actinuance — Offers',
     'postes-ouverts': 'Open Roles — Actinuance',
     'audit-organisationnel': 'Organizational Audit — Actinuance',
     'audit-conformite-nis-dora': 'NIS2 & DORA Compliance Audit — Actinuance',
@@ -50,7 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'Articles': 'Articles',
     'Innovation': 'Innovation',
     'Postes ouverts': 'Open roles',
+    'Toutes les offres': 'All offers',
     'Demander un échange': 'Request a meeting',
+    'Voir toutes nos offres': 'See all our offerings',
     'Découvrir nos expertises': 'Discover our expertise',
     'Prendre contact →': 'Get in touch →',
     'En savoir plus →': 'Learn more →',
@@ -443,6 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industries' : 'Secteurs'}</a>
             <a href="/blog" onclick="closeMobileNav()">Articles</a>
             <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
+            <a href="/offres" onclick="closeMobileNav()">${currentLang === 'en' ? 'All offers' : 'Toutes les offres'}</a>
             <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
             <a href="/nous-rejoindre" onclick="closeMobileNav()">${currentLang === 'en' ? 'Join us' : 'Nous rejoindre'}</a>
             <a href="/postes-ouverts" onclick="closeMobileNav()">${currentLang === 'en' ? 'Open roles' : 'Postes ouverts'}</a>
@@ -696,6 +700,146 @@ document.addEventListener('DOMContentLoaded', () => {
       card.appendChild(content);
 
     });
+  }
+
+  // ── 11. OFFERS PAGE FILTER ───────────────────
+  const offerFilterBtns = Array.from(document.querySelectorAll('[data-offer-filter]'));
+  const offerCards = Array.from(document.querySelectorAll('.offers-catalog-card[data-offer-domain]'));
+  const offerCount = document.querySelector('[data-offer-count]');
+
+  if (offerFilterBtns.length && offerCards.length) {
+    const applyOfferFilter = (filterValue) => {
+      let visibleCount = 0;
+      offerCards.forEach((card) => {
+        const match = filterValue === 'all' || card.dataset.offerDomain === filterValue;
+        card.classList.toggle('is-hidden', !match);
+        if (match) visibleCount += 1;
+      });
+      if (offerCount) offerCount.textContent = String(visibleCount);
+    };
+
+    offerFilterBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        offerFilterBtns.forEach((el) => el.classList.remove('active'));
+        btn.classList.add('active');
+        applyOfferFilter(btn.dataset.offerFilter || 'all');
+      });
+    });
+
+    const activeBtn = offerFilterBtns.find((btn) => btn.classList.contains('active')) || offerFilterBtns[0];
+    if (activeBtn) applyOfferFilter(activeBtn.dataset.offerFilter || 'all');
+  }
+
+  // ── 12. FAQ SMOOTH ANIMATION ─────────────────
+  const smoothFaqAccordions = Array.from(document.querySelectorAll('.faq-accordion-smooth'));
+  smoothFaqAccordions.forEach((accordion) => {
+    const items = Array.from(accordion.querySelectorAll('details'));
+    items.forEach((details) => {
+      const summary = details.querySelector('summary');
+      const answer = details.querySelector('.faq-answer');
+      if (!summary || !answer) return;
+
+      answer.style.overflow = 'hidden';
+      answer.style.maxHeight = details.open ? `${answer.scrollHeight}px` : '0px';
+
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+        const isOpen = details.open;
+        const durationMs = 350;
+
+        if (isOpen) {
+          answer.style.maxHeight = `${answer.scrollHeight}px`;
+          requestAnimationFrame(() => {
+            answer.style.maxHeight = '0px';
+          });
+          window.setTimeout(() => {
+            details.open = false;
+          }, durationMs);
+          return;
+        }
+
+        details.open = true;
+        answer.style.maxHeight = '0px';
+        requestAnimationFrame(() => {
+          answer.style.maxHeight = `${answer.scrollHeight}px`;
+        });
+      });
+    });
+  });
+
+  // ── 13. OFFER RELATED POSTS (Sanity FIFO) ────
+  const offerRelatedFeed = document.getElementById('offerRelatedFeed');
+  if (offerRelatedFeed) {
+    const offerTag = (offerRelatedFeed.dataset.offerTag || '').trim();
+    const limit = Math.max(parseInt(offerRelatedFeed.dataset.offerLimit || '2', 10), 1);
+
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const isLinkedInUrl = (url) => /linkedin\.com/i.test(String(url || ''));
+
+    const loadOfferRelatedPosts = async () => {
+      const projectId = 'vnmxplwi';
+      const dataset = 'production';
+      const apiVersion = '2024-10-01';
+      const query = `*[_type in ["blogPost", "linkedinPost"] && (!defined(status) || status == "published") && $offerTag in coalesce(offerTags, [])] | order(coalesce(publishedAt, _createdAt) asc){
+        _type,
+        title,
+        "slug": select(_type == "blogPost" => slug.current, null),
+        externalUrl,
+        publicationType,
+        publishedAt
+      }`;
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&t=${Date.now()}`,
+      ];
+
+      let result = [];
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          result = Array.isArray(json.result) ? json.result : [];
+          if (result.length) break;
+        } catch (_) {
+          // Continue on fallback endpoint
+        }
+      }
+
+      const fifoItems = result.slice(0, limit);
+      if (!fifoItems.length) {
+        offerRelatedFeed.innerHTML = `
+          <a class="offer-related-card" href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">
+            <strong>LinkedIn Actinuance</strong>
+            <span>Aucun post tagué pour cette offre pour le moment. Voir le flux LinkedIn.</span>
+          </a>
+        `;
+        return;
+      }
+
+      offerRelatedFeed.innerHTML = fifoItems.map((item) => {
+        const title = escapeHtml(item.title || 'Publication');
+        const href = item.externalUrl || (item.slug ? `article?slug=${encodeURIComponent(item.slug)}` : '/blog');
+        const source = item._type === 'linkedinPost' || isLinkedInUrl(item.externalUrl) ? 'LinkedIn' : 'Blog';
+        const external = /^https?:\/\//i.test(href);
+        return `
+          <a class="offer-related-card" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+            <strong>${title}</strong>
+            <span>Source: ${source}</span>
+          </a>
+        `;
+      }).join('');
+    };
+
+    if (offerTag) loadOfferRelatedPosts();
   }
 
   createLanguageSwitch();
