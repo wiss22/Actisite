@@ -27,7 +27,7 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
-            <li><a href="/actinuance-cyber-ia" class="nav-ai-link">AI for Cyber</a></li>
+            <li><a href="/cyber-4-ai" class="nav-ai-link">AI for Cyber</a></li>
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
@@ -141,18 +141,30 @@
           .replace(/"/g, '&quot;')
           .replace(/'/g, '&#39;')
 
+      const formatDate = (value) => {
+        if (!value) return ''
+        const date = new Date(value)
+        if (Number.isNaN(date.getTime())) return ''
+        return new Intl.DateTimeFormat('fr-FR', {
+          day: '2-digit',
+          month: 'short',
+          year: 'numeric'
+        }).format(date)
+      }
+
       const renderPortableText = (blocks) => {
         if (!Array.isArray(blocks) || !blocks.length) return ''
-        return blocks.map((block) => {
-          if (!block || block._type !== 'block') return ''
-          const defs = Array.isArray(block.markDefs) ? block.markDefs : []
-          const defByKey = Object.fromEntries(defs.map((d) => [d._key, d]))
-          const spans = (block.children || []).map((child) => {
+
+        const renderSpans = (block, defByKey) => {
+          return (block.children || []).map((child) => {
+            if (!child || child._type !== 'span') return ''
             let text = escapeHtml(child.text || '')
             const marks = Array.isArray(child.marks) ? child.marks : []
             marks.forEach((mark) => {
               if (mark === 'strong') text = `<strong>${text}</strong>`
               else if (mark === 'em') text = `<em>${text}</em>`
+              else if (mark === 'underline') text = `<u>${text}</u>`
+              else if (mark === 'code') text = `<code>${text}</code>`
               else {
                 const def = defByKey[mark]
                 if (def && def._type === 'link' && def.href) {
@@ -163,8 +175,47 @@
             })
             return text
           }).join('')
-          return `<p>${spans}</p>`
-        }).join('')
+        }
+
+        const html = []
+        let openListTag = null
+
+        const closeList = () => {
+          if (!openListTag) return
+          html.push(`</${openListTag}>`)
+          openListTag = null
+        }
+
+        blocks.forEach((block) => {
+          if (!block || block._type !== 'block') return
+          const defs = Array.isArray(block.markDefs) ? block.markDefs : []
+          const defByKey = Object.fromEntries(defs.map((d) => [d._key, d]))
+          const content = renderSpans(block, defByKey)
+          const listItem = block.listItem
+
+          if (listItem) {
+            const nextListTag = listItem === 'number' ? 'ol' : 'ul'
+            if (openListTag !== nextListTag) {
+              closeList()
+              html.push(`<${nextListTag} class="job-rich-list ${nextListTag === 'ol' ? 'is-ordered' : 'is-bullet'}">`)
+              openListTag = nextListTag
+            }
+            html.push(`<li>${content}</li>`)
+            return
+          }
+
+          closeList()
+          const style = block.style || 'normal'
+          if (style === 'h1') html.push(`<h1 class="job-rich-h1">${content}</h1>`)
+          else if (style === 'h2') html.push(`<h2 class="job-rich-h2">${content}</h2>`)
+          else if (style === 'h3') html.push(`<h3 class="job-rich-h3">${content}</h3>`)
+          else if (style === 'h4') html.push(`<h4 class="job-rich-h4">${content}</h4>`)
+          else if (style === 'blockquote') html.push(`<blockquote class="job-rich-quote">${content}</blockquote>`)
+          else html.push(`<p class="job-rich-p">${content}</p>`)
+        })
+
+        closeList()
+        return html.join('')
       }
 
       const grid = document.getElementById('jobsGrid')
@@ -206,43 +257,131 @@
         return
       }
 
-      grid.innerHTML = items.map((item) => {
+      grid.innerHTML = items.map((item, index) => {
         const title = escapeHtml(item.title || 'Poste')
         const summary = escapeHtml(item.summary || '')
         const dept = escapeHtml(item.department || 'Actinuance')
         const location = escapeHtml(item.location || 'Paris')
         const contract = escapeHtml(item.contractType || '')
         const level = escapeHtml(item.experienceLevel || '')
+        const published = formatDate(item.publishedAt)
         const descriptionHtml = renderPortableText(item.positionDescription)
-        const mailto = `mailto:recrutement@actinuance.com?subject=${encodeURIComponent(`Candidature - ${item.title || 'Poste Actinuance'}`)}`
+        const rawTitle = item.title || 'Poste Actinuance'
+        const body = `Bonjour,\n\nJe souhaite candidater au poste : ${rawTitle}.\n\nMerci,\n`
+        const mailto = `mailto:recrutement@actinuance.com?subject=${encodeURIComponent(`Candidature - ${rawTitle}`)}&body=${encodeURIComponent(body)}`
         return `
-          <article class="job-card">
-            <div class="ressource-tag">${dept}</div>
-            <h3>${title}</h3>
-            <div class="job-meta">${location}${contract ? ` • ${contract}` : ''}${level ? ` • ${level}` : ''}</div>
-            ${summary ? `<p>${summary}</p>` : ''}
+          <article class="job-card" data-job-index="${index}">
+            <div class="job-card-head">
+              <div class="ressource-tag">${dept}</div>
+              ${published ? `<div class="job-published">Publié le ${escapeHtml(published)}</div>` : ''}
+            </div>
+            <h3 class="job-title">${title}</h3>
+            <div class="job-meta-list">
+              <span class="job-meta-chip">${location}</span>
+              ${contract ? `<span class="job-meta-chip">${contract}</span>` : ''}
+              ${level ? `<span class="job-meta-chip">${level}</span>` : ''}
+            </div>
+            ${summary ? `<p class="job-summary">${summary}</p>` : ''}
             <button type="button" class="job-expand-btn" aria-expanded="false">
               <span class="job-expand-icon">+</span>
-              <span>Voir le détail du poste</span>
+              <span class="job-expand-text">Voir la description détaillée</span>
             </button>
             <div class="job-detail" hidden>
+              <div class="job-detail-label">Description du poste</div>
               ${descriptionHtml || '<p>Description à venir.</p>'}
             </div>
-            <a href="${mailto}" class="btn-primary">Postuler</a>
+            <div class="job-actions">
+              <a href="${mailto}" class="btn-primary job-apply-link" data-mailto="${mailto}">Postuler</a>
+              <a href="/nous-rejoindre#processus-3-etapes" class="btn-job-process">Un processus en 3 étapes</a>
+            </div>
           </article>
         `
       }).join('')
+
+      const closeCard = (card) => {
+        if (!card) return
+        const button = card.querySelector('.job-expand-btn')
+        const detail = card.querySelector('.job-detail')
+        const icon = card.querySelector('.job-expand-icon')
+        const text = card.querySelector('.job-expand-text')
+        if (!detail) return
+        const isCurrentlyOpen = card.classList.contains('is-open')
+        if (!isCurrentlyOpen) {
+          if (button) button.setAttribute('aria-expanded', 'false')
+          if (button) button.classList.remove('is-open')
+          card.classList.remove('is-open')
+          detail.hidden = true
+          detail.style.maxHeight = '0px'
+          if (icon) icon.textContent = '+'
+          if (text) text.textContent = 'Voir la description détaillée'
+          return
+        }
+        const onEnd = (event) => {
+          if (event.propertyName !== 'max-height') return
+          detail.hidden = true
+          detail.removeEventListener('transitionend', onEnd)
+        }
+        const currentHeight = detail.scrollHeight
+        detail.hidden = false
+        detail.style.maxHeight = `${currentHeight}px`
+        requestAnimationFrame(() => {
+          detail.style.maxHeight = '0px'
+        })
+        detail.addEventListener('transitionend', onEnd)
+        if (button) button.setAttribute('aria-expanded', 'false')
+        if (button) button.classList.remove('is-open')
+        card.classList.remove('is-open')
+        if (icon) icon.textContent = '+'
+        if (text) text.textContent = 'Voir la description détaillée'
+      }
+
+      const openCard = (card) => {
+        if (!card) return
+        const button = card.querySelector('.job-expand-btn')
+        const detail = card.querySelector('.job-detail')
+        const icon = card.querySelector('.job-expand-icon')
+        const text = card.querySelector('.job-expand-text')
+        if (!detail) return
+        detail.hidden = false
+        detail.style.maxHeight = '0px'
+        requestAnimationFrame(() => {
+          detail.style.maxHeight = `${detail.scrollHeight}px`
+        })
+        const onEnd = (event) => {
+          if (event.propertyName !== 'max-height') return
+          detail.style.maxHeight = 'none'
+          detail.removeEventListener('transitionend', onEnd)
+        }
+        detail.addEventListener('transitionend', onEnd)
+        if (button) button.setAttribute('aria-expanded', 'true')
+        if (button) button.classList.add('is-open')
+        card.classList.add('is-open')
+        if (icon) icon.textContent = '−'
+        if (text) text.textContent = 'Masquer la description'
+      }
 
       grid.querySelectorAll('.job-expand-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           const card = btn.closest('.job-card')
           if (!card) return
-          const detail = card.querySelector('.job-detail')
-          const icon = btn.querySelector('.job-expand-icon')
           const isOpen = btn.getAttribute('aria-expanded') === 'true'
-          btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true')
-          if (detail) detail.hidden = isOpen
-          if (icon) icon.textContent = isOpen ? '+' : '−'
+          grid.querySelectorAll('.job-card.is-open').forEach((otherCard) => {
+            if (otherCard !== card) closeCard(otherCard)
+          })
+          if (isOpen) {
+            closeCard(card)
+            return
+          }
+          openCard(card)
+        })
+      })
+
+      grid.querySelectorAll('.job-apply-link').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          const href = link.getAttribute('data-mailto') || link.getAttribute('href') || ''
+          if (!href.startsWith('mailto:')) return
+          event.preventDefault()
+          window.location.href = href
         })
       })
     })()

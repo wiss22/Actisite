@@ -230,6 +230,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Highlight current page inside dropdown menus
+  const normalizePath = (value) => {
+    if (!value) return '/';
+    let path = value.toLowerCase();
+    path = path.replace(/\/index(?:\.html)?$/, '/');
+    path = path.replace(/\.html$/, '');
+    path = path.replace(/\/+$/, '');
+    return path || '/';
+  };
+
+  const currentPath = normalizePath(window.location.pathname || '/');
+  const currentHash = (window.location.hash || '').toLowerCase();
+
+  navDropdownItems.forEach((item) => {
+    const links = Array.from(item.querySelectorAll('.nav-dropdown-menu a'));
+    if (!links.length) return;
+
+    const activeLink = links.find((link) => {
+      const href = link.getAttribute('href') || '';
+      if (!href) return false;
+
+      if (href.startsWith('#')) return currentPath === '/' && href.toLowerCase() === currentHash;
+
+      const url = new URL(href, window.location.origin);
+      const linkPath = normalizePath(url.pathname);
+      const linkHash = (url.hash || '').toLowerCase();
+
+      if (linkHash && linkPath === '/' && currentPath === '/') {
+        return currentHash === linkHash;
+      }
+      return linkPath === currentPath;
+    });
+
+    if (activeLink) {
+      activeLink.classList.add('is-current');
+      activeLink.setAttribute('aria-current', 'page');
+      item.classList.add('has-current');
+    }
+  });
+
   // ── 2. HERO CAROUSEL ──────────────────────────
   const slides     = Array.from(document.querySelectorAll('.slide'));
   const dots       = Array.from(document.querySelectorAll('.dot'));
@@ -495,6 +535,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // Deep-link hash scroll with navbar offset (e.g. /nous-rejoindre#processus-3-etapes)
+  const scrollToHashTarget = () => {
+    const rawHash = window.location.hash || '';
+    if (!rawHash || rawHash.length < 2) return;
+    const target = document.getElementById(rawHash.slice(1));
+    if (!target) return;
+    const offset = 88;
+    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+  };
+
+  // Run once on load and again shortly after to handle late layout shifts
+  scrollToHashTarget();
+  window.setTimeout(scrollToHashTarget, 220);
+
   // ── 6b. CAREER PATH TOGGLE ────────────────────
   const careerSection = document.getElementById('parcours-consultant');
   const careerToggleBtn = document.getElementById('careerToggleBtn');
@@ -527,16 +582,89 @@ document.addEventListener('DOMContentLoaded', () => {
   if (careerSection) {
     const careerCards = Array.from(careerSection.querySelectorAll('.career-card'));
     const careerTrackSteps = Array.from(careerSection.querySelectorAll('.career-track span'));
+    const careerMobileQuery = window.matchMedia('(max-width: 768px)');
+    let careerScrollObserver = null;
 
     const setCareerHover = (index = -1) => {
       careerCards.forEach((card, i) => card.classList.toggle('is-hovered', i === index));
       careerTrackSteps.forEach((step, i) => step.classList.toggle('is-hovered', i === index));
     };
 
+    const setCareerActive = (index = -1) => {
+      careerCards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+      careerTrackSteps.forEach((step, i) => step.classList.toggle('is-active', i === index));
+    };
+
     careerCards.forEach((card, index) => {
       card.addEventListener('mouseenter', () => setCareerHover(index));
       card.addEventListener('mouseleave', () => setCareerHover(-1));
     });
+
+    const getClosestCareerCardIndex = () => {
+      if (!careerCards.length) return -1;
+      const targetY = window.innerHeight * 0.32;
+      let bestIndex = 0;
+      let bestDistance = Number.POSITIVE_INFINITY;
+      careerCards.forEach((card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().top - targetY);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = index;
+        }
+      });
+      return bestIndex;
+    };
+
+    const setupCareerScrollSync = () => {
+      if (careerScrollObserver) {
+        careerScrollObserver.disconnect();
+        careerScrollObserver = null;
+      }
+
+      if (!careerMobileQuery.matches || !careerCards.length) {
+        setCareerActive(-1);
+        return;
+      }
+
+      const visibleRatios = new Map();
+      const thresholds = [0.15, 0.3, 0.45, 0.6, 0.75, 0.9];
+
+      careerScrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          visibleRatios.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+        });
+
+        let bestIndex = -1;
+        let bestRatio = 0;
+        careerCards.forEach((card, index) => {
+          const ratio = visibleRatios.get(card) || 0;
+          if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestIndex = index;
+          }
+        });
+
+        if (bestIndex === -1) {
+          bestIndex = getClosestCareerCardIndex();
+        }
+
+        setCareerActive(bestIndex);
+      }, {
+        root: null,
+        threshold: thresholds,
+        rootMargin: '-20% 0px -45% 0px'
+      });
+
+      careerCards.forEach((card) => careerScrollObserver.observe(card));
+      window.setTimeout(() => setCareerActive(getClosestCareerCardIndex()), 120);
+    };
+
+    setupCareerScrollSync();
+    if (careerMobileQuery.addEventListener) {
+      careerMobileQuery.addEventListener('change', setupCareerScrollSync);
+    } else if (careerMobileQuery.addListener) {
+      careerMobileQuery.addListener(setupCareerScrollSync);
+    }
   }
 
 
@@ -839,7 +967,92 @@ document.addEventListener('DOMContentLoaded', () => {
       }).join('');
     };
 
-    if (offerTag) loadOfferRelatedPosts();
+  if (offerTag) loadOfferRelatedPosts();
+  }
+
+  // ── 14. AI PAGE OBSERVED VECTORS (Sanity) ────
+  const aiVectorsList = document.getElementById('aiVectorsList');
+  if (aiVectorsList) {
+    const aiVectorsTitle = document.getElementById('aiVectorsTitle');
+    const aiVectorsPeriod = document.getElementById('aiVectorsPeriod');
+    const aiVectorsSource = document.getElementById('aiVectorsSource');
+
+    const severityUi = {
+      critical: {label: 'Critique', sevClass: 'sev-c', tagClass: 'tl-c'},
+      high: {label: 'Élevé', sevClass: 'sev-h', tagClass: 'tl-h'},
+      moderate: {label: 'Modéré', sevClass: 'sev-m', tagClass: 'tl-m'}
+    };
+
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const loadAiObservedVectors = async () => {
+      const projectId = 'vnmxplwi';
+      const dataset = 'production';
+      const apiVersion = '2024-10-01';
+      const query = `*[_type == "aiObservedVectors" && isPublished == true] | order(_updatedAt desc)[0]{
+        title,
+        periodLabel,
+        sourceNote,
+        vectors[]{
+          label,
+          severity,
+          order
+        }
+      }`;
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&t=${Date.now()}`
+      ];
+
+      let doc = null;
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          if (json && json.result) {
+            doc = json.result;
+            break;
+          }
+        } catch (_) {
+          // fallback on next endpoint
+        }
+      }
+
+      if (!doc || !Array.isArray(doc.vectors) || !doc.vectors.length) return;
+
+      if (aiVectorsTitle && doc.title) aiVectorsTitle.textContent = doc.title;
+      if (aiVectorsPeriod && doc.periodLabel) aiVectorsPeriod.textContent = doc.periodLabel;
+      if (aiVectorsSource && doc.sourceNote) aiVectorsSource.textContent = `* ${doc.sourceNote}`;
+
+      const rows = [...doc.vectors]
+        .sort((a, b) => {
+          const left = Number.isFinite(Number(a?.order)) ? Number(a.order) : 999;
+          const right = Number.isFinite(Number(b?.order)) ? Number(b.order) : 999;
+          return left - right;
+        })
+        .map((item) => {
+          const severity = severityUi[item?.severity] || severityUi.moderate;
+          return `
+            <div class="threat">
+              <div class="threat-sev ${severity.sevClass}"></div>
+              <div class="threat-name">${escapeHtml(item?.label || '')}</div>
+              <div class="threat-label ${severity.tagClass}">${severity.label}</div>
+            </div>
+          `;
+        });
+
+      aiVectorsList.innerHTML = rows.join('');
+    };
+
+    loadAiObservedVectors();
   }
 
   createLanguageSwitch();

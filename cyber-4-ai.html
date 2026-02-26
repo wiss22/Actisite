@@ -3,222 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
 <title>Cyber & IA | Actinuance</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20260222">
 <link rel="stylesheet" href="audit-pages.css">
-<style>
-:root {
-  --ink:    #371846;
-  --ink2:   #4a2058;
-  --ink3:   #5e2d70;
-  --stroke: rgba(255,255,255,0.12);
-  --g:      #F18847;
-  --r:      #ff8f90;
-  --y:      #d7bcff;
-  --v:      #b571d4;
-  --dim:    rgba(255,255,255,0.44);
-  --w:      #FFFFFF;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins','DM Sans',sans-serif;background:var(--ink);color:var(--w);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-/* ── LAYOUT ──────────────────────────────── */
-.wrap{max-width:1080px;margin:0 auto}
-section{padding:96px 52px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:22px}
-.eyebrow::before{content:'';width:22px;height:1px;background:var(--g)}
-h2.sh{font-family:'Raleway',sans-serif;font-size:clamp(2rem,3.8vw,2.9rem);line-height:1.1;font-weight:800;margin-bottom:52px}
-h2.sh em{font-style:italic;color:var(--y)}
-
-/* ── HERO ────────────────────────────────── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:132px 52px 88px;position:relative;overflow:hidden}
-
-.hero-bg{position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 82% 62% at 60% 15%, rgba(241,136,71,.16) 0%, transparent 58%),
-    radial-gradient(ellipse 52% 42% at 10% 82%, rgba(181,113,212,.22) 0%, transparent 52%),
-    radial-gradient(ellipse 36% 36% at 88% 68%, rgba(255,255,255,.07) 0%, transparent 52%)}
-
-.hero-grid{position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:68px 68px;
-  mask-image:radial-gradient(ellipse 75% 70% at 50% 40%, black 30%, transparent 90%)}
-
-/* Orbs */
-.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:drift 14s ease-in-out infinite}
-.o1{width:420px;height:420px;background:rgba(241,136,71,.18);top:-100px;right:8%;animation-delay:0s}
-.o2{width:280px;height:280px;background:rgba(181,113,212,.24);bottom:5%;left:5%;animation-delay:-6s}
-@keyframes drift{0%,100%{transform:translate(0,0)}40%{transform:translate(-20px,28px)}70%{transform:translate(16px,-18px)}}
-
-.hero-inner{position:relative;z-index:1;width:100%;display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
-
-.hero-tag{display:inline-flex;align-items:center;gap:7px;font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:var(--g);padding:5px 14px;border-radius:3px;margin-bottom:30px;animation:up .6s ease both}
-.tag-dot{width:6px;height:6px;border-radius:50%;background:var(--ink);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-
-h1{font-family:'Raleway',sans-serif;font-size:clamp(3rem,6vw,5.2rem);line-height:1.01;letter-spacing:-.025em;margin-bottom:28px;animation:up .6s .08s ease both;font-weight:900}
-h1 em{font-style:italic;color:var(--y);text-shadow:0 0 28px rgba(215,188,255,.38)}
-h1 .red{color:var(--g)}
-
-.hero-sub{font-size:1rem;font-weight:300;line-height:1.78;color:var(--dim);max-width:520px;margin-bottom:46px;animation:up .6s .16s ease both}
-
-.btn-p{display:inline-flex;align-items:center;gap:8px;font-size:.88rem;font-weight:700;background:var(--g);color:var(--w);padding:13px 26px;border-radius:4px;text-decoration:none;transition:box-shadow .2s,transform .15s}
-.btn-p:hover{box-shadow:0 0 30px rgba(241,136,71,.34);transform:translateY(-2px)}
-.btn-g{font-size:.85rem;font-weight:500;color:rgba(255,255,255,.42);text-decoration:none;transition:color .2s}
-.btn-g:hover{color:var(--w)}
-
-/* Threat radar — right side */
-.radar-wrap{animation:up .6s .32s ease both}
-.radar-card{border:1px solid var(--stroke);border-radius:12px;background:rgba(74,32,88,.72);overflow:hidden}
-.radar-hd{padding:16px 22px;border-bottom:1px solid var(--stroke);display:flex;align-items:center;justify-content:space-between}
-.radar-hd-title{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-.radar-live{display:flex;align-items:center;gap:6px;font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--r)}
-.live-dot{width:6px;height:6px;border-radius:50%;background:var(--r);animation:blink 1.4s infinite}
-
-.threat-list{display:flex;flex-direction:column}
-.threat{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--stroke);transition:background .2s}
-.threat:last-child{border-bottom:none}
-.threat:hover{background:rgba(255,255,255,.02)}
-.threat-sev{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.sev-c{background:var(--r)}
-.sev-h{background:var(--y)}
-.sev-m{background:var(--g)}
-.threat-name{font-size:.8rem;color:rgba(255,255,255,.65);flex:1}
-.threat-label{font-size:.64rem;font-weight:700;padding:2px 8px;border-radius:3px}
-.tl-c{background:rgba(255,143,144,.14);color:var(--r)}
-.tl-h{background:rgba(215,188,255,.12);color:var(--y)}
-.tl-m{background:rgba(241,136,71,.14);color:var(--g)}
-.radar-foot{padding:14px 22px;background:rgba(241,136,71,.08);font-size:.75rem;color:rgba(255,255,255,.45);line-height:1.5}
-
-@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-
-/* ── ATTACK SURFACE ──────────────────────────────── */
-.surface{background:linear-gradient(180deg,var(--ink) 0%,var(--ink2) 100%)}
-.surface-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--stroke);gap:1px}
-.surf-card{background:var(--ink2);padding:38px 32px;position:relative;overflow:hidden;transition:background .22s}
-.surf-card:hover{background:var(--ink3)}
-.surf-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
-.sc-r::before{background:linear-gradient(90deg,var(--r),transparent 65%)}
-.sc-y::before{background:linear-gradient(90deg,var(--y),transparent 65%)}
-.sc-g::before{background:linear-gradient(90deg,var(--g),transparent 65%)}
-.surf-ico{font-size:1.4rem;margin-bottom:18px}
-.surf-card h3{font-family:'Raleway',sans-serif;font-size:1.15rem;font-weight:800;margin-bottom:12px;line-height:1.3}
-.surf-card p{font-size:.82rem;color:rgba(255,255,255,.48);line-height:1.72}
-.surf-tag{display:inline-block;margin-top:16px;font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:3px}
-.sc-r .surf-tag{color:var(--r);background:rgba(255,143,144,.14);border:1px solid rgba(255,143,144,.24)}
-.sc-y .surf-tag{color:var(--y);background:rgba(215,188,255,.12);border:1px solid rgba(215,188,255,.22)}
-.sc-g .surf-tag{color:var(--g);background:rgba(241,136,71,.12);border:1px solid rgba(241,136,71,.25)}
-
-/* ── OFFER ───────────────────────────────────────── */
-.offer{background:var(--ink)}
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.off-card{border:1px solid var(--stroke);border-radius:10px;padding:36px 28px;position:relative;overflow:hidden;transition:border-color .22s,transform .22s;cursor:default}
-.off-card:hover{border-color:rgba(241,136,71,.35);transform:translateY(-3px)}
-.off-n{font-size:.65rem;font-weight:700;letter-spacing:.18em;color:rgba(241,136,71,.6);margin-bottom:16px}
-.off-card h3{font-family:'Raleway',sans-serif;font-size:1.22rem;font-weight:800;margin-bottom:14px;line-height:1.25}
-.off-card>p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.73;margin-bottom:22px}
-.off-list{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
-.oli{display:flex;gap:9px;align-items:flex-start;font-size:.78rem;color:rgba(255,255,255,.52);line-height:1.5}
-.oli::before{content:'•';color:var(--g);flex-shrink:0;font-size:.82rem;margin-top:0}
-.off-tags{display:flex;gap:6px;flex-wrap:wrap}
-.otag{font-size:.64rem;font-weight:500;padding:2px 8px;border-radius:3px;background:rgba(255,255,255,.04);color:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.07)}
-.otag.h{background:rgba(241,136,71,.12);color:var(--g);border-color:rgba(241,136,71,.22)}
-
-/* ── DATA PROTECTION SECTION ─────────────────────── */
-.dataprotect{background:var(--ink2)}
-.dp-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.dp-copy{}
-.dp-copy p{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:20px}
-.dp-copy p strong{color:var(--w);font-weight:600}
-
-.dp-matrix{display:flex;flex-direction:column;gap:2px}
-.dm-row{display:grid;grid-template-columns:1fr 80px 80px;gap:2px}
-.dm-cell{padding:13px 16px;font-size:.78rem;background:rgba(55,24,70,.58);border-radius:3px}
-.dm-head{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.25);background:transparent!important;padding-bottom:8px}
-.dm-label{color:rgba(255,255,255,.58)}
-.dm-before{text-align:center;color:var(--r);font-weight:600}
-.dm-after{text-align:center;color:var(--y);font-weight:700}
-
-/* ── METHOD ──────────────────────────────────────── */
-.method{background:var(--ink)}
-.meth-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
-
-.steps{display:flex;flex-direction:column}
-.step{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--stroke)}
-.step:first-child{border-top:1px solid var(--stroke)}
-.step-n{font-family:'Raleway',sans-serif;font-size:1.5rem;color:rgba(255,255,255,.16);min-width:34px;line-height:1;padding-top:4px;transition:color .2s;font-weight:900}
-.step:hover .step-n{color:var(--y)}
-.step-h{font-weight:600;font-size:.9rem;margin-bottom:5px}
-.step-p{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65}
-.step-t{display:inline-block;margin-top:8px;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g)}
-
-.deliv-card{position:sticky;top:106px;border:1px solid var(--stroke);border-radius:10px;background:rgba(55,24,70,.7);overflow:hidden}
-.dc-hd{padding:18px 24px;border-bottom:1px solid var(--stroke);font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.28)}
-.dr{display:flex;align-items:center;gap:13px;padding:13px 24px;border-bottom:1px solid var(--stroke)}
-.dr:last-of-type{border-bottom:none}
-.dr-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.dr-label{font-size:.78rem;color:rgba(255,255,255,.55);flex:1;line-height:1.4}
-.dr-t{font-size:.65rem;font-weight:700;color:var(--g);white-space:nowrap}
-.dc-note{padding:16px 24px;background:rgba(241,136,71,.08);font-size:.75rem;color:rgba(255,255,255,.46);line-height:1.6}
-
-/* ── PROOF ───────────────────────────────────────── */
-.proof{background:var(--ink2)}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.proof-card{border:1px solid var(--stroke);border-radius:10px;padding:28px;background:rgba(55,24,70,.5);transition:border-color .22s,transform .22s}
-.proof-card:hover{border-color:rgba(241,136,71,.35);transform:translateY(-3px)}
-.proof-sector{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin-bottom:16px}
-.proof-stat{font-family:'Raleway',sans-serif;font-size:2.5rem;color:var(--w);margin-bottom:4px;font-weight:900}
-.proof-slabel{font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:14px}
-.proof-text{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.65}
-
-/* ── WHY ─────────────────────────────────────────── */
-.why{background:var(--ink)}
-.why-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.why-stmt{font-family:'Raleway',sans-serif;font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.2;font-weight:800;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--stroke)}
-.why-stmt em{font-style:italic;color:var(--y)}
-.why-checks{display:flex;flex-direction:column;gap:12px}
-.wcheck{display:flex;gap:12px;align-items:flex-start;font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.6}
-.wcheck-ico{color:var(--g);flex-shrink:0;font-size:.75rem;margin-top:3px}
-
-.why-items{display:flex;flex-direction:column}
-.witem{padding:22px 0;border-bottom:1px solid var(--stroke)}
-.witem:first-child{border-top:1px solid var(--stroke)}
-.witem h4{font-weight:600;font-size:.88rem;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.wn{font-family:'Raleway',sans-serif;font-size:1rem;color:var(--g);font-weight:900}
-.witem p{font-size:.78rem;color:rgba(255,255,255,.43);line-height:1.65}
-
-/* ── OWNER ───────────────────────────────────────── */
-.owner{background:var(--ink2)}
-.owner-card{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:center;border:1px solid var(--stroke);border-radius:12px;padding:22px;background:rgba(55,24,70,.56)}
-.owner-photo{width:100%;height:240px;object-fit:cover;border-radius:10px}
-.owner-role{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
-.owner-card h3{font-family:'Raleway',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:10px}
-.owner-card p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.65}
-
-/* ── CTA ─────────────────────────────────────────── */
-.cta{padding:96px 52px;text-align:center;background:var(--ink2);position:relative;overflow:hidden}
-.cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 75% at 50% 50%,rgba(241,136,71,.12) 0%,transparent 62%),radial-gradient(ellipse 45% 60% at 30% 30%,rgba(181,113,212,.14) 0%,transparent 70%)}
-.cta>*{position:relative;z-index:1}
-.cta h2{font-family:'Raleway',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;margin-bottom:18px}
-.cta h2 em{font-style:italic;color:var(--y)}
-.cta p{font-size:.92rem;color:rgba(255,255,255,.42);max-width:440px;margin:0 auto 38px;line-height:1.72}
-.cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.btn-out{display:inline-flex;align-items:center;gap:8px;font-size:.85rem;font-weight:500;padding:12px 22px;border-radius:4px;border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.55);text-decoration:none;transition:all .2s}
-.btn-out:hover{border-color:rgba(255,255,255,.32);color:var(--w)}
-
-/* ── RESPONSIVE ──────────────────────────────────── */
-@media(max-width:960px){
-  section,.cta{padding:70px 20px}
-  .hero{padding:108px 20px 70px}
-  .hero-inner,.surface-grid,.offer-grid,.meth-layout,.why-layout,.owner-card{grid-template-columns:1fr}
-  .deliv-card{display:none}
-  .owner-photo{height:300px}
-}
-</style>
+<link rel="stylesheet" href="cyber-4-ai.css">
 </head>
 <body>
 
@@ -238,7 +29,7 @@ h1 .red{color:var(--g)}
       <li class="nav-item-dropdown">
         <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
         <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
-          <li><a href="/actinuance-cyber-ia" class="nav-ai-link">AI for Cyber</a></li>
+          <li><a href="/cyber-4-ai" class="nav-ai-link">AI for Cyber</a></li>
           <li><a href="/risques-digitaux">Risques Digitaux</a></li>
           <li><a href="/cyber-defense">Cyber Défense</a></li>
           <li><a href="/audit-conformite">Audit et Conformité</a></li>
@@ -282,7 +73,7 @@ h1 .red{color:var(--g)}
 
   <div class="hero-inner wrap">
     <div>
-      <div class="hero-tag"><span class="tag-dot"></span>Pratique IA 2025</div>
+      <!--<div class="hero-tag"><span class="tag-dot"></span>Pratique IA 2026</div>-->
       <h1>L'IA <em>change</em><br>la surface<br>d'<span class="red">attaque</span></h1>
       <p class="hero-sub">
         Vos systèmes IA traitent des données sensibles, des accès critiques, des décisions métier. Actinuance sécurise ces nouveaux périmètres, avec la même rigueur que vos SI traditionnels.
@@ -293,10 +84,10 @@ h1 .red{color:var(--g)}
     <div class="radar-wrap">
       <div class="radar-card">
         <div class="radar-hd">
-          <span class="radar-hd-title">Vecteurs IA observés</span>
-          <span class="radar-live"><span class="live-dot"></span>2025</span>
+          <span class="radar-hd-title" id="aiVectorsTitle">Vecteurs IA observés</span>
+          <span class="radar-live"><span class="live-dot"></span><span id="aiVectorsPeriod">2026</span></span>
         </div>
-        <div class="threat-list">
+        <div class="threat-list" id="aiVectorsList">
           <div class="threat">
             <div class="threat-sev sev-c"></div>
             <div class="threat-name">Exfiltration via LLM & RAG</div>
@@ -328,7 +119,7 @@ h1 .red{color:var(--g)}
             <div class="threat-label tl-m">Modéré</div>
           </div>
         </div>
-        <div class="radar-foot">Vecteurs issus de nos missions 2024 et 2025 sur systèmes IA en production</div>
+        <div class="radar-foot" id="aiVectorsSource">* Vecteurs issus de nos missions 2025 sur systèmes IA en production</div>
       </div>
     </div>
   </div>
@@ -338,34 +129,6 @@ h1 .red{color:var(--g)}
   </a>
 </section>
 
-<!-- ══ SURFACE D'ATTAQUE ══════════════════════════════ -->
-<section class="surface">
-  <div class="wrap">
-    <div class="eyebrow">Nouveaux périmètres</div>
-    <h2 class="sh">Trois surfaces que<br>l'IA a <em>ouvertes dans votre SI</em></h2>
-
-    <div class="surface-grid">
-      <div class="surf-card sc-r">
-        <div class="surf-ico">01</div>
-        <h3>Shadow AI & exposition des données</h3>
-        <p>Vos collaborateurs envoient des données contractuelles, RH et financières dans ChatGPT, Copilot et outils SaaS IA, sans inventaire, sans contrôle, sans traçabilité. La fuite est silencieuse et continue.</p>
-        <span class="surf-tag">Risque immédiat</span>
-      </div>
-      <div class="surf-card sc-y">
-        <div class="surf-ico">02</div>
-        <h3>Systèmes IA non durcis en production</h3>
-        <p>APIs d'inférence exposées, accès aux datasets sans contrôle d'accès granulaire, logs insuffisants, modèles sans revue sécurité : vos pipelines IA cumulent des vulnérabilités que vos équipes n'ont pas été formées à voir.</p>
-        <span class="surf-tag">Risque technique</span>
-      </div>
-      <div class="surf-card sc-g">
-        <div class="surf-ico">03</div>
-        <h3>Agents autonomes & actions non maîtrisées</h3>
-        <p>Un agent qui interagit avec vos systèmes internes, vos APIs ou vos utilisateurs peut être manipulé, détourné ou déclencher des actions non souhaitées. L'autonomie sans guardrails est un vecteur d'attaque.</p>
-        <span class="surf-tag">Risque émergent</span>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ OFFRE ══════════════════════════════════════════ -->
 <section class="offer" id="nos-offres">
@@ -438,12 +201,39 @@ h1 .red{color:var(--g)}
     </div>
   </div>
 </section>
+<!-- ══ SURFACE D'ATTAQUE ══════════════════════════════ -->
+<section class="surface">
+  <div class="wrap">
+    <div class="eyebrow">Nouveaux périmètres</div>
+    <h2 class="sh">Trois surfaces que<br>l'IA a <em>ouvertes dans votre SI</em></h2>
 
+    <div class="surface-grid">
+      <div class="surf-card sc-r">
+        <div class="surf-ico">01</div>
+        <h3>Shadow AI & exposition des données</h3>
+        <p>Vos collaborateurs envoient des données contractuelles, RH et financières dans ChatGPT, Copilot et outils SaaS IA, sans inventaire, sans contrôle, sans traçabilité. La fuite est silencieuse et continue.</p>
+        <span class="surf-tag">Risque immédiat</span>
+      </div>
+      <div class="surf-card sc-y">
+        <div class="surf-ico">02</div>
+        <h3>Systèmes IA non durcis en production</h3>
+        <p>APIs d'inférence exposées, accès aux datasets sans contrôle d'accès granulaire, logs insuffisants, modèles sans revue sécurité : vos pipelines IA cumulent des vulnérabilités que vos équipes n'ont pas été formées à voir.</p>
+        <span class="surf-tag">Risque technique</span>
+      </div>
+      <div class="surf-card sc-g">
+        <div class="surf-ico">03</div>
+        <h3>Agents autonomes & actions non maîtrisées</h3>
+        <p>Un agent qui interagit avec vos systèmes internes, vos APIs ou vos utilisateurs peut être manipulé, détourné ou déclencher des actions non souhaitées. L'autonomie sans guardrails est un vecteur d'attaque.</p>
+        <span class="surf-tag">Risque émergent</span>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ══ METHODE ════════════════════════════════════════ -->
 <section class="method" id="methode">
   <div class="wrap">
     <div class="eyebrow">Notre méthode</div>
-    <h2 class="sh">Du diagnostic au<br><em>contrôle opérationnel</em></h2>
+    <h2 class="sh">Du diagnostic à la <br> <span class="text-black">facilitation opérationnelle</span></h2>
 
     <div class="meth-layout">
       <div class="steps">
@@ -482,7 +272,7 @@ h1 .red{color:var(--g)}
       </div>
 
       <div class="deliv-card">
-        <div class="dc-hd">Livrables</div>
+        <div class="dc-hd">Exemple de Livrables</div>
         <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Cartographie IA et Shadow AI</div><div class="dr-t">Cadrage</div></div>
         <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Rapport d'audit technique et vulnérabilités</div><div class="dr-t">Analyse</div></div>
         <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Politique de gouvernance IA opérationnelle</div><div class="dr-t">Gouvernance</div></div>
@@ -542,21 +332,11 @@ h1 .red{color:var(--g)}
         <div class="owner-role">Porteur de l'offre</div>
         <h3>Rania, Manager</h3>
         <p>Rania accompagne les organisations sur la sécurisation des usages IA en liant enjeux métiers, gouvernance et exigences cyber opérationnelles.</p>
+        <div class="owner-actions">
+          <a href="/#contact" class="btn-p">Demander un échange</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ══ CTA ════════════════════════════════════════════ -->
-<section class="cta" id="contact">
-  <h2>Vos systèmes IA<br>sont-ils vraiment <em>sécurisés ?</em></h2>
-  <p>Échangez avec notre équipe pour cadrer vos priorités IA & cyber et construire une trajectoire adaptée à votre contexte.</p>
-  <div class="cta-row">
-    <a href="/#contact" class="btn-p">
-      Entrer en contact
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
-    </a>
-    <a href="/expertises" class="btn-out">Toutes nos expertises</a>
   </div>
 </section>
 
