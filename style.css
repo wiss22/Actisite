@@ -370,6 +370,10 @@ img { max-width: 100%; display: block; }
   transition: all 0.3s;
 }
 
+#navbar.scrolled .burger span {
+  background: #2d2142;
+}
+
 /* ─── HERO CAROUSEL ─────────────────────────────── */
 .hero {
   position: relative;
@@ -3387,30 +3391,30 @@ footer {
   }
   .cabinet-life-marquee {
     margin-top: 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overflow: hidden;
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: auto;
     scrollbar-width: none;
   }
   .cabinet-life-marquee::-webkit-scrollbar { display: none; }
   .cabinet-life-marquee::before,
   .cabinet-life-marquee::after {
-    display: none;
+    width: 28px;
+    display: block;
   }
   .cabinet-life-track {
     gap: 8px;
     padding: 8px;
-    animation: none;
-    min-width: max-content;
+    animation: cabinetLifeScroll 22s linear infinite;
+    min-width: 100%;
   }
   .cabinet-life-track[aria-hidden="true"] {
-    display: none;
+    display: flex;
   }
   .cabinet-life-photo {
-    flex: 0 0 78vw;
-    height: 220px;
-    scroll-snap-align: start;
+    flex: 0 0 72vw;
+    height: 208px;
+    scroll-snap-align: none;
   }
   .cabinet-life-photo img {
     object-position: center 30%;

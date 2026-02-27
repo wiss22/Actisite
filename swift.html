@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
 </head>
-<body>
+<body class="swift-modern-page audit-pillar-page">
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -63,51 +63,91 @@
     </div>
   </nav>
 
-  <section class="page-hero page-hero-animated page-hero-sm hero-audit">
+  <section class="page-hero page-hero-animated page-hero-sm hero-audit hero-swift-modern">
     <div class="page-hero-art" aria-hidden="true">
       <span class="geo geo-a"></span>
       <span class="geo geo-b"></span>
       <span class="geo geo-c"></span>
       <span class="geo geo-d"></span>
     </div>
-    <div class="section-eyebrow">Offre — Audit et conformité</div>
-    <h1>SWIFT CSP</h1>
-    <p class="hero-lead">Assessment SWIFT CSCF de bout en bout: cadrage, collecte de preuves, évaluation indépendante, plan de remédiation et soutien à l’attestation annuelle.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>01</strong> Promesse</div>
-      <div class="hero-stat"><strong>02</strong> Méthode</div>
-      <div class="hero-stat"><strong>03</strong> Résultats</div>
+    <div class="swift-hero-grid">
+      <div class="swift-hero-copy">
+        <div class="section-eyebrow">Pilier — Audit et conformité</div>
+        <h1>SWIFT <span>CSP</span></h1>
+        <p class="hero-lead">Assessment SWIFT CSCF de bout en bout: cadrage, collecte de preuves, évaluation indépendante, plan de remédiation et soutien à l’attestation annuelle.</p>
+        <div class="swift-hero-pills">
+          <span>Assessment indépendant</span>
+          <span>Evidence first</span>
+          <span>Attestation sécurisée</span>
+        </div>
+      </div>
+      <aside class="swift-hero-panel" aria-label="Indicateurs SWIFT CSP">
+        <div class="swift-hero-panel-head">
+          <strong>Campagne SWIFT</strong>
+          <span>Minor changes 2025</span>
+        </div>
+        <div class="swift-hero-panel-list">
+          <div class="swift-hero-panel-item">
+            <span class="dot dot-high"></span>
+            <p>Scope des Security Controls clarifié (in-scope / out-of-scope) pour les composants et flux métiers.</p>
+          </div>
+          <div class="swift-hero-panel-item">
+            <span class="dot dot-mid"></span>
+            <p>Customer connectors davantage cadrés, avec impact potentiel sur la trajectoire des architectures A4/B.</p>
+          </div>
+          <div class="swift-hero-panel-item">
+            <span class="dot dot-high"></span>
+            <p>Guidelines d’implémentation harmonisées sur les contrôles clés pour réduire les zones d’interprétation.</p>
+          </div>
+          <div class="swift-hero-panel-item">
+            <span class="dot dot-mid"></span>
+            <p>Préparer 2026 dès 2025: focus renforcé sur la sécurité des flux back-office et la qualité des preuves.</p>
+          </div>
+        </div>
+        <div class="swift-hero-panel-foot">Objectif: une conformité plus lisible, plus robuste et plus opérationnelle.</div>
+      </aside>
     </div>
+    <a href="#offre-swift" class="offer-scroll-cta" aria-label="Découvrir">
+      <span>Découvrir</span>
+      <span class="arrow">↓</span>
+    </a>
   </section>
 
-  <section class="page-section alt">
+  <section class="page-section alt" id="offre-swift">
     <div class="container">
-      <div class="offer-shell-layout offer-shell-layout-single">
+      <div class="offer-shell-layout">
+        <aside class="pillar-flynav offer-flynav" aria-label="Navigation offres Audit et conformité">
+          <div class="pillar-flynav-title pillar-flynav-title-accent">Pilier Audit et conformité</div>
+          <a href="/audit-conformite#presentation-pilier">Présentation du pilier</a>
+          <div class="pillar-flynav-sep"></div>
+          <div class="pillar-flynav-title">Offres</div>
+          <a href="/audit-organisationnel">Audit organisationnel</a>
+          <a href="/audit-conformite-nis-dora">Audit de conformité</a>
+          <a href="/swift" class="is-active">SWIFT</a>
+        </aside>
         <div class="offer-shell-main offer-shell-main-lite">
           <article class="offer-shell-section reveal">
             <div class="offer-shell-head">
               <div class="offer-shell-num">01</div>
-              <h3>Positionnement et valeur</h3>
+              <h3>Contexte et tensions du moment</h3>
             </div>
-            <p>Nous sécurisons votre cycle SWIFT CSP de la préparation à l’attestation, avec une approche à la fois exigeante, documentée et pragmatique.</p>
-            <p>Objectif: démontrer un niveau de conformité robuste, anticiper les écarts critiques et protéger la continuité des opérations financières.</p>
-            <p>Le SWIFT CSP impose un cadre de contrôles de sécurité en évolution continue. Chaque organisation connectée doit qualifier son architecture, justifier ses contrôles et produire une attestation crédible.</p>
-            <p>L’enjeu dépasse la conformité: une faiblesse de posture peut entraîner fraude, interruption, perte de confiance partenaires et exposition réputationnelle.</p>
+            <p>Le programme SWIFT CSP se durcit chaque année et met les équipes sous pression: exigences de preuves, contrôles techniques plus fins, et délais de campagne contraints.</p>
+            <p>Les enjeux sont opérationnels autant que réglementaires: limiter le risque de fraude, sécuriser la continuité des flux financiers et préserver la confiance de l’écosystème.</p>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="90">
             <div class="offer-shell-head">
               <div class="offer-shell-num">02</div>
-              <h3>Périmètre de mission</h3>
+              <h3>L’offre Actinuance qui répond à ces enjeux</h3>
             </div>
             <div class="offer-shell-deliverables">
               <div class="offer-shell-deliverable">
                 <strong>Cadrage</strong>
-                <p>Qualification du périmètre SWIFT, de l’architecture et des exigences applicables.</p>
+                <p>Qualification du périmètre SWIFT, de l’architecture cible et des contrôles applicables.</p>
               </div>
               <div class="offer-shell-deliverable">
                 <strong>Assessment</strong>
-                <p>Évaluation indépendante des contrôles CSCF et analyse de maturité.</p>
+                <p>Évaluation indépendante des contrôles CSCF et mesure du niveau de maturité réel.</p>
               </div>
               <div class="offer-shell-deliverable">
                 <strong>Remédiation</strong>
@@ -115,7 +155,7 @@
               </div>
               <div class="offer-shell-deliverable">
                 <strong>Attestation</strong>
-                <p>Soutien documentaire et gouvernance de preuves pour la campagne annuelle.</p>
+                <p>Gouvernance de preuves et soutien documentaire pour fiabiliser l’attestation annuelle.</p>
               </div>
             </div>
           </article>
@@ -123,40 +163,27 @@
           <article class="offer-shell-section reveal" data-delay="140">
             <div class="offer-shell-head">
               <div class="offer-shell-num">03</div>
-              <h3>Méthode d’intervention</h3>
+              <h3>Nos atouts</h3>
             </div>
-            <div class="offer-shell-method offer-shell-method-timeline">
-              <div class="offer-method-step"><span>Étape 1</span><p>Kick-off et cadrage des attentes parties prenantes.</p></div>
-              <div class="offer-method-step"><span>Étape 2</span><p>Collecte des preuves et tests de conformité.</p></div>
-              <div class="offer-method-step"><span>Étape 3</span><p>Restitution des écarts, risques et quick wins.</p></div>
-              <div class="offer-method-step"><span>Étape 4</span><p>Pilotage des remédiations et préparation de l’attestation.</p></div>
+            <div class="offer-differentiators">
+              <div class="offer-diff-item">
+                <strong>Exigence conformité et exécution terrain</strong>
+                <p>Nous traitons SWIFT CSP comme un dispositif de maîtrise durable, pas comme un exercice ponctuel.</p>
+              </div>
+              <div class="offer-diff-item">
+                <strong>Approche evidence-first</strong>
+                <p>Les preuves sont structurées dès le démarrage pour réduire les frictions en fin de campagne.</p>
+              </div>
+              <div class="offer-diff-item">
+                <strong>Remédiations orientées impact</strong>
+                <p>Chaque écart est priorisé selon le risque et transformé en plan exécutable par les équipes.</p>
+              </div>
             </div>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="180">
             <div class="offer-shell-head">
               <div class="offer-shell-num">04</div>
-              <h3>Ce qui nous différencie</h3>
-            </div>
-            <div class="offer-differentiators">
-              <div class="offer-diff-item">
-                <strong>Vision compliance + opération</strong>
-                <p>Nous traitons SWIFT CSP comme un dispositif de maîtrise durable, pas comme un exercice ponctuel.</p>
-              </div>
-              <div class="offer-diff-item">
-                <strong>Approche preuves-first</strong>
-                <p>La collecte et la gouvernance de preuves sont structurées dès le départ pour fiabiliser l’attestation.</p>
-              </div>
-              <div class="offer-diff-item">
-                <strong>Remédiation actionnable</strong>
-                <p>Chaque écart est priorisé selon l’impact et converti en plan réaliste pour les équipes opérationnelles.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="offer-shell-section reveal" data-delay="200">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">05</div>
               <h3>RETEX missions</h3>
             </div>
             <div class="offer-retex-grid">
@@ -173,32 +200,7 @@
 
           <article class="offer-shell-section reveal" data-delay="220">
             <div class="offer-shell-head">
-              <div class="offer-shell-num">06</div>
-              <h3>FAQ de l’offre</h3>
-            </div>
-            <div class="faq-accordion faq-accordion-smooth">
-              <details>
-                <summary>Qui est concerné par le SWIFT CSP ?</summary>
-                <div class="faq-answer">Toutes les institutions financières connectées au réseau SWIFT: banques, PSP, chambres de compensation et acteurs de services financiers.</div>
-              </details>
-              <details>
-                <summary>Quelle est la fréquence d’attestation ?</summary>
-                <div class="faq-answer">Une attestation annuelle est attendue, avec un niveau de preuve suffisant et actualisé.</div>
-              </details>
-              <details>
-                <summary>Faut-il une évaluation indépendante ?</summary>
-                <div class="faq-answer">Oui, une validation indépendante est attendue pour sécuriser la crédibilité de l’attestation et la qualité des contrôles mis en œuvre.</div>
-              </details>
-              <details>
-                <summary>Quelle durée prévoir ?</summary>
-                <div class="faq-answer">De quelques semaines à plusieurs mois selon votre maturité, votre architecture et l’historique de conformité.</div>
-              </details>
-            </div>
-          </article>
-
-          <article class="offer-shell-section reveal" data-delay="240">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">07</div>
+              <div class="offer-shell-num">05</div>
               <h3>Articles liés à l’offre</h3>
             </div>
             <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="swift-csp" data-offer-limit="2">
@@ -212,25 +214,20 @@
           <article class="offer-shell-profile reveal" data-delay="260">
             <img src="Photos/Dirigeant/Ayoub.jpg" alt="Ayoub — Manager" class="offer-shell-profile-photo" />
             <div class="offer-shell-profile-content">
-              <div class="section-eyebrow">Porteur de l'offre</div>
+              <div class="section-eyebrow">Porteur de l’offre</div>
               <h3>Ayoub — Manager</h3>
-              <p>“Sur SWIFT CSP, nous aidons les équipes à passer d’une conformité documentaire à une conformité opérationnelle, avec des preuves exploitables et des remédiations réellement tenables.”</p>
+              <p>Ayoub pilote les missions SWIFT CSP avec une approche orientée résultats: conformité démontrable, preuves robustes et trajectoires de remédiation tenables dans le temps.</p>
               <div class="block-tags">
                 <span>Assessment CSCF</span>
                 <span>Attestation annuelle</span>
                 <span>Remédiation ciblée</span>
               </div>
+              <div class="card-cta" style="margin-top:14px;">
+                <a href="/#contact" class="btn-primary">En discuter avec Ayoub</a>
+              </div>
             </div>
           </article>
 
-          <article class="offer-shell-section offer-shell-cta reveal" data-delay="280">
-            <h3>Prêt à cadrer votre prochaine campagne SWIFT CSP ?</h3>
-            <p>Nous vous aidons à prioriser les actions critiques et à structurer une conformité démontrable.</p>
-            <div class="card-cta">
-              <a href="/#contact" class="btn-primary">Demander un échange</a>
-              <a href="/audit-conformite#nos-offres" class="btn-ghost">← Retour aux offres</a>
-            </div>
-          </article>
         </div>
       </div>
     </div>
@@ -243,13 +240,11 @@
           <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
         </a>
         <p>Cabinet de conseil en gestion des risques digitaux et cybersécurité.</p>
-        <div class="happy-work-badge">
-          <div class="badge-icon">★</div>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
           <div>
             <div class="badge-title">Happy at Work 2025</div>
             <div class="badge-sub">Certifié par nos collaborateurs</div>
-          </div>
-        </div>
+          </div></a>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/actinuance/" target="_blank" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>

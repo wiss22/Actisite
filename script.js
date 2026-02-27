@@ -389,6 +389,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
+  // ── 3b. PILLAR OFFERS SIDE NAV ACTIVE STATE ───────────────
+  const pillarNavs = Array.from(document.querySelectorAll('.pillar-flynav, .pillar-offers-nav'));
+  if (pillarNavs.length) {
+    const toggleFlynavVisibility = () => {
+      const shouldShow = window.innerWidth <= 1024 || window.scrollY > 120;
+      pillarNavs.forEach((nav) => nav.classList.toggle('is-shown', shouldShow));
+    };
+    window.addEventListener('scroll', toggleFlynavVisibility, { passive: true });
+    window.addEventListener('resize', toggleFlynavVisibility);
+    toggleFlynavVisibility();
+  }
+  pillarNavs.forEach((pillarNav) => {
+    const pillarLinks = Array.from(pillarNav.querySelectorAll('a[href^="#"]'));
+    const linkMap = new Map();
+
+    pillarLinks.forEach((link) => {
+      const targetId = (link.getAttribute('href') || '').slice(1);
+      if (!targetId) return;
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+      linkMap.set(targetEl, link);
+    });
+
+    if (!linkMap.size) return;
+
+    const setActiveLink = (activeEl) => {
+      pillarLinks.forEach((link) => {
+        const isActive = linkMap.get(activeEl) === link;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+      });
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visibleEntries = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      if (!visibleEntries.length) return;
+      setActiveLink(visibleEntries[0].target);
+    }, { threshold: [0.3, 0.55, 0.75], rootMargin: '-20% 0px -45% 0px' });
+
+    linkMap.forEach((_link, sectionEl) => sectionObserver.observe(sectionEl));
+
+    const firstSection = Array.from(linkMap.keys())[0];
+    if (firstSection) setActiveLink(firstSection);
+  });
+
 
   // ── 4. ANIMATED COUNTERS ──────────────────────
   const counterEls = document.querySelectorAll('.number-val[data-target]');
@@ -460,37 +508,111 @@ document.addEventListener('DOMContentLoaded', () => {
               #mobile-nav a {
                 font-family: 'Raleway', sans-serif;
                 font-weight: 600;
-                font-size: 1.1rem;
+                font-size: 0.9rem;
                 color: rgba(255,255,255,0.8);
-                padding: 16px 0;
+                padding: 12px 0;
                 border-bottom: 1px solid rgba(255,255,255,0.06);
                 display: block;
                 transition: color 0.2s;
               }
               #mobile-nav a:hover { color: #F18847; }
-              #mobile-nav .m-cta {
-                margin-top: 24px;
-                background: #F18847;
-                color: white !important;
-                padding: 14px 24px !important;
+              #mobile-nav .m-accordion {
+                border-bottom: 1px solid rgba(255,255,255,0.06);
+              }
+              #mobile-nav .m-accordion summary {
+                list-style: none;
+                font-family: 'Raleway', sans-serif;
+                font-weight: 600;
+                font-size: 0.9rem;
+                color: rgba(255,255,255,0.86);
+                padding: 12px 0;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+              }
+              #mobile-nav .m-accordion summary::-webkit-details-marker {
+                display: none;
+              }
+              #mobile-nav .m-accordion summary::after {
+                content: '▾';
+                font-size: 0.75rem;
+                opacity: 0.8;
+                transition: transform 0.2s ease;
+              }
+              #mobile-nav .m-accordion[open] summary::after {
+                transform: rotate(180deg);
+              }
+              #mobile-nav .m-sub {
+                padding: 0 0 8px 10px;
+              }
+              #mobile-nav .m-sub a {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                font-size: 0.8rem;
+                color: rgba(255,255,255,0.72);
+                padding: 8px 0;
+                border-bottom: none;
+              }
+              #mobile-nav .m-actions {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                margin-top: 18px;
+              }
+              #mobile-nav .m-actions a {
+                border-bottom: none;
+                padding: 12px 10px;
                 text-align: center;
                 font-family: 'Poppins', sans-serif;
                 font-weight: 500;
-                font-size: 0.82rem;
+                font-size: 0.72rem;
                 letter-spacing: 0.06em;
                 text-transform: uppercase;
+              }
+              #mobile-nav .m-cta-join {
+                background: #5f2d78;
+                color: #fff !important;
+              }
+              #mobile-nav .m-cta {
+                background: #F18847;
+                color: white !important;
                 border: none;
               }
             </style>
-            <a href="/#expertises" onclick="closeMobileNav()">${currentLang === 'en' ? 'Expertise' : 'Expertises'}</a>
-            <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industries' : 'Secteurs'}</a>
-            <a href="/blog" onclick="closeMobileNav()">Articles</a>
-            <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
-            <a href="/offres" onclick="closeMobileNav()">${currentLang === 'en' ? 'All offers' : 'Toutes les offres'}</a>
+            <details class="m-accordion">
+              <summary>${currentLang === 'en' ? 'Expertise' : 'Expertises'}</summary>
+              <div class="m-sub">
+                <a href="/cyber-4-ai" onclick="closeMobileNav()">AI for Cyber</a>
+                <a href="/risques-digitaux" onclick="closeMobileNav()">${currentLang === 'en' ? 'Digital Risk' : 'Risques Digitaux'}</a>
+                <a href="/cyber-defense" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Defense' : 'Cyber Défense'}</a>
+                <a href="/audit-conformite" onclick="closeMobileNav()">${currentLang === 'en' ? 'Audit & Compliance' : 'Audit et Conformité'}</a>
+                <a href="/transfo-cyber" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Transformation' : 'Transfo Cyber'}</a>
+              </div>
+            </details>
+            <details class="m-accordion">
+              <summary>${currentLang === 'en' ? 'Industries' : 'Secteurs'}</summary>
+              <div class="m-sub">
+                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Banking' : 'Banque'}</a>
+                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Insurance' : 'Assurance'}</a>
+                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
+                <a href="/#secteurs" onclick="closeMobileNav()">Retail</a>
+                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
+                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Techno'}</a>
+              </div>
+            </details>
+            <details class="m-accordion">
+              <summary>${currentLang === 'en' ? 'Publications' : 'Publications'}</summary>
+              <div class="m-sub">
+                <a href="/blog" onclick="closeMobileNav()">Articles</a>
+                <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
+              </div>
+            </details>
             <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
-            <a href="/nous-rejoindre" onclick="closeMobileNav()">${currentLang === 'en' ? 'Join us' : 'Nous rejoindre'}</a>
-            <a href="/postes-ouverts" onclick="closeMobileNav()">${currentLang === 'en' ? 'Open roles' : 'Postes ouverts'}</a>
-            <a href="/#contact" class="m-cta" onclick="closeMobileNav()">${currentLang === 'en' ? 'Contact us' : 'Nous contacter'}</a>
+            <div class="m-actions">
+              <a href="/nous-rejoindre" class="m-cta-join" onclick="closeMobileNav()">${currentLang === 'en' ? 'Join us' : 'Nous rejoindre'}</a>
+              <a href="/#contact" class="m-cta" onclick="closeMobileNav()">${currentLang === 'en' ? 'Contact us' : 'Nous contacter'}</a>
+            </div>
           `;
           document.body.appendChild(mobileNav);
         } else {
