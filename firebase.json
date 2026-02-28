@@ -51,7 +51,9 @@
       { "source": "/retex-swift-pharma.html", "destination": "/retex-swift-pharma", "type": 301 },
       { "source": "/retex-swift-betting.html", "destination": "/retex-swift-betting", "type": 301 },
       { "source": "/audit-organisationnel.html", "destination": "/audit-organisationnel", "type": 301 },
-      { "source": "/audit-conformite-nis-dora.html", "destination": "/audit-conformite-nis-dora", "type": 301 }
+      { "source": "/audit-conformite-nis-dora.html", "destination": "/audit-conformite-nis-dora", "type": 301 },
+      { "source": "/mentions-legales.html", "destination": "/mentions-legales", "type": 301 },
+      { "source": "/protection-donnees.html", "destination": "/protection-donnees", "type": 301 }
     ],
     "rewrites": [
       { "source": "/studio", "destination": "/studio/index.html" },
@@ -73,7 +75,9 @@
       { "source": "/retex-swift-pharma", "destination": "/retex-swift-pharma.html" },
       { "source": "/retex-swift-betting", "destination": "/retex-swift-betting.html" },
       { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
-      { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" }
+      { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" },
+      { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
+      { "source": "/protection-donnees", "destination": "/protection-donnees.html" }
     ]
   }
 }

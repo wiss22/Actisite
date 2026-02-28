@@ -3375,7 +3375,7 @@ footer {
     opacity: 1;
     transform: none;
     padding: 14px 14px;
-    background: linear-gradient(180deg, rgba(24,18,40,0.22) 0%, rgba(24,18,40,0.9) 72%);
+    background: linear-gradient(180deg, rgba(24,18,40,0.12) 0%, rgba(24,18,40,0.72) 76%);
   }
   .leader-overlay h3 {
     font-size: 0.96rem;
@@ -3384,16 +3384,17 @@ footer {
     font-size: 0.82rem;
   }
   .leader-caption {
-    padding: 10px 12px 11px;
+    display: none;
   }
   .leader-caption-name {
     font-size: 0.88rem;
   }
   .cabinet-life-marquee {
     margin-top: 12px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: none;
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .cabinet-life-marquee::-webkit-scrollbar { display: none; }
@@ -3405,11 +3406,11 @@ footer {
   .cabinet-life-track {
     gap: 8px;
     padding: 8px;
-    animation: cabinetLifeScroll 22s linear infinite;
-    min-width: 100%;
+    animation: none;
+    min-width: max-content;
   }
   .cabinet-life-track[aria-hidden="true"] {
-    display: flex;
+    display: none;
   }
   .cabinet-life-photo {
     flex: 0 0 72vw;

@@ -435,25 +435,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Auto-scroll only for overview nav on mobile.
         const existing = navAutoScrollState.get(nav);
-        if (existing && existing.timer) {
-          clearInterval(existing.timer);
+        if (existing && existing.rafId) {
+          cancelAnimationFrame(existing.rafId);
           navAutoScrollState.delete(nav);
         }
         if (!isMobile || isOfferNav) return;
 
-        const state = { dir: 1, timer: null, pauseUntil: 0 };
+        const state = { dir: 1, rafId: null, pauseUntil: 0, speed: 0.45 };
         const tick = () => {
           const maxScroll = mobileLinksWrap.scrollWidth - mobileLinksWrap.clientWidth;
-          if (maxScroll <= 8) return;
-          if (Date.now() < state.pauseUntil) return;
-          mobileLinksWrap.scrollLeft += state.dir * 0.8;
-          if (mobileLinksWrap.scrollLeft >= maxScroll - 2) state.dir = -1;
-          if (mobileLinksWrap.scrollLeft <= 2) state.dir = 1;
+          if (maxScroll > 8 && Date.now() >= state.pauseUntil) {
+            mobileLinksWrap.scrollLeft += state.dir * state.speed;
+            if (mobileLinksWrap.scrollLeft >= maxScroll - 2) {
+              mobileLinksWrap.scrollLeft = maxScroll;
+              state.dir = -1;
+              state.pauseUntil = Date.now() + 550;
+            }
+            if (mobileLinksWrap.scrollLeft <= 2) {
+              mobileLinksWrap.scrollLeft = 0;
+              state.dir = 1;
+              state.pauseUntil = Date.now() + 550;
+            }
+          }
+          state.rafId = requestAnimationFrame(tick);
         };
-        state.timer = window.setInterval(tick, 32);
-        const pause = () => { state.pauseUntil = Date.now() + 2200; };
-        mobileLinksWrap.addEventListener('touchstart', pause, { passive: true });
-        mobileLinksWrap.addEventListener('pointerdown', pause, { passive: true });
+        state.rafId = requestAnimationFrame(tick);
+        const pause = () => { state.pauseUntil = Date.now() + 2400; };
+        if (!mobileLinksWrap.dataset.autoscrollBound) {
+          mobileLinksWrap.addEventListener('touchstart', pause, { passive: true });
+          mobileLinksWrap.addEventListener('pointerdown', pause, { passive: true });
+          mobileLinksWrap.addEventListener('wheel', pause, { passive: true });
+          mobileLinksWrap.dataset.autoscrollBound = '1';
+        }
         navAutoScrollState.set(nav, state);
       });
     };

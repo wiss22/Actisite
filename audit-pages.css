@@ -14,6 +14,34 @@
   isolation: isolate;
 }
 
+/* Ensure Transfo expertise hero aligns like other expertise heroes */
+.transfo-pillar-page .hero-transfo.transfo-hero-left {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 124px 60px 62px;
+}
+
+.transfo-pillar-page .hero-transfo.transfo-hero-left .transfo-hero-left-wrap {
+  width: min(1140px, 100%);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .transfo-pillar-page .hero-transfo.transfo-hero-left {
+    padding: 118px 32px 58px;
+  }
+}
+
+@media (max-width: 768px) {
+  .transfo-pillar-page .hero-transfo.transfo-hero-left {
+    padding: 102px 20px 66px;
+  }
+}
+
 /* SWIFT offer: modernized look (scoped to swift page only) */
 .swift-modern-page .hero-swift-modern {
   text-align: left;
@@ -209,6 +237,86 @@
 .swift-modern-page .offer-shell-main.offer-shell-main-lite .offer-related-card {
   border-color: rgba(83,35,105,0.14);
   background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(249,247,253,0.95) 100%);
+}
+
+/* ── HERO IDENTITY PER EXPERTISE ───────────────────────────── */
+/* 1) Audit & Conformité: regulatory + structured */
+.audit-pillar-page:not(.swift-modern-page) .hero-audit-pillar {
+  background:
+    linear-gradient(150deg, #2a1237 0%, #4a2058 58%, #5a296e 100%);
+}
+
+.audit-pillar-page:not(.swift-modern-page) .hero-audit-pillar::after {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 100%),
+    linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 100%),
+    radial-gradient(circle at 84% 20%, rgba(241,136,71,0.28), rgba(241,136,71,0) 42%),
+    radial-gradient(circle at 12% 76%, rgba(215,188,255,0.2), rgba(215,188,255,0) 44%);
+  background-size: 70px 70px, 70px 70px, auto, auto;
+}
+
+.audit-pillar-page:not(.swift-modern-page) .audit-pillar-hero-copy h1 span {
+  color: #f7b34f;
+  text-shadow: 0 0 24px rgba(247,179,79,0.28);
+}
+
+/* 2) Cyber Défense: ops + threat driven */
+.cyber-pillar-page.swift-modern-page .hero-swift-modern {
+  background:
+    radial-gradient(circle at 80% 18%, rgba(255,120,80,0.26) 0%, rgba(255,120,80,0) 36%),
+    radial-gradient(circle at 16% 78%, rgba(127,90,181,0.28) 0%, rgba(127,90,181,0) 42%),
+    linear-gradient(145deg, #1f1030 0%, #34164a 52%, #28133b 100%);
+}
+
+.cyber-pillar-page.swift-modern-page .hero-swift-modern::after {
+  background:
+    linear-gradient(120deg, rgba(241,136,71,0.08) 0%, rgba(241,136,71,0) 30%),
+    radial-gradient(circle at 88% 14%, rgba(241,136,71,0.3), rgba(241,136,71,0) 44%),
+    radial-gradient(circle at 10% 82%, rgba(181,113,212,0.24), rgba(181,113,212,0) 46%);
+}
+
+.cyber-pillar-page.swift-modern-page .swift-hero-copy h1 span {
+  color: #ff9d6d;
+  text-shadow: 0 0 26px rgba(255,157,109,0.35);
+}
+
+.cyber-pillar-page.swift-modern-page .swift-hero-pills span {
+  border-color: rgba(255,157,109,0.44);
+  background: rgba(255,157,109,0.12);
+  color: #fff;
+}
+
+/* 3) Transfo Cyber: trajectory + delivery energy */
+.transfo-pillar-page .transfo-hero-left {
+  background:
+    radial-gradient(circle at 82% 16%, rgba(241,136,71,0.3) 0%, rgba(241,136,71,0) 36%),
+    radial-gradient(circle at 14% 82%, rgba(181,113,212,0.26) 0%, rgba(181,113,212,0) 44%),
+    linear-gradient(132deg, #2a1238 0%, #51256a 54%, #3d1c55 100%);
+}
+
+.transfo-pillar-page .transfo-hero-left::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.06) 0 2px, transparent 2px 100%),
+    linear-gradient(45deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 100%);
+  background-size: 160px 160px, 120px 120px;
+}
+
+.transfo-pillar-page .transfo-hero-left .section-eyebrow,
+.transfo-pillar-page .transfo-hero-left h1,
+.transfo-pillar-page .transfo-hero-left .hero-lead,
+.transfo-pillar-page .transfo-hero-left .audit-pillar-hero-pills {
+  position: relative;
+  z-index: 2;
+}
+
+.transfo-pillar-page .transfo-hero-left .audit-pillar-hero-pills span {
+  border-color: rgba(215,188,255,0.5);
+  background: rgba(215,188,255,0.14);
 }
 
 @media (max-width: 1024px) {
@@ -497,37 +605,60 @@
 }
 
 .hero-transfo .geo-a {
-  left: 11%;
-  top: 18%;
-  width: 230px;
-  height: 160px;
-  clip-path: polygon(0 45%, 72% 45%, 72% 20%, 100% 50%, 72% 80%, 72% 55%, 0 55%);
+  left: 9%;
+  top: 17%;
+  width: 0;
+  height: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  opacity: 0;
+  pointer-events: none;
+  clip-path: none;
+  border-radius: 0;
 }
 .hero-transfo .geo-b {
-  right: 7%;
-  top: 17%;
-  width: 180px;
-  height: 180px;
-  clip-path: polygon(50% 0%, 100% 100%, 0 100%);
+  right: 8%;
+  top: 13%;
+  width: 204px;
+  height: 204px;
+  border-radius: 50%;
+  clip-path: none;
+  border: 1px solid rgba(241,136,71,0.34);
+  background:
+    conic-gradient(from 28deg, rgba(241,136,71,0.88) 0 24%, transparent 24% 49%, rgba(241,136,71,0.74) 49% 73%, transparent 73% 100%),
+    radial-gradient(circle at center, transparent 0 44%, rgba(83,35,105,0.9) 45% 58%, transparent 59% 100%),
+    radial-gradient(circle at center, rgba(255,255,255,0.11), rgba(255,255,255,0.02));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
   animation-duration: 14s;
 }
 .hero-transfo .geo-c {
-  right: 24%;
-  bottom: -66px;
-  width: 280px;
-  height: 180px;
-  border-radius: 999px;
-  transform: rotate(8deg);
+  right: 23%;
+  bottom: -44px;
+  width: 308px;
+  height: 184px;
+  border-radius: 16px;
+  transform: rotate(6deg);
+  border: 1px solid rgba(255,255,255,0.16);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+    linear-gradient(90deg, transparent 0 12%, rgba(241,136,71,0.5) 12% 18%, transparent 18% 32%, rgba(241,136,71,0.36) 32% 38%, transparent 38% 52%, rgba(241,136,71,0.28) 52% 58%, transparent 58% 100%),
+    linear-gradient(145deg, rgba(241,136,71,0.18), rgba(164,101,214,0.12));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 .hero-transfo .geo-d {
-  left: 52%;
-  bottom: 15%;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: rgba(241,136,71,0.92);
-  filter: blur(0);
-  box-shadow: 30px -16px 0 rgba(241,136,71,0.58), 58px 7px 0 rgba(241,136,71,0.4);
+  left: 46%;
+  bottom: 14%;
+  width: 212px;
+  height: 112px;
+  border-radius: 12px;
+  background:
+    linear-gradient(0deg, rgba(241,136,71,0.84) 0 32%, transparent 32% 100%),
+    linear-gradient(90deg, rgba(241,136,71,0.24) 0 18%, transparent 18% 34%, rgba(241,136,71,0.34) 34% 52%, transparent 52% 68%, rgba(241,136,71,0.54) 68% 86%, transparent 86% 100%),
+    radial-gradient(circle at 86% 24%, rgba(255,255,255,0.88) 0 7px, rgba(241,136,71,0.74) 8px 14px, transparent 15px),
+    linear-gradient(135deg, rgba(255,255,255,0.08), rgba(164,101,214,0.12));
+  border: 1px solid rgba(241,136,71,0.38);
+  filter: blur(0.2px);
 }
 
 .transfo-pillar-page {
@@ -539,7 +670,7 @@
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
   padding: 124px 60px 62px;
 }
@@ -547,8 +678,14 @@
 .transfo-pillar-page .transfo-hero-left-wrap {
   position: relative;
   z-index: 2;
-  width: min(980px, 100%);
-  margin: 0 auto;
+  width: min(1140px, 100%);
+  margin: 0;
+}
+
+.cyber-pillar-page.swift-modern-page .swift-hero-grid.swift-hero-grid-no-panel,
+.risques-pillar-page.swift-modern-page .swift-hero-grid.swift-hero-grid-no-panel {
+  width: min(1140px, 100%);
+  margin: 0;
 }
 
 .transfo-pillar-page .transfo-hero-left h1 {
@@ -648,7 +785,7 @@
   position: relative;
   z-index: 2;
   width: min(1140px, 100%);
-  margin: 0 auto;
+  margin: 0 ;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   gap: 24px;
@@ -670,7 +807,39 @@
   text-shadow: 0 0 22px rgba(241,136,71,0.24);
 }
 
+.audit-pillar-page .audit-pillar-hero-copy h1 .hero-accent-word {
+  color: #f18847 !important;
+  text-shadow: 0 0 24px rgba(241,136,71,0.32);
+}
+
+/* Expertise heroes: unified larger typography */
+.audit-pillar-page .audit-pillar-hero-copy h1,
+.cyber-pillar-page.swift-modern-page .swift-hero-copy h1,
+.risques-pillar-page.swift-modern-page .swift-hero-copy h1,
+.transfo-pillar-page .transfo-hero-left h1 {
+  font-size: clamp(2.5rem, 6.1vw, 4.25rem);
+  line-height: 1.06;
+  letter-spacing: -0.01em;
+}
+
+.audit-pillar-page .audit-pillar-hero-copy .hero-lead,
+.cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.transfo-pillar-page .transfo-hero-left .hero-lead {
+  font-size: 1.14rem;
+  line-height: 1.65;
+  max-width: 760px;
+}
+
 .audit-pillar-page .audit-pillar-hero-copy .hero-lead {
+  max-width: 680px;
+  margin: 0 0 16px;
+  color: rgba(255,255,255,0.92);
+}
+
+.cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.transfo-pillar-page .transfo-hero-left .hero-lead {
   max-width: 680px;
   margin: 0 0 16px;
   color: rgba(255,255,255,0.92);
@@ -871,6 +1040,10 @@
 }
 
 @media (max-width: 1024px) {
+  .transfo-pillar-page .transfo-hero-left {
+    padding: 118px 32px 58px;
+    min-height: 100svh;
+  }
   .audit-pillar-page .hero-audit-pillar {
     padding: 118px 32px 62px;
     min-height: auto;
@@ -903,12 +1076,20 @@
   .audit-pillar-page .hero-audit-pillar {
     padding: 102px 20px 66px;
   }
-  .audit-pillar-page .audit-pillar-hero-copy h1 {
-    font-size: clamp(1.7rem, 8.8vw, 2.4rem);
+  .audit-pillar-page .audit-pillar-hero-copy h1,
+  .cyber-pillar-page.swift-modern-page .swift-hero-copy h1,
+  .risques-pillar-page.swift-modern-page .swift-hero-copy h1,
+  .transfo-pillar-page .transfo-hero-left h1 {
+    font-size: clamp(2.05rem, 9.4vw, 3.05rem);
+    line-height: 1.08;
   }
-  .audit-pillar-page .audit-pillar-hero-copy .hero-lead {
-    font-size: 0.92rem;
+  .audit-pillar-page .audit-pillar-hero-copy .hero-lead,
+  .cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+  .risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+  .transfo-pillar-page .transfo-hero-left .hero-lead {
+    font-size: 1rem;
     margin-bottom: 12px;
+    line-height: 1.58;
   }
   .audit-pillar-page .audit-pillar-hero-pills span {
     font-size: 0.62rem;
@@ -1341,7 +1522,8 @@
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    display: block;
+    display: flex;
+    width: max-content;
     padding-bottom: 2px;
   }
   .pillar-flynav.mobile-overview-nav .pillar-mobile-links::-webkit-scrollbar {

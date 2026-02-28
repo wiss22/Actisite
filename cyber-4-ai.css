@@ -543,3 +543,51 @@ h1 .red{color:var(--g)}
     object-position: 50% 18%;
   }
 }
+
+/* Mobile stability: prevent any lateral overflow on AI offer page */
+@media (max-width: 960px){
+  html,
+  body.page-cyber4ai{
+    overflow-x: hidden;
+  }
+
+  .page-cyber4ai .wrap,
+  .page-cyber4ai section,
+  .page-cyber4ai .hero,
+  .page-cyber4ai .hero-inner,
+  .page-cyber4ai .surface-grid,
+  .page-cyber4ai .offer-grid,
+  .page-cyber4ai .proof-grid,
+  .page-cyber4ai .meth-layout,
+  .page-cyber4ai .why-layout,
+  .page-cyber4ai .owner-card{
+    max-width: 100%;
+  }
+
+  .page-cyber4ai .hero-inner > *,
+  .page-cyber4ai .off-card,
+  .page-cyber4ai .surf-card,
+  .page-cyber4ai .proof-card,
+  .page-cyber4ai .step,
+  .page-cyber4ai .dr,
+  .page-cyber4ai .witem,
+  .page-cyber4ai .radar-card{
+    min-width: 0;
+  }
+
+  .page-cyber4ai .threat-name,
+  .page-cyber4ai .dr-label,
+  .page-cyber4ai .oli,
+  .page-cyber4ai .witem p,
+  .page-cyber4ai .off-card > p,
+  .page-cyber4ai .surf-card p,
+  .page-cyber4ai .proof-text{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .page-cyber4ai .dr-t{
+    white-space: normal;
+    text-align: right;
+  }
+}
