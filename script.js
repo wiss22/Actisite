@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'postes-ouverts': 'Open Roles — Actinuance',
     'audit-organisationnel': 'Organizational Audit — Actinuance',
     'audit-conformite-nis-dora': 'NIS2 & DORA Compliance Audit — Actinuance',
-    swift: 'SWIFT — Actinuance'
+    swift: 'Swift CSP — Actinuance'
   };
 
   const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
@@ -84,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'Industrie & Transport': 'Industry & Transportation',
     'Techno': 'Technology',
     'Banque': 'Banking',
-    'Swift': 'SWIFT',
+    'Swift': 'Swift',
+    'SWIFT': 'Swift CSP',
+    'Swift CSP': 'Swift CSP',
     'Vie du cabinet': 'Life at the firm',
     'Happy at Work 2025': 'Happy at Work 2025',
     'Certifié par nos collaborateurs': 'Certified by our team',
@@ -392,10 +394,80 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── 3b. PILLAR OFFERS SIDE NAV ACTIVE STATE ───────────────
   const pillarNavs = Array.from(document.querySelectorAll('.pillar-flynav, .pillar-offers-nav'));
   if (pillarNavs.length) {
-    const toggleFlynavVisibility = () => {
-      const shouldShow = window.innerWidth <= 1024 || window.scrollY > 120;
-      pillarNavs.forEach((nav) => nav.classList.toggle('is-shown', shouldShow));
+    const navAutoScrollState = new WeakMap();
+    const setupMobileOverviewNav = () => {
+      const isMobile = window.innerWidth <= 768;
+      pillarNavs.forEach((nav) => {
+        const isOfferNav = nav.classList.contains('offer-flynav');
+        const titleNode = nav.querySelector('.pillar-flynav-title-accent');
+        const rawTitle = titleNode ? titleNode.textContent.trim() : '';
+        const expertiseName = rawTitle.replace(/^Expertise\s+/i, '').trim() || 'l’expertise';
+        const mobileHeading = `Les offres de l’expertise ${expertiseName}`;
+        nav.dataset.mobileHeading = mobileHeading;
+        let headingEl = nav.querySelector('.pillar-mobile-heading');
+        if (!headingEl) {
+          headingEl = document.createElement('span');
+          headingEl.className = 'pillar-mobile-heading';
+          nav.insertBefore(headingEl, nav.firstChild);
+        }
+        headingEl.textContent = mobileHeading;
+
+        const links = Array.from(nav.querySelectorAll('a'));
+        let mobileLinksWrap = nav.querySelector('.pillar-mobile-links');
+        if (!mobileLinksWrap) {
+          mobileLinksWrap = document.createElement('div');
+          mobileLinksWrap.className = 'pillar-mobile-links';
+          nav.appendChild(mobileLinksWrap);
+        }
+        links.forEach((link) => {
+          if (link.parentElement !== mobileLinksWrap) mobileLinksWrap.appendChild(link);
+        });
+
+        const overviewLink = links.find((link) => (link.getAttribute('href') || '').includes('presentation-pilier'));
+        links.forEach((link) => {
+          link.classList.remove('pillar-mobile-overview-link', 'pillar-mobile-offer-link');
+          if (overviewLink && link === overviewLink) link.classList.add('pillar-mobile-overview-link');
+          else link.classList.add('pillar-mobile-offer-link');
+        });
+
+        nav.classList.toggle('mobile-overview-nav', isMobile && !isOfferNav);
+        nav.classList.toggle('mobile-offer-nav', isMobile && isOfferNav);
+
+        // Auto-scroll only for overview nav on mobile.
+        const existing = navAutoScrollState.get(nav);
+        if (existing && existing.timer) {
+          clearInterval(existing.timer);
+          navAutoScrollState.delete(nav);
+        }
+        if (!isMobile || isOfferNav) return;
+
+        const state = { dir: 1, timer: null, pauseUntil: 0 };
+        const tick = () => {
+          const maxScroll = mobileLinksWrap.scrollWidth - mobileLinksWrap.clientWidth;
+          if (maxScroll <= 8) return;
+          if (Date.now() < state.pauseUntil) return;
+          mobileLinksWrap.scrollLeft += state.dir * 0.8;
+          if (mobileLinksWrap.scrollLeft >= maxScroll - 2) state.dir = -1;
+          if (mobileLinksWrap.scrollLeft <= 2) state.dir = 1;
+        };
+        state.timer = window.setInterval(tick, 32);
+        const pause = () => { state.pauseUntil = Date.now() + 2200; };
+        mobileLinksWrap.addEventListener('touchstart', pause, { passive: true });
+        mobileLinksWrap.addEventListener('pointerdown', pause, { passive: true });
+        navAutoScrollState.set(nav, state);
+      });
     };
+
+    const toggleFlynavVisibility = () => {
+      const isMobile = window.innerWidth <= 768;
+      pillarNavs.forEach((nav) => {
+        const isOfferNav = nav.classList.contains('offer-flynav');
+        const shouldShow = isMobile ? (!isOfferNav && window.scrollY > 140) : window.scrollY > 120;
+        nav.classList.toggle('is-shown', shouldShow);
+      });
+    };
+    setupMobileOverviewNav();
+    window.addEventListener('resize', setupMobileOverviewNav);
     window.addEventListener('scroll', toggleFlynavVisibility, { passive: true });
     window.addEventListener('resize', toggleFlynavVisibility);
     toggleFlynavVisibility();
@@ -436,6 +508,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const firstSection = Array.from(linkMap.keys())[0];
     if (firstSection) setActiveLink(firstSection);
   });
+
+  // Highlight current offer page in pillar nav (non-hash links)
+  if (pillarNavs.length) {
+    const toPathKey = (inputPath) => {
+      const clean = (inputPath || '/').toLowerCase().replace(/\/+$/, '');
+      if (!clean || clean === '/') return 'index';
+      return (clean.endsWith('.html') ? clean.slice(0, -5) : clean)
+        .split('/')
+        .filter(Boolean)
+        .pop() || 'index';
+    };
+    const currentPathKey = toPathKey(window.location.pathname);
+    pillarNavs.forEach((nav) => {
+      nav.querySelectorAll('a[href]').forEach((link) => {
+        const href = link.getAttribute('href') || '';
+        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+        let targetKey = '';
+        try {
+          const url = new URL(href, window.location.origin);
+          targetKey = toPathKey(url.pathname);
+        } catch (_) {
+          return;
+        }
+        if (targetKey === currentPathKey) {
+          link.classList.add('is-active');
+          link.setAttribute('aria-current', 'page');
+        }
+      });
+    });
+  }
+
+  // Offer pages: add explicit backlink at bottom to the expertise page
+  const offerFlynav = document.querySelector('.offer-flynav');
+  if (offerFlynav) {
+    const overviewLink = offerFlynav.querySelector('a[href*="presentation-pilier"]');
+    const targetHref = overviewLink ? (overviewLink.getAttribute('href') || '') : '';
+    const titleNode = offerFlynav.querySelector('.pillar-flynav-title-accent');
+    const expertiseName = titleNode
+      ? titleNode.textContent.replace(/^Expertise\s+/i, '').trim()
+      : 'l’expertise';
+    const basePath = targetHref ? targetHref.split('#')[0] || '/' : '/';
+    const targetPath = `${basePath}#nos-offres`;
+    const container = document.querySelector('.offer-shell-main.offer-shell-main-lite') || document.querySelector('.offer-shell-main');
+    if (container && !container.querySelector('.offer-back-expertise')) {
+      const wrap = document.createElement('div');
+      wrap.className = 'offer-back-expertise reveal visible';
+      wrap.innerHTML = `<a href="${targetPath}">← Retourner sur l’expertise ${expertiseName}</a>`;
+      container.appendChild(wrap);
+    }
+  }
 
 
   // ── 4. ANIMATED COUNTERS ──────────────────────
@@ -1176,6 +1298,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadAiObservedVectors();
   }
+
+  // Vision logos fallback: avoid broken image icons when a provider URL is unavailable.
+  document.querySelectorAll('.vision-logo-item img').forEach((img) => {
+    const applyFallback = () => {
+      const slot = img.closest('.vision-logo-item');
+      if (!slot) return;
+      slot.classList.add('is-fallback');
+      img.remove();
+    };
+    img.addEventListener('error', applyFallback, {once: true});
+    if (img.complete && img.naturalWidth === 0) applyFallback();
+  });
 
   createLanguageSwitch();
   applyLanguage(currentLang);

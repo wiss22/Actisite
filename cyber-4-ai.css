@@ -3,6 +3,7 @@
   --black: #000000;
   --ink2:   #4a2058;
   --ink3:   #5e2d70;
+  --ink4:   #2d123a;
   --stroke: rgba(255,255,255,0.12);
   --g:      #F18847;
   --r:      #ff8f90;
@@ -10,6 +11,9 @@
   --v:      #b571d4;
   --dim:    #ffffffc7;
   --w:      #FFFFFF;
+  --paper:  #f7f4fb;
+  --paper2: #efe8f8;
+  --inkDeep:#241236;
 }
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -89,7 +93,12 @@ h1 .red{color:var(--g)}
 @keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── ATTACK SURFACE ──────────────────────────────── */
-.surface{background:linear-gradient(180deg,var(--ink) 0%,var(--dim) 100%)}
+.surface{
+  background:
+    radial-gradient(ellipse 80% 58% at 12% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 52% at 88% 92%, rgba(181,113,212,.14) 0%, transparent 62%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink4) 100%);
+}
 .surface-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--stroke);gap:1px}
 .surf-card{background:var(--ink2);padding:38px 32px;position:relative;overflow:hidden;transition:background .22s}
 .surf-card:hover{background:var(--ink3)}
@@ -121,7 +130,12 @@ h1 .red{color:var(--g)}
 .otag.h{background:rgba(241,136,71,.12);color:var(--g);border-color:rgba(241,136,71,.22)}
 
 /* ── ATTACK SURFACE ──────────────────────────────── */
-.surface{background:linear-gradient(180deg,var(--ink) 0%,var(--dim) 100%)}
+.surface{
+  background:
+    radial-gradient(ellipse 80% 58% at 12% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 52% at 88% 92%, rgba(181,113,212,.14) 0%, transparent 62%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink4) 100%);
+}
 .surface-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--stroke);gap:1px}
 .surf-card{background:var(--ink2);padding:38px 32px;position:relative;overflow:hidden;transition:background .22s}
 .surf-card:hover{background:var(--ink3)}
@@ -154,7 +168,11 @@ h1 .red{color:var(--g)}
 .dm-after{text-align:center;color:var(--y);font-weight:700}
 
 /* ── METHOD ──────────────────────────────────────── */
-.method{background:linear-gradient(180deg,var(--dim) 0%,var(--ink) 100%)}
+.method{
+  background:
+    radial-gradient(ellipse 75% 60% at 90% 12%, rgba(241,136,71,.1) 0%, transparent 62%),
+    linear-gradient(180deg, #4d2460 0%, var(--ink) 100%);
+}
 .method .eyebrow{color:var(--g)}
 .method .eyebrow::before{background:var(--g)}
 .meth-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:start}
@@ -178,7 +196,12 @@ h1 .red{color:var(--g)}
 .dc-note{padding:16px 24px;background:rgba(241,136,71,.08);font-size:.75rem;color:rgba(255,255,255,.46);line-height:1.6}
 
 /* ── PROOF ───────────────────────────────────────── */
-.surface{background:linear-gradient(180deg,var(--ink) 0%,var(--dim) 100%)}
+.surface{
+  background:
+    radial-gradient(ellipse 80% 58% at 12% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 52% at 88% 92%, rgba(181,113,212,.14) 0%, transparent 62%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink4) 100%);
+}
 .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .proof-card{border:1px solid var(--stroke);border-radius:10px;padding:28px;background:rgba(55,24,70,.5);transition:border-color .22s,transform .22s}
 .proof-card:hover{border-color:rgba(241,136,71,.35);transform:translateY(-3px)}
@@ -188,7 +211,12 @@ h1 .red{color:var(--g)}
 .proof-text{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.65}
 
 /* ── WHY ─────────────────────────────────────────── */
-.surface{background:linear-gradient(180deg,var(--ink) 0%,var(--dim) 100%)}
+.surface{
+  background:
+    radial-gradient(ellipse 80% 58% at 12% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 52% at 88% 92%, rgba(181,113,212,.14) 0%, transparent 62%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink4) 100%);
+}
 .why-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .why-stmt{font-family:'Raleway',sans-serif;font-size:clamp(1.6rem,2.8vw,2.3rem);line-height:1.2;font-weight:800;margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--stroke)}
 .why-stmt em{font-style:italic;color:var(--y)}
@@ -206,11 +234,78 @@ h1 .red{color:var(--g)}
 /* ── OWNER ───────────────────────────────────────── */
 .owner{background:var(--g)}
 .owner-card{display:grid;grid-template-columns:190px 1fr;gap:20px;align-items:center;border:1px solid var(--stroke);border-radius:12px;padding:18px;background:rgba(55,24,70,.56);max-width:900px;margin:0 auto}
-.owner-photo{width:100%;height:270px;object-fit:contain;object-position:50% 10%;border-radius:10px;background:rgba(55,24,70,.56)}
+.owner-photo{width:100%;height:270px;object-fit:cover;object-position:50% 18%;border-radius:10px}
 .owner-role{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
 .owner-card h3{font-family:'Raleway',sans-serif;font-size:1.5rem;font-weight:800;margin-bottom:10px}
 .owner-card p{font-size:.9rem;color:rgba(255,255,255,.6);line-height:1.65}
 .owner-actions{margin-top:16px}
+
+/* ── SECTION RHYTHM (CLEAR SEPARATION) ─────────── */
+.offer{
+  background:
+    radial-gradient(ellipse 76% 54% at 10% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    linear-gradient(180deg, var(--paper) 0%, #efe7f7 100%);
+  color: var(--inkDeep);
+}
+
+.offer .sh,
+.offer .off-card h3{
+  color: var(--inkDeep);
+}
+
+.offer .sh em{
+  color: #b571d4;
+}
+
+.offer .off-card{
+  background: #fff;
+  border-color: rgba(83,35,105,0.16);
+  box-shadow: 0 10px 26px rgba(36,18,54,0.08);
+}
+
+.offer .off-card:hover{
+  border-color: rgba(241,136,71,0.42);
+  box-shadow: 0 14px 34px rgba(36,18,54,0.12);
+}
+
+.offer .off-n{
+  color: rgba(241,136,71,0.9);
+}
+
+.offer .off-card > p{
+  color: rgba(36,18,54,0.74);
+}
+
+.offer .oli{
+  color: rgba(36,18,54,0.78);
+}
+
+.offer .otag{
+  background: rgba(83,35,105,0.06);
+  color: rgba(36,18,54,0.66);
+  border-color: rgba(83,35,105,0.14);
+}
+
+.offer .otag.h{
+  background: rgba(241,136,71,0.14);
+  color: #9a4f21;
+  border-color: rgba(241,136,71,0.34);
+}
+
+.surface{
+  background:
+    radial-gradient(ellipse 80% 58% at 12% 8%, rgba(241,136,71,.12) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 52% at 88% 92%, rgba(181,113,212,.14) 0%, transparent 62%),
+    linear-gradient(180deg, var(--ink) 0%, var(--ink4) 100%);
+  color: var(--w);
+}
+
+.why{
+  background:
+    radial-gradient(ellipse 65% 50% at 92% 18%, rgba(241,136,71,.08) 0%, transparent 70%),
+    linear-gradient(180deg, #38194a 0%, #2a1237 100%);
+  color: var(--w);
+}
 
 /* ── CTA ─────────────────────────────────────────── */
 .cta{padding:96px 52px;text-align:center;background:var(--ink2);position:relative;overflow:hidden}
@@ -229,7 +324,7 @@ h1 .red{color:var(--g)}
   .hero{padding:108px 20px 70px}
   .hero-inner,.surface-grid,.offer-grid,.meth-layout,.why-layout,.owner-card{grid-template-columns:1fr}
   .deliv-card{display:none}
-  .owner-photo{height:300px;object-fit:contain;object-position:50% 10%}
+  .owner-photo{height:300px;object-fit:cover;object-position:50% 18%}
 }
 
 @media (max-width: 768px){
@@ -405,8 +500,8 @@ h1 .red{color:var(--g)}
   }
   .owner-photo{
     height: 220px;
-    object-fit: contain;
-    object-position: 50% 10%;
+    object-fit: cover;
+    object-position: 50% 18%;
   }
   .owner-card h3{
     font-size: 1.2rem;
@@ -444,7 +539,7 @@ h1 .red{color:var(--g)}
   }
   .owner-photo{
     height: 190px;
-    object-fit: contain;
-    object-position: 50% 10%;
+    object-fit: cover;
+    object-position: 50% 18%;
   }
 }
