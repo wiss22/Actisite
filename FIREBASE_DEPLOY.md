@@ -1,4 +1,4 @@
-# Deploy to Firebase Hosting
+# Deploy Website (Firebase) + Studio (Dedicated Domain)
 
 ## 1. Install Firebase CLI
 
@@ -20,26 +20,29 @@ Edit `/Users/wissemchouk/Downloads/Actisite/.firebaserc` and replace:
 
 with your real Firebase project id.
 
-## 4. Deploy
+## 4. Deploy the public website
 
 From `/Users/wissemchouk/Downloads/Actisite`:
-
-```bash
-./scripts/build-studio-for-firebase.sh
-```
-
-This builds Sanity Studio from `/Users/wissemchouk/Downloads/Actisite/Publications` and publishes static files to `/Users/wissemchouk/Downloads/Actisite/studio`.
-
-Then deploy:
 
 ```bash
 firebase deploy --only hosting
 ```
 
+## 5. Deploy Sanity Studio on `/studio` (same domain)
+
+Run from `/Users/wissemchouk/Downloads/Actisite/Publications`:
+
+```bash
+npm install
+npx sanity deploy
+```
+
+Then open:
+
+- `https://aktis-consulting.com/studio`
+
 ## Notes
 
-- Hosting serves from repo root (`public: "."`).
-- `index.html` is the default entry page.
-- Sanity Studio is exposed at `/studio` on the same site.
-- Example: `https://landing-site-9ce39.web.app/studio`
-- Large local content and dev folders are excluded in `firebase.json` via `ignore`.
+- Public website hosting serves from repo root (`public: "."`).
+- Studio is exposed under `/studio` on the same host.
+- Keep CORS allowlist updated in Sanity for the frontend domains only.

@@ -17,7 +17,16 @@
         "headers": [
           {
             "key": "Cache-Control",
-            "value": "no-cache"
+            "value": "public, max-age=86400, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "**/*.@(png|jpg|jpeg|svg|webp|avif|ico|woff|woff2)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
           }
         ]
       },
@@ -29,55 +38,315 @@
             "value": "no-cache"
           }
         ]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "SAMEORIGIN"
+          },
+          {
+            "key": "Permissions-Policy",
+            "value": "camera=(), microphone=(), geolocation=()"
+          },
+          {
+            "key": "Content-Security-Policy",
+            "value": "default-src 'self' https:; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https:; connect-src 'self' https://*.sanity.io https://*.apicdn.sanity.io https://*.api.sanity.io; frame-src 'self' https:;"
+          }
+        ]
       }
     ],
     "redirects": [
-      { "source": "/index.html", "destination": "/", "type": 301 },
-      { "source": "/blog.html", "destination": "/blog", "type": 301 },
-      { "source": "/article.html", "destination": "/article", "type": 301 },
-      { "source": "/innovation.html", "destination": "/innovation", "type": 301 },
-      { "source": "/postes-ouverts.html", "destination": "/postes-ouverts", "type": 301 },
-      { "source": "/nous-rejoindre.html", "destination": "/nous-rejoindre", "type": 301 },
-      { "source": "/equipe-dirigeante.html", "destination": "/equipe-dirigeante", "type": 301 },
-      { "source": "/risques-digitaux.html", "destination": "/risques-digitaux", "type": 301 },
-      { "source": "/cyber-defense.html", "destination": "/cyber-defense", "type": 301 },
-      { "source": "/audit-conformite.html", "destination": "/audit-conformite", "type": 301 },
-      { "source": "/transfo-cyber.html", "destination": "/transfo-cyber", "type": 301 },
-      { "source": "/actinuance-cyber-ia", "destination": "/cyber-4-ai", "type": 301 },
-      { "source": "/actinuance-cyber-ia.html", "destination": "/cyber-4-ai", "type": 301 },
-      { "source": "/cyber-4-ai.html", "destination": "/cyber-4-ai", "type": 301 },
-      { "source": "/offres.html", "destination": "/offres", "type": 301 },
-      { "source": "/swift.html", "destination": "/swift", "type": 301 },
-      { "source": "/retex-swift-pharma.html", "destination": "/retex-swift-pharma", "type": 301 },
-      { "source": "/retex-swift-betting.html", "destination": "/retex-swift-betting", "type": 301 },
-      { "source": "/audit-organisationnel.html", "destination": "/audit-organisationnel", "type": 301 },
-      { "source": "/audit-conformite-nis-dora.html", "destination": "/audit-conformite-nis-dora", "type": 301 },
-      { "source": "/mentions-legales.html", "destination": "/mentions-legales", "type": 301 },
-      { "source": "/protection-donnees.html", "destination": "/protection-donnees", "type": 301 }
+      {
+        "source": "/index.html",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/blog.html",
+        "destination": "/blog",
+        "type": 301
+      },
+      {
+        "source": "/article.html",
+        "destination": "/article",
+        "type": 301
+      },
+      {
+        "source": "/innovation.html",
+        "destination": "/innovation",
+        "type": 301
+      },
+      {
+        "source": "/innovation-article.html",
+        "destination": "/innovation-article",
+        "type": 301
+      },
+      {
+        "source": "/rex.html",
+        "destination": "/rex",
+        "type": 301
+      },
+      {
+        "source": "/rex-article.html",
+        "destination": "/rex-article",
+        "type": 301
+      },
+      {
+        "source": "/postes-ouverts.html",
+        "destination": "/postes-ouverts",
+        "type": 301
+      },
+      {
+        "source": "/nous-rejoindre.html",
+        "destination": "/nous-rejoindre",
+        "type": 301
+      },
+      {
+        "source": "/equipe-dirigeante.html",
+        "destination": "/equipe-dirigeante",
+        "type": 301
+      },
+      {
+        "source": "/risques-digitaux.html",
+        "destination": "/risques-digitaux",
+        "type": 301
+      },
+      {
+        "source": "/cyber-defense.html",
+        "destination": "/cyber-defense",
+        "type": 301
+      },
+      {
+        "source": "/audit-conformite.html",
+        "destination": "/audit-conformite",
+        "type": 301
+      },
+      {
+        "source": "/transfo-cyber.html",
+        "destination": "/transfo-cyber",
+        "type": 301
+      },
+      {
+        "source": "/secteur-luxe.html",
+        "destination": "/secteur-luxe",
+        "type": 301
+      },
+      {
+        "source": "/secteur-technologie.html",
+        "destination": "/secteur-technologie",
+        "type": 301
+      },
+      {
+        "source": "/secteur-banque.html",
+        "destination": "/secteur-banque",
+        "type": 301
+      },
+      {
+        "source": "/secteur-assurance.html",
+        "destination": "/secteur-assurance",
+        "type": 301
+      },
+      {
+        "source": "/secteur-retail.html",
+        "destination": "/secteur-retail",
+        "type": 301
+      },
+      {
+        "source": "/secteur-industrie-transport.html",
+        "destination": "/secteur-industrie-transport",
+        "type": 301
+      },
+      {
+        "source": "/actinuance-cyber-ia",
+        "destination": "/cyber-4-ai",
+        "type": 301
+      },
+      {
+        "source": "/actinuance-cyber-ia.html",
+        "destination": "/cyber-4-ai",
+        "type": 301
+      },
+      {
+        "source": "/cyber-4-ai.html",
+        "destination": "/cyber-4-ai",
+        "type": 301
+      },
+      {
+        "source": "/offres.html",
+        "destination": "/offres",
+        "type": 301
+      },
+      {
+        "source": "/swift.html",
+        "destination": "/swift",
+        "type": 301
+      },
+      {
+        "source": "/retex-swift-pharma.html",
+        "destination": "/retex-swift-pharma",
+        "type": 301
+      },
+      {
+        "source": "/retex-swift-betting.html",
+        "destination": "/retex-swift-betting",
+        "type": 301
+      },
+      {
+        "source": "/audit-organisationnel.html",
+        "destination": "/audit-organisationnel",
+        "type": 301
+      },
+      {
+        "source": "/audit-conformite-nis-dora.html",
+        "destination": "/audit-conformite-nis-dora",
+        "type": 301
+      },
+      {
+        "source": "/mentions-legales.html",
+        "destination": "/mentions-legales",
+        "type": 301
+      },
+      {
+        "source": "/protection-donnees.html",
+        "destination": "/protection-donnees",
+        "type": 301
+      }
     ],
     "rewrites": [
-      { "source": "/studio", "destination": "/studio/index.html" },
-      { "source": "/studio/**", "destination": "/studio/index.html" },
-      { "source": "/", "destination": "/index.html" },
-      { "source": "/blog", "destination": "/blog.html" },
-      { "source": "/article", "destination": "/article.html" },
-      { "source": "/innovation", "destination": "/innovation.html" },
-      { "source": "/postes-ouverts", "destination": "/postes-ouverts.html" },
-      { "source": "/nous-rejoindre", "destination": "/nous-rejoindre.html" },
-      { "source": "/equipe-dirigeante", "destination": "/equipe-dirigeante.html" },
-      { "source": "/risques-digitaux", "destination": "/risques-digitaux.html" },
-      { "source": "/cyber-defense", "destination": "/cyber-defense.html" },
-      { "source": "/audit-conformite", "destination": "/audit-conformite.html" },
-      { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
-      { "source": "/cyber-4-ai", "destination": "/cyber-4-ai.html" },
-      { "source": "/offres", "destination": "/offres.html" },
-      { "source": "/swift", "destination": "/swift.html" },
-      { "source": "/retex-swift-pharma", "destination": "/retex-swift-pharma.html" },
-      { "source": "/retex-swift-betting", "destination": "/retex-swift-betting.html" },
-      { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
-      { "source": "/audit-conformite-nis-dora", "destination": "/audit-conformite-nis-dora.html" },
-      { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
-      { "source": "/protection-donnees", "destination": "/protection-donnees.html" }
+      {
+        "source": "/studio",
+        "destination": "/studio/index.html"
+      },
+      {
+        "source": "/studio/**",
+        "destination": "/studio/index.html"
+      },
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/blog",
+        "destination": "/blog.html"
+      },
+      {
+        "source": "/article",
+        "destination": "/article.html"
+      },
+      {
+        "source": "/innovation",
+        "destination": "/innovation.html"
+      },
+      {
+        "source": "/innovation-article",
+        "destination": "/innovation-article.html"
+      },
+      {
+        "source": "/rex",
+        "destination": "/rex.html"
+      },
+      {
+        "source": "/rex-article",
+        "destination": "/rex-article.html"
+      },
+      {
+        "source": "/postes-ouverts",
+        "destination": "/postes-ouverts.html"
+      },
+      {
+        "source": "/nous-rejoindre",
+        "destination": "/nous-rejoindre.html"
+      },
+      {
+        "source": "/equipe-dirigeante",
+        "destination": "/equipe-dirigeante.html"
+      },
+      {
+        "source": "/risques-digitaux",
+        "destination": "/risques-digitaux.html"
+      },
+      {
+        "source": "/cyber-defense",
+        "destination": "/cyber-defense.html"
+      },
+      {
+        "source": "/audit-conformite",
+        "destination": "/audit-conformite.html"
+      },
+      {
+        "source": "/transfo-cyber",
+        "destination": "/transfo-cyber.html"
+      },
+      {
+        "source": "/secteur-luxe",
+        "destination": "/secteur-luxe.html"
+      },
+      {
+        "source": "/secteur-technologie",
+        "destination": "/secteur-technologie.html"
+      },
+      {
+        "source": "/secteur-banque",
+        "destination": "/secteur-banque.html"
+      },
+      {
+        "source": "/secteur-assurance",
+        "destination": "/secteur-assurance.html"
+      },
+      {
+        "source": "/secteur-retail",
+        "destination": "/secteur-retail.html"
+      },
+      {
+        "source": "/secteur-industrie-transport",
+        "destination": "/secteur-industrie-transport.html"
+      },
+      {
+        "source": "/cyber-4-ai",
+        "destination": "/cyber-4-ai.html"
+      },
+      {
+        "source": "/offres",
+        "destination": "/offres.html"
+      },
+      {
+        "source": "/swift",
+        "destination": "/swift.html"
+      },
+      {
+        "source": "/retex-swift-pharma",
+        "destination": "/retex-swift-pharma.html"
+      },
+      {
+        "source": "/retex-swift-betting",
+        "destination": "/retex-swift-betting.html"
+      },
+      {
+        "source": "/audit-organisationnel",
+        "destination": "/audit-organisationnel.html"
+      },
+      {
+        "source": "/audit-conformite-nis-dora",
+        "destination": "/audit-conformite-nis-dora.html"
+      },
+      {
+        "source": "/mentions-legales",
+        "destination": "/mentions-legales.html"
+      },
+      {
+        "source": "/protection-donnees",
+        "destination": "/protection-donnees.html"
+      }
     ]
   }
 }

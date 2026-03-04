@@ -8,6 +8,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.classList.add('js-reveal');
+  const isLocalHost = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const articleBasePath = isLocalHost ? '/article.html' : '/article';
+  const blogBasePath = isLocalHost ? '/blog.html' : '/blog';
+  const rexArticleBasePath = isLocalHost ? '/rex-article.html' : '/rex-article';
   const LANG_STORAGE_KEY = 'actinuance_lang';
   const frTitle = document.title;
   const textNodeOriginals = new WeakMap();
@@ -29,13 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
     'nous-rejoindre': 'Join Us — Actinuance',
     'equipe-dirigeante': 'Leadership Team — Actinuance',
     blog: 'Actinuance — Blog',
+    rex: 'Actinuance — Mission REX',
+    'rex-article': 'Actinuance — Mission REX',
     innovation: 'Actinuance — Innovation',
+    'innovation-article': 'Actinuance — Innovation',
     article: 'Actinuance — Article',
     offres: 'Actinuance — Offers',
     'postes-ouverts': 'Open Roles — Actinuance',
     'audit-organisationnel': 'Organizational Audit — Actinuance',
     'audit-conformite-nis-dora': 'NIS2 & DORA Compliance Audit — Actinuance',
-    swift: 'Swift CSP — Actinuance'
+    swift: 'Swift CSP — Actinuance',
+    'secteur-banque': 'Banking Sector — Actinuance',
+    'secteur-assurance': 'Insurance Sector — Actinuance',
+    'secteur-retail': 'Retail Sector — Actinuance',
+    'secteur-industrie-transport': 'Industry & Transport Sector — Actinuance',
+    'secteur-luxe': 'Luxury Sector — Actinuance',
+    'secteur-technologie': 'Technology Sector — Actinuance'
   };
 
   const normalizeText = (value) => value.replace(/\s+/g, ' ').trim();
@@ -49,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Nous rejoindre': 'Join us',
     'Nous contacter': 'Contact us',
     'Articles': 'Articles',
+    'REX': 'Mission REX',
     'Innovation': 'Innovation',
     'Postes ouverts': 'Open roles',
     'Toutes les offres': 'All offers',
@@ -203,6 +217,18 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
 
   // ── 1b. NAV DROPDOWNS ─────────────────────────
+  // Ensure Publications dropdown always contains REX entry across all pages.
+  const ensureRexInDesktopMenu = () => {
+    const publicationMenus = Array.from(document.querySelectorAll('#ressourcesDropdown.nav-dropdown-menu'));
+    publicationMenus.forEach((menu) => {
+      if (menu.querySelector('a[href=\"/rex\"]')) return;
+      const li = document.createElement('li');
+      li.innerHTML = '<a href=\"/rex\">REX</a>';
+      menu.appendChild(li);
+    });
+  };
+  ensureRexInDesktopMenu();
+
   const navDropdownItems = Array.from(document.querySelectorAll('.nav-item-dropdown'));
   navDropdownItems.forEach((item) => {
     const trigger = item.querySelector('.nav-dropdown-trigger');
@@ -728,18 +754,19 @@ document.addEventListener('DOMContentLoaded', () => {
             <details class="m-accordion">
               <summary>${currentLang === 'en' ? 'Industries' : 'Secteurs'}</summary>
               <div class="m-sub">
-                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Banking' : 'Banque'}</a>
-                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Insurance' : 'Assurance'}</a>
-                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
-                <a href="/#secteurs" onclick="closeMobileNav()">Retail</a>
-                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
-                <a href="/#secteurs" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Techno'}</a>
+                <a href="/secteur-banque" onclick="closeMobileNav()">${currentLang === 'en' ? 'Banking' : 'Banque'}</a>
+                <a href="/secteur-assurance" onclick="closeMobileNav()">${currentLang === 'en' ? 'Insurance' : 'Assurance'}</a>
+                <a href="/secteur-luxe" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
+                <a href="/secteur-retail" onclick="closeMobileNav()">Retail</a>
+                <a href="/secteur-industrie-transport" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
+                <a href="/secteur-technologie" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Techno'}</a>
               </div>
             </details>
             <details class="m-accordion">
               <summary>${currentLang === 'en' ? 'Publications' : 'Publications'}</summary>
               <div class="m-sub">
                 <a href="/blog" onclick="closeMobileNav()">Articles</a>
+                <a href="/rex" onclick="closeMobileNav()">REX</a>
                 <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
               </div>
             </details>
@@ -1157,6 +1184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (offerRelatedFeed) {
     const offerTag = (offerRelatedFeed.dataset.offerTag || '').trim();
     const limit = Math.max(parseInt(offerRelatedFeed.dataset.offerLimit || '2', 10), 1);
+    const offerRelatedSection = offerRelatedFeed.closest('.offer-shell-section');
 
     const escapeHtml = (value) =>
       String(value || '')
@@ -1166,16 +1194,17 @@ document.addEventListener('DOMContentLoaded', () => {
         .replace(/"/g, '&quot;')
         .replace(/'/g, '&#39;');
 
-    const isLinkedInUrl = (url) => /linkedin\.com/i.test(String(url || ''));
-
     const loadOfferRelatedPosts = async () => {
       const projectId = 'vnmxplwi';
       const dataset = 'production';
       const apiVersion = '2024-10-01';
-      const query = `*[_type in ["blogPost", "linkedinPost"] && (!defined(status) || status == "published") && $offerTag in coalesce(offerTags, [])] | order(coalesce(publishedAt, _createdAt) asc){
-        _type,
+      const query = `*[
+        _type == "blogPost"
+        && (!defined(status) || status == "published")
+        && offerTag == $offerTag
+      ] | order(coalesce(publishedAt, _createdAt) desc){
         title,
-        "slug": select(_type == "blogPost" => slug.current, null),
+        "slug": slug.current,
         externalUrl,
         publicationType,
         publishedAt
@@ -1201,33 +1230,126 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const fifoItems = result.slice(0, limit);
       if (!fifoItems.length) {
-        offerRelatedFeed.innerHTML = `
-          <a class="offer-related-card" href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">
-            <strong>LinkedIn Actinuance</strong>
-            <span>Aucun post tagué pour cette offre pour le moment. Voir le flux LinkedIn.</span>
-          </a>
-        `;
+        if (offerRelatedSection) offerRelatedSection.style.display = 'none';
         return;
       }
 
       offerRelatedFeed.innerHTML = fifoItems.map((item) => {
         const title = escapeHtml(item.title || 'Publication');
-        const href = item.externalUrl || (item.slug ? `article?slug=${encodeURIComponent(item.slug)}` : '/blog');
-        const source = item._type === 'linkedinPost' || isLinkedInUrl(item.externalUrl) ? 'LinkedIn' : 'Blog';
+        const href = item.externalUrl || (item.slug ? `${articleBasePath}?slug=${encodeURIComponent(item.slug)}` : blogBasePath);
         const external = /^https?:\/\//i.test(href);
         return `
           <a class="offer-related-card" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
             <strong>${title}</strong>
-            <span>Source: ${source}</span>
+            <span>Source: Blog</span>
           </a>
         `;
       }).join('');
     };
 
-  if (offerTag) loadOfferRelatedPosts();
+  if (offerTag) {
+    loadOfferRelatedPosts();
+  } else if (offerRelatedSection) {
+    offerRelatedSection.style.display = 'none';
+  }
   }
 
-  // ── 14. AI PAGE OBSERVED VECTORS (Sanity) ────
+  // ── 14. OFFER REX FEEDS (Sanity) ─────────────
+  const offerRexGrids = Array.from(document.querySelectorAll('.offer-retex-grid'));
+  if (offerRexGrids.length) {
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const projectId = 'vnmxplwi';
+    const dataset = 'production';
+    const apiVersion = '2024-10-01';
+
+    const loadOfferRexGrid = async (grid) => {
+      const section = grid.closest('.offer-shell-section');
+      const shell = grid.closest('.offer-shell-main') || document;
+      const relatedFeed =
+        shell.querySelector('.offer-related-feed[data-offer-tag]') ||
+        shell.querySelector('#offerRelatedFeed[data-offer-tag]');
+      const offerTag = (relatedFeed?.dataset?.offerTag || '').trim();
+
+      if (!offerTag) {
+        if (section) section.style.display = 'none';
+        return;
+      }
+
+      const limit = 2;
+      const query = `*[
+        _type == "offerRex"
+        && status == "published"
+        && offerTag == $offerTag
+      ] | order(coalesce(publishedAt, _createdAt) desc){
+        _type,
+        title,
+        summary,
+        "url": linkUrl,
+        "slug": slug.current,
+        sector
+      }[0...$limit]`;
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+      ];
+
+      let rows = [];
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          rows = Array.isArray(json.result) ? json.result : [];
+          if (rows.length) break;
+        } catch (_) {
+          // Try next endpoint
+        }
+      }
+
+      if (!rows.length) {
+        if (section) section.style.display = 'none';
+        return;
+      }
+
+      grid.innerHTML = rows.map((item) => {
+        const title = escapeHtml(item.title || 'REX');
+        const sector = escapeHtml(item.sector || 'Retour d’expérience');
+        const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
+        const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
+        const external = /^https?:\/\//i.test(href);
+        if (!href) {
+          return `
+          <article class="offer-retex-link">
+            <strong>${title}</strong>
+            <span>Secteur: ${sector}</span>
+            <span>${summary}</span>
+          </article>
+        `;
+        }
+        return `
+          <a class="offer-retex-link" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+            <strong>${title}</strong>
+            <span>Secteur: ${sector}</span>
+            <span>${summary}</span>
+          </a>
+        `;
+      }).join('');
+    };
+
+    offerRexGrids.forEach((grid) => {
+      loadOfferRexGrid(grid);
+    });
+  }
+
+  // ── 15. AI PAGE OBSERVED VECTORS (Sanity) ────
   const aiVectorsList = document.getElementById('aiVectorsList');
   if (aiVectorsList) {
     const aiVectorsTitle = document.getElementById('aiVectorsTitle');
@@ -1310,6 +1432,197 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     loadAiObservedVectors();
+  }
+
+  // ── 16. AI PAGE REX FEED (Sanity) ─────────────
+  const aiRexFeed = document.getElementById('aiRexFeed');
+  if (aiRexFeed) {
+    const offerTag = (aiRexFeed.dataset.offerTag || '').trim();
+    const limit = Math.max(parseInt(aiRexFeed.dataset.limit || '3', 10), 1);
+
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const loadAiRexFeed = async () => {
+      const projectId = 'vnmxplwi';
+      const dataset = 'production';
+      const apiVersion = '2024-10-01';
+      const query = `*[
+        _type == "offerRex"
+        && status == "published"
+        && offerTag == $offerTag
+      ] | order(coalesce(publishedAt, _createdAt) desc){
+        _type,
+        title,
+        summary,
+        "url": linkUrl,
+        "slug": slug.current,
+        sector
+      }[0...$limit]`;
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+      ];
+
+      let rows = [];
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          rows = Array.isArray(json.result) ? json.result : [];
+          if (rows.length) break;
+        } catch (_) {
+          // try next endpoint
+        }
+      }
+
+      if (!rows.length) {
+        const aiRexSection = aiRexFeed.closest('.rex-section');
+        if (aiRexSection) aiRexSection.style.display = 'none';
+        return;
+      }
+
+      aiRexFeed.innerHTML = rows.map((item) => {
+        const sector = item.sector || 'Secteur';
+        const title = escapeHtml(item.title || 'REX');
+        const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
+        const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
+        const external = /^https?:\/\//i.test(href);
+        if (!href) {
+          return `
+          <article class="rex-card">
+            <div class="rex-sector">${escapeHtml(sector)}</div>
+            <h3>${title}</h3>
+            <p>${summary}</p>
+          </article>
+        `;
+        }
+        return `
+          <a class="rex-card" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+            <div class="rex-sector">${escapeHtml(sector)}</div>
+            <h3>${title}</h3>
+            <p>${summary}</p>
+          </a>
+        `;
+      }).join('');
+    };
+
+    if (offerTag) {
+      loadAiRexFeed();
+    } else {
+      const aiRexSection = aiRexFeed.closest('.rex-section');
+      if (aiRexSection) aiRexSection.style.display = 'none';
+    }
+  }
+
+  // ── 17. SECTOR REX FEED (Sanity) ─────────────
+  const sectorRexFeeds = Array.from(document.querySelectorAll('[data-rex-sector]'));
+  if (sectorRexFeeds.length) {
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const projectId = 'vnmxplwi';
+    const dataset = 'production';
+    const apiVersion = '2024-10-01';
+
+    const loadSectorRex = async (feed) => {
+      const sectorTag = (feed.dataset.rexSector || '').trim().toLowerCase();
+      const limit = Math.max(parseInt(feed.dataset.limit || '3', 10), 1);
+      const section = feed.closest('.luxe-rex, .rex-section, section');
+      if (!sectorTag) {
+        if (section) section.style.display = 'none';
+        return;
+      }
+
+      const query = `*[
+        _type == "offerRex"
+        && status == "published"
+        && defined(sector)
+        && lower(sector) match $sectorPattern
+      ] | order(coalesce(publishedAt, _createdAt) desc){
+        title,
+        summary,
+        sector,
+        "url": linkUrl,
+        "slug": slug.current,
+        "coverUrl": coverImage.asset->url,
+        "coverAlt": coalesce(coverImage.alt, title)
+      }[0...$limit]`;
+
+      const sectorPattern = `*${sectorTag}*`;
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$sectorPattern=${encodeURIComponent(JSON.stringify(sectorPattern))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$sectorPattern=${encodeURIComponent(JSON.stringify(sectorPattern))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+      ];
+
+      let rows = [];
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          rows = Array.isArray(json.result) ? json.result : [];
+          if (rows.length) break;
+        } catch (_) {
+          // try fallback endpoint
+        }
+      }
+
+      if (!rows.length) {
+        if (section) section.classList.add('luxe-rex-hidden');
+        return;
+      }
+
+      feed.innerHTML = rows.map((item) => {
+        const title = escapeHtml(item.title || 'REX');
+        const sector = escapeHtml(item.sector || 'Secteur');
+        const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
+        const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
+        const external = /^https?:\/\//i.test(href);
+        const image = item.coverUrl
+          ? `<div class="luxe-rex-media"><img src="${escapeHtml(item.coverUrl)}" alt="${escapeHtml(item.coverAlt || title)}" loading="lazy" decoding="async"></div>`
+          : '<div class="luxe-rex-media" aria-hidden="true"></div>';
+
+        if (!href) {
+          return `
+            <article class="luxe-rex-item reveal visible">
+              ${image}
+              <div class="luxe-rex-body">
+                <p class="luxe-rex-kicker">${sector}</p>
+                <h3>${title}</h3>
+                <p>${summary}</p>
+              </div>
+            </article>
+          `;
+        }
+
+        return `
+          <a class="luxe-rex-item reveal visible" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+            ${image}
+            <div class="luxe-rex-body">
+              <p class="luxe-rex-kicker">${sector}</p>
+              <h3>${title}</h3>
+              <p>${summary}</p>
+              <span class="card-link">Lire le REX →</span>
+            </div>
+          </a>
+        `;
+      }).join('');
+    };
+
+    sectorRexFeeds.forEach((feed) => loadSectorRex(feed));
   }
 
   // Vision logos fallback: avoid broken image icons when a provider URL is unavailable.

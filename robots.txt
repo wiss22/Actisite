@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://landing-site-9ce39.web.app/sitemap.xml

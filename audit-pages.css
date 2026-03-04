@@ -1523,7 +1523,8 @@
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     display: flex;
-    width: max-content;
+    width: 100%;
+    max-width: 100%;
     padding-bottom: 2px;
   }
   .pillar-flynav.mobile-overview-nav .pillar-mobile-links::-webkit-scrollbar {

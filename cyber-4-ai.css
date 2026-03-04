@@ -210,6 +210,66 @@ h1 .red{color:var(--g)}
 .proof-slabel{font-size:.75rem;color:rgba(255,255,255,.3);margin-bottom:14px}
 .proof-text{font-size:.8rem;color:rgba(255,255,255,.5);line-height:1.65}
 
+/* ── REX (SANITY FEED) ───────────────────────────── */
+.rex-section{
+  background:
+    radial-gradient(ellipse 70% 48% at 14% 8%, rgba(83,35,105,.07) 0%, transparent 62%),
+    radial-gradient(ellipse 76% 52% at 86% 92%, rgba(241,136,71,.09) 0%, transparent 66%),
+    linear-gradient(180deg, #e1e0e5 0%, #d2d2d8 100%);
+}
+.rex-eyebrow{color:#532369}
+.rex-title{color:#1f1630}
+.rex-title .text-orange{color:#f18847}
+.rex-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;
+}
+.rex-card{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  min-height:210px;
+  border:1px solid rgba(83,35,105,.15);
+  border-radius:12px;
+  padding:22px 20px;
+  background:rgba(255,255,255,.85);
+  color:#23163a;
+  text-decoration:none;
+  transition:transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+.rex-card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(241,136,71,.55);
+  box-shadow:0 12px 28px rgba(36,18,56,.12);
+}
+.rex-sector{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  font-size:.64rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#f18847;
+  border:1px solid rgba(241,136,71,.35);
+  border-radius:999px;
+  padding:3px 10px;
+}
+.rex-card h3{
+  font-family:'Raleway',sans-serif;
+  font-size:1.06rem;
+  line-height:1.35;
+  font-weight:800;
+  color:#25153b;
+}
+.rex-card p{
+  margin-top:auto;
+  font-size:.84rem;
+  line-height:1.62;
+  color:rgba(37,21,59,.76);
+}
+
 /* ── WHY ─────────────────────────────────────────── */
 .surface{
   background:
@@ -589,5 +649,26 @@ h1 .red{color:var(--g)}
   .page-cyber4ai .dr-t{
     white-space: normal;
     text-align: right;
+  }
+
+  .proof-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .rex-grid{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+  .rex-card{
+    min-height:0;
+    padding:16px 14px;
+    border-radius:10px;
+  }
+  .rex-card h3{
+    font-size:.96rem;
+  }
+  .rex-card p{
+    font-size:.8rem;
+    line-height:1.55;
   }
 }

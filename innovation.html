@@ -3,6 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Innovation chez Actinuance: IA, sécurité by design, transformation cyber et industrialisation des contrôles." />
+  <link rel="canonical" href="https://landing-site-9ce39.web.app/innovation" />
+  <meta property="og:site_name" content="Actinuance" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Actinuance — Innovation" />
+  <meta property="og:description" content="Innovation chez Actinuance: IA, sécurité by design, transformation cyber et industrialisation des contrôles." />
+  <meta property="og:url" content="https://landing-site-9ce39.web.app/innovation" />
+  <meta property="og:image" content="https://landing-site-9ce39.web.app/static/favicon-512.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Actinuance — Innovation" />
+  <meta name="twitter:description" content="Innovation chez Actinuance: IA, sécurité by design, transformation cyber et industrialisation des contrôles." />
+  <meta name="twitter:image" content="https://landing-site-9ce39.web.app/static/favicon-512.png" />
   <title>Actinuance — Innovation</title>
   <link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260222">
 </head>
-<body>
+<body class="innovation-page">
 
   <nav id="navbar">
     <div class="nav-inner">
@@ -37,12 +50,12 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="secteursDropdownTrigger" aria-expanded="false" aria-haspopup="true">Secteurs</button>
           <ul class="nav-dropdown-menu" id="secteursDropdown" aria-label="Sous-menu Secteurs">
-            <li><a href="/#secteurs">Banque</a></li>
-            <li><a href="/#secteurs">Assurance</a></li>
-            <li><a href="/#secteurs">Luxe</a></li>
-            <li><a href="/#secteurs">Retail</a></li>
-            <li><a href="/#secteurs">Industrie & Transport</a></li>
-            <li><a href="/#secteurs">Technologie</a></li>
+            <li><a href="/secteur-banque">Banque</a></li>
+            <li><a href="/secteur-assurance">Assurance</a></li>
+            <li><a href="/secteur-luxe">Luxe</a></li>
+            <li><a href="/secteur-retail">Retail</a></li>
+            <li><a href="/secteur-industrie-transport">Industrie & Transport</a></li>
+            <li><a href="/secteur-technologie">Technologie</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -62,30 +75,19 @@
     </div>
   </nav>
 
-  <section class="section" style="padding-top: 140px; background: linear-gradient(135deg, #afafaf 0%, #afafaf 100%);">
+  <section class="section publications-hero innovation-hero" style="padding-top: 140px;">
     <div class="container">
       <div class="section-intro">
-        <div class="section-eyebrow" style="color:#2d2142;">Publications — Innovation</div>
-        <h1 class="section-heading" style="color:#2d2142;">Nos sujets d’<em>innovation</em><br>en cybersécurité</h1>
-        <p class="section-sub" style="color:rgba(45,33,66,0.82);">Veille active, IA appliquée, sécurité by design et industrialisation des contrôles.</p>
+        <div class="section-eyebrow">Publications — Innovation</div>
+        <h1 class="section-heading">Nos sujets d’<em>innovation</em><br>en cybersécurité</h1>
+        <p class="section-sub">Veille active, IA appliquée, sécurité by design et industrialisation des contrôles.</p>
       </div>
 
-      <div class="ressources-grid">
-        <article class="ressource-card big reveal">
-          <div class="ressource-tag">Innovation</div>
-          <h3>IA & détection: vers des SOC augmentés</h3>
-          <p>Détection des signaux faibles et enrichissement des alertes pour réduire le bruit opérationnel.</p>
-          <a href="#" class="card-link">Lire →</a>
-        </article>
-        <article class="ressource-card reveal" data-delay="80">
-          <div class="ressource-tag">R&amp;D</div>
-          <h3>Conformité continue et monitoring automatisé</h3>
-          <a href="#" class="card-link">Lire →</a>
-        </article>
-        <article class="ressource-card reveal" data-delay="120">
-          <div class="ressource-tag">Méthode</div>
-          <h3>Security by design industrialisé</h3>
-          <a href="#" class="card-link">Lire →</a>
+      <div class="ressources-grid" id="innovationGrid">
+        <article class="ressource-card" id="innovationLoadingCard">
+          <div class="ressource-tag">Chargement</div>
+          <h3>Chargement des publications Innovation…</h3>
+          <p>Connexion en cours avec Sanity Studio.</p>
         </article>
       </div>
     </div>
@@ -104,10 +106,10 @@
             <div class="badge-sub">Certifié par nos collaborateurs</div>
           </div></a>
         <div class="footer-social">
-          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
-          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" aria-label="Glassdoor">
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
           </a>
         </div>
@@ -122,12 +124,12 @@
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Secteurs</div>
-          <a href="/#secteurs">Banque</a>
-          <a href="/#secteurs">Assurance</a>
-          <a href="/#secteurs">Luxe</a>
-          <a href="/#secteurs">Retail</a>
-          <a href="/#secteurs">Industrie &amp; Transport</a>
-          <a href="/#secteurs">Technologie</a>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-retail">Retail</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Technologie</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
@@ -146,6 +148,82 @@
       </div>
     </div>
   </footer>
+  <script>
+    (async function () {
+      const escapeHtml = (value) =>
+        String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+
+      const grid = document.getElementById('innovationGrid');
+      if (!grid) return;
+
+      const projectId = 'vnmxplwi';
+      const dataset = 'production';
+      const apiVersion = '2024-10-01';
+      const query = `*[_type == "innovationMedia" && status == "published"] | order(coalesce(publishedAt, _createdAt) desc){
+        title,
+        excerpt,
+        "slug": slug.current,
+        mediaItems[]{
+          _type
+        }
+      }`;
+
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&t=${Date.now()}`
+      ];
+
+      let items = [];
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          items = Array.isArray(json.result) ? json.result : [];
+          if (items.length) break;
+        } catch (_) {
+          // try next endpoint
+        }
+      }
+
+      if (!items.length) {
+        grid.innerHTML = `
+          <article class="ressource-card big">
+            <div class="ressource-tag">Innovation</div>
+            <h3>Aucune publication innovation pour le moment</h3>
+            <p>Ajoutez un document « Innovation (PDF & Vidéos) » publié dans Sanity.</p>
+          </article>
+        `;
+        return;
+      }
+
+      grid.innerHTML = items.map((item, index) => {
+        const mediaKinds = Array.isArray(item.mediaItems) ? item.mediaItems.map((m) => m && m._type).filter(Boolean) : [];
+        const hasPdf = mediaKinds.includes('pdfDocument');
+        const hasVideo = mediaKinds.includes('videoEmbed');
+        const mediaTag = hasPdf && hasVideo ? 'PDF + Vidéo' : (hasPdf ? 'PDF' : 'Vidéo');
+        const title = escapeHtml(item.title || 'Publication innovation');
+        const excerpt = escapeHtml(item.excerpt || 'Publication innovation Actinuance.');
+        const href = item.slug ? `innovation-article?slug=${encodeURIComponent(item.slug)}` : '/innovation';
+        const cardClass = index === 0 ? 'ressource-card big' : 'ressource-card';
+        return `
+          <article class="${cardClass}">
+            <a href="${href}" style="text-decoration:none;color:inherit;display:block;">
+              <div class="ressource-tag">Innovation • ${mediaTag}</div>
+              <h3>${title}</h3>
+              <p>${excerpt}</p>
+              <span class="card-link">Lire →</span>
+            </a>
+          </article>
+        `;
+      }).join('');
+    })();
+  </script>
   <script src="script.js?v=20260222"></script>
 </body>
 </html>
