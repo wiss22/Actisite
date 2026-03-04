@@ -213,8 +213,9 @@ export const blogPostType = defineType({
         list: [
           {title: 'SWIFT CSP', value: 'swift-csp'},
           {title: 'Cyber for AI', value: 'cyber-4-ai'},
-          {title: 'Audit organisationnel', value: 'audit-organisationnel'},
-          {title: 'Audit conformité NIS2/DORA', value: 'audit-conformite-nis-dora'},
+          {title: 'Audit et Contrôles', value: 'audit-organisationnel'},
+          {title: 'Résilience réglementaire', value: 'audit-conformite-nis-dora'},
+          {title: 'Conformité sectorielle', value: 'conformite-sectorielle'},
           {title: 'Sécurité du cloud', value: 'cyber-cloud'},
           {title: 'Sécurité du développement', value: 'cyber-development'},
           {title: 'Sécurité des industries', value: 'cyber-industries'},

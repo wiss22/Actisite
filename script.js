@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'postes-ouverts': 'Open Roles — Actinuance',
     'audit-organisationnel': 'Organizational Audit — Actinuance',
     'audit-conformite-nis-dora': 'NIS2 & DORA Compliance Audit — Actinuance',
+    'conformite-sectorielle': 'Sectoral Compliance — Actinuance',
     swift: 'Swift CSP — Actinuance',
     'secteur-banque': 'Banking Sector — Actinuance',
     'secteur-assurance': 'Insurance Sector — Actinuance',
@@ -96,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Luxe': 'Luxury',
     'Retail': 'Retail',
     'Industrie & Transport': 'Industry & Transportation',
-    'Techno': 'Technology',
+    'Tech': 'Technology',
     'Banque': 'Banking',
     'Swift': 'Swift',
     'SWIFT': 'Swift CSP',
@@ -215,6 +216,58 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // ── 1a. HERO AUTO-SCROLL (expertises/offres/secteurs) ─────────
+  const enableHeroAutoScroll = (() => {
+    if ((window.location.hash || '').length > 1) return false;
+    const key = pageKey;
+    if (key.startsWith('secteur-')) return true;
+    return [
+      'risques-digitaux',
+      'cyber-defense',
+      'audit-conformite',
+      'transfo-cyber',
+      'cyber-4-ai',
+      'audit-organisationnel',
+      'audit-conformite-nis-dora',
+      'conformite-sectorielle',
+      'swift',
+      'cyber-cloud-defense',
+      'cyber-securite-developpement',
+      'cyber-securite-industries',
+      'cyber-resilience-operationnelle'
+    ].includes(key);
+  })();
+
+  if (enableHeroAutoScroll) {
+    const heroEl = document.querySelector('.page-hero');
+    let nextSectionEl = null;
+    if (heroEl) {
+      let cursor = heroEl.nextElementSibling;
+      while (cursor) {
+        if (cursor.tagName === 'SECTION') {
+          nextSectionEl = cursor;
+          break;
+        }
+        cursor = cursor.nextElementSibling;
+      }
+    }
+
+    if (heroEl && nextSectionEl) {
+      let canceled = false;
+      const cancelAutoScroll = () => { canceled = true; };
+      window.addEventListener('wheel', cancelAutoScroll, { passive: true, once: true });
+      window.addEventListener('touchstart', cancelAutoScroll, { passive: true, once: true });
+      window.addEventListener('keydown', cancelAutoScroll, { passive: true, once: true });
+      window.addEventListener('mousedown', cancelAutoScroll, { passive: true, once: true });
+
+      window.setTimeout(() => {
+        if (canceled) return;
+        if (window.scrollY > 24) return;
+        nextSectionEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 3000);
+    }
+  }
 
   // ── 1b. NAV DROPDOWNS ─────────────────────────
   // Ensure Publications dropdown always contains REX entry across all pages.
@@ -759,7 +812,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/secteur-luxe" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
                 <a href="/secteur-retail" onclick="closeMobileNav()">Retail</a>
                 <a href="/secteur-industrie-transport" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
-                <a href="/secteur-technologie" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Techno'}</a>
+                <a href="/secteur-technologie" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Tech'}</a>
               </div>
             </details>
             <details class="m-accordion">

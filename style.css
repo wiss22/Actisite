@@ -2471,6 +2471,9 @@ img { max-width: 100%; display: block; }
 .rex-page #rexGrid .ressource-card {
   padding: 0;
   overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(251,248,255,0.95));
+  border-color: rgba(170,125,217,0.26);
+  box-shadow: 0 14px 30px rgba(18,10,31,0.2);
 }
 
 .rex-page #rexGrid .ressource-card > a {
@@ -2517,6 +2520,13 @@ img { max-width: 100%; display: block; }
 .rex-page #rexGrid .card-link {
   margin-top: auto;
   padding-bottom: 22px;
+  color: #7d4fc0;
+}
+
+.rex-page #rexGrid .ressource-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(241,136,71,0.44);
+  box-shadow: 0 18px 38px rgba(18,10,31,0.26);
 }
 
 .blog-linkedin-band {
@@ -2638,24 +2648,27 @@ img { max-width: 100%; display: block; }
 
 .rex-hero {
   background:
-    linear-gradient(160deg, #201329 0%, #2c1b37 43%, #3a253f 100%);
+    radial-gradient(980px 460px at 18% 2%, rgba(241,136,71,0.28), rgba(241,136,71,0) 62%),
+    radial-gradient(900px 420px at 90% 10%, rgba(126,84,182,0.26), rgba(126,84,182,0) 66%),
+    linear-gradient(152deg, #1f1231 0%, #2a173b 44%, #251936 100%);
 }
 
 .rex-hero::before {
   background:
-    linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 13%),
-    linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 18%);
-  background-size: 100% 100%, 100% 100%;
-  animation: rexHeroGrid 24s linear infinite;
-  opacity: 0.22;
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,0.17) 0 2px, transparent 2px 100%),
+    radial-gradient(circle at 85% 66%, rgba(255,255,255,0.13) 0 2px, transparent 2px 100%),
+    repeating-linear-gradient(120deg, rgba(255,255,255,0.06) 0 1px, transparent 1px 72px);
+  animation: rexHeroGrid 22s linear infinite;
+  opacity: 0.3;
 }
 
 .rex-hero::after {
   background:
-    radial-gradient(720px 320px at 14% 84%, rgba(241,136,71,0.24), rgba(241,136,71,0) 65%),
-    radial-gradient(820px 330px at 82% 14%, rgba(161,122,211,0.2), rgba(161,122,211,0) 70%);
-  filter: blur(10px);
-  opacity: 0.9;
+    conic-gradient(from 136deg at 84% 18%, rgba(241,136,71,0.22), rgba(118,77,167,0.18), rgba(241,136,71,0.1)),
+    radial-gradient(680px 280px at 16% 82%, rgba(241,136,71,0.24), rgba(241,136,71,0) 70%);
+  filter: blur(12px);
+  opacity: 0.86;
+  animation: rexHeroSweep 16s ease-in-out infinite alternate;
 }
 
 .innovation-hero {
@@ -2700,6 +2713,11 @@ img { max-width: 100%; display: block; }
 @keyframes rexHeroGrid {
   from { transform: translate3d(0, 0, 0); }
   to { transform: translate3d(-28px, -20px, 0); }
+}
+
+@keyframes rexHeroSweep {
+  from { transform: translate3d(-1.8%, 0, 0) rotate(0deg); }
+  to { transform: translate3d(1.8%, -1.5%, 0) rotate(3deg); }
 }
 
 @keyframes innovationDots {

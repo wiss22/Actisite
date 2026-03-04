@@ -212,6 +212,11 @@
         "type": 301
       },
       {
+        "source": "/conformite-sectorielle.html",
+        "destination": "/conformite-sectorielle",
+        "type": 301
+      },
+      {
         "source": "/mentions-legales.html",
         "destination": "/mentions-legales",
         "type": 301
@@ -338,6 +343,10 @@
       {
         "source": "/audit-conformite-nis-dora",
         "destination": "/audit-conformite-nis-dora.html"
+      },
+      {
+        "source": "/conformite-sectorielle",
+        "destination": "/conformite-sectorielle.html"
       },
       {
         "source": "/mentions-legales",
