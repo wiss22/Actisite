@@ -1351,7 +1351,7 @@ img { max-width: 100%; display: block; }
 .career-track {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(7, minmax(110px, 1fr));
+  grid-template-columns: repeat(6, minmax(120px, 1fr));
   gap: 6px;
   margin-top: 10px;
   margin-bottom: 18px;

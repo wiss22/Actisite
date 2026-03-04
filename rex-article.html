@@ -24,7 +24,53 @@
   <link rel="stylesheet" href="style.css?v=20260222">
   <style>
     .article-shell { max-width: 1160px; margin: 0 auto; }
-    .article-meta { color: rgba(255,255,255,.72); font-size: .95rem; margin-bottom: 24px; }
+    .article-meta { color: rgba(255,255,255,.78); font-size: .95rem; margin-bottom: 0; }
+    .article-hero-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 44%) minmax(0, 1fr);
+      gap: 30px;
+      align-items: stretch;
+      margin-bottom: 26px;
+    }
+    .article-hero-media {
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      min-height: 300px;
+    }
+    .article-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .article-hero-copy {
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 16px;
+      padding: 26px 26px 22px;
+      background: linear-gradient(160deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
+      backdrop-filter: blur(2px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+    .rex-hero-title-box {
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: rgba(27, 18, 44, 0.22);
+    }
+    .article-hero-copy .section-heading { margin-bottom: 0; }
+    .article-hero-excerpt {
+      margin: 0;
+      color: rgba(255,255,255,.86);
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      font-size: .95rem;
+    }
     .rex-layout {
       display: grid;
       grid-template-columns: 320px minmax(0, 1fr);
@@ -35,9 +81,10 @@
       position: sticky;
       top: 110px;
       border-radius: 14px;
-      border: 1px solid rgba(167,169,172,.45);
-      background: #a7a9ac;
-      padding: 16px;
+      border: 1px solid rgba(45,33,66,.14);
+      background: linear-gradient(180deg, #eef0f3 0%, #e6e8ec 100%);
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(16, 12, 25, 0.10);
     }
     .rex-meta-list {
       list-style: none;
@@ -49,22 +96,24 @@
     .rex-meta-item {
       border: 1px solid rgba(45,33,66,.16);
       border-radius: 10px;
-      padding: 10px 11px;
-      background: rgba(255,255,255,0.58);
+      padding: 11px 12px;
+      background: rgba(255,255,255,0.9);
     }
     .rex-meta-label {
       display: block;
       font-family: 'Poppins', sans-serif;
-      font-size: .62rem;
+      font-size: .64rem;
+      font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: rgba(241,136,71,.95);
+      color: #4b2c70;
       margin-bottom: 4px;
     }
     .rex-meta-value {
       display: block;
       color: #1f1630;
       font-family: 'Poppins', sans-serif;
+      font-weight: 700;
       line-height: 1.45;
       font-size: .9rem;
     }
@@ -107,14 +156,28 @@
     .article-content a { color: #663399; text-decoration: underline; }
     .article-content code { background: #f5f5f8; padding: .1rem .35rem; border-radius: 4px; }
     .article-back { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; color: #fff; text-decoration: none; }
+    .rex-article-hero {
+      padding-top: 140px;
+      padding-bottom: 44px;
+      min-height: 70vh;
+    }
+    .rex-article-hero .section-intro.light {
+      max-width: 900px;
+      margin-bottom: 18px;
+    }
     @media (max-width: 1024px) {
+      .article-hero-grid { grid-template-columns: 1fr; gap: 18px; }
+      .article-hero-media { min-height: 260px; }
       .rex-layout { grid-template-columns: 1fr; }
       .rex-sidebar { position: static; }
     }
-    @media (max-width: 768px) { .article-content { padding: 24px 18px 16px; border-radius: 12px; } }
+    @media (max-width: 768px) {
+      .article-hero-copy { padding: 18px 16px 16px; }
+      .article-content { padding: 24px 18px 16px; border-radius: 12px; }
+    }
   </style>
 </head>
-<body>
+<body class="blog-page rex-page">
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" /></a>
@@ -129,12 +192,21 @@
     </div>
   </nav>
 
-  <section class="section section-dark" style="padding-top: 140px; min-height: 70vh;">
+  <section class="section section-dark publications-hero blog-hero rex-article-hero">
     <div class="container article-shell">
-      <div class="section-intro light">
-        <div class="section-eyebrow" id="articleTag">Publication — REX mission</div>
-        <h1 class="section-heading" id="articleTitle" style="color:#fff;">Chargement du REX…</h1>
-        <p class="article-meta" id="articleMeta"></p>
+      <div class="section-intro light" style="max-width:none;">
+        <div class="article-hero-grid">
+          <figure class="article-hero-media" id="articleHeroMedia">
+            <img id="articleHeroCover" src="" alt="" loading="eager" decoding="async" />
+          </figure>
+          <div class="article-hero-copy">
+            <div class="section-eyebrow" id="articleTag">Publication — REX mission</div>
+            <div class="rex-hero-title-box">
+              <h1 class="section-heading" id="articleTitle" style="color:#fff;">Chargement du REX…</h1>
+            </div>
+            <p class="article-hero-excerpt" id="articleHeroExcerpt"></p>
+          </div>
+        </div>
       </div>
       <div class="rex-layout">
         <aside class="rex-sidebar">
@@ -167,7 +239,9 @@
   <script>
     (async function () {
       const titleEl = document.getElementById('articleTitle');
-      const metaEl = document.getElementById('articleMeta');
+      const heroExcerptEl = document.getElementById('articleHeroExcerpt');
+      const heroCoverEl = document.getElementById('articleHeroCover');
+      const heroMediaEl = document.getElementById('articleHeroMedia');
       const contentEl = document.getElementById('articleContent');
       const rexMetaList = document.getElementById('rexMetaList');
       const params = new URLSearchParams(window.location.search);
@@ -204,8 +278,8 @@
         "coverAlt": coalesce(coverImage.alt, title),
         body[]{
           ...,
-          "url": select(_type == "image" => asset->url, null),
-          "alt": select(_type == "image" => coalesce(alt, title), null)
+          "url": select(_type in ["image", "inlineImage"] => asset->url, null),
+          "alt": select(_type in ["image", "inlineImage"] => coalesce(alt, title), null)
         }
       }`;
 
@@ -248,7 +322,8 @@
       const renderPortableText = (blocks) => {
         if (!Array.isArray(blocks) || !blocks.length) return '<p>Contenu en cours de publication.</p>';
         return blocks.map((block) => {
-          if (block && block._type === 'image' && block.url) {
+          const isImageBlock = block && (block._type === 'image' || block._type === 'inlineImage');
+          if (isImageBlock && block.url) {
             const imageUrl = escapeHtml(block.url);
             const imageAlt = escapeHtml(block.alt || '');
             return `<figure class="article-content-image"><img src="${imageUrl}" alt="${imageAlt}" loading="lazy" decoding="async">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`;
@@ -288,7 +363,13 @@
       };
 
       titleEl.textContent = doc.title || 'REX mission';
-      metaEl.textContent = [doc.sector ? `Secteur: ${doc.sector}` : '', dateLabel].filter(Boolean).join(' • ');
+      if (heroExcerptEl) heroExcerptEl.textContent = doc.summary || '';
+      if (heroCoverEl && doc.coverUrl) {
+        heroCoverEl.src = escapeHtml(doc.coverUrl);
+        heroCoverEl.alt = escapeHtml(doc.coverAlt || doc.title || 'Photo REX');
+      } else if (heroMediaEl) {
+        heroMediaEl.style.display = 'none';
+      }
       if (rexMetaList) {
         const items = [
           {label: 'Secteur', value: doc.sector},
@@ -305,8 +386,6 @@
         `).join('');
       }
       contentEl.innerHTML = [
-        doc.coverUrl ? `<img class="article-cover" src="${escapeHtml(doc.coverUrl)}" alt="${escapeHtml(doc.coverAlt || doc.title || 'Photo REX')}">` : '',
-        doc.summary ? `<p><strong>${escapeHtml(doc.summary)}</strong></p>` : '',
         renderPortableText(doc.body)
       ].join('');
     })();

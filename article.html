@@ -312,8 +312,8 @@
         "authorName": author->name,
         body[]{
           ...,
-          "url": select(_type == "image" => asset->url, null),
-          "alt": select(_type == "image" => coalesce(alt, title), null),
+          "url": select(_type in ["image", "inlineImage"] => asset->url, null),
+          "alt": select(_type in ["image", "inlineImage"] => coalesce(alt, title), null),
           "videoUrl": select(_type == "videoEmbed" => videoUrl, null),
           "videoTitle": select(_type == "videoEmbed" => title, null),
           "pdfUrl": select(_type == "pdfDocument" => pdfFile.asset->url, null),
@@ -351,7 +351,8 @@
       const renderPortableText = (blocks) => {
         if (!Array.isArray(blocks) || !blocks.length) return '<p>Contenu en cours de publication.</p>'
         return blocks.map((block) => {
-          if (block && block._type === 'image' && block.url) {
+          const isImageBlock = block && (block._type === 'image' || block._type === 'inlineImage')
+          if (isImageBlock && block.url) {
             const imageUrl = escapeHtml(block.url)
             const imageAlt = escapeHtml(block.alt || '')
             return `<figure class="article-content-image"><img src="${imageUrl}" alt="${imageAlt}" loading="lazy" decoding="async">${imageAlt ? `<figcaption>${imageAlt}</figcaption>` : ''}</figure>`
