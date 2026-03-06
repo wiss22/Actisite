@@ -207,13 +207,48 @@
         "type": 301
       },
       {
+        "source": "/resilience-reglemenaire.html",
+        "destination": "/resilience-reglemenaire",
+        "type": 301
+      },
+      {
         "source": "/audit-conformite-nis-dora.html",
-        "destination": "/audit-conformite-nis-dora",
+        "destination": "/resilience-reglemenaire",
         "type": 301
       },
       {
         "source": "/conformite-sectorielle.html",
         "destination": "/conformite-sectorielle",
+        "type": 301
+      },
+      {
+        "source": "/risques-gouvernance.html",
+        "destination": "/risques-gouvernance",
+        "type": 301
+      },
+      {
+        "source": "/risques-resilience.html",
+        "destination": "/risques-resilience",
+        "type": 301
+      },
+      {
+        "source": "/risques-sensibilisation.html",
+        "destination": "/risques-sensibilisation",
+        "type": 301
+      },
+      {
+        "source": "/transfo-program-strategy-delivery.html",
+        "destination": "/transfo-program-strategy-delivery",
+        "type": 301
+      },
+      {
+        "source": "/transfo-security-capability-implementation.html",
+        "destination": "/transfo-security-capability-implementation",
+        "type": 301
+      },
+      {
+        "source": "/transfo-security-by-design.html",
+        "destination": "/transfo-security-by-design",
         "type": 301
       },
       {
@@ -341,12 +376,40 @@
         "destination": "/audit-organisationnel.html"
       },
       {
+        "source": "/resilience-reglemenaire",
+        "destination": "/resilience-reglemenaire.html"
+      },
+      {
         "source": "/audit-conformite-nis-dora",
-        "destination": "/audit-conformite-nis-dora.html"
+        "destination": "/resilience-reglemenaire"
       },
       {
         "source": "/conformite-sectorielle",
         "destination": "/conformite-sectorielle.html"
+      },
+      {
+        "source": "/risques-gouvernance",
+        "destination": "/risques-gouvernance.html"
+      },
+      {
+        "source": "/risques-resilience",
+        "destination": "/risques-resilience.html"
+      },
+      {
+        "source": "/risques-sensibilisation",
+        "destination": "/risques-sensibilisation.html"
+      },
+      {
+        "source": "/transfo-program-strategy-delivery",
+        "destination": "/transfo-program-strategy-delivery.html"
+      },
+      {
+        "source": "/transfo-security-capability-implementation",
+        "destination": "/transfo-security-capability-implementation.html"
+      },
+      {
+        "source": "/transfo-security-by-design",
+        "destination": "/transfo-security-by-design.html"
       },
       {
         "source": "/mentions-legales",
