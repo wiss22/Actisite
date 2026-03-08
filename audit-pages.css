@@ -294,6 +294,35 @@
   color: #fff;
 }
 
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-grid.swift-hero-grid-no-panel {
+  width: min(900px, 100%);
+}
+
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-copy {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-copy h1 {
+  font-size: clamp(2.15rem, 4.7vw, 3.25rem);
+  line-height: 1.08;
+}
+
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-copy .hero-lead {
+  max-width: 600px;
+  font-size: 1.02rem;
+  line-height: 1.62;
+}
+
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-pills {
+  gap: 9px;
+}
+
+.cyber-pillar-page.swift-modern-page.offer-editorial-page .swift-hero-pills span {
+  font-size: 0.68rem;
+  padding: 7px 11px;
+}
+
 /* 3) Transfo Cyber: trajectory + delivery energy */
 .transfo-pillar-page .transfo-hero-left {
   background:
@@ -779,6 +808,66 @@
   --pillar-accent-soft: rgba(241,136,71,0.22);
 }
 
+/* Distinction expertise vs offre */
+.audit-pillar-page:not(.offer-editorial-page) .page-section.alt,
+.cyber-pillar-page:not(.offer-editorial-page) .page-section.alt,
+.risques-pillar-page:not(.offer-editorial-page) .page-section.alt,
+.transfo-pillar-page:not(.offer-editorial-page) .page-section.alt {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 84% 14%, rgba(241,136,71,0.14) 0%, rgba(241,136,71,0) 34%),
+    radial-gradient(circle at 10% 82%, rgba(164,101,214,0.18) 0%, rgba(164,101,214,0) 38%),
+    linear-gradient(180deg, #f3eff8 0%, #eee8f6 100%);
+}
+
+.audit-pillar-page:not(.offer-editorial-page) .page-section.alt::before,
+.cyber-pillar-page:not(.offer-editorial-page) .page-section.alt::before,
+.risques-pillar-page:not(.offer-editorial-page) .page-section.alt::before,
+.transfo-pillar-page:not(.offer-editorial-page) .page-section.alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(83,35,105,0.045) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(83,35,105,0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.44), transparent 92%);
+}
+
+.audit-pillar-page:not(.offer-editorial-page) .page-section.alt > .container,
+.cyber-pillar-page:not(.offer-editorial-page) .page-section.alt > .container,
+.risques-pillar-page:not(.offer-editorial-page) .page-section.alt > .container,
+.transfo-pillar-page:not(.offer-editorial-page) .page-section.alt > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.offer-editorial-page .page-section.alt {
+  position: relative;
+  background:
+    linear-gradient(180deg, #fffdfb 0%, #f7f3fb 100%);
+}
+
+.offer-editorial-page .page-section.alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(241,136,71,0.10) 0%, rgba(241,136,71,0) 28%),
+    linear-gradient(90deg, rgba(83,35,105,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(83,35,105,0.03) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.6), transparent 96%);
+}
+
+.offer-editorial-page .page-section.alt > .container {
+  position: relative;
+  z-index: 1;
+}
+
 .audit-pillar-page .hero-audit-pillar {
   text-align: left;
   min-height: 100svh;
@@ -831,7 +920,7 @@
 
 /* Expertise heroes: unified larger typography */
 .audit-pillar-page .audit-pillar-hero-copy h1,
-.cyber-pillar-page.swift-modern-page .swift-hero-copy h1,
+.cyber-pillar-page.swift-modern-page:not(.offer-editorial-page) .swift-hero-copy h1,
 .risques-pillar-page.swift-modern-page .swift-hero-copy h1,
 .transfo-pillar-page .transfo-hero-left h1 {
   font-size: clamp(2.5rem, 6.1vw, 4.25rem);
@@ -840,7 +929,7 @@
 }
 
 .audit-pillar-page .audit-pillar-hero-copy .hero-lead,
-.cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.cyber-pillar-page.swift-modern-page:not(.offer-editorial-page) .swift-hero-copy .hero-lead,
 .risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
 .transfo-pillar-page .transfo-hero-left .hero-lead {
   font-size: 1.14rem;
@@ -854,7 +943,7 @@
   color: rgba(255,255,255,0.92);
 }
 
-.cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+.cyber-pillar-page.swift-modern-page:not(.offer-editorial-page) .swift-hero-copy .hero-lead,
 .risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
 .transfo-pillar-page .transfo-hero-left .hero-lead {
   max-width: 680px;
@@ -1094,14 +1183,14 @@
     padding: 102px 20px 66px;
   }
   .audit-pillar-page .audit-pillar-hero-copy h1,
-  .cyber-pillar-page.swift-modern-page .swift-hero-copy h1,
+  .cyber-pillar-page.swift-modern-page:not(.offer-editorial-page) .swift-hero-copy h1,
   .risques-pillar-page.swift-modern-page .swift-hero-copy h1,
   .transfo-pillar-page .transfo-hero-left h1 {
     font-size: clamp(2.05rem, 9.4vw, 3.05rem);
     line-height: 1.08;
   }
   .audit-pillar-page .audit-pillar-hero-copy .hero-lead,
-  .cyber-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
+  .cyber-pillar-page.swift-modern-page:not(.offer-editorial-page) .swift-hero-copy .hero-lead,
   .risques-pillar-page.swift-modern-page .swift-hero-copy .hero-lead,
   .transfo-pillar-page .transfo-hero-left .hero-lead {
     font-size: 1rem;
@@ -2501,6 +2590,7 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
+  align-items: stretch;
 }
 
 .offer-diff-item {
@@ -2508,6 +2598,10 @@
   border-radius: 12px;
   padding: 13px 12px;
   background: var(--off-white);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .offer-diff-item strong {
@@ -3137,6 +3231,10 @@
   margin-top: 6px;
 }
 
+.offer-editorial-page .offer-differentiators .offer-diff-item + .offer-diff-item {
+  margin-top: 0;
+}
+
 .offer-editorial-page .offer-shell-deliverable:hover,
 .offer-editorial-page .offer-diff-item:hover,
 .offer-editorial-page .offer-related-card:hover,
@@ -3156,6 +3254,7 @@
 .offer-editorial-page .offer-related-card strong,
 .offer-editorial-page .offer-retex-link strong {
   display: inline-block;
+  min-height: 3.1em;
   font-size: clamp(1.14rem, 1.35vw, 1.38rem);
   line-height: 1.18;
   letter-spacing: 0.01em;
@@ -3222,7 +3321,8 @@
 .offer-editorial-page .offer-context-highlight {
   margin: 0;
   padding: 12px 14px;
-  border-radius: 10px;
+  border-radius: 50px;
+  margin-top: 30px;
   background: linear-gradient(90deg, rgba(241,136,71,0.14) 0%, rgba(83,35,105,0.08) 100%);
   border: 1px solid rgba(241, 136, 71, 0.24);
   color: #1f1630;
@@ -3402,7 +3502,7 @@
 
 .offer-editorial-page .offer-methodology-timeline {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 10px;
   margin-top: 14px;
 }
@@ -3421,7 +3521,9 @@
   font-size: 1.15rem;
   line-height: 1;
   color: #532369;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
+
+
 }
 
 .offer-editorial-page .offer-methodology-step h4 {
@@ -3546,6 +3648,12 @@
   .offer-editorial-page .offer-retex-link {
     padding: 12px 13px;
     border-left-width: 3px;
+  }
+  .offer-editorial-page .offer-shell-deliverable strong,
+  .offer-editorial-page .offer-diff-item strong,
+  .offer-editorial-page .offer-related-card strong,
+  .offer-editorial-page .offer-retex-link strong {
+    min-height: 0;
   }
   .offer-editorial-page .offer-context-grid {
     grid-template-columns: 1fr;

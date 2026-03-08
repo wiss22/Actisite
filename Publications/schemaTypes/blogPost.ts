@@ -215,6 +215,7 @@ export const blogPostType = defineType({
           {title: 'Cyber for AI', value: 'cyber-4-ai'},
           {title: 'Audit et Contrôles', value: 'audit-organisationnel'},
           {title: 'Résilience réglementaire', value: 'resilience-reglemenaire'},
+          {title: 'DORA', value: 'dora'},
           {title: 'Conformité sectorielle', value: 'conformite-sectorielle'},
           {title: 'Sécurité du cloud', value: 'cyber-cloud'},
           {title: 'Sécurité du développement', value: 'cyber-development'},

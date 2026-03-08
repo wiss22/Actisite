@@ -212,6 +212,11 @@
         "type": 301
       },
       {
+        "source": "/dora.html",
+        "destination": "/dora",
+        "type": 301
+      },
+      {
         "source": "/audit-conformite-nis-dora.html",
         "destination": "/resilience-reglemenaire",
         "type": 301
@@ -219,6 +224,26 @@
       {
         "source": "/conformite-sectorielle.html",
         "destination": "/conformite-sectorielle",
+        "type": 301
+      },
+      {
+        "source": "/cyber-cloud-defense.html",
+        "destination": "/cyber-cloud-defense",
+        "type": 301
+      },
+      {
+        "source": "/cyber-securite-developpement.html",
+        "destination": "/cyber-securite-developpement",
+        "type": 301
+      },
+      {
+        "source": "/cyber-resilience-operationnelle.html",
+        "destination": "/cyber-resilience-operationnelle",
+        "type": 301
+      },
+      {
+        "source": "/cyber-securite-industries.html",
+        "destination": "/cyber-securite-industries",
         "type": 301
       },
       {
@@ -380,12 +405,32 @@
         "destination": "/resilience-reglemenaire.html"
       },
       {
+        "source": "/dora",
+        "destination": "/dora.html"
+      },
+      {
         "source": "/audit-conformite-nis-dora",
         "destination": "/resilience-reglemenaire"
       },
       {
         "source": "/conformite-sectorielle",
         "destination": "/conformite-sectorielle.html"
+      },
+      {
+        "source": "/cyber-cloud-defense",
+        "destination": "/cyber-cloud-defense.html"
+      },
+      {
+        "source": "/cyber-securite-developpement",
+        "destination": "/cyber-securite-developpement.html"
+      },
+      {
+        "source": "/cyber-resilience-operationnelle",
+        "destination": "/cyber-resilience-operationnelle.html"
+      },
+      {
+        "source": "/cyber-securite-industries",
+        "destination": "/cyber-securite-industries.html"
       },
       {
         "source": "/risques-gouvernance",

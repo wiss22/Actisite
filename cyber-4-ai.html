@@ -178,7 +178,7 @@
         <div class="off-list">
           <div class="oli">Inventaire des usages IA & exposition des données sensibles</div>
           <div class="oli">Classification des données transitant par les systèmes IA</div>
-          <div class="oli">Mise en place de contrôles DLP adaptés à l'IA</div>
+          <div class="oli">Définition et mise en place de contrôles DLP adaptés à l'IA</div>
           <div class="oli">Politique d'usage IA avec niveaux de risque définis</div>
           <div class="oli">Registre IA et documentation pour le DPO et le RSSI</div>
         </div>
@@ -193,12 +193,12 @@
       <div class="off-card">
         <div class="off-n">03</div>
         <h3>Sécurisation des agents & pipelines IA</h3>
-        <p>Concevoir et durcir les composants IA à risque : agents autonomes, pipelines de traitement de données , intégrations RAG et MCP.</p>
+        <p>Cadrage sécurité des composants IA à risque : Identifier et évaluer les risques des composants IA les plus exposés : agents autonomes, pipelines traitant des données sensibles, intégrations RAG ouvertes sur des contenus externes. </p>
         <div class="off-list">
           <div class="oli">Revue sécurité des architectures agents (LangChain, AutoGen…)</div>
-          <div class="oli">Implémentation des guardrails et des limites d'action</div>
+          <div class="oli">Définition de règles de limites d’action des guardrails</div>
           <div class="oli">Durcissement des pipelines RAG & des bases vectorielles</div>
-          <div class="oli">Contrôle des actions sur les systèmes tiers</div>
+          <div class="oli">Cartographie des actions avec les systèmes tiers et identification des risques</div>
           <div class="oli">Logging, alerting et plan de réponse incident IA</div>
         </div>
         <div class="off-tags">
@@ -215,25 +215,26 @@
 <!-- ══ SURFACE D'ATTAQUE ══════════════════════════════ -->
 <section class="surface">
   <div class="wrap">
-    <h2 class="sh">L'IA ne crée pas de <span class="text-orange">nouveaux risques.</span><br>l'IA a <em>amplifie ceux qui existent déjà</em></h2>
+    <h2 class="sh">L'IA ne crée pas de <span class="text-orange">nouveaux risques.</span><br>Elle<em>amplifie ceux qui existent déjà</em></h2>
 
     <div class="surface-grid">
       <div class="surf-card sc-r">
         <div class="surf-ico">01</div>
         <h3>Shadow AI & exposition des données</h3>
-        <p>Vos collaborateurs envoient des données contractuelles, RH et financières dans ChatGPT, Copilot et outils SaaS IA, sans inventaire, sans contrôle, sans traçabilité. La fuite est silencieuse et continue.</p>
+        <p>Vos collaborateurs utilisent ChatGPT, Copilot et des dizaines d'outils SaaS IA pour aller plus vite. Sans le savoir, ils y envoient des données contractuelles, RH, financières et parfois des données personnelles au sens RGPD. Pas d'inventaire, pas de contrôle, pas de traçabilité. La fuite est silencieuse, continue, et déjà en cours.
+          </p>
         <span class="surf-tag">Risque immédiat</span>
       </div>
       <div class="surf-card sc-y">
         <div class="surf-ico">02</div>
         <h3>Systèmes IA non durcis en production</h3>
-        <p>APIs d'inférence exposées, accès aux datasets sans contrôle d'accès granulaire, logs insuffisants, modèles sans revue sécurité : vos pipelines IA cumulent des vulnérabilités que vos équipes n'ont pas été formées à voir.</p>
+        <p>•	Vos équipes ont déployé des modèles et des pipelines IA vite, pour livrer. La sécurité n'était pas dans le scope. Résultat : des accès aux datasets trop larges, des logs insuffisants pour reconstituer un incident, des APIs d'inférence exposées sans politique d'accès claire. Ce ne sont pas des négligences — ce sont des angles morts que personne n'a été formé à voir.</p>
         <span class="surf-tag">Risque technique</span>
       </div>
       <div class="surf-card sc-g">
         <div class="surf-ico">03</div>
         <h3>Agents autonomes & actions non maîtrisées</h3>
-        <p>Un agent qui interagit avec vos systèmes internes, vos APIs ou vos utilisateurs peut être manipulé, détourné ou déclencher des actions non souhaitées. L'autonomie sans guardrails est un vecteur d'attaque.</p>
+        <p>Un agent IA qui interagit avec vos systèmes internes, envoie des emails, appelle des APIs ou modifie des données n'a pas de bon sens natif. Sans règles explicites, il peut être manipulé par un contenu malveillant, déclencher des actions non souhaitées ou sortir du périmètre prévu sans alerte, sans trace. Un pipeline peut exposer des données personnelles ou confidentielles à chaque étape de traitement sans que personne ne l'ait prévu ni détecté. La question n'est pas technique. C'est une question de règles et de visibilité : qui a défini ce que cet agent a le droit de faire ? Qui contrôle ce qui entre et sort des pipelines ? Qui surveille ?</p>
         <span class="surf-tag">Risque émergent</span>
       </div>
     </div>
@@ -306,9 +307,9 @@
         <em>accélérateur.</em>
       </div>
       <div class="why-checks">
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Nous comprenons l'architecture des systèmes IA autant que les approches pour les sécuriser</div>
+        <div class="wcheck"><span class="wcheck-ico">✓</span>Nous comprenons les enjeux de sécurité des systèmes IA et savons traduire les risques techniques en décisions concrètes</div>
         <div class="wcheck"><span class="wcheck-ico">✓</span>Chaque livrable est actionnable par votre RSSI, votre DPO et vos équipes tech</div>
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Nous livrons des contrôles en production, pas des plans qui restent dans un drive</div>
+        <div class="wcheck"><span class="wcheck-ico">✓</span>Nous livrons des contrôles et recommandaitons actionnables en production, pas des plans qui restent dans un drive</div>
       </div>
     </div>
     <div class="why-items">
@@ -370,7 +371,7 @@
       <a href="/" class="nav-logo">
         <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
       </a>
-      <p>Cabinet de conseil en gestion des risques digitaux et cybersécurité.</p>
+      <p>Cabinet de conseil en gouvernance et exécution des programmes GRC, cyber et conformité.</p>
       <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
         <div>
           <div class="badge-title">Happy at Work 2025</div>

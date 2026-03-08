@@ -15,6 +15,20 @@
     { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
     { "source": "/swift", "destination": "/swift.html" },
     { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
-    { "source": "/resilience-reglemenaire", "destination": "/resilience-reglemenaire.html" }
+    { "source": "/resilience-reglemenaire", "destination": "/resilience-reglemenaire.html" },
+    { "source": "/dora", "destination": "/dora.html" },
+    { "source": "/conformite-sectorielle", "destination": "/conformite-sectorielle.html" },
+    { "source": "/cyber-cloud-defense", "destination": "/cyber-cloud-defense.html" },
+    { "source": "/cyber-securite-developpement", "destination": "/cyber-securite-developpement.html" },
+    { "source": "/cyber-resilience-operationnelle", "destination": "/cyber-resilience-operationnelle.html" },
+    { "source": "/cyber-securite-industries", "destination": "/cyber-securite-industries.html" },
+    { "source": "/risques-gouvernance", "destination": "/risques-gouvernance.html" },
+    { "source": "/risques-resilience", "destination": "/risques-resilience.html" },
+    { "source": "/risques-sensibilisation", "destination": "/risques-sensibilisation.html" },
+    { "source": "/transfo-program-strategy-delivery", "destination": "/transfo-program-strategy-delivery.html" },
+    { "source": "/transfo-security-capability-implementation", "destination": "/transfo-security-capability-implementation.html" },
+    { "source": "/transfo-security-by-design", "destination": "/transfo-security-by-design.html" },
+    { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
+    { "source": "/protection-donnees", "destination": "/protection-donnees.html" }
   ]
 }

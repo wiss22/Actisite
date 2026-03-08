@@ -34,6 +34,7 @@ export const offerRexType = defineType({
           {title: 'SWIFT CSP', value: 'swift-csp'},
           {title: 'Audit et Contrôles', value: 'audit-organisationnel'},
           {title: 'Résilience réglementaire', value: 'resilience-reglemenaire'},
+          {title: 'DORA', value: 'dora'},
           {title: 'Conformité sectorielle', value: 'conformite-sectorielle'},
           {title: 'Sécurité du cloud', value: 'cyber-cloud'},
           {title: 'Sécurité du développement', value: 'cyber-development'},

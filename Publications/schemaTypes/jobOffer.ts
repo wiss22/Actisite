@@ -113,18 +113,7 @@ export const jobOfferType = defineType({
       of: [{type: 'string'}],
       group: 'content',
       options: {layout: 'tags'},
-    }),
-    defineField({
-      name: 'applyUrl',
-      title: 'Lien Postuler',
-      type: 'url',
-      group: 'editorial',
-      validation: (Rule) =>
-        Rule.required().uri({
-          scheme: ['https', 'mailto'],
-          allowRelative: false,
-        }),
-    }),
+    })
   ],
   orderings: [
     {
