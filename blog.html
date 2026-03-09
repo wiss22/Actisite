@@ -53,7 +53,7 @@
             <li><a href="/secteur-banque">Banque</a></li>
             <li><a href="/secteur-assurance">Assurance</a></li>
             <li><a href="/secteur-luxe">Luxe</a></li>
-            <li><a href="/secteur-retail">Retail</a></li>
+            
             <li><a href="/secteur-industrie-transport">Industrie & Transport</a></li>
             <li><a href="/secteur-technologie">Tech</a></li>
           </ul>
@@ -62,7 +62,7 @@
           <button type="button" class="nav-dropdown-trigger" id="ressourcesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Publications</button>
           <ul class="nav-dropdown-menu" id="ressourcesDropdown" aria-label="Sous-menu Publications">
             <li><a href="/blog">Articles</a></li>
-            <li><a href="/innovation">Innovation</a></li>
+            
           </ul>
         </li>
         <li><a href="/#apropos">À propos</a></li>
@@ -141,7 +141,7 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          <a href="/secteur-retail">Retail</a>
+          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
@@ -328,7 +328,8 @@
         `
       }).join('')
 
-      linkedinTrack.innerHTML = `${chips}${chips}`
+      const shouldLoop = window.innerWidth > 768
+      linkedinTrack.innerHTML = shouldLoop ? `${chips}${chips}` : chips
     })()
   </script>
   <script src="script.js?v=20260222"></script>

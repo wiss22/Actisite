@@ -1,4 +1,71 @@
-import {defineField, defineType} from 'sanity'
+import {defineArrayMember, defineField, defineType} from 'sanity'
+
+const richTextBlock = defineArrayMember({
+  type: 'block',
+  styles: [
+    {title: 'Paragraphe', value: 'normal'},
+    {title: 'Titre 1', value: 'h1'},
+    {title: 'Titre 2', value: 'h2'},
+    {title: 'Titre 3', value: 'h3'},
+    {title: 'Titre 4', value: 'h4'},
+    {title: 'Citation', value: 'blockquote'},
+  ],
+  lists: [
+    {title: 'Puces', value: 'bullet'},
+    {title: 'Numérotée', value: 'number'},
+  ],
+  marks: {
+    decorators: [
+      {title: 'Gras', value: 'strong'},
+      {title: 'Italique', value: 'em'},
+      {title: 'Souligné', value: 'underline'},
+      {title: 'Barré', value: 'strike-through'},
+      {title: 'Code', value: 'code'},
+    ],
+    annotations: [
+      defineArrayMember({
+        name: 'link',
+        title: 'Lien',
+        type: 'object',
+        fields: [
+          defineField({
+            name: 'href',
+            title: 'URL',
+            type: 'url',
+            validation: (Rule) =>
+              Rule.uri({
+                scheme: ['https', 'http', 'mailto', 'tel'],
+                allowRelative: true,
+              }),
+          }),
+        ],
+      }),
+      defineArrayMember({
+        name: 'textColor',
+        title: 'Couleur du texte',
+        type: 'object',
+        fields: [
+          defineField({
+            name: 'value',
+            title: 'Couleur',
+            type: 'string',
+            options: {
+              list: [
+                {title: 'Orange Actinuance', value: '#F18847'},
+                {title: 'Violet profond', value: '#532369'},
+                {title: 'Violet clair', value: '#8E6BC7'},
+                {title: 'Noir signature', value: '#1F1630'},
+                {title: 'Gris éditorial', value: '#6F6A78'},
+              ],
+              layout: 'radio',
+            },
+            validation: (Rule) => Rule.required(),
+          }),
+        ],
+      }),
+    ],
+  },
+})
 
 export const jobOfferType = defineType({
   name: 'jobOffer',
@@ -95,7 +162,7 @@ export const jobOfferType = defineType({
       name: 'positionDescription',
       title: 'Description complète du poste',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [richTextBlock],
       group: 'content',
       validation: (Rule) => Rule.required(),
     }),

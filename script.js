@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const LANG_STORAGE_KEY = 'actinuance_lang';
   const frTitle = document.title;
   const textNodeOriginals = new WeakMap();
-  let currentLang = localStorage.getItem(LANG_STORAGE_KEY) === 'en' ? 'en' : 'fr';
+  let currentLang = 'fr';
 
   const pageKey = (() => {
     const path = (window.location.pathname || '/').toLowerCase().replace(/\/+$/, '');
@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'transfo-security-by-design': 'Security by Design — Actinuance',
     'secteur-banque': 'Banking Sector — Actinuance',
     'secteur-assurance': 'Insurance Sector — Actinuance',
-    'secteur-retail': 'Retail Sector — Actinuance',
     'secteur-industrie-transport': 'Industry & Transport Sector — Actinuance',
     'secteur-luxe': 'Luxury Sector — Actinuance',
     'secteur-technologie': 'Technology Sector — Actinuance'
@@ -102,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
     'Banque': 'Banking',
     'Assurance': 'Insurance',
     'Luxe': 'Luxury',
-    'Retail': 'Retail',
     'Industrie & Transport': 'Industry & Transportation',
     'Tech': 'Technology',
     'Banque': 'Banking',
@@ -484,6 +482,250 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealEls.forEach(el => revealObserver.observe(el));
 
+  const initHomeGsap = () => {
+    const body = document.body;
+    const expertisesSection = document.getElementById('expertises');
+    if (!body || !expertisesSection || !window.gsap || !window.ScrollTrigger) return;
+    const isHome = body.classList.length === 0 || window.location.pathname === '/' || /index\.html$/.test(window.location.pathname);
+    if (!isHome || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const gsap = window.gsap;
+    const ScrollTrigger = window.ScrollTrigger;
+    if (!gsap.core.globals().ScrollTrigger) gsap.registerPlugin(ScrollTrigger);
+
+    const triangleScene = expertisesSection.querySelector('.expertise-triangle-scene');
+    const triangles = triangleScene ? Array.from(triangleScene.querySelectorAll('.expertise-triangle')) : [];
+    const cards = Array.from(expertisesSection.querySelectorAll('.expertise-card'));
+    const intro = expertisesSection.querySelector('.section-intro');
+    const heroSection = document.getElementById('hero');
+    const heroTriangles = heroSection ? Array.from(heroSection.querySelectorAll('.s-triangle')) : [];
+    const joinSection = document.getElementById('rejoindre');
+    const joinArrowEls = joinSection ? Array.from(joinSection.querySelectorAll('.join-growth-line, .join-growth-head, .join-growth-triangle')) : [];
+    const sectorsSection = document.getElementById('secteurs');
+    const contactSection = document.getElementById('contact');
+    const contactSceneEls = contactSection ? Array.from(contactSection.querySelectorAll('.contact-scene > span')) : [];
+
+    if (heroSection && heroTriangles.length) {
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: expertisesSection,
+          start: 'top bottom',
+          end: 'top 72%',
+          scrub: 0.8
+        }
+      }).to(heroTriangles, {
+        y: (_, el) => (el.classList.contains('s-t1') ? 56 : 40),
+        scale: 0.78,
+        autoAlpha: 0.08,
+        stagger: 0.02,
+        ease: 'none'
+      });
+    }
+
+    if (triangleScene && triangles.length) {
+      gsap.set(triangles, {
+        autoAlpha: 0,
+        y: 56,
+        scale: 0.76,
+        rotation: (_, el) => (el.classList.contains('expertise-triangle-2') || el.classList.contains('expertise-triangle-4') ? 10 : -10)
+      });
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: expertisesSection,
+          start: 'top 74%',
+          end: 'top 42%',
+          scrub: 0.9
+        }
+      }).to(triangles, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        stagger: 0.08,
+        ease: 'power3.out'
+      });
+
+      triangles.forEach((triangle, index) => {
+        gsap.to(triangle, {
+          y: index % 2 === 0 ? -14 : 12,
+          x: index % 2 === 0 ? 10 : -8,
+          duration: 6.5 + index,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: index * 0.2
+        });
+      });
+    }
+
+    if (intro) {
+      gsap.fromTo(
+        intro,
+        { autoAlpha: 0, y: 22 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.75,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: expertisesSection,
+            start: 'top 80%',
+            once: true
+          }
+        }
+      );
+    }
+
+    cards.forEach((card, index) => {
+      gsap.fromTo(
+        card,
+        { autoAlpha: 0, y: 34, rotateX: 6, transformOrigin: 'center top' },
+        {
+          autoAlpha: 1,
+          y: 0,
+          rotateX: 0,
+          duration: 0.8,
+          delay: index * 0.05,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: expertisesSection,
+            start: 'top 70%',
+            once: true
+          }
+        }
+      );
+    });
+
+    if (joinSection && joinArrowEls.length) {
+      gsap.set(joinArrowEls, { autoAlpha: 0 });
+      gsap.fromTo(
+        joinSection.querySelector('.join-layout'),
+        { autoAlpha: 0, y: 24 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.82,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: joinSection,
+            start: 'top 76%',
+            once: true
+          }
+        }
+      );
+
+      gsap.timeline({
+        scrollTrigger: {
+          trigger: joinSection,
+          start: 'top 74%',
+          end: 'top 30%',
+          scrub: 1
+        }
+      })
+        .fromTo(joinSection.querySelector('.join-growth-line'), { scaleX: 0.4, scaleY: 0.9, transformOrigin: 'left bottom', autoAlpha: 0.12 }, { scaleX: 1, scaleY: 1, autoAlpha: 1, ease: 'none' }, 0)
+        .fromTo(joinSection.querySelector('.join-growth-head'), { autoAlpha: 0, x: -30, y: 26, scale: 0.7 }, { autoAlpha: 1, x: 0, y: 0, scale: 1, ease: 'none' }, 0.18)
+        .fromTo(joinSection.querySelectorAll('.join-growth-triangle'), { autoAlpha: 0, y: 24, scale: 0.8 }, { autoAlpha: 1, y: 0, scale: 1, stagger: 0.08, ease: 'none' }, 0.1);
+    }
+
+    const animateSectorPanelIllustration = (panel) => {
+      if (!panel) return;
+      const items = Array.from(panel.querySelectorAll('.panel-illustration > span'));
+      if (!items.length) return;
+      gsap.killTweensOf(items);
+      gsap.fromTo(
+        items,
+        { autoAlpha: 0, y: 20, scale: 0.92 },
+        { autoAlpha: 1, y: 0, scale: 1, duration: 0.46, stagger: 0.025, ease: 'power2.out', overwrite: 'auto' }
+      );
+    };
+
+    if (sectorsSection) {
+      const activePanel = sectorsSection.querySelector('.secteur-panel.active');
+      if (activePanel) {
+        ScrollTrigger.create({
+          trigger: sectorsSection,
+          start: 'top 72%',
+          once: true,
+          onEnter: () => animateSectorPanelIllustration(activePanel)
+        });
+      }
+
+      sectorsSection.querySelectorAll('.tab-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const panel = sectorsSection.querySelector(`#tab-${btn.dataset.tab}`);
+          if (panel) animateSectorPanelIllustration(panel);
+        });
+      });
+    }
+
+    if (contactSection && contactSceneEls.length) {
+      const contactInner = contactSection.querySelector('.contact-inner');
+      const contactTitle = contactSection.querySelector('h2');
+      const contactText = contactSection.querySelector('p');
+      const contactMail = contactSection.querySelector('.contact-mail');
+      const contactAddress = contactSection.querySelector('.contact-address');
+
+      const contactTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top 78%',
+          once: true
+        }
+      });
+
+      contactTl
+        .fromTo(contactInner, { autoAlpha: 0, y: 34 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' })
+        .fromTo(contactTitle, { autoAlpha: 0, y: 26, letterSpacing: '0.08em' }, { autoAlpha: 1, y: 0, letterSpacing: '-0.02em', duration: 0.72, ease: 'power3.out' }, 0.08)
+        .fromTo(contactText, { autoAlpha: 0, y: 22 }, { autoAlpha: 1, y: 0, duration: 0.56, ease: 'power2.out' }, 0.2)
+        .fromTo(contactMail, { autoAlpha: 0, y: 18, scale: 0.96 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.58, ease: 'power2.out' }, 0.28)
+        .fromTo(contactAddress, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.48, ease: 'power2.out' }, 0.34);
+
+      gsap.fromTo(
+        contactSceneEls,
+        { autoAlpha: 0, y: 18, scale: 0.9 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          duration: 0.8,
+          stagger: 0.05,
+          ease: 'power2.out',
+          scrollTrigger: {
+            trigger: contactSection,
+            start: 'top 82%',
+            once: true
+          }
+        }
+      );
+
+      contactSceneEls.forEach((el, index) => {
+        gsap.to(el, {
+          y: index % 2 === 0 ? -10 : 8,
+          x: index % 3 === 0 ? 8 : -6,
+          duration: 5.5 + index * 0.4,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          delay: index * 0.12
+        });
+      });
+
+      gsap.to(contactInner, {
+        yPercent: -4,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: contactSection,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.2
+        }
+      });
+    }
+  };
+
+  initHomeGsap();
+
   // ── 3b. PILLAR OFFERS SIDE NAV ACTIVE STATE ───────────────
   const pillarNavs = Array.from(document.querySelectorAll('.pillar-flynav, .pillar-offers-nav'));
   if (pillarNavs.length) {
@@ -525,42 +767,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nav.classList.toggle('mobile-overview-nav', isMobile && !isOfferNav);
         nav.classList.toggle('mobile-offer-nav', isMobile && isOfferNav);
-
-        // Auto-scroll only for overview nav on mobile.
         const existing = navAutoScrollState.get(nav);
         if (existing && existing.rafId) {
           cancelAnimationFrame(existing.rafId);
-          navAutoScrollState.delete(nav);
         }
-        if (!isMobile || isOfferNav) return;
-
-        const state = { dir: 1, rafId: null, pauseUntil: 0, speed: 0.45 };
-        const tick = () => {
-          const maxScroll = mobileLinksWrap.scrollWidth - mobileLinksWrap.clientWidth;
-          if (maxScroll > 8 && Date.now() >= state.pauseUntil) {
-            mobileLinksWrap.scrollLeft += state.dir * state.speed;
-            if (mobileLinksWrap.scrollLeft >= maxScroll - 2) {
-              mobileLinksWrap.scrollLeft = maxScroll;
-              state.dir = -1;
-              state.pauseUntil = Date.now() + 550;
-            }
-            if (mobileLinksWrap.scrollLeft <= 2) {
-              mobileLinksWrap.scrollLeft = 0;
-              state.dir = 1;
-              state.pauseUntil = Date.now() + 550;
-            }
-          }
-          state.rafId = requestAnimationFrame(tick);
-        };
-        state.rafId = requestAnimationFrame(tick);
-        const pause = () => { state.pauseUntil = Date.now() + 2400; };
-        if (!mobileLinksWrap.dataset.autoscrollBound) {
-          mobileLinksWrap.addEventListener('touchstart', pause, { passive: true });
-          mobileLinksWrap.addEventListener('pointerdown', pause, { passive: true });
-          mobileLinksWrap.addEventListener('wheel', pause, { passive: true });
-          mobileLinksWrap.dataset.autoscrollBound = '1';
-        }
-        navAutoScrollState.set(nav, state);
+        navAutoScrollState.delete(nav);
       });
     };
 
@@ -824,7 +1035,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/secteur-banque" onclick="closeMobileNav()">${currentLang === 'en' ? 'Banking' : 'Banque'}</a>
                 <a href="/secteur-assurance" onclick="closeMobileNav()">${currentLang === 'en' ? 'Insurance' : 'Assurance'}</a>
                 <a href="/secteur-luxe" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
-                <a href="/secteur-retail" onclick="closeMobileNav()">Retail</a>
                 <a href="/secteur-industrie-transport" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
                 <a href="/secteur-technologie" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Tech'}</a>
               </div>
@@ -834,7 +1044,6 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="m-sub">
                 <a href="/blog" onclick="closeMobileNav()">Articles</a>
                 <a href="/rex" onclick="closeMobileNav()">REX</a>
-                <a href="/innovation" onclick="closeMobileNav()">Innovation</a>
               </div>
             </details>
             <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
@@ -1025,11 +1234,32 @@ document.addEventListener('DOMContentLoaded', () => {
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
+      const nextPanel = document.getElementById('tab-' + target);
+      const currentPanel = document.querySelector('.secteur-panel.active');
+      const canAnimate = Boolean(window.gsap && nextPanel && currentPanel && nextPanel !== currentPanel);
       tabBtns.forEach(b => b.classList.remove('active'));
-      tabPanels.forEach(p => p.classList.remove('active'));
       btn.classList.add('active');
-      const panel = document.getElementById('tab-' + target);
-      if (panel) panel.classList.add('active');
+      if (!nextPanel) return;
+
+      if (!canAnimate) {
+        tabPanels.forEach(p => p.classList.remove('active'));
+        nextPanel.classList.add('active');
+        return;
+      }
+
+      const gsap = window.gsap;
+      const outgoing = currentPanel.querySelectorAll('.panel-left > *, .panel-right > *');
+      const incoming = nextPanel.querySelectorAll('.panel-left > *, .panel-right > *');
+
+      gsap.timeline({ defaults: { ease: 'power2.out' } })
+        .to(outgoing, { autoAlpha: 0, y: -14, duration: 0.14, stagger: 0.01 })
+        .add(() => {
+          currentPanel.classList.remove('active');
+          nextPanel.classList.add('active');
+          gsap.set(incoming, { autoAlpha: 0, y: 16 });
+        })
+        .to(nextPanel, { autoAlpha: 1, duration: 0.01 })
+        .to(incoming, { autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.018, ease: 'power3.out' });
     });
   });
 
@@ -1704,7 +1934,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (img.complete && img.naturalWidth === 0) applyFallback();
   });
 
-  createLanguageSwitch();
-  applyLanguage(currentLang);
+  try { localStorage.removeItem(LANG_STORAGE_KEY); } catch (_) {}
 
 });
