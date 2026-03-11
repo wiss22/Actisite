@@ -3095,13 +3095,13 @@
   }
   .offer-scroll-cta {
     left: 50%;
-    bottom: 12px;
+    bottom: 1px;
     transform: translateX(-50%);
     font-size: 0.62rem;
     padding: 7px 12px;
   }
   .offer-scroll-cta span:first-child {
-    display: inline;
+    display: inline
   }
   .transfo-offers-card {
     padding: 16px 14px 14px;

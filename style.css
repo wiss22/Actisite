@@ -712,7 +712,7 @@ img { max-width: 100%; display: block; }
 .slide-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   flex-wrap: wrap;
 }
@@ -3034,7 +3034,7 @@ img { max-width: 100%; display: block; }
 .rex-page #rexGrid .ressource-cover-shell {
   width: 100%;
   margin: 0;
-  height: 210px;
+  height: 320px;
   border-bottom: 1px solid rgba(45,33,66,0.1);
   background: #e7e7ec;
   overflow: hidden;
@@ -5536,7 +5536,7 @@ footer {
   .job-actions { gap: 8px; }
   .btn-job-process { width: 100%; }
   .blog-page #blogGrid .ressource-cover-shell { height: 170px; }
-  .rex-page #rexGrid .ressource-cover-shell { height: 170px; }
+  .rex-page #rexGrid .ressource-cover-shell { height: 240px; }
 
   .secteurs-tab-nav {
     margin-right: 0;
@@ -5575,7 +5575,7 @@ footer {
   .blog-page #blogGrid.ressources-grid { grid-template-columns: 1fr; }
   .rex-page #rexGrid.ressources-grid { grid-template-columns: 1fr; }
   .blog-page #blogGrid .ressource-cover-shell { height: 186px; }
-  .rex-page #rexGrid .ressource-cover-shell { height: 186px; }
+  .rex-page #rexGrid .ressource-cover-shell { height: 260px; }
   .blog-linkedin-band-track {
     animation: none;
     width: max-content;

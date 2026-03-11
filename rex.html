@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Retours d'expérience Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
+  <meta name="description" content="Client Stories Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
   <link rel="canonical" href="https://landing-site-9ce39.web.app/rex" />
   <meta property="og:site_name" content="Actinuance" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Actinuance — REX" />
-  <meta property="og:description" content="Retours d'expérience Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
+  <meta property="og:title" content="Actinuance — Client Stories" />
+  <meta property="og:description" content="Client Stories Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
   <meta property="og:url" content="https://landing-site-9ce39.web.app/rex" />
   <meta property="og:image" content="https://landing-site-9ce39.web.app/static/favicon-512.png" />
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Actinuance — REX" />
-  <meta name="twitter:description" content="Retours d'expérience Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
+  <meta name="twitter:title" content="Actinuance — Client Stories" />
+  <meta name="twitter:description" content="Client Stories Actinuance sur les missions cyber, conformité et résilience opérationnelle." />
   <meta name="twitter:image" content="https://landing-site-9ce39.web.app/static/favicon-512.png" />
-  <title>Actinuance — REX</title>
+  <title>Actinuance — Client Stories</title>
   <link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,11 +34,18 @@
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">AI for Cyber</a></li>
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -47,8 +54,7 @@
             <li><a href="/secteur-banque">Banque</a></li>
             <li><a href="/secteur-assurance">Assurance</a></li>
             <li><a href="/secteur-luxe">Luxe</a></li>
-            
-            <li><a href="/secteur-industrie-transport">Industrie & Transport</a></li>
+            <li><a href="/secteur-industrie-transport">Industrie &amp; Transport</a></li>
             <li><a href="/secteur-technologie">Tech</a></li>
           </ul>
         </li>
@@ -56,8 +62,6 @@
           <button type="button" class="nav-dropdown-trigger" id="ressourcesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Publications</button>
           <ul class="nav-dropdown-menu" id="ressourcesDropdown" aria-label="Sous-menu Publications">
             <li><a href="/blog">Articles</a></li>
-            
-            <li><a href="/rex">REX</a></li>
           </ul>
         </li>
         <li><a href="/#apropos">À propos</a></li>
@@ -73,15 +77,15 @@
   <section class="section section-dark publications-hero rex-hero" style="padding-top: 140px;">
     <div class="container">
       <div class="section-intro light">
-        <div class="section-eyebrow">Publications — REX missions</div>
-        <h1 class="section-heading" style="color:#fff;">Retours d’expérience <em>terrain</em><br>de nos missions</h1>
+        <div class="section-eyebrow">Publications — Client Stories</div>
+        <h1 class="section-heading" style="color:#fff;">Client Stories <em>terrain</em><br>de nos missions</h1>
         <p class="section-sub">Des retours concrets par secteur: contexte, intervention et enseignements opérationnels.</p>
       </div>
 
       <div class="ressources-grid" id="rexGrid">
         <article class="ressource-card" id="rexLoadingCard">
           <div class="ressource-tag">Chargement</div>
-          <h3>Chargement des REX…</h3>
+          <h3>Chargement des Client Stories…</h3>
           <p>Connexion en cours avec Sanity Studio.</p>
         </article>
       </div>
@@ -163,8 +167,8 @@
       if (!items.length) {
         grid.innerHTML = `
           <article class="ressource-card big">
-            <div class="ressource-tag">Aucun REX</div>
-            <h3>Pas encore de REX publiés</h3>
+            <div class="ressource-tag">Aucune Client Story</div>
+            <h3>Pas encore de Client Stories publiées</h3>
             <p>${escapeHtml(lastError || 'Publiez un document "REX Offres" avec le statut "Publié" dans Sanity.')}</p>
           </article>
         `;
@@ -172,7 +176,7 @@
       }
 
       grid.innerHTML = items.map((item) => {
-        const title = escapeHtml(item.title || 'REX');
+        const title = escapeHtml(item.title || 'Client Story');
         const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
         const sector = escapeHtml(item.sector || 'Secteur');
         const href = item.slug ? `rex-article?slug=${encodeURIComponent(item.slug)}` : '/rex';
@@ -183,10 +187,10 @@
           <article class="ressource-card">
             <a href="${href}" style="text-decoration:none;color:inherit;display:block;">
               <div class="ressource-cover-shell">${cover}</div>
-              <div class="ressource-tag">REX • ${sector}</div>
+              <div class="ressource-tag">Client Story • ${sector}</div>
               <h3>${title}</h3>
               <p>${summary}</p>
-              <span class="card-link">Lire le REX →</span>
+              <span class="card-link">Lire la Client Story →</span>
             </a>
           </article>
         `;

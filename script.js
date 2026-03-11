@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'nous-rejoindre': 'Join Us — Actinuance',
     'equipe-dirigeante': 'Leadership Team — Actinuance',
     blog: 'Actinuance — Blog',
-    rex: 'Actinuance — Mission REX',
-    'rex-article': 'Actinuance — Mission REX',
+    rex: 'Actinuance — Client Stories',
+    'rex-article': 'Actinuance — Client Story',
     innovation: 'Actinuance — Innovation',
     'innovation-article': 'Actinuance — Innovation',
     article: 'Actinuance — Article',
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'Nous rejoindre': 'Join us',
     'Nous contacter': 'Contact us',
     'Articles': 'Articles',
-    'REX': 'Mission REX',
+    'REX': 'Client Story',
     'Innovation': 'Innovation',
     'Postes ouverts': 'Open roles',
     'Toutes les offres': 'All offers',
@@ -282,13 +282,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ── 1b. NAV DROPDOWNS ─────────────────────────
-  // Ensure Publications dropdown always contains REX entry across all pages.
+  // Ensure Publications dropdown always contains Client Stories entry across all pages.
   const ensureRexInDesktopMenu = () => {
     const publicationMenus = Array.from(document.querySelectorAll('#ressourcesDropdown.nav-dropdown-menu'));
     publicationMenus.forEach((menu) => {
       if (menu.querySelector('a[href=\"/rex\"]')) return;
       const li = document.createElement('li');
-      li.innerHTML = '<a href=\"/rex\">REX</a>';
+      li.innerHTML = '<a href=\"/rex\">Client Stories</a>';
       menu.appendChild(li);
     });
   };
@@ -1022,11 +1022,18 @@ document.addEventListener('DOMContentLoaded', () => {
             <details class="m-accordion">
               <summary>${currentLang === 'en' ? 'Expertise' : 'Expertises'}</summary>
               <div class="m-sub">
-                <a href="/cyber-4-ai" onclick="closeMobileNav()">AI for Cyber</a>
                 <a href="/risques-digitaux" onclick="closeMobileNav()">${currentLang === 'en' ? 'Digital Risk' : 'Risques Digitaux'}</a>
                 <a href="/cyber-defense" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Defense' : 'Cyber Défense'}</a>
                 <a href="/audit-conformite" onclick="closeMobileNav()">${currentLang === 'en' ? 'Audit & Compliance' : 'Audit et Conformité'}</a>
                 <a href="/transfo-cyber" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Transformation' : 'Transfo Cyber'}</a>
+              </div>
+            </details>
+            <details class="m-accordion">
+              <summary>${currentLang === 'en' ? 'Featured offers' : 'Offres à la une'}</summary>
+              <div class="m-sub">
+                <a href="/cyber-4-ai" class="nav-ai-link" onclick="closeMobileNav()">Cyber for AI</a>
+                <a href="/dora" onclick="closeMobileNav()">DORA</a>
+                <a href="/swift" onclick="closeMobileNav()">Swift CSP</a>
               </div>
             </details>
             <details class="m-accordion">
@@ -1043,7 +1050,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <summary>${currentLang === 'en' ? 'Publications' : 'Publications'}</summary>
               <div class="m-sub">
                 <a href="/blog" onclick="closeMobileNav()">Articles</a>
-                <a href="/rex" onclick="closeMobileNav()">REX</a>
+                <a href="/rex" onclick="closeMobileNav()">Client Stories</a>
               </div>
             </details>
             <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
@@ -1481,7 +1488,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (offerRelatedFeed) {
     const offerTag = (offerRelatedFeed.dataset.offerTag || '').trim();
     const limit = Math.max(parseInt(offerRelatedFeed.dataset.offerLimit || '2', 10), 1);
-    const offerRelatedSection = offerRelatedFeed.closest('.offer-shell-section');
+    const offerRelatedSection = offerRelatedFeed.closest('.js-offer-related-wrapper, .offer-shell-section');
 
     const escapeHtml = (value) =>
       String(value || '')
@@ -1545,6 +1552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
   if (offerTag) {
+    offerRelatedFeed.innerHTML = '';
     loadOfferRelatedPosts();
   } else if (offerRelatedSection) {
     offerRelatedSection.style.display = 'none';
@@ -1617,7 +1625,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       grid.innerHTML = rows.map((item) => {
-        const title = escapeHtml(item.title || 'REX');
+        const title = escapeHtml(item.title || 'Client Story');
         const sector = escapeHtml(item.sector || 'Retour d’expérience');
         const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
         const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
@@ -1788,7 +1796,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       aiRexFeed.innerHTML = rows.map((item) => {
         const sector = item.sector || 'Secteur';
-        const title = escapeHtml(item.title || 'REX');
+        const title = escapeHtml(item.title || 'Client Story');
         const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
         const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
         const external = /^https?:\/\//i.test(href);
@@ -1883,7 +1891,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       feed.innerHTML = rows.map((item) => {
-        const title = escapeHtml(item.title || 'REX');
+        const title = escapeHtml(item.title || 'Client Story');
         const sector = escapeHtml(item.sector || 'Secteur');
         const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
         const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
@@ -1912,7 +1920,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <p class="luxe-rex-kicker">${sector}</p>
               <h3>${title}</h3>
               <p>${summary}</p>
-              <span class="card-link">Lire le REX →</span>
+              <span class="card-link">Lire la Client Story →</span>
             </div>
           </a>
         `;

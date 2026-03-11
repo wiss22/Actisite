@@ -1,0 +1,240 @@
+{
+  "_id": "offerRex-industries-pharma-lpm-5-sites",
+  "_type": "offerRex",
+  "title": "Mise en conformite LPM d'un acteur pharmaceutique multisites",
+  "slug": {
+    "_type": "slug",
+    "current": "mise-en-conformite-lpm-acteur-pharmaceutique-multisites"
+  },
+  "offerTag": "cyber-industries",
+  "sector": "Pharmaceutique",
+  "location": "France - 5 sites industriels",
+  "employeeCount": "Groupe international",
+  "dispositif": "Cadrage LPM, audit organisationnel et technique, feuille de route de remediation, pilotage multisites",
+  "interventionDuration": "Programme pilote sur plusieurs mois",
+  "summary": "Dans le cadre de la Loi de Programmation Militaire, Actinuance a accompagne un acteur pharmaceutique majeur dans la mise en conformite de systemes d'importance vitale repartis sur 5 sites industriels. L'intervention a permis de structurer le perimetre, objectiver les ecarts, prioriser les remediations et obtenir un dispositif conforme et documente dans des delais reglementaires contraints.",
+  "status": "published",
+  "publishedAt": "2026-03-11T12:00:00.000Z",
+  "body": [
+    {
+      "_type": "block",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Contexte"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Dans le cadre de la Loi de Programmation Militaire (LPM), un acteur pharmaceutique majeur devait mettre en conformite plusieurs systemes d'importance vitale repartis sur 5 sites industriels. Le programme presentait une complexite forte : heterogeneite des environnements, multiplicite des parties prenantes locales et centrales, exigences documentaires elevees et necessite de tenir un calendrier reglementaire strict."
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Au-dela de la seule conformite, l'enjeu consistait a fiabiliser durablement la gouvernance des systemes critiques, disposer d'une vision consolidee du niveau de maitrise et securiser les decisions de remediation a l'echelle des sites."
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Defis principaux"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Identifier avec precision les systemes et perimetres relevant des exigences LPM"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Evaluer les ecarts organisationnels et techniques entre l'existant et les attendus reglementaires"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Prioriser les actions de mise en conformite sur plusieurs sites industriels aux niveaux de maturite differents"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Produire un corpus documentaire robuste, coherent et exploitable dans les delais imposes"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Comment Actinuance a contribue au succes"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Actinuance a joue un role central de structuration, d'objectivation et de pilotage du programme. Notre intervention a permis de transformer une exigence reglementaire complexe en trajectoire de conformite lisible, executable et partagee entre les equipes metier, industrielles, cyber et techniques."
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Cadrage de la strategie d'homologation et qualification du perimetre reel des systemes critiques"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Analyse d'ecart integree, croisant audit organisationnel, cartographies, RACI, politiques, controles techniques et exigences LPM"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Construction d'une feuille de route priorisee selon la criticite, les contraintes d'exploitation et les echeances reglementaires"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Animation de comites hebdomadaires, gestion des derogations et accompagnement de la mise en conformite incidents / crise"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "h2",
+      "children": [
+        {
+          "_type": "span",
+          "text": "Resultats"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Conformite obtenue pour les systemes d'importance vitale identifies dans le programme"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Corpus documentaire complet livre et valide : politiques, procedures, cartographies, supports de gouvernance et livrables associes"
+        }
+      ],
+      "markDefs": []
+    },
+    {
+      "_type": "block",
+      "style": "normal",
+      "listItem": "bullet",
+      "level": 1,
+      "children": [
+        {
+          "_type": "span",
+          "text": "Vision consolidee des ecarts et des plans de remediation a l'echelle des 5 sites, avec un pilotage clarifie entre acteurs locaux et fonctions centrales"
+        }
+      ],
+      "markDefs": []
+    }
+  ]
+}
