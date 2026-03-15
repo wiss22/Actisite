@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260222">
+  <link rel="stylesheet" href="style.css?v=20260315">
 </head>
 <body class="home-page">
 
@@ -38,20 +38,20 @@
       </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
-          </ul>
-        </li>
-        <li class="nav-item-dropdown">
-          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
-          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
-            <li><a href="/dora">DORA</a></li>
-            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -180,6 +180,49 @@
       <span>Découvrir</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
     </a>
+  </section>
+
+  <!-- ── OFFRES À LA UNE ── -->
+  <section class="section-featured-offers" id="offres-une">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-eyebrow">Offres à la une</div>
+        <h2 class="section-heading">Nos offres <em>phares</em></h2>
+      </div>
+      <div class="featured-trio">
+
+        <!-- Cyber for AI -->
+        <a href="/cyber-4-ai" class="featured-offer-card featured-offer-card--ai">
+          <span class="featured-offer-card__num" aria-hidden="true">01</span>
+          <span class="featured-offer-card__badge">IA &amp; Cybersécurité</span>
+          <div class="featured-offer-card__label">Cyber for AI</div>
+          <h3 class="featured-offer-card__title">Sécurisez<br>vos solutions IA</h3>
+          <p class="featured-offer-card__desc">Protégez vos systèmes intelligents face aux nouveaux vecteurs d'attaque — LLM, agents autonomes, Shadow AI.</p>
+          <span class="featured-offer-card__cta">Découvrir l'offre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- DORA -->
+        <a href="/dora" class="featured-offer-card featured-offer-card--dora">
+          <span class="featured-offer-card__num" aria-hidden="true">02</span>
+          <span class="featured-offer-card__badge">Règlement EU · 2025</span>
+          <div class="featured-offer-card__label">DORA</div>
+          <h3 class="featured-offer-card__title">Résilience<br>sous contrôle</h3>
+          <p class="featured-offer-card__desc">Transformez DORA en dispositif de résilience démontrable et pilotable pour les acteurs du secteur financier.</p>
+          <span class="featured-offer-card__cta">Découvrir l'offre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+        <!-- Swift CSP -->
+        <a href="/swift" class="featured-offer-card featured-offer-card--swift">
+          <span class="featured-offer-card__num" aria-hidden="true">03</span>
+          <span class="featured-offer-card__badge">SWIFT · 2026</span>
+          <div class="featured-offer-card__label">Swift CSP</div>
+          <h3 class="featured-offer-card__title">Attestation<br>annuelle sécurisée</h3>
+          <p class="featured-offer-card__desc">Fiabilisez la campagne d'évaluation et sécurisez l'attestation annuelle SWIFT CSP evidence-first.</p>
+          <span class="featured-offer-card__cta">Découvrir l'offre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+
+      </div>
+    </div>
   </section>
 
  <!-- <div class="clients-band">

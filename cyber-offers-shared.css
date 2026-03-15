@@ -1,0 +1,744 @@
+/* ══════════════════════════════════════════════
+   Offres Cyber Défense — design partagé
+   Scope: body.cyber-offer-page
+   Utilise Swiper 11 (CDN)
+════════════════════════════════════════════════ */
+
+/* ─── SECTION HEADER — séparateur subtil ─────────────────────── */
+/* L'offer-editorial-page gère déjà le h3 gradient + underline ::after */
+/* On ajoute juste un léger séparateur sous le head pour structurer */
+.cyber-offer-page .offer-shell-head {
+  margin-bottom: 22px;
+}
+
+/* ─── NUM — garder le style editorial (texte orange) ─────────────────────── */
+/* La charte editorial-page gère déjà cette partie élégamment */
+
+/* ═══════════════════════════════════════════════
+   SECTION 01 — CONTEXTE : Swiper
+═══════════════════════════════════════════════ */
+.cyber-offer-page .ccd-context-swiper {
+  margin: 24px 0 0;
+  padding-bottom: 48px;
+  overflow: hidden;   /* empêche le débordement vers la sidebar */
+}
+
+@media (max-width: 640px) {
+  .cyber-offer-page .ccd-context-swiper .swiper-button-prev,
+  .cyber-offer-page .ccd-context-swiper .swiper-button-next {
+    display: none;
+  }
+}
+
+/* Slides en flex pour que height:100% fonctionne sur la carte */
+.cyber-offer-page .ccd-context-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.cyber-offer-page .ccd-ctx-card {
+  background: linear-gradient(145deg, #fff 0%, #fdf9f4 100%);
+  border: 1px solid rgba(241,136,71,0.18);
+  border-top: 3px solid transparent;
+  border-radius: 16px;
+  padding: 26px 22px 22px;
+  height: 240px;           /* hauteur fixe harmonisée (mesurée : max 236px) */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 4px 16px rgba(55,24,70,0.06);
+  transition: transform 0.32s ease, box-shadow 0.32s ease, border-top-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-offer-page .ccd-ctx-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f18847, #a465d6);
+  border-radius: 16px 16px 0 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cyber-offer-page .ccd-ctx-card:hover::before {
+  opacity: 1;
+}
+
+.cyber-offer-page .ccd-ctx-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 36px rgba(241,136,71,0.1), 0 6px 16px rgba(55,24,70,0.07);
+}
+
+.cyber-offer-page .ccd-ctx-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, rgba(241,136,71,0.12), rgba(164,101,214,0.09));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cyber-offer-page .ccd-ctx-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: #f18847;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cyber-offer-page .ccd-ctx-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.68;
+  color: #3a1a52;
+}
+
+/* Swiper nav — context : flèches en bas, flanquant la pagination */
+.cyber-offer-page .ccd-context-swiper .swiper-button-prev,
+.cyber-offer-page .ccd-context-swiper .swiper-button-next {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid rgba(241,136,71,0.28);
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(55,24,70,0.1);
+  color: #f18847;
+  /* sortir des slides : repositionner en bas du swiper */
+  top: auto;
+  bottom: 6px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.cyber-offer-page .ccd-context-swiper .swiper-button-prev { left: calc(50% - 68px); }
+.cyber-offer-page .ccd-context-swiper .swiper-button-next { right: calc(50% - 68px); }
+
+.cyber-offer-page .ccd-context-swiper .swiper-button-prev::after,
+.cyber-offer-page .ccd-context-swiper .swiper-button-next::after {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.cyber-offer-page .ccd-context-swiper .swiper-button-prev:hover,
+.cyber-offer-page .ccd-context-swiper .swiper-button-next:hover {
+  background: #f18847;
+  color: #fff;
+  border-color: #f18847;
+  box-shadow: 0 5px 16px rgba(241,136,71,0.3);
+}
+
+.cyber-offer-page .ccd-context-swiper .swiper-pagination {
+  bottom: 12px;
+}
+
+.cyber-offer-page .ccd-context-swiper .swiper-pagination-bullet {
+  background: rgba(241,136,71,0.32);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cyber-offer-page .ccd-context-swiper .swiper-pagination-bullet-active {
+  background: #f18847;
+  transform: scale(1.4);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION 02 — OFFRE : grille 2×2 premium
+═══════════════════════════════════════════════ */
+.cyber-offer-page .ccd-deliverables-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 22px 0 20px;
+}
+
+.cyber-offer-page .ccd-deliverable {
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid rgba(83,35,105,0.1);
+  padding: 20px 18px 18px;
+  overflow: hidden;
+  transition: transform 0.26s ease, box-shadow 0.26s ease, border-color 0.26s ease;
+}
+
+.cyber-offer-page .ccd-deliverable::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f18847, #a465d6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(.22,1,.36,1);
+  border-radius: 14px 14px 0 0;
+}
+
+.cyber-offer-page .ccd-deliverable:hover::before {
+  transform: scaleX(1);
+}
+
+.cyber-offer-page .ccd-deliverable:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(55,24,70,0.08), 0 4px 12px rgba(241,136,71,0.07);
+  border-color: rgba(241,136,71,0.28);
+}
+
+.cyber-offer-page .ccd-deliverable-ghost-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 900;
+  line-height: 1;
+  color: rgba(241,136,71,0.09);
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+}
+
+.cyber-offer-page .ccd-deliverable-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, rgba(241,136,71,0.11), rgba(164,101,214,0.08));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.cyber-offer-page .ccd-deliverable-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: #f18847;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cyber-offer-page .ccd-deliverable strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: #1a0c2e;
+  margin-bottom: 7px;
+  line-height: 1.38;
+}
+
+.cyber-offer-page .ccd-deliverable p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.62;
+  color: #5e3a74;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION 03 — DÉMARCHE : dark + timeline
+═══════════════════════════════════════════════ */
+.cyber-offer-page .offer-shell-main.offer-shell-main-lite .ccd-section-dark {
+  background:
+    radial-gradient(circle at 92% 8%, rgba(241,136,71,0.18) 0%, rgba(241,136,71,0) 35%),
+    radial-gradient(circle at 10% 88%, rgba(164,101,214,0.2) 0%, rgba(164,101,214,0) 40%),
+    linear-gradient(145deg, #1f1030 0%, #2d1444 55%, #201236 100%) !important;
+  border-color: rgba(241,136,71,0.14) !important;
+  border-radius: 20px !important;
+  padding: 30px 28px !important;
+}
+
+.cyber-offer-page .ccd-section-dark .offer-shell-head {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.cyber-offer-page .ccd-section-dark .offer-shell-head h3 {
+  color: #fff !important;
+  background: linear-gradient(92deg, #fff 0%, rgba(255,255,255,0.9) 50%, #f18847 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+.cyber-offer-page .ccd-section-dark .offer-shell-head h3::after {
+  background: linear-gradient(90deg, #f18847, rgba(255,255,255,0.4)) !important;
+  box-shadow: 0 4px 14px rgba(241,136,71,0.3) !important;
+}
+
+.cyber-offer-page .ccd-section-dark .offer-shell-num {
+  background: rgba(241,136,71,0.16) !important;
+  border-color: rgba(241,136,71,0.38) !important;
+  color: #f18847 !important;
+}
+
+.cyber-offer-page .ccd-section-dark p,
+.cyber-offer-page .ccd-section-dark .ccd-timeline-intro {
+  color: rgba(255,255,255,0.72) !important;
+}
+
+.cyber-offer-page .ccd-section-dark .offer-context-highlight {
+  background: rgba(241,136,71,0.14) !important;
+  border-left-color: #f18847 !important;
+  color: rgba(255,255,255,0.88) !important;
+}
+
+/* Timeline */
+.cyber-offer-page .ccd-timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 0;
+}
+
+.cyber-offer-page .ccd-timeline-step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+}
+
+.cyber-offer-page .ccd-timeline-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cyber-offer-page .ccd-timeline-dot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f18847 0%, #d9621e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(241,136,71,0.36);
+  position: relative;
+  z-index: 1;
+}
+
+.cyber-offer-page .ccd-section-dark.visible .ccd-timeline-step:nth-child(1) .ccd-timeline-dot {
+  animation: ccdDotPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.2s forwards;
+}
+.cyber-offer-page .ccd-section-dark.visible .ccd-timeline-step:nth-child(2) .ccd-timeline-dot {
+  animation: ccdDotPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.36s forwards;
+}
+.cyber-offer-page .ccd-section-dark.visible .ccd-timeline-step:nth-child(3) .ccd-timeline-dot {
+  animation: ccdDotPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.52s forwards;
+}
+.cyber-offer-page .ccd-section-dark.visible .ccd-timeline-step:nth-child(4) .ccd-timeline-dot {
+  animation: ccdDotPop 0.5s cubic-bezier(.34,1.56,.64,1) 0.68s forwards;
+}
+
+@keyframes ccdDotPop {
+  from { transform: scale(0.6); box-shadow: 0 0 0 0 rgba(241,136,71,0.5); }
+  to   { transform: scale(1);   box-shadow: 0 4px 16px rgba(241,136,71,0.36); }
+}
+
+.cyber-offer-page .ccd-timeline-connector {
+  flex: 1;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(241,136,71,0.55), rgba(164,101,214,0.35));
+  margin: 6px 0;
+  min-height: 24px;
+}
+
+.cyber-offer-page .ccd-timeline-step:last-child .ccd-timeline-connector {
+  display: none;
+}
+
+.cyber-offer-page .ccd-timeline-content {
+  padding: 8px 0 28px;
+}
+
+.cyber-offer-page .ccd-timeline-step:last-child .ccd-timeline-content {
+  padding-bottom: 0;
+}
+
+.cyber-offer-page .ccd-timeline-content strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+  margin-bottom: 7px;
+  line-height: 1.38;
+}
+
+.cyber-offer-page .ccd-timeline-content p {
+  margin: 0 !important;
+  font-size: 0.86rem !important;
+  line-height: 1.64 !important;
+  color: rgba(255,255,255,0.68) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION 04 — ATOUTS : Swiper cards
+═══════════════════════════════════════════════ */
+.cyber-offer-page .ccd-atouts-swiper {
+  margin: 24px -6px 0;
+  padding: 6px 6px 48px;
+  overflow: visible;
+}
+
+/* Slides atouts en flex pour hauteur uniforme */
+.cyber-offer-page .ccd-atouts-swiper .swiper-slide {
+  display: flex;
+  height: auto;
+}
+
+.cyber-offer-page .ccd-atout-card {
+  background: linear-gradient(145deg, #fff 0%, #faf5fd 100%);
+  border: 1px solid rgba(83,35,105,0.11);
+  border-radius: 18px;
+  padding: 28px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  height: 420px;           /* hauteur fixe harmonisée (mesurée : max 415px) */
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* vertical accent stripe — toujours visible, s'intensifie au hover */
+.cyber-offer-page .ccd-atout-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #f18847 0%, #a465d6 100%);
+  border-radius: 18px 0 0 18px;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, width 0.3s ease;
+}
+
+.cyber-offer-page .ccd-atout-card:hover::before {
+  opacity: 1;
+  width: 5px;
+}
+
+/* ghost number */
+.cyber-offer-page .ccd-atout-card::after {
+  content: attr(data-num);
+  position: absolute;
+  bottom: -14px;
+  right: 10px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 900;
+  font-size: 5.8rem;
+  line-height: 1;
+  color: rgba(241,136,71,0.06);
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+
+.cyber-offer-page .ccd-atout-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 44px rgba(55,24,70,0.1), 0 6px 18px rgba(241,136,71,0.08);
+  border-color: rgba(241,136,71,0.22);
+}
+
+.cyber-offer-page .ccd-atout-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(241,136,71,0.12), rgba(164,101,214,0.09));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.cyber-offer-page .ccd-atout-icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: #f18847;
+  fill: none;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cyber-offer-page .ccd-atout-card strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: #1a0c2e;
+  margin-bottom: 9px;
+  line-height: 1.4;
+  padding-left: 10px;
+}
+
+.cyber-offer-page .ccd-atout-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #5e3a74;
+  padding-left: 10px;
+}
+
+/* Swiper pagination — atouts */
+.cyber-offer-page .ccd-atouts-swiper .swiper-pagination {
+  bottom: 8px;
+}
+
+.cyber-offer-page .ccd-atouts-swiper .swiper-pagination-bullet {
+  background: rgba(241,136,71,0.3);
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.cyber-offer-page .ccd-atouts-swiper .swiper-pagination-bullet-active {
+  background: #f18847;
+  transform: scale(1.4);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION 05 — RETEX : carte premium
+═══════════════════════════════════════════════ */
+.cyber-offer-page .ccd-retex-card {
+  display: grid;
+  grid-template-columns: 52px 1fr auto;
+  gap: 18px;
+  align-items: center;
+  background: linear-gradient(135deg, #fff 0%, #fdf9f4 100%);
+  border: 1px solid rgba(241,136,71,0.18);
+  border-left: 4px solid #f18847;
+  border-radius: 14px;
+  padding: 22px 24px;
+  transition: transform 0.26s ease, box-shadow 0.26s ease;
+  text-decoration: none;
+  cursor: default;
+}
+
+.cyber-offer-page .ccd-retex-card.is-link {
+  cursor: pointer;
+}
+
+.cyber-offer-page .ccd-retex-card.is-link:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(55,24,70,0.08), 0 4px 12px rgba(241,136,71,0.06);
+}
+
+.cyber-offer-page .ccd-retex-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(241,136,71,0.11), rgba(164,101,214,0.08));
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cyber-offer-page .ccd-retex-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: #f18847;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.cyber-offer-page .ccd-retex-body strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1a0c2e;
+  margin-bottom: 4px;
+}
+
+.cyber-offer-page .ccd-retex-body span {
+  font-size: 0.78rem;
+  color: #7c5490;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+}
+
+.cyber-offer-page .ccd-retex-badge {
+  background: rgba(241,136,71,0.1);
+  border: 1px solid rgba(241,136,71,0.24);
+  color: #b85215;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 6px 13px;
+  border-radius: 999px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION PROFIL — dark premium
+═══════════════════════════════════════════════ */
+.cyber-offer-page .offer-shell-profile {
+  background:
+    radial-gradient(circle at 88% 14%, rgba(241,136,71,0.2) 0%, rgba(241,136,71,0) 36%),
+    radial-gradient(circle at 12% 82%, rgba(164,101,214,0.18) 0%, rgba(164,101,214,0) 38%),
+    linear-gradient(140deg, #1f1030 0%, #2d1444 60%, #1a0d28 100%) !important;
+  border-color: rgba(241,136,71,0.14) !important;
+  border-top-color: rgba(241,136,71,0.14) !important;
+  border-radius: 20px !important;
+  padding: 28px 24px !important;
+  box-shadow: 0 24px 48px rgba(13,5,22,0.18) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-offer-page .offer-shell-profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f18847, #a465d6 70%, transparent 100%);
+}
+
+.cyber-offer-page .offer-shell-profile .section-eyebrow {
+  color: rgba(241,136,71,0.9) !important;
+}
+
+.cyber-offer-page .offer-shell-profile h3 {
+  color: #fff !important;
+}
+
+.cyber-offer-page .offer-shell-profile p {
+  color: rgba(255,255,255,0.7) !important;
+}
+
+.cyber-offer-page .offer-shell-profile-photo {
+  border: 3px solid rgba(241,136,71,0.4) !important;
+  box-shadow: 0 0 0 6px rgba(241,136,71,0.1), 0 14px 36px rgba(13,5,22,0.35) !important;
+}
+
+/* ─── ANIMATION APPARITION CARTES (mobile) ──────────────────────────────── */
+@keyframes ccdSlideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 860px) {
+  .cyber-offer-page .ccd-deliverables-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cyber-offer-page .ccd-retex-card {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+  .cyber-offer-page .ccd-retex-badge {
+    display: none;
+  }
+  .cyber-offer-page .ccd-timeline-step {
+    grid-template-columns: 44px 1fr;
+    gap: 14px;
+  }
+  .cyber-offer-page .ccd-timeline-dot {
+    width: 38px;
+    height: 38px;
+    font-size: 0.82rem;
+  }
+}
+
+/* ─── MOBILE ≤ 519px — swipers → stack vertical ─────────────────────────── */
+@media (max-width: 519px) {
+
+  /* Context swiper → colonne */
+  .cyber-offer-page .ccd-context-swiper {
+    overflow: visible;
+    padding-bottom: 0;
+  }
+  .cyber-offer-page .ccd-context-swiper .swiper-wrapper {
+    flex-direction: column;
+    gap: 14px;
+    transform: none !important;
+    transition: none !important;
+    width: 100% !important;
+  }
+  .cyber-offer-page .ccd-context-swiper .swiper-slide {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 0 !important;
+  }
+  .cyber-offer-page .ccd-ctx-card {
+    height: auto;
+    min-height: 120px;
+    animation: ccdSlideIn 0.44s ease both;
+  }
+  .cyber-offer-page .ccd-context-swiper .swiper-slide:nth-child(1) .ccd-ctx-card { animation-delay: 0.04s; }
+  .cyber-offer-page .ccd-context-swiper .swiper-slide:nth-child(2) .ccd-ctx-card { animation-delay: 0.13s; }
+  .cyber-offer-page .ccd-context-swiper .swiper-slide:nth-child(3) .ccd-ctx-card { animation-delay: 0.22s; }
+  .cyber-offer-page .ccd-context-swiper .swiper-slide:nth-child(4) .ccd-ctx-card { animation-delay: 0.31s; }
+
+  /* Atouts swiper → colonne */
+  .cyber-offer-page .ccd-atouts-swiper {
+    overflow: visible;
+    padding-bottom: 0;
+    margin: 24px 0 0;
+  }
+  .cyber-offer-page .ccd-atouts-swiper .swiper-wrapper {
+    flex-direction: column;
+    gap: 14px;
+    transform: none !important;
+    transition: none !important;
+    width: 100% !important;
+  }
+  .cyber-offer-page .ccd-atouts-swiper .swiper-slide {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 0 !important;
+  }
+  .cyber-offer-page .ccd-atout-card {
+    height: auto;
+    min-height: 180px;
+    animation: ccdSlideIn 0.44s ease both;
+  }
+  .cyber-offer-page .ccd-atouts-swiper .swiper-slide:nth-child(1) .ccd-atout-card { animation-delay: 0.04s; }
+  .cyber-offer-page .ccd-atouts-swiper .swiper-slide:nth-child(2) .ccd-atout-card { animation-delay: 0.13s; }
+  .cyber-offer-page .ccd-atouts-swiper .swiper-slide:nth-child(3) .ccd-atout-card { animation-delay: 0.22s; }
+
+  /* Masquer pagination + flèches */
+  .cyber-offer-page .ccd-context-swiper .swiper-pagination,
+  .cyber-offer-page .ccd-context-swiper .swiper-button-prev,
+  .cyber-offer-page .ccd-context-swiper .swiper-button-next,
+  .cyber-offer-page .ccd-atouts-swiper .swiper-pagination {
+    display: none !important;
+  }
+
+  /* Dark section — padding réduit sur mobile */
+  .cyber-offer-page .offer-shell-main.offer-shell-main-lite .ccd-section-dark {
+    padding: 22px 18px !important;
+  }
+}

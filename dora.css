@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════════════════
+   DORA.CSS — Palette : violet profond saturé
+   Distinct de Cyber for AI (violet-noir) :
+   ici base plus saturée, indigo-violet chaud
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Orbs hero DORA : violet saturé ─────────────────── */
+.page-dora .orb.o1 {
+  background: radial-gradient(circle, rgba(138,60,190,.60) 0%, transparent 70%) !important;
+}
+.page-dora .orb.o2 {
+  background: radial-gradient(circle, rgba(104,1,127,.50) 0%, transparent 70%) !important;
+}
+.page-dora .orb.o3 {
+  background: radial-gradient(circle, rgba(176,68,207,.38) 0%, transparent 70%) !important;
+}
+.page-dora .orb.o4 {
+  background: radial-gradient(circle, rgba(138,60,190,.28) 0%, transparent 70%) !important;
+  width: 120px; height: 120px;
+  top: 25%; right: 8%;
+}
+.page-dora .orb.o5 {
+  background: radial-gradient(circle, rgba(104,1,127,.22) 0%, transparent 70%) !important;
+  width: 80px; height: 80px;
+  bottom: 15%; left: 20%;
+}
+
+/* ── Hero ── violet indigo profond (plus chaud/saturé que Cyber) ── */
+.page-dora .hero {
+  background:
+    radial-gradient(ellipse 65% 55% at 75% 8%, rgba(138,60,190,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 45% at 5% 85%, rgba(104,1,127,.18) 0%, transparent 55%),
+    #0e0320 !important;
+}
+.page-dora .hero-bg {
+  background:
+    radial-gradient(ellipse 80% 55% at 50% 0%, rgba(138,60,190,.12) 0%, transparent 70%) !important;
+}
+
+/* ── Section OFFER ── violet foncé (distinct du charcoal Cyber) ─ */
+.page-dora .offer {
+  background:
+    radial-gradient(ellipse 55% 45% at 8% 20%, rgba(241,136,71,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 92% 80%, rgba(104,1,127,.14) 0%, transparent 55%),
+    #0b0218 !important;
+  position: relative;
+}
+.page-dora .offer::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, #160530 100%);
+  pointer-events: none;
+}
+
+/* Off-cards DORA : orange / violet vif / gris */
+.page-dora .offer .off-card:nth-child(1) {
+  --off-bar: linear-gradient(90deg, #F18847 0%, #f5c08a 100%) !important;
+  --off-glow: rgba(241,136,71,0.22) !important;
+}
+.page-dora .offer .off-card:nth-child(2) {
+  --off-bar: linear-gradient(90deg, #68017F 0%, #b044cf 100%) !important;
+  --off-glow: rgba(104,1,127,0.24) !important;
+}
+.page-dora .offer .off-card:nth-child(3) {
+  --off-bar: linear-gradient(90deg, #6b6b80 0%, #9898aa 100%) !important;
+  --off-glow: rgba(130,130,160,0.18) !important;
+}
+
+/* ── Section METHOD ── violet moyen ─────────────────── */
+.page-dora .method {
+  background:
+    radial-gradient(ellipse 55% 50% at 95% 5%, rgba(104,1,127,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 5% 95%, rgba(241,136,71,.05) 0%, transparent 50%),
+    linear-gradient(180deg, #160530 0%, #1e0840 100%) !important;
+  position: relative;
+}
+.page-dora .method::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, #0d0220 100%);
+  pointer-events: none;
+}
+
+/* ── Section WHY ── violet très sombre (contraste fort) ─ */
+.page-dora .why {
+  background:
+    radial-gradient(ellipse 65% 55% at 10% 50%, rgba(138,60,190,.20) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 20%, rgba(241,136,71,.06) 0%, transparent 55%),
+    linear-gradient(180deg, #0d0220 0%, #180438 100%) !important;
+  position: relative;
+}
+/* Transition vers owner orange */
+.page-dora .why::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 80px;
+  background: linear-gradient(180deg, transparent 0%, #c85e1a 100%);
+  pointer-events: none;
+}
+
+/* ── Fix z-index ─────────────────────────────────────── */
+.page-dora .offer .wrap,
+.page-dora .method .wrap,
+.page-dora .why .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero h1 accent : orange vif ────────────────────── */
+.page-dora h1 .red {
+  color: #F18847 !important;
+}
+
+/* ── Radar scan : violet ─────────────────────────────── */
+.page-dora .radar-card::after {
+  background: linear-gradient(90deg, transparent, rgba(138,60,190,.9), transparent) !important;
+}

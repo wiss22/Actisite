@@ -23,9 +23,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
-  <link rel="stylesheet" href="cyber-4-ai.css">
+  <link rel="stylesheet" href="cyber-4-ai.css?v=20260315g">
+  <link rel="stylesheet" href="swift.css?v=20260315">
 </head>
-<body class="swift-modern-page audit-pillar-page offer-editorial-page offer-brief-page">
+<body class="swift-modern-page audit-pillar-page offer-editorial-page offer-brief-page page-swift">
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -40,20 +41,20 @@
       </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
-          </ul>
-        </li>
-        <li class="nav-item-dropdown">
-          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
-          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
-            <li><a href="/dora">DORA</a></li>
-            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -87,6 +88,9 @@
   <div class="hero-grid"></div>
   <div class="orb o1"></div>
   <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="orb o4"></div>
+  <div class="orb o5"></div>
   <div class="hero-inner wrap">
     <div>
       <h1>SWIFT <em>CSP</em><br><span class="red">fiabiliser la campagne</span><br>et sécuriser l’attestation</h1>
@@ -126,25 +130,22 @@
 
 <section class="offer" id="offre-swift">
   <div class="wrap">
-    <h2 class="sh">Contexte et enjeux<br><span class="text-orange">du programme SWIFT CSP</span></h2>
-    <div class="offer-grid">
+    <h2 class="sh reveal">Contexte et enjeux<br><span class="text-orange">du programme SWIFT CSP</span></h2>
+    <div class="offer-grid reveal-stagger">
       <div class="off-card">
         <div class="off-n">01</div>
         <h3>Un cadre mondial de confiance</h3>
         <p>Le SWIFT Customer Security Programme renforce la sécurité des institutions financières connectées au réseau SWIFT pour réduire les risques d’intrusion, de fraude et d’atteinte à l’intégrité des échanges.</p>
-        <div class="off-tags"><span class="otag h">Écosystème SWIFT</span><span class="otag">Confiance</span><span class="otag">Résilience</span></div>
       </div>
       <div class="off-card">
         <div class="off-n">02</div>
         <h3>Des obligations structurantes</h3>
         <p>Chaque organisation doit qualifier son architecture parmi les catégories A1, A2, A3, A4 ou B, appliquer les contrôles CSCF attendus et démontrer annuellement sa conformité via auto-attestation ou audit indépendant.</p>
-        <div class="off-tags"><span class="otag h">A1 à B</span><span class="otag">CSCF</span><span class="otag">Assessment annuel</span></div>
       </div>
       <div class="off-card">
         <div class="off-n">03</div>
         <h3>Une discipline continue de maîtrise</h3>
         <p>Le CSCF évolue chaque année pour suivre les menaces et les meilleures pratiques. La conformité SWIFT protège votre organisation, votre crédibilité et la continuité de vos relations avec l’écosystème financier.</p>
-        <div class="off-tags"><span class="otag h">Référentiel évolutif</span><span class="otag">Continuité</span><span class="otag">Crédibilité</span></div>
       </div>
     </div>
   </div>
@@ -152,15 +153,15 @@
 
 <section class="method">
   <div class="wrap">
-    <h2 class="sh"><span class="text-orange">Notre méthode</span> de l’assessment à la <br><span class="text-orange">mise sous contrôle</span></h2>
+    <h2 class="sh reveal"><span class="text-orange">Notre méthode</span> de l’assessment à la <br><span class="text-orange">mise sous contrôle</span></h2>
     <div class="meth-layout">
-      <div class="steps">
+      <div class="steps stagger-steps">
         <div class="step"><div class="step-n">01</div><div><div class="step-h">Lecture du périmètre et des preuves</div><p class="step-p">Nous analysons l’architecture SWIFT, la portée des contrôles et le niveau de traçabilité existant pour poser une base d’évaluation réaliste.</p><span class="step-t">Cadrage</span></div></div>
         <div class="step"><div class="step-n">02</div><div><div class="step-h">Évaluation indépendante des contrôles</div><p class="step-p">Nous confrontons les dispositifs observés aux attentes CSCF, qualifions les écarts et consolidons une lecture claire du niveau de maîtrise.</p><span class="step-t">Assessment</span></div></div>
         <div class="step"><div class="step-n">03</div><div><div class="step-h">Remédiations ciblées et trajectoire</div><p class="step-p">Chaque écart est converti en action priorisée, avec une logique d’atterrissage campagne et de réduction concrète du risque.</p><span class="step-t">Remédiation</span></div></div>
         <div class="step"><div class="step-n">04</div><div><div class="step-h">Préparation de l’attestation</div><p class="step-p">Nous fiabilisons les preuves, la documentation et la restitution finale pour sécuriser la campagne et limiter les zones d’incertitude.</p><span class="step-t">Attestation</span></div></div>
       </div>
-      <div class="deliv-card">
+      <div class="deliv-card stagger-deliv">
         <div class="dc-hd">Exemple de livrables</div>
         <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Cartographie de périmètre et matrice de contrôles</div><div class="dr-t">Scope</div></div>
         <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Rapport d’assessment et lecture de maturité</div><div class="dr-t">Audit</div></div>
@@ -175,14 +176,10 @@
 <section class="why">
   <div class="wrap why-layout">
     <div>
-      <div class="why-stmt">SWIFT CSP comme<br><span class="text-orange">dispositif durable,</span><br>pas comme un<br><em>exercice ponctuel.</em></div>
-      <div class="why-checks">
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Une lecture claire des écarts réellement structurants pour la campagne</div>
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Des preuves organisées dès le démarrage pour éviter les frictions de fin de cycle</div>
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Des remédiations pilotables par les équipes, pas des recommandations hors-sol</div>
-      </div>
+      <div class="why-stmt reveal">SWIFT CSP comme<br><span class="text-orange">dispositif durable,</span><br>pas comme un<br><em>exercice ponctuel.</em></div>
+      
     </div>
-    <div class="why-items">
+    <div class="why-items stagger-items">
       <div class="witem"><h4><span class="wn">+</span>Exigence conformité et exécution terrain</h4><p>Nous abordons SWIFT CSP comme un dispositif de maîtrise qui doit vivre dans le temps, avec une logique de campagne mais aussi de robustesse opérationnelle.</p></div>
       <div class="witem"><h4><span class="wn">+</span>Approche evidence-first</h4><p>Les preuves ne sont pas traitées en aval. Elles sont cadrées dès l’amont pour rendre l’attestation plus lisible et plus solide.</p></div>
       <div class="witem"><h4><span class="wn">+</span>Remédiations orientées impact</h4><p>Chaque action est priorisée selon son effet sur le risque, la conformité et la capacité de l’organisation à tenir sa trajectoire.</p></div>
@@ -274,6 +271,18 @@
     </div>
   </footer>
 
+
+  <script>
+  (function() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    var selectors = ['.reveal','.reveal-stagger','.stagger-steps','.stagger-items','.stagger-deliv'];
+    document.querySelectorAll(selectors.join(',')).forEach(function(el) { io.observe(el); });
+  })();
+  </script>
   <script src="script.js?v=20260222"></script>
 </body>
 </html>

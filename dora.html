@@ -23,9 +23,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
-  <link rel="stylesheet" href="cyber-4-ai.css">
+  <link rel="stylesheet" href="cyber-4-ai.css?v=20260315g">
+  <link rel="stylesheet" href="dora.css?v=20260315">
 </head>
-<body class="swift-modern-page audit-pillar-page offer-editorial-page offer-brief-page">
+<body class="swift-modern-page audit-pillar-page offer-editorial-page offer-brief-page page-dora">
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -40,20 +41,20 @@
       </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
-          </ul>
-        </li>
-        <li class="nav-item-dropdown">
-          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
-          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
-            <li><a href="/dora">DORA</a></li>
-            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -87,6 +88,9 @@
   <div class="hero-grid"></div>
   <div class="orb o1"></div>
   <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="orb o4"></div>
+  <div class="orb o5"></div>
   <div class="hero-inner wrap">
     <div>
       <h1><em>DORA</em><br><span class="red">mettre la résilience</span><br>sous contrôle</h1>
@@ -126,25 +130,22 @@
 
 <section class="offer" id="offre-dora">
   <div class="wrap">
-    <h2 class="sh">Contexte et enjeux<br><span class="text-orange">de la résilience DORA</span></h2>
-    <div class="offer-grid">
+    <h2 class="sh reveal">Contexte et enjeux<br><span class="text-orange">de la résilience DORA</span></h2>
+    <div class="offer-grid reveal-stagger">
       <div class="off-card">
         <div class="off-n">01</div>
         <h3>Un socle commun de résilience numérique</h3>
         <p>DORA consolide les orientations sectorielles existantes pour imposer une lecture homogène des risques TIC, de la continuité et de la résilience numérique au niveau européen.</p>
-        <div class="off-tags"><span class="otag h">Socle européen</span><span class="otag">Risques TIC</span><span class="otag">Résilience</span></div>
       </div>
       <div class="off-card">
         <div class="off-n">02</div>
         <h3>Une exigence étendue à tout l’écosystème</h3>
         <p>Le règlement ne vise pas uniquement les grandes institutions: il embarque la chaîne de sous-traitance financière, les dépendances critiques et les prestataires TIC les plus structurants.</p>
-        <div class="off-tags"><span class="otag h">Tiers critiques</span><span class="otag">Sous-traitance</span><span class="otag">Écosystème</span></div>
       </div>
       <div class="off-card">
         <div class="off-n">03</div>
         <h3>Une résilience à démontrer concrètement</h3>
         <p>Tests réguliers, supervision renforcée des prestataires critiques, incidents majeurs et pilotage lisible: DORA impose une maîtrise démontrable et pas seulement déclarative.</p>
-        <div class="off-tags"><span class="otag h">Tests</span><span class="otag">Pilotage</span><span class="otag">Régulateur</span></div>
       </div>
     </div>
   </div>
@@ -152,15 +153,15 @@
 
 <section class="method">
   <div class="wrap">
-    <h2 class="sh"><span class="text-orange">Notre méthode</span> du diagnostic à la <br><span class="text-orange">mise en conformité pilotée</span></h2>
+    <h2 class="sh reveal"><span class="text-orange">Notre méthode</span> du diagnostic à la <br><span class="text-orange">mise en conformité pilotée</span></h2>
     <div class="meth-layout">
-      <div class="steps">
+      <div class="steps stagger-steps">
         <div class="step"><div class="step-n">01</div><div><div class="step-h">Lecture du cadre et du périmètre</div><p class="step-p">Nous analysons les exigences DORA pertinentes pour votre organisation, vos activités critiques et votre chaîne de sous-traitance numérique.</p><span class="step-t">Cadrage</span></div></div>
         <div class="step"><div class="step-n">02</div><div><div class="step-h">Évaluation des écarts et des dépendances</div><p class="step-p">Nous confrontons vos processus, vos contrôles et vos dispositifs aux attentes du règlement pour identifier les écarts réellement structurants.</p><span class="step-t">Assessment</span></div></div>
         <div class="step"><div class="step-n">03</div><div><div class="step-h">Trajectoire de mise en conformité</div><p class="step-p">Nous transformons les constats en feuille de route lisible, articulée avec vos cadres existants, vos priorités et vos contraintes opérationnelles.</p><span class="step-t">Remédiation</span></div></div>
         <div class="step"><div class="step-n">04</div><div><div class="step-h">Pilotage et démonstration</div><p class="step-p">Nous aidons à produire un reporting clair par domaine et par acteur pour soutenir les directions, les métiers et les échanges avec les régulateurs.</p><span class="step-t">Pilotage</span></div></div>
       </div>
-      <div class="deliv-card">
+      <div class="deliv-card stagger-deliv">
         <div class="dc-hd">Exemple de livrables</div>
         <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Cartographie des risques TIC et des tiers critiques</div><div class="dr-t">Scope</div></div>
         <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Analyse d’écarts par domaine DORA</div><div class="dr-t">Audit</div></div>
@@ -174,15 +175,10 @@
 
 <section class="why">
   <div class="wrap why-layout">
-    <div>
-      <div class="why-stmt">DORA comme<br><span class="text-orange">cadre de résilience,</span><br>pas comme une<br><em>contrainte documentaire.</em></div>
-      <div class="why-checks">
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Une lecture claire des écarts concrets à arbitrer</div>
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Une mise en conformité adossée aux cadres déjà en place</div>
-        <div class="wcheck"><span class="wcheck-ico">✓</span>Un reporting lisible pour directions, métiers et fonctions de contrôle</div>
-      </div>
-    </div>
-    <div class="why-items">
+      <div class="why-stmt reveal">DORA comme<br><span class="text-orange">cadre de résilience,</span><br>pas comme une<br><em>contrainte documentaire.</em></div>
+     
+    
+    <div class="why-items stagger-items">
       <div class="witem"><h4><span class="wn">+</span>Écarts concrets à la réglementation</h4><p>Nous identifions les écarts réellement utiles à arbitrer, directement exploitables dans une trajectoire de mise en conformité crédible.</p></div>
       <div class="witem"><h4><span class="wn">+</span>Mise en conformité appuyée sur l’existant</h4><p>Nous valorisons les processus et cadres déjà en place pour éviter les dispositifs parallèles, lourds et peu soutenables.</p></div>
       <div class="witem"><h4><span class="wn">+</span>Vision pilotable pour la direction</h4><p>Nous produisons une lecture claire du niveau de conformité par domaine, par acteur et par niveau de criticité.</p></div>
@@ -274,6 +270,18 @@
     </div>
   </footer>
 
+
+  <script>
+  (function() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    var selectors = ['.reveal','.reveal-stagger','.stagger-steps','.stagger-items','.stagger-deliv'];
+    document.querySelectorAll(selectors.join(',')).forEach(function(el) { io.observe(el); });
+  })();
+  </script>
   <script src="script.js?v=20260222"></script>
 </body>
 </html>

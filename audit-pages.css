@@ -2727,6 +2727,250 @@
   color: rgba(31,24,47,0.66);
 }
 
+.offer-publications-section {
+  position: relative;
+}
+
+.offer-publications-groups {
+  display: grid;
+  gap: 16px;
+}
+
+.offer-publications-groups-brief {
+  gap: 18px;
+}
+
+.offer-publications-group h4 {
+  margin: 0 0 10px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  color: #2d2142;
+}
+
+.offer-publications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.offer-publications-grid-scroll {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(300px, 340px);
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+}
+
+.offer-publications-grid-scroll > * {
+  scroll-snap-align: start;
+}
+
+.offer-publication-card {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  min-height: 100%;
+  border: 1px solid rgba(83,35,105,0.16);
+  border-radius: 12px;
+  background: #fff;
+  padding: 14px 13px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.offer-publication-media {
+  flex: 0 0 112px;
+  width: 112px;
+  height: 112px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(83,35,105,0.14);
+  background: rgba(83,35,105,0.06);
+}
+
+.offer-publication-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.offer-publication-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  justify-content: center;
+}
+
+.offer-publication-card:hover {
+  border-color: rgba(241,136,71,0.72);
+  box-shadow: 0 10px 20px rgba(20,14,35,0.08);
+}
+
+.offer-publication-type {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.offer-publication-card strong {
+  display: block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.94rem;
+  line-height: 1.36;
+  color: #2a1b43;
+}
+
+.offer-publication-card span {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.58;
+  color: rgba(31,24,47,0.66);
+}
+
+.offer-publication-card-story {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(241,136,71,0.08) 0%, rgba(241,136,71,0) 40%),
+    #fff;
+}
+
+.offer-publication-card-article {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(164,101,214,0.08) 0%, rgba(164,101,214,0) 42%),
+    #fff;
+}
+
+.offer-brief-page .offer-publications-group h4,
+.page-cyber4ai .offer-publications-group h4 {
+  color: #f18847;
+  font-size: .64rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.offer-brief-page .offer-publications-section,
+.page-cyber4ai .offer-publications-section {
+  background:
+    radial-gradient(ellipse 70% 48% at 14% 8%, rgba(83,35,105,.07) 0%, transparent 62%),
+    radial-gradient(ellipse 76% 52% at 86% 92%, rgba(241,136,71,.09) 0%, transparent 66%),
+    linear-gradient(180deg, #e1e0e5 0%, #d2d2d8 100%);
+}
+
+.offer-brief-page .offer-publications-section .rex-eyebrow,
+.page-cyber4ai .offer-publications-section .rex-eyebrow {
+  color: #532369;
+}
+
+.offer-brief-page .offer-publications-section .rex-title,
+.page-cyber4ai .offer-publications-section .rex-title {
+  color: #1f1630;
+}
+
+.offer-brief-page .offer-publications-section .rex-title .text-orange,
+.page-cyber4ai .offer-publications-section .rex-title .text-orange {
+  color: #f18847;
+}
+
+.offer-brief-page .offer-publications-groups,
+.page-cyber4ai .offer-publications-groups {
+  gap: 18px;
+}
+
+.offer-brief-page .offer-publications-grid,
+.page-cyber4ai .offer-publications-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.offer-brief-page .offer-publications-section .rex-title,
+.page-cyber4ai .offer-publications-section .rex-title {
+  font-size: clamp(1.35rem, 2.6vw, 1.9rem);
+  margin-bottom: 12px;
+}
+
+.offer-brief-page .offer-publication-card,
+.page-cyber4ai .offer-publication-card {
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 210px;
+  border: 1px solid rgba(83,35,105,.15);
+  border-radius: 12px;
+  padding: 22px 20px;
+  background: rgba(255,255,255,.85);
+  color: #23163a;
+  box-shadow: none;
+  transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.offer-brief-page .offer-publication-card strong,
+.page-cyber4ai .offer-publication-card strong {
+  color: #25153b;
+  font-size: 1.06rem;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.offer-brief-page .offer-publication-card span,
+.page-cyber4ai .offer-publication-card span {
+  color: rgba(37,21,59,.76);
+  font-size: .84rem;
+  line-height: 1.62;
+}
+
+.offer-brief-page .offer-publication-card:hover,
+.page-cyber4ai .offer-publication-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(241,136,71,.55);
+  box-shadow: 0 12px 28px rgba(36,18,56,.12);
+}
+
+.offer-brief-page .offer-publication-type,
+.page-cyber4ai .offer-publication-type {
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #f18847;
+  border: 1px solid rgba(241,136,71,.35);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.offer-brief-page .offer-publication-media,
+.page-cyber4ai .offer-publication-media {
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border-radius: 10px;
+  border: 1px solid rgba(83,35,105,.15);
+  background: rgba(255,255,255,.7);
+}
+
+.offer-brief-page .offer-publication-body,
+.page-cyber4ai .offer-publication-body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.offer-brief-page .offer-publication-body span:last-child,
+.page-cyber4ai .offer-publication-body span:last-child {
+  margin-top: auto;
+}
+
 .faq-accordion-smooth details {
   overflow: hidden;
 }
@@ -3025,8 +3269,30 @@
   }
   .offer-shell-method-timeline,
   .offer-differentiators,
-  .offer-related-feed {
+  .offer-related-feed,
+  .offer-publications-grid {
     grid-template-columns: 1fr;
+  }
+  .offer-publication-card {
+    gap: 10px;
+  }
+  .offer-brief-page .offer-publications-grid,
+  .page-cyber4ai .offer-publications-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .offer-publications-grid-scroll {
+    grid-auto-columns: minmax(272px, 82vw);
+  }
+  .offer-brief-page .offer-publication-card,
+  .page-cyber4ai .offer-publication-card {
+    min-height: 0;
+    padding: 18px 16px;
+  }
+  .offer-publication-media {
+    flex-basis: 92px;
+    width: 92px;
+    height: 92px;
   }
   .offer-shell-method-timeline::before {
     left: 0;

@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20260222">
 <link rel="stylesheet" href="audit-pages.css">
-<link rel="stylesheet" href="cyber-4-ai.css">
+<link rel="stylesheet" href="cyber-4-ai.css?v=20260315g">
 </head>
 <body class="page-cyber4ai">
 
@@ -40,20 +40,20 @@
     </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
             <li><a href="/risques-digitaux">Risques Digitaux</a></li>
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
-          </ul>
-        </li>
-        <li class="nav-item-dropdown">
-          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
-          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
-            <li><a href="/dora">DORA</a></li>
-            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -88,6 +88,9 @@
   <div class="hero-grid"></div>
   <div class="orb o1"></div>
   <div class="orb o2"></div>
+  <div class="orb o3"></div>
+  <div class="orb o4"></div>
+  <div class="orb o5"></div>
 
   <div class="hero-inner wrap">
     <div>
@@ -151,9 +154,9 @@
 <!-- ══ OFFRE ══════════════════════════════════════════ -->
 <section class="offer" id="nos-offres">
   <div class="wrap">
-    <h2 class="sh">Trois offres,<br><span class="text-orange">un périmètre complet</span></h2>
+    <h2 class="sh reveal">Trois offres,<br><span class="text-orange">un périmètre complet</span></h2>
 
-    <div class="offer-grid">
+    <div class="offer-grid reveal-stagger">
 
       <!-- 1 -->
       <div class="off-card">
@@ -166,12 +169,6 @@
           <div class="oli">Test des APIs d'inférence et des intégrations</div>
           <div class="oli">Revue des accès aux datasets et aux modèles</div>
           <div class="oli">Évaluation de la traçabilité et de l'observabilité</div>
-        </div>
-        <div class="off-tags">
-          <span class="otag h">Analyse de Risques</span>
-          <span class="otag">OWASP ML</span>
-          <span class="otag">API Sec</span>
-          <span class="otag">IAM</span>
         </div>
       </div>
 
@@ -187,11 +184,6 @@
           <div class="oli">Politique d'usage IA avec niveaux de risque définis</div>
           <div class="oli">Registre IA et documentation pour le DPO et le RSSI</div>
         </div>
-        <div class="off-tags">
-          <span class="otag h">Gouvernance</span>
-          <span class="otag">Stratégie DLP</span>
-          <span class="otag">AI Act</span>
-        </div>
       </div>
 
       <!-- 3 -->
@@ -206,12 +198,6 @@
           <div class="oli">Cartographie des actions avec les systèmes tiers et identification des risques</div>
           <div class="oli">Logging, alerting et plan de réponse incident IA</div>
         </div>
-        <div class="off-tags">
-          <span class="otag h">Technique</span>
-          <span class="otag">Agents</span>
-          <span class="otag">RAG Sec</span>
-          <span class="otag">Guardrails</span>
-        </div>
       </div>
 
     </div>
@@ -220,9 +206,9 @@
 <!-- ══ SURFACE D'ATTAQUE ══════════════════════════════ -->
 <section class="surface">
   <div class="wrap">
-    <h2 class="sh">L'IA ne crée pas de <span class="text-orange">nouveaux risques.</span><br>Elle<em>amplifie ceux qui existent déjà</em></h2>
+    <h2 class="sh reveal">L'IA ne crée pas de <span class="text-orange">nouveaux risques.</span><br>Elle<em>amplifie ceux qui existent déjà</em></h2>
 
-    <div class="surface-grid">
+    <div class="surface-grid reveal-stagger">
       <div class="surf-card sc-r">
         <div class="surf-ico">01</div>
         <h3>Shadow AI & exposition des données</h3>
@@ -249,10 +235,10 @@
 <section class="method" id="methode">
   <div class="wrap">
   
-    <h2 class="sh"><span class="text-orange">Notre méthode</span> du diagnostic à la <br> <span class="text-orange">facilitation </span>opérationnelle</h2>
+    <h2 class="sh reveal"><span class="text-orange">Notre méthode</span> du diagnostic à la <br> <span class="text-orange">facilitation </span>opérationnelle</h2>
 
     <div class="meth-layout">
-      <div class="steps">
+      <div class="steps stagger-steps">
         <div class="step">
           <div class="step-n">01</div>
           <div>
@@ -287,7 +273,7 @@
         </div>
       </div>
 
-      <div class="deliv-card">
+      <div class="deliv-card stagger-deliv">
         <div class="dc-hd">Exemple de Livrables</div>
         <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Cartographie IA et Shadow AI</div><div class="dr-t">Cadrage</div></div>
         <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Rapport d'audit technique et vulnérabilités</div><div class="dr-t">Analyse</div></div>
@@ -305,19 +291,19 @@
 <section class="why">
   <div class="wrap why-layout">
     <div>
-      <div class="why-stmt">
+      <div class="why-stmt reveal">
         La cybersécurité <br>
         <span class="text-orange">comme socle.</span><br>
         L’IA comme<br>
         <em>accélérateur.</em>
       </div>
-      <div class="why-checks">
+      <div class="why-checks stagger-checks">
         <div class="wcheck"><span class="wcheck-ico">✓</span>Nous comprenons les enjeux de sécurité des systèmes IA et savons traduire les risques techniques en décisions concrètes</div>
         <div class="wcheck"><span class="wcheck-ico">✓</span>Chaque livrable est actionnable par votre RSSI, votre DPO et vos équipes tech</div>
         <div class="wcheck"><span class="wcheck-ico">✓</span>Nous livrons des contrôles et recommandaitons actionnables en production, pas des plans qui restent dans un drive</div>
       </div>
     </div>
-    <div class="why-items">
+    <div class="why-items stagger-items">
       <div class="witem">
         <h4><span class="wn">+</span>Cyber et IA dans une seule équipe</h4>
         <p>Pas d'interface entre un cabinet cyber et un intégrateur IA. Nos consultants évaluent la sécurité des systèmes IA sans apprendre l'IA en même temps.</p>
@@ -427,5 +413,31 @@
 </footer>
 
 <script src="script.js?v=20260222"></script>
+
+  <!-- SCROLL REVEAL & INTERACTIONS -->
+  <script>
+  (function() {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    var selectors = [
+      '.reveal', '.reveal-left',
+      '.reveal-stagger',
+      '.stagger-steps', '.stagger-checks',
+      '.stagger-items', '.stagger-deliv'
+    ];
+
+    document.querySelectorAll(selectors.join(',')).forEach(function(el) {
+      io.observe(el);
+    });
+  })();
+  </script>
+
 </body>
 </html>

@@ -21,13 +21,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Swiper 11 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
+  <link rel="stylesheet" href="cyber-offers-shared.css">
 </head>
-<body class="cyber-pillar-page swift-modern-page offer-editorial-page">
+<body class="cyber-pillar-page swift-modern-page offer-editorial-page cyber-offer-page">
 
 <nav id="navbar" class="scrolled"><div class="nav-inner"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" /></a>
       <ul class="nav-links">
+        <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
+          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
+            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
+            <li><a href="/dora">DORA</a></li>
+            <li><a href="/swift">Swift CSP</a></li>
+          </ul>
+        </li>
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
           <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
@@ -35,14 +46,6 @@
             <li><a href="/cyber-defense">Cyber Défense</a></li>
             <li><a href="/audit-conformite">Audit et Conformité</a></li>
             <li><a href="/transfo-cyber">Transfo Cyber</a></li>
-          </ul>
-        </li>
-        <li class="nav-item-dropdown">
-          <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
-          <ul class="nav-dropdown-menu" id="featuredOffersDropdown" aria-label="Sous-menu Offres à la une">
-            <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
-            <li><a href="/dora">DORA</a></li>
-            <li><a href="/swift">Swift CSP</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -101,10 +104,118 @@
         <a href="/cyber-securite-industries" class="is-active">Sécurité des industries</a>
       </aside>
       <div class="offer-shell-main offer-shell-main-lite">
-        <article class="offer-shell-section reveal"><div class="offer-shell-head"><div class="offer-shell-num">01</div><h3>Contexte et tensions du moment</h3></div><p>Les systèmes industriels OT/IT deviennent des cibles prioritaires, avec des risques élevés sur la sécurité des opérations et la continuité de production.</p><p>L'enjeu est de renforcer les contrôles de sécurité sans dégrader la disponibilité et la sûreté des environnements industriels.</p></article>
-        <article class="offer-shell-section reveal" data-delay="90"><div class="offer-shell-head"><div class="offer-shell-num">02</div><h3>L’offre Actinuance qui répond à ces enjeux</h3></div><div class="offer-shell-deliverables"><div class="offer-shell-deliverable"><strong>Diagnostic OT/IT</strong><p>Cartographie des actifs, flux et dépendances critiques des environnements industriels.</p></div><div class="offer-shell-deliverable"><strong>Durcissement architecture</strong><p>Segmentation, cloisonnement et sécurisation des accès aux systèmes sensibles.</p></div><div class="offer-shell-deliverable"><strong>Alignement normatif</strong><p>Structuration des contrôles selon IEC 62443 et standards sectoriels.</p></div><div class="offer-shell-deliverable"><strong>Plan de résilience</strong><p>Préparation des équipes et scénarios de réponse adaptés au contexte industriel.</p></div></div></article>
-        <article class="offer-shell-section reveal" data-delay="140"><div class="offer-shell-head"><div class="offer-shell-num">03</div><h3>Nos atouts</h3></div><div class="offer-differentiators"><div class="offer-diff-item"><strong>Expertise multi-cloud</strong><p>Capacité d'intervention sur Azure, AWS et GCP avec une vision homogène du risque.</p></div><div class="offer-diff-item"><strong>Approche orientée impact</strong><p>Priorisation des actions selon l'exposition réelle et la criticité métier.</p></div><div class="offer-diff-item"><strong>Exécution terrain</strong><p>Accompagnement concret des équipes pour ancrer les mesures dans la durée.</p></div></div></article>
-        <article class="offer-shell-section reveal" data-delay="180"><div class="offer-shell-head"><div class="offer-shell-num">04</div><h3>RETEX missions</h3></div><div class="offer-retex-grid"><article class="offer-retex-link"><strong>Grand compte services</strong><span>Secteur: Services financiers</span></article></div></article>
+        <!-- ── 01 CONTEXTE ── -->
+        <article class="offer-shell-section reveal">
+          <div class="offer-shell-head">
+            <div class="offer-shell-num">01</div>
+            <h3>Contexte et enjeux</h3>
+          </div>
+          <p>Les systèmes industriels OT/IT deviennent des cibles prioritaires, avec des risques élevés sur la sécurité des opérations et la continuité de production.</p>
+
+          <div class="swiper ccd-context-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="ccd-ctx-card">
+                  <div class="ccd-ctx-icon">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  </div>
+                  <p>Les systèmes industriels OT/IT deviennent des cibles prioritaires, avec des risques élevés sur la sécurité des opérations et la continuité de production.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ccd-ctx-card">
+                  <div class="ccd-ctx-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  </div>
+                  <p>L’enjeu est de renforcer les contrôles de sécurité sans dégrader la disponibilité et la sûreté des environnements industriels.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+          <p class="offer-context-highlight">Sécuriser les environnements industriels critiques impose une approche spécifique qui concilie protection renforcée et continuité opérationnelle.</p>
+        </article>
+
+        <!-- ── 02 OFFRE ── -->
+        <article class="offer-shell-section reveal" data-delay="90">
+          <div class="offer-shell-head">
+            <div class="offer-shell-num">02</div>
+            <h3>L’offre Actinuance</h3>
+          </div>
+          <p>Actinuance accompagne les organisations industrielles dans la sécurisation de leurs environnements OT/IT en intervenant sur l’architecture, la conformité et la résilience opérationnelle.</p>
+          <div class="ccd-deliverables-grid">
+            <div class="ccd-deliverable">
+              <span class="ccd-deliverable-ghost-num">01</span>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+              <strong>Diagnostic OT/IT</strong>
+              <p>Cartographie des actifs, flux et dépendances critiques des environnements industriels.</p>
+            </div>
+            <div class="ccd-deliverable">
+              <span class="ccd-deliverable-ghost-num">02</span>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+              <strong>Durcissement architecture</strong>
+              <p>Segmentation, cloisonnement et sécurisation des accès aux systèmes sensibles.</p>
+            </div>
+            <div class="ccd-deliverable">
+              <span class="ccd-deliverable-ghost-num">03</span>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 12 18 15 15"/></svg></div>
+              <strong>Alignement normatif</strong>
+              <p>Structuration des contrôles selon IEC 62443 et standards sectoriels.</p>
+            </div>
+            <div class="ccd-deliverable">
+              <span class="ccd-deliverable-ghost-num">04</span>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+              <strong>Plan de résilience</strong>
+              <p>Préparation des équipes et scénarios de réponse adaptés au contexte industriel.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- ── 03 ATOUTS ── -->
+        <article class="offer-shell-section reveal" data-delay="140">
+          <div class="offer-shell-head">
+            <div class="offer-shell-num">03</div>
+            <h3>Nos atouts</h3>
+          </div>
+          <div class="swiper ccd-atouts-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="ccd-atout-card" data-num="01">
+                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+                  <strong>Expertise multi-cloud et OT</strong>
+                  <p>Capacité d’intervention sur Azure, AWS et GCP avec une vision homogène du risque, adaptée aux spécificités des environnements industriels.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ccd-atout-card" data-num="02">
+                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <strong>Approche orientée impact</strong>
+                  <p>Priorisation des actions selon l’exposition réelle et la criticité métier des systèmes industriels et des processus de production.</p>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="ccd-atout-card" data-num="03">
+                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+                  <strong>Exécution terrain</strong>
+                  <p>Accompagnement concret des équipes pour ancrer les mesures dans la durée et garantir leur adoption opérationnelle.</p>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </article>
+
+        <!-- ── 04 CLIENT STORIES ── -->
+        <article class="offer-shell-section reveal" data-delay="180">
+          <div class="offer-shell-head">
+            <div class="offer-shell-num">04</div>
+            <h3>Client Stories</h3>
+          </div>
+          <div class="offer-retex-grid"></div>
+        </article>
         <article class="offer-shell-section reveal" data-delay="220"><div class="offer-shell-head"><div class="offer-shell-num">05</div><h3>Articles liés à l’offre</h3></div><div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-industries" data-offer-limit="2"></div></article>
         <article class="offer-shell-profile reveal" data-delay="260"><img src="Photos/Dirigeant/Ayoub.jpg" alt="Ayoub — Manager" class="offer-shell-profile-photo" /><div class="offer-shell-profile-content"><div class="section-eyebrow">Porteur de l’offre</div><h3>Ayoub — Manager</h3><p>Ayoub intervient sur la sécurisation des environnements industriels critiques avec une approche pragmatique et opérationnelle.</p><div class="card-cta" style="margin-top:14px;"><a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Securite%20des%20industries" class="btn-primary">En discuter avec Ayoub</a></div></div></article>
       </div>
@@ -115,5 +226,25 @@
 <footer><div class="footer-inner"><div class="footer-brand"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a><p>Cabinet de conseil en gouvernance et exécution des programmes GRC, cyber et conformité.</p><a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div><div><div class="badge-title">Happy at Work 2025</div><div class="badge-sub">Certifié par nos collaborateurs</div></div></a><div class="footer-social"><a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg></a></div></div><div class="footer-links"><div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div><div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div><div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div></div></div><div class="footer-bottom"><p>© 2025 Actinuance Consulting — Tous droits réservés</p><div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/protection-donnees">Protection des données</a></div></div></footer>
 
 <script src="script.js?v=20260222"></script>
+  <!-- Swiper 11 -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    if (typeof Swiper === 'undefined') return;
+    new Swiper('.ccd-context-swiper', {
+      slidesPerView: 1.12, spaceBetween: 16, loop: false, grabCursor: true,
+      autoplay: { delay: 4200, disableOnInteraction: true, pauseOnMouseEnter: true },
+      pagination: { el: '.ccd-context-swiper .swiper-pagination', clickable: true },
+      navigation: { prevEl: '.ccd-context-swiper .swiper-button-prev', nextEl: '.ccd-context-swiper .swiper-button-next' },
+      breakpoints: { 0: { enabled: false }, 520: { enabled: true, slidesPerView: 1.5, spaceBetween: 18 }, 740: { enabled: true, slidesPerView: 2, spaceBetween: 20 } },
+    });
+    new Swiper('.ccd-atouts-swiper', {
+      slidesPerView: 1.1, centeredSlides: true, spaceBetween: 18, loop: false, grabCursor: true,
+      pagination: { el: '.ccd-atouts-swiper .swiper-pagination', clickable: true },
+      breakpoints: { 0: { enabled: false, centeredSlides: false }, 520: { enabled: true, slidesPerView: 1.4, centeredSlides: true, spaceBetween: 20 }, 740: { enabled: true, slidesPerView: 2, centeredSlides: false, spaceBetween: 22 }, 1060: { enabled: true, slidesPerView: 3, centeredSlides: false, spaceBetween: 22 } },
+    });
+  })();
+  </script>
 </body>
 </html>

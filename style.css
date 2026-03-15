@@ -6119,3 +6119,237 @@ footer {
   .offers-cta { padding-top: 50px; padding-bottom: 60px; }
   .offers-cta-inner { padding: 26px 20px; }
 }
+
+/* ═══════════════════════════════════════════════
+   SECTION OFFRES À LA UNE — TRIO PREMIUM
+   ═══════════════════════════════════════════════ */
+
+.section-featured-offers {
+  background: #140920;
+  padding: 88px 0 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial glow de fond */
+.section-featured-offers::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 55% 40% at 20% 50%, rgba(241, 136, 71, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 40% at 80% 50%, rgba(15, 110, 184, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 60% at 50% 0%, rgba(104, 1, 127, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.section-featured-offers .section-intro {
+  margin-bottom: 48px;
+}
+
+.section-featured-offers .section-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.15em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-featured-offers .section-heading {
+  color: var(--white);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  margin-bottom: 0;
+  line-height: 1.1;
+}
+
+.section-featured-offers .section-heading em {
+  color: var(--accent);
+}
+
+/* ── Grille trio ── */
+.featured-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Carte ── */
+.featured-offer-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 40px 32px 34px;
+  overflow: hidden;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), border-color 0.3s ease, box-shadow 0.35s ease;
+}
+
+/* Barre de couleur top */
+.featured-offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-bar);
+  border-radius: 18px 18px 0 0;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+/* Glow sous la carte au hover */
+.featured-offer-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 18px;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--card-border-hover);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.featured-offer-card:hover::after { opacity: 1; }
+.featured-offer-card:hover::before { height: 4px; opacity: 1; }
+
+/* Couleurs par offre */
+.featured-offer-card--ai {
+  --card-bar: linear-gradient(90deg, #F18847 0%, #f5c08a 100%);
+  --card-border-hover: rgba(241, 136, 71, 0.5);
+  --card-glow-hover: 0 24px 64px rgba(241, 136, 71, 0.18), 0 4px 20px rgba(0,0,0,0.4);
+  --card-num-color: rgba(241, 136, 71, 0.07);
+  --card-cta-color: #F18847;
+}
+.featured-offer-card--dora {
+  --card-bar: linear-gradient(90deg, #68017F 0%, #a02cbe 100%);
+  --card-border-hover: rgba(104, 1, 127, 0.55);
+  --card-glow-hover: 0 24px 64px rgba(104, 1, 127, 0.2), 0 4px 20px rgba(0,0,0,0.4);
+  --card-num-color: rgba(104, 1, 127, 0.08);
+  --card-cta-color: #c45add;
+}
+.featured-offer-card--swift {
+  --card-bar: linear-gradient(90deg, #6b6b80 0%, #9898aa 100%);
+  --card-border-hover: rgba(130, 130, 160, 0.45);
+  --card-glow-hover: 0 24px 64px rgba(130, 130, 160, 0.16), 0 4px 20px rgba(0,0,0,0.4);
+  --card-num-color: rgba(130, 130, 160, 0.08);
+  --card-cta-color: #a0a0b8;
+}
+
+.featured-offer-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: var(--card-glow-hover);
+}
+
+/* Numéro ghost */
+.featured-offer-card__num {
+  position: absolute;
+  bottom: -14px;
+  right: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 8.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--card-num-color);
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s ease, transform 0.35s ease;
+  letter-spacing: -4px;
+}
+
+.featured-offer-card:hover .featured-offer-card__num {
+  color: color-mix(in srgb, var(--card-num-color) 200%, transparent);
+  transform: translateY(-6px) scale(1.04);
+}
+
+/* Badge */
+.featured-offer-card__badge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 4px 12px;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+/* Label */
+.featured-offer-card__label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--card-cta-color);
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Titre */
+.featured-offer-card__title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+/* Description */
+.featured-offer-card__desc {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+
+/* CTA */
+.featured-offer-card__cta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--card-cta-color);
+  opacity: 0.75;
+  transition: opacity 0.2s ease, gap 0.25s ease;
+}
+
+.featured-offer-card:hover .featured-offer-card__cta {
+  opacity: 1;
+  gap: 13px;
+}
+
+.featured-offer-card__cta svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.featured-offer-card:hover .featured-offer-card__cta svg {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .featured-trio {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .featured-offer-card {
+    padding: 32px 26px 28px;
+  }
+  .featured-offer-card__num {
+    font-size: 6rem;
+  }
+}

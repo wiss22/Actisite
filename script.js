@@ -1931,6 +1931,279 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Vision logos fallback: avoid broken image icons when a provider URL is unavailable.
+  const isOfferLikePage = document.body.matches('.offer-editorial-page, .offer-brief-page, .page-cyber4ai');
+  if (isOfferLikePage) {
+    const projectId = 'vnmxplwi';
+    const dataset = 'production';
+    const apiVersion = '2024-10-01';
+    const articleFeedNode = document.querySelector('.offer-related-feed[data-offer-tag], #offerRelatedFeed[data-offer-tag]');
+    const aiRexFeedNode = document.querySelector('#aiRexFeed[data-offer-tag]');
+    const offerTag = (articleFeedNode?.dataset.offerTag || aiRexFeedNode?.dataset.offerTag || '').trim();
+    const offerTagTitleMap = {
+      'swift-csp': 'SWIFT CSP',
+      'cyber-4-ai': 'Cyber for AI',
+      'audit-organisationnel': 'Audit et Contrôles',
+      'resilience-reglemenaire': 'Résilience réglementaire',
+      dora: 'DORA',
+      'conformite-sectorielle': 'Conformité sectorielle',
+      'cyber-cloud': 'Sécurité du cloud',
+      'cyber-development': 'Sécurité du développement',
+      'cyber-industries': 'Sécurité des industries',
+      'cyber-resilience-operationnelle': 'Résilience opérationnelle',
+      'risques-gouvernance': 'Gouvernance (Risques Digitaux)',
+      'risques-resilience': 'Résilience (Risques Digitaux)',
+      'risques-sensibilisation': 'Sensibilisation (Risques Digitaux)',
+      'transfo-program-strategy-delivery': 'Program strategy and delivery',
+      'transfo-security-capability-implementation': 'Security capability implementation',
+      'transfo-security-by-design': 'Security by design',
+      'risques-digitaux': 'Risques Digitaux',
+      'cyber-defense': 'Cyber Défense',
+      'transfo-cyber': 'Transfo Cyber'
+    };
+    const normalizeOfferValue = (value) =>
+      String(value || '')
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/&/g, 'et')
+        .replace(/[^a-z0-9]+/g, '')
+        .trim();
+    const normalizedOfferTags = Array.from(new Set([
+      offerTag,
+      offerTag.toLowerCase(),
+      offerTag.replace(/-/g, ' '),
+      offerTag.replace(/-/g, ' ').toLowerCase(),
+      offerTag.replace(/[-\s]/g, ''),
+      offerTag.replace(/[-\s]/g, '').toLowerCase(),
+      offerTagTitleMap[offerTag] || '',
+      normalizeOfferValue(offerTag),
+      normalizeOfferValue(offerTagTitleMap[offerTag] || '')
+    ].filter(Boolean)));
+    const isBriefOffer = document.body.matches('.offer-brief-page, .page-cyber4ai');
+    const oldArticleSection = isBriefOffer
+      ? (articleFeedNode?.closest('.rex-section') || null)
+      : (articleFeedNode?.closest('.js-offer-related-wrapper, .offer-shell-section, .rex-section') || null);
+    const oldRexSection = isBriefOffer
+      ? (aiRexFeedNode?.closest('.rex-section') || null)
+      : (document.querySelector('.offer-retex-grid')?.closest('.offer-shell-section') || null);
+    const ownerSection = document.querySelector('.offer-shell-profile, .owner');
+    const insertionAnchor = ownerSection || oldArticleSection || oldRexSection;
+
+    const escapeHtml = (value) =>
+      String(value || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+
+    const hideLegacyPublicationSections = () => {
+      [...new Set([oldArticleSection, oldRexSection].filter(Boolean))].forEach((node) => {
+        if (node) node.style.display = 'none';
+      });
+    };
+
+    const fetchRows = async (query, params = {}) => {
+      const serializedParams = Object.entries(params)
+        .map(([key, value]) => `&$${key}=${encodeURIComponent(JSON.stringify(value))}`)
+        .join('');
+      const endpoints = [
+        `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}${serializedParams}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}${serializedParams}&t=${Date.now()}`
+      ];
+
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {headers: {Accept: 'application/json'}, cache: 'no-store'});
+          if (!response.ok) continue;
+          const json = await response.json();
+          const rows = Array.isArray(json.result) ? json.result : [];
+          if (rows.length) return rows;
+        } catch (_) {
+          // fallback endpoint
+        }
+      }
+      return [];
+    };
+
+    const matchesOfferTag = (value) => {
+      const normalized = normalizeOfferValue(value);
+      return Boolean(normalized && normalizedOfferTags.includes(normalized));
+    };
+
+    const renderArticles = (items) => items.map((item) => {
+      const title = escapeHtml(item.title || 'Article');
+      const href = item.externalUrl || (item.slug ? `${articleBasePath}?slug=${encodeURIComponent(item.slug)}` : blogBasePath);
+      const external = /^https?:\/\//i.test(href);
+      const media = item.coverUrl
+        ? `<div class="offer-publication-media"><img src="${escapeHtml(item.coverUrl)}" alt="${escapeHtml(item.coverAlt || title)}" loading="lazy" decoding="async"></div>`
+        : '';
+      return `
+        <a class="offer-publication-card offer-publication-card-article" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+          ${media}
+          <div class="offer-publication-body">
+            <div class="offer-publication-type">Article</div>
+            <strong>${title}</strong>
+            <span>Publication liée à l’offre</span>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    const renderStories = (items) => items.map((item) => {
+      const title = escapeHtml(item.title || 'Client Story');
+      const sector = escapeHtml(item.sector || 'Secteur');
+      const summary = escapeHtml(item.summary || 'Retour d’expérience mission.');
+      const href = item.url || (item.slug ? `${rexArticleBasePath}?slug=${encodeURIComponent(item.slug)}` : '');
+      const external = /^https?:\/\//i.test(href);
+      const badge = `<div class="offer-publication-type">Client Story • ${sector}</div>`;
+      const media = item.coverUrl
+        ? `<div class="offer-publication-media"><img src="${escapeHtml(item.coverUrl)}" alt="${escapeHtml(item.coverAlt || title)}" loading="lazy" decoding="async"></div>`
+        : '';
+      if (!href) {
+        return `
+          <article class="offer-publication-card offer-publication-card-story">
+            ${media}
+            <div class="offer-publication-body">
+              ${badge}
+              <strong>${title}</strong>
+              <span>${summary}</span>
+            </div>
+          </article>
+        `;
+      }
+      return `
+        <a class="offer-publication-card offer-publication-card-story" href="${escapeHtml(href)}"${external ? ' target="_blank" rel="noopener noreferrer"' : ''}>
+          ${media}
+          <div class="offer-publication-body">
+            ${badge}
+            <strong>${title}</strong>
+            <span>${summary}</span>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    const mountUnifiedPublications = (articles, stories) => {
+      if (!insertionAnchor) return;
+
+      const existing = document.querySelector('.offer-publications-section');
+      if (existing) existing.remove();
+
+      if (!articles.length && !stories.length) {
+        hideLegacyPublicationSections();
+        return;
+      }
+
+      hideLegacyPublicationSections();
+
+      const isEditorialOffer = document.body.matches('.offer-editorial-page') && !isBriefOffer;
+      const articleGridClass = articles.length > 2 ? 'offer-publications-grid offer-publications-grid-scroll' : 'offer-publications-grid';
+      const storyGridClass = stories.length > 2 ? 'offer-publications-grid offer-publications-grid-scroll' : 'offer-publications-grid';
+      const section = document.createElement(isEditorialOffer ? 'article' : 'section');
+      section.className = isEditorialOffer
+        ? 'offer-shell-section reveal visible offer-publications-section'
+        : 'rex-section offer-publications-section';
+
+      if (isEditorialOffer) {
+        section.innerHTML = `
+          <div class="offer-shell-head">
+            <div class="offer-shell-num">05</div>
+            <h3>Publications</h3>
+          </div>
+          <div class="offer-publications-groups">
+            ${articles.length ? `
+              <div class="offer-publications-group">
+                <h4>Articles</h4>
+                <div class="${articleGridClass}">
+                  ${renderArticles(articles)}
+                </div>
+              </div>
+            ` : ''}
+            ${stories.length ? `
+              <div class="offer-publications-group">
+                <h4>Client Stories</h4>
+                <div class="${storyGridClass}">
+                  ${renderStories(stories)}
+                </div>
+              </div>
+            ` : ''}
+          </div>
+        `;
+      } else {
+        section.innerHTML = `
+          <div class="wrap">
+            <span class="eyebrow rex-eyebrow">Publications</span>
+            <h2 class="sh rex-title">Publications <span class="text-orange">liées à l’offre</span></h2>
+            <div class="offer-publications-groups offer-publications-groups-brief">
+              ${articles.length ? `
+                <div class="offer-publications-group">
+                  <h4>Articles</h4>
+                  <div class="${articleGridClass}">
+                    ${renderArticles(articles)}
+                  </div>
+                </div>
+              ` : ''}
+              ${stories.length ? `
+                <div class="offer-publications-group">
+                  <h4>Client Stories</h4>
+                  <div class="${storyGridClass}">
+                    ${renderStories(stories)}
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      insertionAnchor.parentNode.insertBefore(section, insertionAnchor);
+    };
+
+    if (offerTag && insertionAnchor) {
+      (async () => {
+        const [articles, stories] = await Promise.all([
+          fetchRows(
+            `*[
+              _type == "blogPost"
+              && (!defined(status) || status == "published")
+            ] | order(coalesce(publishedAt, _createdAt) desc){
+              title,
+              offerTag,
+              "slug": slug.current,
+              externalUrl,
+              "coverUrl": coverImage.asset->url,
+              "coverAlt": coalesce(coverImage.alt, title)
+            }[0...40]`
+          ),
+          fetchRows(
+            `*[
+              _type == "offerRex"
+              && status == "published"
+            ] | order(coalesce(publishedAt, _createdAt) desc){
+              title,
+              offerTag,
+              summary,
+              sector,
+              "url": linkUrl,
+              "slug": slug.current,
+              "coverUrl": coverImage.asset->url,
+              "coverAlt": coalesce(coverImage.alt, title)
+            }[0...40]`
+          ),
+        ]);
+
+        mountUnifiedPublications(
+          articles.filter((item) => matchesOfferTag(item.offerTag)).slice(0, 8),
+          stories.filter((item) => matchesOfferTag(item.offerTag)).slice(0, 8)
+        );
+      })();
+    } else {
+      hideLegacyPublicationSections();
+    }
+  }
+
+  // Vision logos fallback: avoid broken image icons when a provider URL is unavailable.
   document.querySelectorAll('.vision-logo-item img').forEach((img) => {
     const applyFallback = () => {
       const slot = img.closest('.vision-logo-item');
