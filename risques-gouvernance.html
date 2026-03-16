@@ -23,6 +23,136 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
+  <style>
+  /* ── Bloc diagnostic "point faible commun" ── */
+  .rg-diag {
+    background: rgba(83,35,105,0.05);
+    border: 1px solid rgba(83,35,105,0.16);
+    border-left: 3px solid #7a28a0;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 22px 0;
+  }
+  .rg-diag-label {
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    color: #7a28a0;
+    margin-bottom: 12px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-questions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .rg-question {
+    background: #fff;
+    border: 1px solid rgba(83,35,105,0.12);
+    border-radius: 8px;
+    padding: 12px 12px 14px;
+    text-align: center;
+  }
+  .rg-question-icon {
+    width: 32px;
+    height: 32px;
+    margin: 0 auto 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rg-question-icon svg { width: 100%; height: 100%; display: block; }
+  .rg-question-text {
+    font-size: 0.70rem;
+    font-weight: 600;
+    color: #3a1a5a;
+    line-height: 1.45;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-question-sub {
+    font-size: 0.65rem;
+    color: #7a6a8a;
+    line-height: 1.4;
+    margin-top: 4px;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* ── 3 Axes de l'offre ── */
+  .rg-axes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 22px 0;
+  }
+  .rg-axis {
+    background: #fff;
+    border: 1px solid rgba(83,35,105,0.12);
+    border-top: 3px solid;
+    border-radius: 10px;
+    padding: 16px 14px 18px;
+  }
+  .rg-axis:nth-child(1) { border-top-color: #f18847; }
+  .rg-axis:nth-child(2) { border-top-color: #b06ad4; }
+  .rg-axis:nth-child(3) { border-top-color: #7a28a0; }
+  .rg-axis-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-axis:nth-child(1) .rg-axis-num { background: #f18847; }
+  .rg-axis:nth-child(2) .rg-axis-num { background: #b06ad4; }
+  .rg-axis:nth-child(3) .rg-axis-num { background: #7a28a0; }
+  .rg-axis-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #1a0c2e;
+    margin-bottom: 6px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-axis-desc {
+    font-size: 0.73rem;
+    color: #5a5a7a;
+    line-height: 1.55;
+    margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-axis-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid rgba(83,35,105,0.08);
+    padding-top: 8px;
+  }
+  .rg-axis-items li {
+    font-size: 0.72rem;
+    color: #4a4a6a;
+    line-height: 1.55;
+    padding: 3px 0 3px 12px;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rg-axis-items li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: #aaaacc;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .rg-questions { grid-template-columns: 1fr; }
+    .rg-axes { grid-template-columns: 1fr; }
+  }
+  </style>
 </head>
 <body class="risques-pillar-page swift-modern-page offer-editorial-page">
 
@@ -93,11 +223,12 @@
       <div class="swift-hero-copy">
         <div class="section-eyebrow">Offre — Risques Digitaux</div>
         <h1>Gouvernance <span>des risques digitaux</span></h1>
-        <p class="hero-lead">Structurer la gouvernance risques & cyber pour aligner les décisions, les priorités et les responsabilités avec les enjeux métier.</p>
+        <p class="hero-lead">Face à une surface d'attaque en expansion constante, disposer d'outils de sécurité ne suffit plus. Ce qui fait la différence, c'est la capacité à détecter, décider et réagir vite. Cela ne s'improvise pas.</p>
         <div class="swift-hero-pills">
-          <span>Trajectoire RSSI</span>
-          <span>Pilotage des risques</span>
-          <span>Gouvernance outillée</span>
+          <span>Organisation sécurité</span>
+          <span>Gestion des risques IT</span>
+          <span>Roadmap RSSI</span>
+          <span>Processus GRC</span>
         </div>
       </div>
     </div>
@@ -123,33 +254,75 @@
           <article class="offer-shell-section reveal">
             <div class="offer-shell-head">
               <div class="offer-shell-num">01</div>
-              <h3>Contexte et tensions du moment</h3>
+              <h3>Contexte et enjeux</h3>
             </div>
-            <p>Les organisations font face à une pression accrue sur la maîtrise des risques digitaux: exposition cyber, dépendances fournisseurs, exigences de conformité et contraintes de transformation.</p>
-            <p>L’enjeu est d’établir une gouvernance claire qui relie stratégie, priorisation et exécution pour sécuriser durablement la performance métier.</p>
+            <p><strong>Dans un environnement où les menaces évoluent en permanence, il est difficile pour les RSSI et Responsables Risques IT de maintenir une vision claire de leur exposition.</strong> Définir les bons rôles, les bons processus et la bonne trajectoire de sécurité est souvent le premier défi à relever, avant même d’investir dans des outils.</p>
+            <p>Les entreprises victimes d’incidents majeurs partagent souvent le même point faible : non pas l’absence de solutions techniques, mais l’absence de processus clairs et de gouvernance opérationnelle. Disposer d’outils ne suffit plus. Ce qui fait la différence, c’est la capacité d’une organisation à détecter, décider et réagir vite.</p>
+
+            <div class="rg-diag">
+              <div class="rg-diag-label">Les questions sans réponse qui fragilisent les organisations</div>
+              <div class="rg-questions">
+                <div class="rg-question">
+                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div class="rg-question-text">Qui est responsable de quoi ?</div>
+                  <div class="rg-question-sub">Rôles et périmètres flous entre IT, SSI et métiers</div>
+                </div>
+                <div class="rg-question">
+                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+                  <div class="rg-question-text">Comment les risques remontent-ils ?</div>
+                  <div class="rg-question-sub">Absence de circuit clair vers les décideurs</div>
+                </div>
+                <div class="rg-question">
+                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+                  <div class="rg-question-text">Quels contrôles sont en place ?</div>
+                  <div class="rg-question-sub">Des mesures définies mais rarement vérifiées</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="offer-context-highlight">Structurer sa gouvernance risques, c’est se donner les moyens de prioriser, d’arbitrer et d’agir avec méthode, même sous pression.</p>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="90">
             <div class="offer-shell-head">
               <div class="offer-shell-num">02</div>
-              <h3>L’offre Actinuance qui répond à ces enjeux</h3>
+              <h3>L’offre Actinuance</h3>
             </div>
-            <div class="offer-shell-deliverables">
-              <div class="offer-shell-deliverable">
-                <strong>Cadrage de la fonction</strong>
-                <p>Définition des rôles, responsabilités, comités et circuits de décision.</p>
+            <p>Notre accompagnement Gouvernance s’articule autour de trois axes complémentaires, pensés pour s’adapter au profil de risques, à la maturité et à la culture de chaque organisation.</p>
+
+            <div class="rg-axes">
+              <div class="rg-axis">
+                <div class="rg-axis-num">01</div>
+                <div class="rg-axis-title">Organisation</div>
+                <div class="rg-axis-desc">Définir une organisation sécurité en phase avec les standards du marché, adaptée au profil de risques et à la culture de l’entreprise.</div>
+                <ul class="rg-axis-items">
+                  <li>Structuration de la fonction sécurité</li>
+                  <li>Définition des rôles et responsabilités</li>
+                  <li>Roadmap de sécurité et budgets OPEX / CAPEX</li>
+                  <li>Alignement avec la direction générale</li>
+                </ul>
               </div>
-              <div class="offer-shell-deliverable">
-                <strong>Cadre de pilotage</strong>
-                <p>Mise en place d’indicateurs, tableaux de bord et rituels de gouvernance.</p>
+              <div class="rg-axis">
+                <div class="rg-axis-num">02</div>
+                <div class="rg-axis-title">Risques</div>
+                <div class="rg-axis-desc">Identifier et évaluer les risques informatiques en lien avec les assets et processus métiers, pour prioriser les actions selon le niveau de maturité.</div>
+                <ul class="rg-axis-items">
+                  <li>Analyse des assets informatiques</li>
+                  <li>Identification des risques associés aux processus métiers</li>
+                  <li>Mesures de gestion des risques et contrôles de sécurité</li>
+                  <li>Cartographie et priorisation des expositions</li>
+                </ul>
               </div>
-              <div class="offer-shell-deliverable">
-                <strong>Trajectoire de maîtrise</strong>
-                <p>Priorisation des chantiers risques/cyber selon l’impact business.</p>
-              </div>
-              <div class="offer-shell-deliverable">
-                <strong>Outillage & coordination</strong>
-                <p>Alignement des équipes risques, SSI, IT et métiers autour d’un cadre commun.</p>
+              <div class="rg-axis">
+                <div class="rg-axis-num">03</div>
+                <div class="rg-axis-title">Processus</div>
+                <div class="rg-axis-desc">Mettre en place les processus de gestion des risques IT en coordination avec les métiers et la Direction Sécurité, avec un pilotage mesurable dans la durée.</div>
+                <ul class="rg-axis-items">
+                  <li>Processus de gestion des risques IT</li>
+                  <li>Indicateurs de suivi et tableaux de bord</li>
+                  <li>Rituels de gouvernance et circuits de remontée</li>
+                  <li>Dispositif de pilotage du risque</li>
+                </ul>
               </div>
             </div>
           </article>
@@ -159,18 +332,19 @@
               <div class="offer-shell-num">03</div>
               <h3>Nos atouts</h3>
             </div>
+            <p>Actinuance associe une expertise pointue en GRC à une vision concrète des réalités opérationnelles. Nous intervenons auprès de RSSI et de directions risques dans des contextes variés, des PME aux grandes organisations multi-pays.</p>
             <div class="offer-differentiators">
               <div class="offer-diff-item">
                 <strong>Lecture métier des risques</strong>
-                <p>Nous traduisons les risques techniques en arbitrages compréhensibles par les décideurs.</p>
+                <p>Nous traduisons les risques techniques en arbitrages compréhensibles par les dirigeants et les comités. La gouvernance que nous construisons est lisible à tous les niveaux de l’organisation.</p>
               </div>
               <div class="offer-diff-item">
-                <strong>Exécution pragmatique</strong>
-                <p>Les dispositifs proposés sont pensés pour fonctionner dans votre réalité opérationnelle.</p>
+                <strong>Dispositifs opérationnels, pas théoriques</strong>
+                <p>Chaque cadre de gouvernance est calibré pour fonctionner dans votre réalité : taille d’équipe, culture décisionnelle, contraintes réglementaires. Rien qui ne puisse pas être appliqué dès la semaine suivante.</p>
               </div>
               <div class="offer-diff-item">
-                <strong>Vision multisectorielle</strong>
-                <p>Nos retours terrain enrichissent la qualité des dispositifs de gouvernance déployés.</p>
+                <strong>Vision multisectorielle et benchmarks concrets</strong>
+                <p>Nos consultants ont structuré des fonctions sécurité dans des secteurs exigeants (banque, assurance, industrie). Cette diversité de contextes nourrit chaque mission de repères concrets et de pratiques éprouvées.</p>
               </div>
             </div>
           </article>
@@ -178,14 +352,9 @@
           <article class="offer-shell-section reveal" data-delay="180">
             <div class="offer-shell-head">
               <div class="offer-shell-num">04</div>
-              <h3>RETEX missions</h3>
+              <h3>Client Stories</h3>
             </div>
-            <div class="offer-retex-grid">
-              <article class="offer-retex-link">
-                <strong>Transformation banque</strong>
-                <span>Secteur: Banque</span>
-              </article>
-            </div>
+            <div class="offer-retex-grid"></div>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="220">

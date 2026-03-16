@@ -23,6 +23,161 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
+  <style>
+  /* ── Cascade "sans PCA" ── */
+  .rr-scenario {
+    background: rgba(224,112,48,0.05);
+    border: 1px solid rgba(224,112,48,0.18);
+    border-left: 3px solid #e07030;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin: 22px 0;
+  }
+  .rr-scenario-label {
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    color: #c85e18;
+    margin-bottom: 12px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rr-scenario-steps {
+    display: flex;
+    gap: 6px;
+    align-items: stretch;
+  }
+  .rr-step {
+    flex: 1;
+    padding: 11px 10px;
+    background: #fff;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(224,112,48,0.12);
+  }
+  .rr-step + .rr-step::before {
+    content: '→';
+    position: absolute;
+    left: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(224,112,48,0.45);
+    font-size: 0.9rem;
+    pointer-events: none;
+  }
+  .rr-step-icon { width: 28px; height: 28px; margin: 0 auto 6px; display: flex; align-items: center; justify-content: center; }
+  .rr-step-icon svg { width: 100%; height: 100%; display: block; }
+  .rr-step-text { color: #3a2a4a; font-weight: 600; font-size: 0.68rem; line-height: 1.4; font-family: 'Raleway', sans-serif; }
+
+  /* ── Phases cycle de vie ── */
+  .rr-phases {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 22px 0 20px;
+    position: relative;
+  }
+  .rr-phases::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: calc(100% / 6);
+    right: calc(100% / 6);
+    height: 2px;
+    background: linear-gradient(90deg, rgba(241,136,71,0.35), rgba(164,101,214,0.35));
+    pointer-events: none;
+  }
+  .rr-phase {
+    background: #fff;
+    border: 1px solid rgba(83,35,105,0.12);
+    border-top: 3px solid;
+    border-radius: 10px;
+    padding: 14px 14px 16px;
+    position: relative;
+  }
+  .rr-phase:nth-child(1) { border-top-color: #f18847; }
+  .rr-phase:nth-child(2) { border-top-color: #b06ad4; }
+  .rr-phase:nth-child(3) { border-top-color: #7a28a0; }
+  .rr-phase-num {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 auto 10px;
+    font-family: 'Raleway', sans-serif;
+    position: relative;
+    z-index: 1;
+  }
+  .rr-phase:nth-child(1) .rr-phase-num { background: #f18847; }
+  .rr-phase:nth-child(2) .rr-phase-num { background: #b06ad4; }
+  .rr-phase:nth-child(3) .rr-phase-num { background: #7a28a0; }
+  .rr-phase-title {
+    font-size: 0.80rem;
+    font-weight: 700;
+    color: #1a0c2e;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    line-height: 1.3;
+  }
+  .rr-phase-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rr-phase-items li {
+    font-size: 0.73rem;
+    color: #4a4a6a;
+    line-height: 1.55;
+    padding: 3px 0 3px 12px;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rr-phase-items li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: #aaaacc;
+  }
+
+  /* ── Tabletop highlight ── */
+  .rr-tabletop {
+    background: linear-gradient(135deg, rgba(241,136,71,0.06), rgba(164,101,214,0.05));
+    border: 1px solid rgba(241,136,71,0.20);
+    border-left: 3px solid #f18847;
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .rr-tabletop-label {
+    font-size: 0.64rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    color: #c85e18;
+    margin-bottom: 7px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .rr-tabletop p {
+    font-size: 0.86rem !important;
+    color: #3a2a4a !important;
+    line-height: 1.65 !important;
+    margin: 0 !important;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .rr-phases { grid-template-columns: 1fr; }
+    .rr-phases::before { display: none; }
+    .rr-scenario-steps { flex-direction: column; gap: 8px; }
+    .rr-step + .rr-step::before { display: none; }
+  }
+  </style>
 </head>
 <body class="risques-pillar-page swift-modern-page offer-editorial-page">
 
@@ -93,11 +248,12 @@
       <div class="swift-hero-copy">
         <div class="section-eyebrow">Offre — Risques Digitaux</div>
         <h1>Résilience <span>opérationnelle</span></h1>
-        <p class="hero-lead">Préparer, tester et fiabiliser vos capacités de réponse pour absorber les crises et maintenir les activités critiques.</p>
+        <p class="hero-lead">Un incident majeur peut paralyser une organisation en quelques heures. Actinuance vous accompagne pour bâtir, tester et maintenir un dispositif de continuité réellement opérationnel, adapté à votre exposition réelle.</p>
         <div class="swift-hero-pills">
-          <span>Continuité</span>
+          <span>PCA / PCM</span>
+          <span>BIA</span>
           <span>Gestion de crise</span>
-          <span>Plans testés</span>
+          <span>Tabletop exercises</span>
         </div>
       </div>
     </div>
@@ -123,34 +279,77 @@
           <article class="offer-shell-section reveal">
             <div class="offer-shell-head">
               <div class="offer-shell-num">01</div>
-              <h3>Contexte et tensions du moment</h3>
+              <h3>Contexte et enjeux</h3>
             </div>
-            <p>Les incidents cyber ne sont plus exceptionnels: ils affectent la disponibilité des services, la relation client et les opérations critiques.</p>
-            <p>L’enjeu est de réduire le temps de réaction, coordonner les acteurs et restaurer l’activité avec une gouvernance de crise robuste.</p>
+            <p><strong>Une cyberattaque ou un sinistre majeur peut paralyser une organisation en quelques heures.</strong> Ransomware, panne critique d’infrastructure, crise réglementaire : les scénarios de rupture ne manquent pas, et leur impact dépasse largement la simple interruption technique.</p>
+            <p>Pourtant, disposer d’un Plan de Continuité d’Activité (PCA) ne suffit pas. Sans exercices réguliers, les équipes ne savent pas comment réagir concrètement. Les procédures dégradées restent purement théoriques et les décisions critiques sont prises sous pression, sans cadre de référence partagé.</p>
+
+            <div class="rr-scenario">
+              <div class="rr-scenario-label">Ce qui se passe sans dispositif testé</div>
+              <div class="rr-scenario-steps">
+                <div class="rr-step">
+                  <div class="rr-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c85e18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <div class="rr-step-text">Incident détecté</div>
+                </div>
+                <div class="rr-step">
+                  <div class="rr-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c85e18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+                  <div class="rr-step-text">Qui décide ? Qui fait quoi ?</div>
+                </div>
+                <div class="rr-step">
+                  <div class="rr-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c85e18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div class="rr-step-text">Heures perdues en coordination</div>
+                </div>
+                <div class="rr-step">
+                  <div class="rr-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#c85e18" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div>
+                  <div class="rr-step-text">Impact métier incontrôlé</div>
+                </div>
+              </div>
+            </div>
+
+            <p class="offer-context-highlight">L’enjeu n’est pas de produire un plan, mais de préparer réellement vos équipes à l’activer sous pression, au bon moment, avec les bons réflexes.</p>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="90">
             <div class="offer-shell-head">
               <div class="offer-shell-num">02</div>
-              <h3>L’offre Actinuance qui répond à ces enjeux</h3>
+              <h3>L’offre Actinuance</h3>
             </div>
-            <div class="offer-shell-deliverables">
-              <div class="offer-shell-deliverable">
-                <strong>Cartographie des scénarios</strong>
-                <p>Identification des scénarios de rupture et des dépendances critiques.</p>
+            <p>Notre accompagnement couvre l’intégralité du cycle de vie de votre dispositif de continuité, du diagnostic initial jusqu’à la mise en situation des équipes et au maintien dans la durée.</p>
+
+            <div class="rr-phases">
+              <div class="rr-phase">
+                <div class="rr-phase-num">01</div>
+                <div class="rr-phase-title">Évaluation &amp; Définition des objectifs</div>
+                <ul class="rr-phase-items">
+                  <li>Bilan d’Impact sur l’Activité (BIA)</li>
+                  <li>Qualification des besoins de continuité</li>
+                  <li>Stratégies et catalogue de services</li>
+                  <li>Organisation de crise</li>
+                </ul>
               </div>
-              <div class="offer-shell-deliverable">
-                <strong>Dispositif de crise</strong>
-                <p>Structuration des rôles, cellules de crise et mécanismes d’escalade.</p>
+              <div class="rr-phase">
+                <div class="rr-phase-num">02</div>
+                <div class="rr-phase-title">Résilience opérationnelle</div>
+                <ul class="rr-phase-items">
+                  <li>Plan de Continuité Informatique (PCI)</li>
+                  <li>Plan de Continuité Métier (PCM)</li>
+                  <li>Pilotage de projet et animation des chantiers</li>
+                </ul>
               </div>
-              <div class="offer-shell-deliverable">
-                <strong>Plans de continuité</strong>
-                <p>Formalisation et mise à jour des plans de continuité/reprise.</p>
+              <div class="rr-phase">
+                <div class="rr-phase-num">03</div>
+                <div class="rr-phase-title">Maintenance &amp; Exercices</div>
+                <ul class="rr-phase-items">
+                  <li>Maintien en conditions opérationnelles</li>
+                  <li>Tests et exercices avec retour d’expérience</li>
+                  <li>Audits PCA</li>
+                </ul>
               </div>
-              <div class="offer-shell-deliverable">
-                <strong>Exercices de simulation</strong>
-                <p>Tests de crise réguliers pour valider la préparation et améliorer les réflexes.</p>
-              </div>
+            </div>
+
+            <div class="rr-tabletop">
+              <div class="rr-tabletop-label">Exercices de gestion de crise sur table</div>
+              <p>Nous organisons des tabletop exercises avec des scénarios réalistes, construits à partir de votre profil de risques. Chaque exercice est suivi d’un RETEX structuré pour ancrer les apprentissages, corriger les lacunes identifiées et faire progresser l’organisation dans la durée.</p>
             </div>
           </article>
 
@@ -159,18 +358,19 @@
               <div class="offer-shell-num">03</div>
               <h3>Nos atouts</h3>
             </div>
+            <p>Actinuance associe une expertise pointue en GRC à une connaissance concrète des contextes de crise. Nos consultants ont conduit des exercices et des projets PCA dans des secteurs variés : assurance, industrie, pharmacie.</p>
             <div class="offer-differentiators">
               <div class="offer-diff-item">
-                <strong>Approche orientée continuité</strong>
-                <p>Nous traitons la résilience comme un enjeu opérationnel, pas documentaire.</p>
+                <strong>Expertise GRC et multi-sectorielle</strong>
+                <p>Des références dans des environnements réglementaires exigeants (banque, assurance, industrie, pharma) qui enrichissent chaque mission de benchmarks concrets et de pratiques éprouvées.</p>
               </div>
               <div class="offer-diff-item">
-                <strong>Pilotage par les impacts</strong>
-                <p>La priorisation est guidée par les conséquences métiers et non par la seule technique.</p>
+                <strong>Des plans qu’on teste, pas qu’on livre</strong>
+                <p>Nous ne produisons pas de documentation qui reste dans un tiroir. Nous testons, ajustons et formons vos équipes à réagir dans des conditions proches du réel, avec un RETEX à chaque étape.</p>
               </div>
               <div class="offer-diff-item">
-                <strong>Accompagnement bout en bout</strong>
-                <p>De la conception à la simulation, nous sécurisons chaque étape de mise en œuvre.</p>
+                <strong>Couverture bout en bout</strong>
+                <p>De l’analyse d’impact à la simulation de crise, nous couvrons tout le cycle de vie du dispositif pour garantir sa robustesse, sa pertinence et son maintien dans la durée.</p>
               </div>
             </div>
           </article>
@@ -178,14 +378,9 @@
           <article class="offer-shell-section reveal" data-delay="180">
             <div class="offer-shell-head">
               <div class="offer-shell-num">04</div>
-              <h3>RETEX missions</h3>
+              <h3>Client Stories</h3>
             </div>
-            <div class="offer-retex-grid">
-              <article class="offer-retex-link">
-                <strong>Programme continuité</strong>
-                <span>Secteur: Industrie & services</span>
-              </article>
-            </div>
+            <div class="offer-retex-grid"></div>
           </article>
 
           <article class="offer-shell-section reveal" data-delay="220">

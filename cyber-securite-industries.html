@@ -26,6 +26,274 @@
   <link rel="stylesheet" href="style.css?v=20260222">
   <link rel="stylesheet" href="audit-pages.css">
   <link rel="stylesheet" href="cyber-offers-shared.css">
+  <style>
+  /* ── Hero plein écran + bouton ancré ── */
+  .cyber-offer-page .hero-swift-modern {
+    height: 100svh;
+    min-height: unset;
+    box-sizing: border-box;
+  }
+  .cyber-offer-page .offer-scroll-cta {
+    bottom: 5px !important;
+  }
+
+  /* ════════════════════════════════════════════════
+     ICEBERG OT — visualisation enjeux systémiques
+  ════════════════════════════════════════════════ */
+  .ci-wrap {
+    margin: 36px 0 28px;
+    font-family: 'Raleway', sans-serif;
+  }
+
+  /* ── Bandeau 40 / 60 ── */
+  .ci-stats-bar {
+    display: flex;
+    align-items: stretch;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2px;
+    border: 1px solid rgba(0,0,0,0.08);
+  }
+  .ci-stat-block {
+    flex: 1;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .ci-stat-block.orange { background: rgba(241,136,71,0.08); }
+  .ci-stat-block.violet { background: rgba(154,62,192,0.07); }
+  .ci-stat-block + .ci-stat-block { border-left: 1px solid rgba(0,0,0,0.07); }
+  .ci-stat-pct {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .ci-stat-block.orange .ci-stat-pct { color: #d4621a; }
+  .ci-stat-block.violet .ci-stat-pct { color: #8b2eb0; }
+  .ci-stat-desc {
+    color: #5a5a7a;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  .ci-stat-desc strong {
+    display: block;
+    color: #1a1a2e;
+    font-size: 0.88rem;
+    margin-bottom: 2px;
+  }
+
+  /* ── Zone Surface (40%) ── */
+  .ci-surface {
+    background: rgba(241,136,71,0.04);
+    border: 1px solid rgba(241,136,71,0.20);
+    border-top: 3px solid #e07030;
+    padding: 20px 22px 22px;
+  }
+  .ci-zone-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.70rem;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+  .ci-zone-label.orange { color: #c85e18; }
+  .ci-zone-label.violet { color: #7a28a0; }
+  .ci-zone-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.22;
+  }
+  .ci-cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .ci-col {
+    padding: 14px 14px 14px 16px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 3px solid;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .ci-col-org { border-color: #e07030; }
+  .ci-col-net { border-color: #f0a060; }
+  .ci-col-phy { border-color: #f4c090; }
+  .ci-col-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+  }
+  .ci-col ul,
+  .ci-cat ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .ci-col ul li,
+  .ci-cat ul li {
+    color: #4a4a6a;
+    font-size: 0.76rem;
+    line-height: 1.55;
+    padding: 3px 0 3px 12px;
+    position: relative;
+  }
+  .ci-col ul li::before,
+  .ci-cat ul li::before {
+    content: '·';
+    position: absolute;
+    left: 2px;
+    color: #aaaacc;
+  }
+
+  /* ── Séparateur ── */
+  .ci-waterline {
+    background: linear-gradient(90deg, transparent, rgba(61,120,220,0.07) 30%, rgba(61,120,220,0.13) 50%, rgba(61,120,220,0.07) 70%, transparent);
+    border-top: 1px dashed rgba(61,120,220,0.25);
+    border-bottom: 1px dashed rgba(61,120,220,0.25);
+    padding: 8px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    position: relative;
+    margin-top: -2px;
+  }
+  .ci-waterline-rule { flex: 1; height: 1px; background: rgba(61,120,220,0.15); }
+  .ci-waterline-text {
+    color: rgba(61,120,220,0.60);
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    white-space: nowrap;
+  }
+
+  /* ── Zone Profondeur (60%) ── */
+  .ci-depth {
+    background: rgba(104,1,127,0.04);
+    border: 1px solid rgba(154,62,192,0.20);
+    border-top: none;
+    border-bottom: 3px solid #8b2eb0;
+    border-radius: 0 0 12px 12px;
+    padding: 20px 22px 22px;
+  }
+  .ci-cats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .ci-cat {
+    padding: 14px 14px 14px 16px;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 3px solid;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+  .ci-cat-p1 { border-color: #F18847; }
+  .ci-cat-p2 { border-color: #a050d0; }
+  .ci-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .ci-cat-badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+  }
+  .ci-cat-p1 .ci-cat-badge { background: rgba(224,112,48,0.12); color: #c85e18; }
+  .ci-cat-p2 .ci-cat-badge { background: rgba(139,46,176,0.12); color: #7a28a0; }
+  .ci-cat-title {
+    font-size: 0.80rem;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  /* ── Responsive iceberg ── */
+  @media (max-width: 760px) {
+    .ci-stats-bar { flex-direction: column; }
+    .ci-stat-block + .ci-stat-block { border-left: none; border-top: 1px solid rgba(0,0,0,0.07); }
+    .ci-cols-3 { grid-template-columns: 1fr; }
+    .ci-cats-grid { grid-template-columns: 1fr; }
+    .ci-waterline-text { white-space: normal; text-align: center; }
+  }
+
+  /* ════════════════════════════════════════════════
+     CLIENT STORY — cs-*
+  ════════════════════════════════════════════════ */
+  .cs-card {
+    border: 1px solid rgba(241,136,71,0.18);
+    border-left: 4px solid #f18847;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #fff 0%, #fdf9f4 100%);
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+  }
+  .cs-header { padding: 22px 24px 18px; border-bottom: 1px solid rgba(241,136,71,0.10); }
+  .cs-eyebrow { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #f18847; margin-bottom: 14px; }
+  .cs-header-grid { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: start; }
+  .cs-img-placeholder {
+    aspect-ratio: 4/3;
+    background: rgba(241,136,71,0.05);
+    border: 1px dashed rgba(241,136,71,0.28);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(241,136,71,0.38);
+    font-size: 0.70rem;
+    text-align: center;
+    padding: 12px;
+  }
+  .cs-img-placeholder svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .cs-title-block h4 { font-size: 1.02rem; font-weight: 800; color: #1a0c2e; line-height: 1.3; margin: 0 0 10px; }
+  .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .cs-tag { background: rgba(241,136,71,0.09); border: 1px solid rgba(241,136,71,0.22); color: #b85215; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
+  .cs-meta-strip { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cs-meta-item { background: rgba(154,62,192,0.05); border: 1px solid rgba(154,62,192,0.13); border-radius: 8px; padding: 6px 10px; }
+  .cs-meta-item span { display: block; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.12em; color: #7a28a0; font-weight: 700; margin-bottom: 2px; }
+  .cs-meta-item strong { display: block; font-size: 0.74rem; color: #1a1a2e; font-weight: 600; }
+  .cs-body { display: grid; grid-template-columns: 1fr 1.1fr 1.4fr; border-bottom: 1px solid rgba(241,136,71,0.09); }
+  .cs-col { padding: 18px 20px; }
+  .cs-col + .cs-col { border-left: 1px solid rgba(0,0,0,0.06); }
+  .cs-col-label { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #7a28a0; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid rgba(154,62,192,0.14); }
+  .cs-col p { font-size: 0.76rem; color: #3a3a5a; line-height: 1.65; margin: 0; }
+  .cs-defi + .cs-defi { margin-top: 12px; }
+  .cs-defi-title { font-size: 0.74rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
+  .cs-defi p { font-size: 0.72rem; color: #5a5a7a; margin: 0; line-height: 1.55; }
+  .cs-contrib-axe + .cs-contrib-axe { margin-top: 11px; }
+  .cs-contrib-axe > strong { display: block; font-size: 0.72rem; font-weight: 700; color: #c85e18; margin-bottom: 4px; }
+  .cs-contrib-axe ul { list-style: none; padding: 0; margin: 0; }
+  .cs-contrib-axe ul li { font-size: 0.71rem; color: #4a4a6a; line-height: 1.5; padding: 2px 0 2px 12px; position: relative; }
+  .cs-contrib-axe ul li::before { content: '·'; position: absolute; left: 2px; color: #f18847; }
+  .cs-results { padding: 16px 20px 18px; background: rgba(241,136,71,0.03); }
+  .cs-results-label { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #c85e18; margin-bottom: 10px; }
+  .cs-results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .cs-result-item { background: #fff; border: 1px solid rgba(241,136,71,0.15); border-radius: 8px; padding: 10px 12px; font-size: 0.74rem; color: #3a3a5a; line-height: 1.55; }
+  .cs-result-item strong { display: block; color: #c85e18; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 3px; }
+  @media (max-width: 860px) {
+    .cs-header-grid { grid-template-columns: 1fr; }
+    .cs-img-placeholder { aspect-ratio: 16/6; }
+    .cs-body { grid-template-columns: 1fr; }
+    .cs-col + .cs-col { border-left: none; border-top: 1px solid rgba(0,0,0,0.06); }
+    .cs-results-grid { grid-template-columns: 1fr; }
+  }
+  </style>
 </head>
 <body class="cyber-pillar-page swift-modern-page offer-editorial-page cyber-offer-page">
 
@@ -79,11 +347,12 @@
     <div class="swift-hero-copy">
       <div class="section-eyebrow">Offre — Cyber Défense</div>
       <h1>Sécurité des <span>industries</span></h1>
-      <p class="hero-lead">Sécuriser les environnements OT/IT et les systèmes industriels critiques avec une approche adaptée terrain.</p>
+      <p class="hero-lead">Accompagnement des organisations industrielles dans l’évaluation et l’amélioration durable de leur posture de cybersécurité, grâce à une approche pragmatique et orientée métier.</p>
       <div class="swift-hero-pills">
-        <span>Diagnostic OT/IT</span>
-        <span>Segmentation</span>
+        <span>Audit OT</span>
+        <span>SecOps OT</span>
         <span>IEC 62443</span>
+        <span>NIS2 / LPM</span>
       </div>
     </div>
   </div>
@@ -110,33 +379,196 @@
             <div class="offer-shell-num">01</div>
             <h3>Contexte et enjeux</h3>
           </div>
-          <p>Les systèmes industriels OT/IT deviennent des cibles prioritaires, avec des risques élevés sur la sécurité des opérations et la continuité de production.</p>
+          <p><strong>Vos systèmes industriels sont le cœur de votre chaîne de valeur. Sont-ils vraiment protégés&nbsp;?</strong></p>
+          <p>Les environnements industriels (OT) restent parmi les plus exposés et les moins matures en matière de cybersécurité. Contrairement à l’IT, une attaque sur vos systèmes industriels ne menace pas seulement la confidentialité de vos données, elle peut compromettre la disponibilité des systèmes et perturber la continuité des opérations.</p>
 
           <div class="swiper ccd-context-swiper">
             <div class="swiper-wrapper">
+
               <div class="swiper-slide">
                 <div class="ccd-ctx-card">
+                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
                   <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                   </div>
-                  <p>Les systèmes industriels OT/IT deviennent des cibles prioritaires, avec des risques élevés sur la sécurité des opérations et la continuité de production.</p>
+                  <p>Tolérance zéro aux interruptions des opérations. Chaque action de sécurité doit préserver la continuité de la production sans compromis.</p>
                 </div>
               </div>
+
               <div class="swiper-slide">
                 <div class="ccd-ctx-card">
+                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
                   <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/></svg>
                   </div>
-                  <p>L’enjeu est de renforcer les contrôles de sécurité sans dégrader la disponibilité et la sûreté des environnements industriels.</p>
+                  <p>Des équipements anciens aux protocoles legacy non sécurisés, présentant des failles souvent impossibles à corriger sans arrêt de service.</p>
                 </div>
               </div>
+
+              <div class="swiper-slide">
+                <div class="ccd-ctx-card">
+                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
+                  <div class="ccd-ctx-icon">
+                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                  </div>
+                  <p>Manque de visibilité sur les actifs industriels et hétérogénéité des équipements et des fournisseurs : cartographier et surveiller cet environnement dispersé reste un défi majeur.</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="ccd-ctx-card">
+                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux structurels</div>
+                  <div class="ccd-ctx-icon">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                  </div>
+                  <p>Secteurs indus/manufacturiers fortement réglementés (CRA, NIS2, LPM) — des exigences croissantes qui imposent une mise en conformité structurée de la sécurité OT.</p>
+                </div>
+              </div>
+
+              <div class="swiper-slide">
+                <div class="ccd-ctx-card">
+                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux structurels</div>
+                  <div class="ccd-ctx-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                  </div>
+                  <p>Faible gouvernance : absence d’ownership claire de la sécurité OT, silos entre IT, OT et sécurité. Une convergence difficile à orchestrer sans pilotage dédié.</p>
+                </div>
+              </div>
+
             </div>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
 
-          <p class="offer-context-highlight">Sécuriser les environnements industriels critiques impose une approche spécifique qui concilie protection renforcée et continuité opérationnelle.</p>
+          <!-- ── Iceberg : enjeux systémiques OT ── -->
+          <div class="ci-wrap">
+
+            <!-- Bandeau 40% / 60% -->
+            <div class="ci-stats-bar">
+              <div class="ci-stat-block orange">
+                <div class="ci-stat-pct">40%</div>
+                <div class="ci-stat-desc">
+                  <strong>Problèmes visibles en surface</strong>
+                  Organisationnel, réseau, physique
+                </div>
+              </div>
+              <div class="ci-stat-block violet">
+                <div class="ci-stat-pct">60%</div>
+                <div class="ci-stat-desc">
+                  <strong>Problèmes systémiques sous-jacents</strong>
+                  Architecture, opérations, détection, gouvernance
+                </div>
+              </div>
+            </div>
+
+            <!-- Zone surface (40%) -->
+            <div class="ci-surface">
+              <div class="ci-zone-label orange">Risques identifiés en surface</div>
+              <div class="ci-cols-3">
+
+                <div class="ci-col ci-col-org">
+                  <div class="ci-col-title">Organisationnel</div>
+                  <ul>
+                    <li>Responsabilité cybersécurité OT non définie</li>
+                    <li>Politiques OT insuffisantes, inventaires perfectibles</li>
+                    <li>Intégration sécurité dans les projets à améliorer</li>
+                    <li>Sensibilisation et formation à renforcer</li>
+                  </ul>
+                </div>
+
+                <div class="ci-col ci-col-net">
+                  <div class="ci-col-title">Sécurité réseau</div>
+                  <ul>
+                    <li>Wi-Fi process exposés</li>
+                    <li>Interfaces admin accessibles</li>
+                    <li>Firewall réseau non maîtrisé</li>
+                    <li>Détection des incidents IT/OT absente</li>
+                  </ul>
+                </div>
+
+                <div class="ci-col ci-col-phy">
+                  <div class="ci-col-title">Sécurité physique</div>
+                  <ul>
+                    <li>Restrictions d'accès aux zones insuffisantes</li>
+                    <li>Contrôle d'accès physique à renforcer</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Ligne surface de l'eau -->
+            <div class="ci-waterline">
+              <div class="ci-waterline-rule"></div>
+              <div class="ci-waterline-text">Surface — Les sujets systémiques restent sous-jacents</div>
+              <div class="ci-waterline-rule"></div>
+            </div>
+
+            <!-- Zone profondeur (60%) -->
+            <div class="ci-depth">
+              <div class="ci-zone-label violet">Risques systémiques sous-jacents</div>
+              <div class="ci-cats-grid">
+
+                <div class="ci-cat ci-cat-p1">
+                  <div class="ci-cat-header">
+                    <span class="ci-cat-badge">P1</span>
+                    <span class="ci-cat-title">Architecture &amp; Sécurité</span>
+                  </div>
+                  <ul>
+                    <li>Exposition VLAN aux réseaux non fiables</li>
+                    <li>Segmentation IT/OT insuffisante</li>
+                    <li>Segmentation Active Directory industrielle</li>
+                    <li>Processus firewall opérationnel absent</li>
+                    <li>Standardisation des accès distants</li>
+                    <li>Implémentation administration dédiée</li>
+                  </ul>
+                </div>
+
+                <div class="ci-cat ci-cat-p1">
+                  <div class="ci-cat-header">
+                    <span class="ci-cat-badge">P1</span>
+                    <span class="ci-cat-title">Détection &amp; Résilience</span>
+                  </div>
+                  <ul>
+                    <li>Capacités de reprise technique à l'échelle site</li>
+                    <li>Stratégie de backup réseau et actifs</li>
+                    <li>Profondeur des sondes OT</li>
+                    <li>Playbooks OT SIEM</li>
+                    <li>Gestion des logs actifs industriels</li>
+                  </ul>
+                </div>
+
+                <div class="ci-cat ci-cat-p2">
+                  <div class="ci-cat-header">
+                    <span class="ci-cat-badge">P2</span>
+                    <span class="ci-cat-title">Sécurité opérationnelle</span>
+                  </div>
+                  <ul>
+                    <li>Maintenance et monitoring des tiers</li>
+                    <li>Gestion des comptes tiers industriels</li>
+                    <li>IAM Shopfloor (comptes génériques)</li>
+                  </ul>
+                </div>
+
+                <div class="ci-cat ci-cat-p2">
+                  <div class="ci-cat-header">
+                    <span class="ci-cat-badge">P2</span>
+                    <span class="ci-cat-title">Gouvernance &amp; Conformité</span>
+                  </div>
+                  <ul>
+                    <li>Sécurité intégrée dans les projets shopfloor</li>
+                    <li>Conformité sécurité des tiers industriels</li>
+                  </ul>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+          <!-- / Iceberg -->
+
+          <p class="offer-context-highlight">Intégrer la cybersécurité au cœur des environnements OT permet de gagner en visibilité sur les actifs industriels, de maîtriser les risques sans compromettre la continuité des opérations, et de bâtir une posture durable, conforme aux exigences réglementaires (NIS2, LPM, CRA) et adaptée aux réalités du terrain.</p>
         </article>
 
         <!-- ── 02 OFFRE ── -->
@@ -145,31 +577,31 @@
             <div class="offer-shell-num">02</div>
             <h3>L’offre Actinuance</h3>
           </div>
-          <p>Actinuance accompagne les organisations industrielles dans la sécurisation de leurs environnements OT/IT en intervenant sur l’architecture, la conformité et la résilience opérationnelle.</p>
+          <p>Actinuance propose un accompagnement modulaire couvrant l’ensemble du cycle de la sécurité OT — de l’état des lieux initial au pilotage opérationnel quotidien. Franchir ce cap à l’aide de nos experts&nbsp;!</p>
           <div class="ccd-deliverables-grid">
             <div class="ccd-deliverable">
               <span class="ccd-deliverable-ghost-num">01</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-              <strong>Diagnostic OT/IT</strong>
-              <p>Cartographie des actifs, flux et dépendances critiques des environnements industriels.</p>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div>
+              <strong>Audit Cybersécurité OT</strong>
+              <p>Évaluation de la maturité cyber, technique et organisationnelle, basée sur les référentiels IEC 62443, NIS2 et LPM. En sortie : une vision globale axée sur les risques et une feuille de route pour renforcer la protection de vos environnements industriels.</p>
             </div>
             <div class="ccd-deliverable">
               <span class="ccd-deliverable-ghost-num">02</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-              <strong>Durcissement architecture</strong>
-              <p>Segmentation, cloisonnement et sécurisation des accès aux systèmes sensibles.</p>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
+              <strong>Programme de sécurité OT</strong>
+              <p>Accompagnement pour concevoir et mettre en place un programme OT complet : structuration de la fonction sécurité, corpus documentaire, stratégie de gestion des risques, sécurité de l’architecture, des réseaux, des accès, détection, supervision et résilience.</p>
             </div>
             <div class="ccd-deliverable">
               <span class="ccd-deliverable-ghost-num">03</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><polyline points="9 15 12 18 15 15"/></svg></div>
-              <strong>Alignement normatif</strong>
-              <p>Structuration des contrôles selon IEC 62443 et standards sectoriels.</p>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="7 8 12 13 17 8"/></svg></div>
+              <strong>SecOps OT &amp; ISP</strong>
+              <p>Pilotage opérationnel : gestion des vulnérabilités, des changements, des incidents, patching, accès distants, SOC avec use-cases OT. Et pilotage d’un processus d’intégration de la sécurité dans les projets (ISP) : évaluation fournisseurs, cadre contractuel.</p>
             </div>
             <div class="ccd-deliverable">
               <span class="ccd-deliverable-ghost-num">04</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-              <strong>Plan de résilience</strong>
-              <p>Préparation des équipes et scénarios de réponse adaptés au contexte industriel.</p>
+              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-7 10 7-10 7z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+              <strong>Sensibilisation</strong>
+              <p>Conception et animation d’ateliers adaptés aux profils OT (opérateurs, maintenance, ingénierie, IT/OT), avec cas concrets d’attaques sur environnements industriels et SCADA. Sessions ludiques et sessions techniques.</p>
             </div>
           </div>
         </article>
@@ -180,27 +612,28 @@
             <div class="offer-shell-num">03</div>
             <h3>Nos atouts</h3>
           </div>
+          <p>La sécurité industrielle exige une double légitimité : celle du monde cyber et celle du monde opérationnel. Notre équipe conjugue ces deux expertises avec une approche pragmatique, adaptée aux réalités de terrain des industriels.</p>
           <div class="swiper ccd-atouts-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="ccd-atout-card" data-num="01">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-                  <strong>Expertise multi-cloud et OT</strong>
-                  <p>Capacité d’intervention sur Azure, AWS et GCP avec une vision homogène du risque, adaptée aux spécificités des environnements industriels.</p>
+                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+                  <strong>Double expertise IT &amp; OT</strong>
+                  <p>Au-delà de la cybersécurité, nous maîtrisons les spécificités des environnements industriels : systèmes SCADA, protocoles de communication OT, contraintes d’exploitation.</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="ccd-atout-card" data-num="02">
                   <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                  <strong>Approche orientée impact</strong>
-                  <p>Priorisation des actions selon l’exposition réelle et la criticité métier des systèmes industriels et des processus de production.</p>
+                  <strong>Couverture sectorielle</strong>
+                  <p>Une connaissance métier solide avec des présences et références dans des secteurs variés : pharmaceutique, transport, luxe. Nous comprenons les réalités opérationnelles et réglementaires propres à chaque environnement industriel.</p>
                 </div>
               </div>
               <div class="swiper-slide">
                 <div class="ccd-atout-card" data-num="03">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-                  <strong>Exécution terrain</strong>
-                  <p>Accompagnement concret des équipes pour ancrer les mesures dans la durée et garantir leur adoption opérationnelle.</p>
+                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+                  <strong>Maîtrise des référentiels</strong>
+                  <p>NIS2, LPM, IEC 62443 : nos équipes sont certifiées sur les standards industriels et formées sur les réglementations qui s’imposent à vos secteurs d’activité. Une expertise normative directement opérationnelle.</p>
                 </div>
               </div>
             </div>
@@ -214,7 +647,115 @@
             <div class="offer-shell-num">04</div>
             <h3>Client Stories</h3>
           </div>
-          <div class="offer-retex-grid"></div>
+          <div class="offer-retex-grid">
+
+            <div class="cs-card">
+
+              <!-- En-tête -->
+              <div class="cs-header">
+                <div class="cs-eyebrow">Client Story &middot; Industrie pharmaceutique</div>
+                <div class="cs-header-grid">
+                  <div class="cs-img-placeholder">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <span>Illustration à venir</span>
+                  </div>
+                  <div class="cs-title-block">
+                    <h4>Intégration de la sécurité dans les projets OT d'un groupe pharmaceutique européen</h4>
+                    <div class="cs-tags">
+                      <span class="cs-tag">Pharma / GxP</span>
+                      <span class="cs-tag">NIS2</span>
+                      <span class="cs-tag">SecOps OT &amp; ISP</span>
+                      <span class="cs-tag">Multi-sites</span>
+                    </div>
+                    <div class="cs-meta-strip">
+                      <div class="cs-meta-item"><span>Secteur</span><strong>Industrie pharmaceutique</strong></div>
+                      <div class="cs-meta-item"><span>Périmètre</span><strong>Sites industriels européens</strong></div>
+                      <div class="cs-meta-item"><span>Mission</span><strong>ISP OT · RevArchi · Formation</strong></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Corps -->
+              <div class="cs-body">
+
+                <div class="cs-col">
+                  <div class="cs-col-label">Contexte</div>
+                  <p>Acteur pharmaceutique soumis à de fortes contraintes réglementaires (GxP, NIS2, exigences clients), confronté à la multiplication de projets OT sur ses sites industriels européens. L'entreprise souhaitait définir et piloter un cadre d'intégration de la sécurité dans ses projets OT, adapté aux spécificités des environnements industriels et déployé à l'échelle du groupe.</p>
+                </div>
+
+                <div class="cs-col">
+                  <div class="cs-col-label">Défis principaux</div>
+                  <div class="cs-defi">
+                    <div class="cs-defi-title">Adaptation aux réalités OT</div>
+                    <p>Les processus ISP existants étaient conçus pour des environnements IT classiques. Les adapter aux contraintes OT (disponibilité avant confidentialité, protocoles propriétaires, cycles de vie longs) nécessitait une expertise combinée IT/OT.</p>
+                  </div>
+                  <div class="cs-defi">
+                    <div class="cs-defi-title">Multiplicité des projets et interlocuteurs</div>
+                    <p>Équipes projet, fournisseurs et responsables sécurité de sites multiples avec des niveaux de maturité hétérogènes. Maintenir un suivi consolidé à l'échelle du groupe représentait un défi organisationnel structurant.</p>
+                  </div>
+                  <div class="cs-defi">
+                    <div class="cs-defi-title">Ancrage culturel de la sécurité</div>
+                    <p>Faire adopter une culture de sécurité by design par des équipes dont la priorité est la continuité de production. La formation était aussi importante que la conception du dispositif.</p>
+                  </div>
+                </div>
+
+                <div class="cs-col">
+                  <div class="cs-col-label">Notre contribution</div>
+                  <div class="cs-contrib-axe">
+                    <strong>Process ISP OT</strong>
+                    <ul>
+                      <li>Questionnaires d'évaluation fournisseurs et études RFP</li>
+                      <li>Définition des exigences de sécurité</li>
+                      <li>Revue des architectures OT : segmentation réseau, accès distants</li>
+                      <li>Recette des mesures de sécurité et tests</li>
+                      <li>Suivi des projets via instances régulières multi-sites</li>
+                    </ul>
+                  </div>
+                  <div class="cs-contrib-axe">
+                    <strong>Montée en compétences</strong>
+                    <ul>
+                      <li>Programme de formation pour les équipes sécurité locales des sites industriels</li>
+                      <li>Renforcement de l'autonomie sur le pilotage des volets sécurité OT locaux</li>
+                    </ul>
+                  </div>
+                  <div class="cs-contrib-axe">
+                    <strong>Reporting &amp; Gouvernance</strong>
+                    <ul>
+                      <li>Reporting hebdomadaire à destination du RSSI</li>
+                      <li>Synthèse des avancements, points de blocage et risques majeurs</li>
+                    </ul>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Résultats -->
+              <div class="cs-results">
+                <div class="cs-results-label">Résultats</div>
+                <div class="cs-results-grid">
+                  <div class="cs-result-item">
+                    <strong>Process ISP adapté à l'OT</strong>
+                    Opérationnel sur l'ensemble des sites industriels du périmètre, intégrant les spécificités des environnements industriels.
+                  </div>
+                  <div class="cs-result-item">
+                    <strong>Culture ISP ancrée</strong>
+                    Référents sécurité locaux formés et autonomes sur le pilotage des volets sécurité des projets OT.
+                  </div>
+                  <div class="cs-result-item">
+                    <strong>Maîtrise du risque tiers</strong>
+                    Évaluation systématique des fournisseurs OT dès les phases amont et revue structurée des architectures.
+                  </div>
+                  <div class="cs-result-item">
+                    <strong>Visibilité consolidée</strong>
+                    Pour la direction sécurité groupe sur l'ensemble des projets OT en cours, leurs risques et leur conformité aux exigences.
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
         </article>
         <article class="offer-shell-section reveal" data-delay="220"><div class="offer-shell-head"><div class="offer-shell-num">05</div><h3>Articles liés à l’offre</h3></div><div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-industries" data-offer-limit="2"></div></article>
         <article class="offer-shell-profile reveal" data-delay="260"><img src="Photos/Dirigeant/Ayoub.jpg" alt="Ayoub — Manager" class="offer-shell-profile-photo" /><div class="offer-shell-profile-content"><div class="section-eyebrow">Porteur de l’offre</div><h3>Ayoub — Manager</h3><p>Ayoub intervient sur la sécurisation des environnements industriels critiques avec une approche pragmatique et opérationnelle.</p><div class="card-cta" style="margin-top:14px;"><a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Securite%20des%20industries" class="btn-primary">En discuter avec Ayoub</a></div></div></article>
