@@ -1,5 +1,13 @@
 {
   "projects": {
     "default": "landing-site-9ce39"
+  },
+  "targets": {
+    "landing-site-9ce39": {
+      "hosting": {
+        "main": ["landing-site-9ce39"],
+        "studio": ["actinuance-studio"]
+      }
+    }
   }
 }

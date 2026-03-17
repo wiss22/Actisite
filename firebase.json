@@ -1,13 +1,29 @@
 {
-  "hosting": {
-    "public": ".",
-    "ignore": [
+  "hosting": [
+    {
+      "target": "studio",
+      "public": "studio",
+      "ignore": [
+        "firebase.json",
+        ".git/**",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        { "source": "**", "destination": "/index.html" }
+      ]
+    },
+    {
+      "target": "main",
+      "public": ".",
+      "ignore": [
       "firebase.json",
       ".firebaserc",
       ".git/**",
       ".claude/**",
       ".cursor/**",
       "Contenu offres/**",
+      "studio/**",
       "**/.*",
       "**/node_modules/**"
     ],
@@ -66,6 +82,16 @@
       }
     ],
     "redirects": [
+      {
+        "source": "/studio",
+        "destination": "https://studio.actinuance.com",
+        "type": 301
+      },
+      {
+        "source": "/studio/**",
+        "destination": "https://studio.actinuance.com",
+        "type": 301
+      },
       {
         "source": "/index.html",
         "destination": "/",
@@ -289,14 +315,6 @@
     ],
     "rewrites": [
       {
-        "source": "/studio",
-        "destination": "/studio/index.html"
-      },
-      {
-        "source": "/studio/**",
-        "destination": "/studio/index.html"
-      },
-      {
         "source": "/",
         "destination": "/index.html"
       },
@@ -465,5 +483,6 @@
         "destination": "/protection-donnees.html"
       }
     ]
-  }
+    }
+  ]
 }
