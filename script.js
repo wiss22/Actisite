@@ -1089,6 +1089,63 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
 
+  // ── TEAM MEMBER PHOTOS FROM SANITY ───────────────────
+  (function loadTeamPhotos() {
+    const imgs = document.querySelectorAll('img[data-team-slug]');
+    if (!imgs.length) return;
+    const slugs = Array.from(imgs).map(img => img.dataset.teamSlug);
+    const unique = [...new Set(slugs)];
+    const projectId = 'vnmxplwi';
+    const dataset = 'production';
+    const apiVersion = '2024-10-01';
+    const slugList = unique.map(s => `"${s}"`).join(',');
+    const query = `*[_type == "teamMember" && slug in [${slugList}]]{ slug, "photoUrl": photo.asset->url, linkedinUrl }`;
+    const apiUrl = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`;
+    fetch(apiUrl)
+      .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+      .then(data => {
+        if (!data.result || !data.result.length) return;
+        const map = {};
+        data.result.forEach(m => { map[m.slug] = { photoUrl: m.photoUrl, linkedinUrl: m.linkedinUrl }; });
+        imgs.forEach(img => {
+          const member = map[img.dataset.teamSlug];
+          if (!member) return;
+          if (member.photoUrl) img.src = member.photoUrl;
+          if (member.linkedinUrl) {
+            // Si l'img est position:absolute (ex: leader-media), on injecte dans le parent
+            // Sinon on wrappe l'img pour pouvoir positionner le badge dessus
+            const isAbsolute = getComputedStyle(img).position === 'absolute';
+            let container;
+            if (isAbsolute) {
+              container = img.parentNode;
+            } else if (!img.parentNode.classList.contains('team-photo-wrap')) {
+              const wrap = document.createElement('div');
+              wrap.className = 'team-photo-wrap';
+              img.parentNode.insertBefore(wrap, img);
+              wrap.appendChild(img);
+              container = wrap;
+            } else {
+              container = img.parentNode;
+            }
+            if (getComputedStyle(container).position === 'static') {
+              container.style.position = 'relative';
+            }
+            if (!container.querySelector('.team-linkedin-badge')) {
+              const badge = document.createElement('a');
+              badge.href = member.linkedinUrl;
+              badge.target = '_blank';
+              badge.rel = 'noopener noreferrer';
+              badge.className = 'team-linkedin-badge';
+              badge.setAttribute('aria-label', 'Voir le profil LinkedIn');
+              badge.textContent = 'in';
+              container.appendChild(badge);
+            }
+          }
+        });
+      })
+      .catch(() => {}); // fallback silencieux sur la photo statique
+  })();
+
   // ── 6. SMOOTH ANCHOR SCROLL ───────────────────
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -1096,6 +1153,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) {
         e.preventDefault();
         const offset = 72;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── "Voir les offres" scroll explicite (pages expertises) ───────────────────
+  document.querySelectorAll('.offer-scroll-cta').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById('pilier-nos-offres') || document.getElementById('nos-offres');
+      if (target) {
+        const offset = 80;
         const top = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({ top, behavior: 'smooth' });
       }
@@ -1505,7 +1575,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = `*[
         _type == "blogPost"
         && (!defined(status) || status == "published")
-        && offerTag == $offerTag
+        && ($offerTag in relatedOffers || offerTag == $offerTag)
       ] | order(coalesce(publishedAt, _createdAt) desc){
         title,
         "slug": slug.current,
@@ -1591,7 +1661,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = `*[
         _type == "offerRex"
         && status == "published"
-        && offerTag == $offerTag
+        && ($offerTag in relatedOffers || offerTag == $offerTag)
       ] | order(coalesce(publishedAt, _createdAt) desc){
         _type,
         title,
@@ -1760,7 +1830,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const query = `*[
         _type == "offerRex"
         && status == "published"
-        && offerTag == $offerTag
+        && ($offerTag in relatedOffers || offerTag == $offerTag)
       ] | order(coalesce(publishedAt, _createdAt) desc){
         _type,
         title,
@@ -2169,6 +2239,7 @@ document.addEventListener('DOMContentLoaded', () => {
               && (!defined(status) || status == "published")
             ] | order(coalesce(publishedAt, _createdAt) desc){
               title,
+              relatedOffers,
               offerTag,
               "slug": slug.current,
               externalUrl,
@@ -2182,6 +2253,7 @@ document.addEventListener('DOMContentLoaded', () => {
               && status == "published"
             ] | order(coalesce(publishedAt, _createdAt) desc){
               title,
+              relatedOffers,
               offerTag,
               summary,
               sector,
@@ -2193,9 +2265,13 @@ document.addEventListener('DOMContentLoaded', () => {
           ),
         ]);
 
+        const matchesItem = (item) => {
+          const tags = Array.isArray(item.relatedOffers) ? item.relatedOffers : (item.offerTag ? [item.offerTag] : []);
+          return tags.some(t => matchesOfferTag(t));
+        };
         mountUnifiedPublications(
-          articles.filter((item) => matchesOfferTag(item.offerTag)).slice(0, 8),
-          stories.filter((item) => matchesOfferTag(item.offerTag)).slice(0, 8)
+          articles.filter(matchesItem).slice(0, 8),
+          stories.filter(matchesItem).slice(0, 8)
         );
       })();
     } else {

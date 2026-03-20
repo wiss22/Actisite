@@ -92,10 +92,12 @@ export const offerRexType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'offerTag',
-      title: "Offre liée",
-      type: 'string',
+      name: 'relatedOffers',
+      title: 'Offres liées (1 à 3)',
+      type: 'array',
       group: 'editorial',
+      description: 'Sélectionner 1 à 3 offres liées à ce REX.',
+      of: [{type: 'string'}],
       options: {
         list: [
           {title: 'SWIFT CSP', value: 'swift-csp'},
@@ -119,6 +121,7 @@ export const offerRexType = defineType({
           {title: 'Transfo Cyber', value: 'transfo-cyber'},
         ],
       },
+      validation: (Rule) => Rule.unique().max(3),
     }),
     defineField({
       name: 'sector',

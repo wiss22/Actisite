@@ -205,10 +205,12 @@ export const blogPostType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'offerTag',
-      title: "Tags d'offre (liaison pages offres)",
-      type: 'string',
+      name: 'relatedOffers',
+      title: 'Offres liées (1 à 3)',
+      type: 'array',
       group: 'content',
+      description: 'Sélectionner 1 à 3 offres auxquelles cet article est lié.',
+      of: [{type: 'string'}],
       options: {
         list: [
           {title: 'SWIFT CSP', value: 'swift-csp'},
@@ -232,7 +234,7 @@ export const blogPostType = defineType({
           {title: 'Transfo Cyber', value: 'transfo-cyber'},
         ],
       },
-      description: "Champ optionnel: choisissez une offre dans la liste déroulante pour lier l'article.",
+      validation: (Rule) => Rule.unique().max(3),
     }),
     defineField({
       name: 'isFeatured',

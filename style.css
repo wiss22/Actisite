@@ -6314,3 +6314,30 @@ footer {
     font-size: 6rem;
   }
 }
+
+/* ── LinkedIn badge sur les photos dirigeants ──────── */
+.team-photo-wrap {
+  position: relative;
+  display: block;
+  line-height: 0;
+}
+
+.team-linkedin-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  text-decoration: none;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  color: rgba(255,255,255,0.72);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: color 0.15s ease, transform 0.15s ease;
+  z-index: 4;
+}
+
+.team-linkedin-badge:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
