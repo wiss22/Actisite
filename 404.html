@@ -25,6 +25,7 @@
   <link rel="stylesheet" href="style.css?v=20260318c">
   <link rel="stylesheet" href="audit-pages.css">
   <style>
+    * { box-sizing: border-box; }
     .notfound-wrap {
       min-height: calc(100vh - 72px);
       display: grid;
@@ -65,6 +66,35 @@
       justify-content: center;
       gap: 12px;
       flex-wrap: wrap;
+    }
+    .notfound-actions a {
+      min-width: 220px;
+    }
+    @media (max-width: 768px) {
+      .notfound-wrap {
+        min-height: auto;
+        padding: 104px 16px 40px;
+      }
+      .notfound-card {
+        border-radius: 14px;
+        padding: 30px 18px;
+      }
+      .notfound-title {
+        font-size: clamp(1.7rem, 10vw, 2.2rem);
+      }
+      .notfound-text {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 22px;
+      }
+      .notfound-actions {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .notfound-actions a {
+        width: 100%;
+        min-width: 0;
+      }
     }
   </style>
 </head>
@@ -191,6 +221,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260318c"></script>
+  <script src="script.js?v=20260324a"></script>
 </body>
 </html>

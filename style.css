@@ -5313,15 +5313,11 @@ footer {
   }
   .cabinet-life-marquee {
     margin-top: 12px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    touch-action: pan-x;
-  }
-  .cabinet-life-marquee::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
+    /* Force GPU compositing layer — prevents iOS Safari from dropping
+       the clipping context during page scroll */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
   .cabinet-life-marquee::before,
   .cabinet-life-marquee::after {
@@ -5331,17 +5327,15 @@ footer {
   .cabinet-life-track {
     gap: 8px;
     padding: 8px;
-    animation: none;
-    min-width: max-content;
-  }
-  .cabinet-life-track[aria-hidden="true"] {
-    display: none;
+    animation: cabinetLifeScroll 28s linear infinite;
+    min-width: 100%;
+    /* Keep each track on the same GPU layer */
+    will-change: transform;
   }
   .cabinet-life-photo {
     flex: 0 0 76vw;
     height: auto;
     aspect-ratio: 4 / 3;
-    scroll-snap-align: start;
   }
   .cabinet-life-photo img {
     object-position: center center;
@@ -5545,11 +5539,12 @@ footer {
     padding: 10px 10px 10px 0;
   }
   .blog-linkedin-band {
-    overflow: clip;
+    overflow: hidden;
   }
   .blog-linkedin-band-wrap {
     overflow-x: auto;
     overflow-y: hidden;
+    scroll-snap-type: x proximity;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;

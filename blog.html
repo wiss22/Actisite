@@ -106,7 +106,6 @@
         <article class="ressource-card" id="blogLoadingCard">
           <div class="ressource-tag">Chargement</div>
           <h3>Chargement des publications…</h3>
-          <p>Connexion en cours avec Sanity Studio.</p>
         </article>
       </div>
     </div>
@@ -333,10 +332,11 @@
         `
       }).join('')
 
-      const shouldLoop = window.innerWidth > 768
+      const isMobileViewport = window.matchMedia('(max-width: 768px)').matches
+      const shouldLoop = linkedinItems.length > 1 && !isMobileViewport && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
       linkedinTrack.innerHTML = shouldLoop ? `${chips}${chips}` : chips
     })()
   </script>
-  <script src="script.js?v=20260318c"></script>
+  <script src="script.js?v=20260324a"></script>
 </body>
 </html>
