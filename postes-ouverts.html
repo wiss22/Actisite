@@ -176,6 +176,7 @@
         location,
         contractType,
         experienceLevel,
+        remunerationRange,
         applyUrl,
         publishedAt
       }`
@@ -324,6 +325,7 @@
         const location = escapeHtml(item.location || 'Paris')
         const contract = escapeHtml(item.contractType || '')
         const level = escapeHtml(item.experienceLevel || '')
+        const remuneration = escapeHtml(item.remunerationRange || '')
         const published = formatDate(item.publishedAt)
         const descriptionHtml = renderPortableText(item.positionDescription)
         const rawTitle = item.title || 'Poste Actinuance'
@@ -340,6 +342,7 @@
               <span class="job-meta-chip">${location}</span>
               ${contract ? `<span class="job-meta-chip">${contract}</span>` : ''}
               ${level ? `<span class="job-meta-chip">${level}</span>` : ''}
+              ${remuneration ? `<span class="job-meta-chip">${remuneration}</span>` : ''}
             </div>
             ${summary ? `<p class="job-summary">${summary}</p>` : ''}
             <button type="button" class="job-expand-btn" aria-expanded="false">

@@ -173,14 +173,15 @@ export const jobOfferType = defineType({
       of: [{type: 'string'}],
       group: 'content',
     }),
+   
     defineField({
-      name: 'skills',
-      title: 'Compétences clés (optionnel)',
-      type: 'array',
-      of: [{type: 'string'}],
-      group: 'content',
-      options: {layout: 'tags'},
-    })
+      name: 'remunerationRange',
+      title: 'Rémunération',
+      type: 'string',
+      group: 'editorial',
+      description: 'Ex: 45k€ - 55k€ brut annuel (selon profil)',
+      placeholder: 'Ex: 45k€ - 55k€ brut annuel',
+    }),
   ],
   orderings: [
     {
