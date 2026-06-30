@@ -3,7 +3,7 @@
 ## Objective
 Move Sanity Studio off the public website hosting and publish it on a dedicated admin subdomain:
 
-- Public site: `https://landing-site-9ce39.web.app`
+- Public site: `https://www.actinuance.com`
 - Studio admin: `https://studio.aktis-consulting.com`
 
 ## What is already enforced in this repo

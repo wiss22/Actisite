@@ -100,6 +100,14 @@ img { max-width: 100%; display: block; }
   display: block;
 }
 
+.nav-logo-model {
+  width: 128px;
+  height: 52px;
+  display: block;
+  background: transparent;
+  --poster-color: transparent;
+}
+
 .logo-nuance { color: var(--accent); }
 
 .nav-links {

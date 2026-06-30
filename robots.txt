@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://landing-site-9ce39.web.app/sitemap.xml
+Sitemap: https://www.actinuance.com/sitemap.xml
