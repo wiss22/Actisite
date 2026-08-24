@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actinuance — Pure Player indépendant de la cyber</title>
+  <link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
+      </a>
+      <ul class="nav-links">
+        <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="expertisesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Expertises</button>
+          <ul class="nav-dropdown-menu" id="expertisesDropdown" aria-label="Sous-menu Expertises">
+            <li><a href="risques-digitaux.html">Risques Digitaux</a></li>
+            <li><a href="cyber-defense.html">Cyber Défense</a></li>
+            <li><a href="audit-conformite.html">Audit et Conformité</a></li>
+            <li><a href="transfo-cyber.html">Transfo Cyber</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="secteursDropdownTrigger" aria-expanded="false" aria-haspopup="true">Secteurs</button>
+          <ul class="nav-dropdown-menu" id="secteursDropdown" aria-label="Sous-menu Secteurs">
+            <li><a href="#secteurs">Banque</a></li>
+            <li><a href="#secteurs">Assurance</a></li>
+            <li><a href="#secteurs">Luxe</a></li>
+            <li><a href="#secteurs">Retail</a></li>
+            <li><a href="#secteurs">Industrie &amp; Transport</a></li>
+            <li><a href="#secteurs">Techno</a></li>
+          </ul>
+        </li>
+        <li class="nav-item-dropdown">
+          <button type="button" class="nav-dropdown-trigger" id="ressourcesDropdownTrigger" aria-expanded="false" aria-haspopup="true">Publications</button>
+          <ul class="nav-dropdown-menu" id="ressourcesDropdown" aria-label="Sous-menu Publications">
+            <li><a href="blog.html">Articles</a></li>
+            <li><a href="innovation.html">Innovation</a></li>
+          </ul>
+        </li>
+        <li><a href="#apropos">À propos</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="nous-rejoindre.html" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="#contact" class="nav-cta">Nous contacter</a>
+      </div>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div class="hero-slides">
+
+      <div class="slide active" data-index="0">
+        <div class="slide-shapes" aria-hidden="true">
+          <div class="s-orb s-a"></div>
+          <div class="s-orb s-b"></div>
+          <div class="s-orb s-c"></div>
+          <div class="s-orb s-d"></div>
+          <div class="s-ring s-r1"></div>
+          <div class="s-ring s-r2"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-tag">Gestion des risques digitaux</div>
+          <h1>Maîtrisez<br>vos <em>risques</em><br>numériques</h1>
+          <p>Conseil expert en cybersécurité, gouvernance et conformité pour les entreprises exigeantes.</p>
+          <div class="slide-actions">
+            <a href="#expertises" class="btn-primary">Découvrir nos expertises</a>
+            <a href="#contact" class="btn-ghost">Prendre contact →</a>
+          </div>
+        </div>
+        <div class="slide-stat">
+          <div class="stat-value">13<span>ans</span></div>
+          <div class="stat-label">d'expertise</div>
+        </div>
+      </div>
+
+      <div class="slide" data-index="1">
+        <div class="slide-shapes" aria-hidden="true">
+          <div class="s-orb s-a"></div>
+          <div class="s-orb s-b"></div>
+          <div class="s-orb s-c"></div>
+          <div class="s-orb s-d"></div>
+          <div class="s-ring s-r1"></div>
+          <div class="s-ring s-r2"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-tag">Gouvernance cybersécurité</div>
+          <h1>Déployez<br>la <em>confiance</em><br>cyber</h1>
+          <p>NIS2, ISO 27001, RSSI externalisé: nous construisons votre posture de sécurité sur mesure.</p>
+          <div class="slide-actions">
+            <a href="#expertises" class="btn-primary">Voir l'offre</a>
+            <a href="#contact" class="btn-ghost">Prendre contact →</a>
+          </div>
+        </div>
+        <div class="slide-stat">
+          <div class="stat-value">90<span>%</span></div>
+          <div class="stat-label">de consultants certifiés</div>
+        </div>
+      </div>
+
+      <div class="slide" data-index="2">
+        <div class="slide-shapes" aria-hidden="true">
+          <div class="s-orb s-a"></div>
+          <div class="s-orb s-b"></div>
+          <div class="s-orb s-c"></div>
+          <div class="s-orb s-d"></div>
+          <div class="s-ring s-r1"></div>
+          <div class="s-ring s-r2"></div>
+        </div>
+        <div class="slide-content">
+          <div class="slide-tag">Conformité numérique</div>
+          <h1>DORA, RGPD,<br><em>AI Act</em><br>soyez prêts</h1>
+          <p>Anticiper les réglementations, démontrer et maintenir votre conformité numérique.</p>
+          <div class="slide-actions">
+            <a href="#secteurs" class="btn-primary">Par secteur</a>
+            <a href="#contact" class="btn-ghost">Évaluer votre conformité →</a>
+          </div>
+        </div>
+        <div class="slide-stat">
+          <div class="stat-value">25<span>%</span></div>
+          <div class="stat-label">de croissance en 2025</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-controls">
+      <button class="hero-prev" id="heroPrev" aria-label="Précédent">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="hero-dots">
+        <button class="dot active" data-slide="0"></button>
+        <button class="dot" data-slide="1"></button>
+        <button class="dot" data-slide="2"></button>
+      </div>
+      <button class="hero-next" id="heroNext" aria-label="Suivant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <div class="hero-progress"><div class="hero-progress-bar" id="progressBar"></div></div>
+
+    <a href="#expertises" class="scroll-cue">
+      <span>Découvrir</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </section>
+
+  <div class="clients-band">
+    <div class="clients-label">Ils nous font confiance</div>
+    <div class="clients-track-wrap">
+      <div class="clients-track">
+        <span>BNP Paribas</span><span>Crédit Agricole</span><span>Société Générale</span><span>La Banque Postale</span>
+        <span>Chanel</span><span>ChristianDior</span><span>SNCF</span><span>Transavia</span>
+        <span>RTE</span><span>EuroAPI</span><span>AG2R La Mondiale</span><span>Groupama</span>
+        <span>thélem</span><span>Mutuaide</span><span>CCR</span><span>E.Leclerc</span>
+        <span>L'Oréal</span><span>Groupe Duval</span><span>Betclic</span><span>Harvest</span>
+        <span>iQar</span><span>Esri</span>
+        <span>BNP Paribas</span><span>Crédit Agricole</span><span>Société Générale</span><span>La Banque Postale</span>
+        <span>Chanel</span><span>Dior</span><span>SNCF</span><span>Transavia</span>
+        <span>RTE</span><span>EuroAPI</span><span>AG2R La Mondiale</span><span>Groupama</span>
+        <span>thélem</span><span>Mutuaide</span><span>CCR</span><span>E.Leclerc</span>
+        <span>L'Oréal</span><span>Groupe Duval</span><span>Betclic</span><span>Harvest</span>
+        <span>iQar</span><span>Esri</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="expertises">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-eyebrow">01 — Nos Expertises</div>
+        <h2 class="section-heading">Une offre <em>complète</em><br>et sur-mesure</h2>
+        <p class="section-sub">Quatre domaines d'intervention complémentaires, portés par des consultants certifiés.</p>
+      </div>
+
+      <div class="expertise-grid">
+        <div class="expertise-card reveal" data-delay="0">
+          <div class="card-number">01</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="1.5"/><path d="M24 14v10l6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24" r="3" fill="currentColor"/></svg>
+          </div>
+          <h3>Risques Digitaux</h3>
+          <p>Nous accompagnons les entreprises dans leur montée en maturité cyber avec des formations adaptées, une structuration efficace de la fonction sécurité et des dispositifs concrets pour assurer la continuité d'activité et la gestion de crise. Une approche sur-mesure, alignée avec le contexte et les enjeux de chaque organisation.</p>
+          <div class="card-tags">
+            <span>Analyse de risques</span><span>Sensibilisation cyber</span><span>ISO 27005</span><span>BCP / PCA</span><span>Gestion de crise</span>
+          </div>
+          <a href="risques-digitaux.html" class="card-link">En savoir plus →</a>
+        </div>
+
+        <div class="expertise-card reveal" data-delay="100">
+          <div class="card-number">02</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M24 4L8 12v12c0 9.4 6.8 18.2 16 20 9.2-1.8 16-10.6 16-20V12L24 4z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M19 24l3 3 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Cyber Défense</h3>
+          <p>Nous proposons une offre complète pour renforcer la cybersécurité des organisations : audit et sécurisation des environnements cloud, intégration de la sécurité dans les développements, protection des systèmes industriels et gestion active des vulnérabilités et des remédiations.</p>
+          <div class="card-tags">
+            <span>Cloud Security</span><span>DevSecOps</span><span>OT / ICS</span><span>VOC</span>
+          </div>
+          <a href="cyber-defense.html" class="card-link">En savoir plus →</a>
+        </div>
+
+        <div class="expertise-card reveal" data-delay="200">
+          <div class="card-number">03</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.5"/><path d="M16 20h16M16 28h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Audit et Conformité</h3>
+          <p>Nous accompagnons les entreprises souhaitant se mettre en conformité avec les réglementations cyber et risques IT. Cette offre s'adresse aussi aux organisations qui visent une certification ou qui souhaitent simplement évaluer leur niveau d'exposition aux risques cyber.</p>
+          <div class="card-tags">
+            <span>NIS2</span><span>DORA</span><span>LPM</span><span>CRA</span><span>ISO 27001</span><span>AI Act</span>
+          </div>
+          <a href="audit-conformite.html" class="card-link">En savoir plus →</a>
+        </div>
+
+        <div class="expertise-card reveal" data-delay="300">
+          <div class="card-number">04</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 48 48" fill="none"><path d="M10 38l8-8m0 0l8-8m-8 8l-8-8m8 8l8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="34" cy="14" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="14" cy="14" r="6" stroke="currentColor" stroke-width="1.5"/><circle cx="34" cy="34" r="6" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h3>Transfo Cyber</h3>
+          <p>Nous proposons un accompagnement sur les projets et programmes pour intégrer la sécurité By Design, structurer la stratégie de conduite de programme et assurer le delivery de solutions intégrées aux processus projet et métier.</p>
+          <div class="card-tags">
+            <span>Security by Design</span><span>IAG</span><span>DLP</span><span>Design SOC</span><span>Program Strategy &amp; Delivery</span>
+          </div>
+          <a href="transfo-cyber.html" class="card-link">En savoir plus →</a>
+        </div>
+      </div>
+      <div class="expertise-dots" id="expertiseDots" aria-label="Navigation expertises"></div>
+    </div>
+  </section>
+
+  <section class="section-numbers">
+    <div class="numbers-inner">
+      <div class="number-item reveal">
+        <div class="number-main"><div class="number-val" data-target="13">0</div><div class="number-unit">ans</div></div>
+        <div class="number-label">Au service de nos clients</div>
+      </div>
+      <div class="number-item reveal" data-delay="100">
+        <div class="number-main"><div class="number-val" data-target="25">0</div><div class="number-unit">%</div></div>
+        <div class="number-label">De croissance en 2025</div>
+      </div>
+      <div class="number-item reveal" data-delay="200">
+        <div class="number-main"><div class="number-val" data-target="90">0</div><div class="number-unit">%</div></div>
+        <div class="number-label">De consultants certifiés</div>
+      </div>
+      <div class="number-item reveal" data-delay="300">
+        <div class="number-main"><div class="number-val" data-target="50">0</div><div class="number-unit">+</div></div>
+        <div class="number-label">Références clients</div>
+      </div>
+      <div class="number-item reveal" data-delay="500">
+        <div class="number-main"><div class="number-val" data-target="10">0</div><div class="number-unit">+</div></div>
+        <div class="number-label">Pays dans lesquels nous intervenons</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-join" id="rejoindre">
+    <div class="container">
+      <div class="join-layout">
+        <div class="join-intro reveal">
+          <div class="section-eyebrow">02 — Rejoindre Actinuance</div>
+          <h2 class="section-heading">Vous faire évoluer<br>nous fait <em>progresser</em></h2>
+          <p class="section-sub">Actinuance Consulting est avant tout une équipe soudée, qui évolue dans un contexte à la fois convivial et exigeant. Notre cabinet existe parce que nous croyons à l'honnêteté intellectuelle, comme socle d'une évolution de carrière durable dans le conseil.</p>
+          <p class="section-sub">Nous recherchons des consultants qui veulent grandir sur des sujets à fort impact, dans un collectif bienveillant et engagé.</p>
+          <div class="join-actions">
+            <a href="nous-rejoindre.html" class="btn-primary">Nous rejoindre</a>
+          </div>
+        </div>
+
+        <div class="join-principles reveal" data-delay="120">
+          <figure class="join-photo">
+            <img src="Photos/photogroupe.JPG" alt="Équipe Actinuance" loading="eager" decoding="async" />
+          </figure>
+          <article class="join-principle">
+            <div class="join-principle-title">Expertise</div>
+            <p>Au coeur de notre démarche, une conviction forte: exceller dans notre domaine. Nous nous consacrons exclusivement à la cybersécurité, avec une spécialisation pointue en GRC.</p>
+          </article>
+          <article class="join-principle">
+            <div class="join-principle-title">Exigence</div>
+            <p>Nous délivrons des prestations de qualité et sur-mesure. Chaque accompagnement est structuré, personnalisé et orienté résultats pour répondre précisément aux enjeux de nos clients.</p>
+          </article>
+          <article class="join-principle">
+            <div class="join-principle-title">Épanouissement</div>
+            <p>Chaque consultant est une pièce maîtresse du cabinet. Nous proposons des missions alignées avec les talents, les compétences et les perspectives d'évolution de chacun.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark" id="secteurs">
+    <div class="container">
+      <div class="section-intro light">
+        <div class="section-eyebrow">03 — Secteurs d'activité</div>
+        <h2 class="section-heading">Une expertise <em>sectorielle</em><br>reconnue</h2>
+        <p class="section-sub">Nous intervenons dans les secteurs les plus exigeants en matière de conformité et de sécurité.</p>
+        <p class="scroll-hint light" aria-hidden="true">Glissez pour voir les autres secteurs →</p>
+      </div>
+
+      <div class="secteurs-tab-nav">
+        <button class="tab-btn active" data-tab="banque">Banque</button>
+        <button class="tab-btn" data-tab="luxe">Luxe</button>
+        <button class="tab-btn" data-tab="industrie">Industrie &amp; Transport</button>
+        <button class="tab-btn" data-tab="assurance">Assurance</button>
+        <button class="tab-btn" data-tab="retail">Retail</button>
+        <button class="tab-btn" data-tab="techno">Techno</button>
+      </div>
+
+      <div class="secteurs-panels">
+        <div class="secteur-panel active" id="tab-banque">
+          <div class="panel-left">
+            <div class="panel-num">01</div>
+            <h3 class="panel-title">Banque</h3>
+            <div class="panel-regs"><span>DORA</span><span>ACPR</span><span>NIS2</span><span>SWIFT CSP</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Grand groupe bancaire — Gouvernance cyber groupe</div>
+              <div class="case-item">Institution financière — Assessment SWIFT CSP</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+
+        <div class="secteur-panel" id="tab-luxe">
+          <div class="panel-left">
+            <div class="panel-num">02</div>
+            <h3 class="panel-title">Luxe</h3>
+            <div class="panel-regs"><span>RGPD</span><span>NIS2</span><span>ISO 27001</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Maison de luxe — Certification ISO 27001</div>
+              <div class="case-item">Groupe international — Audit sécurité global</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+
+        <div class="secteur-panel" id="tab-industrie">
+          <div class="panel-left">
+            <div class="panel-num">03</div>
+            <h3 class="panel-title">Industrie &amp; Transport</h3>
+            <div class="panel-regs"><span>NIS2</span><span>OIV / OES</span><span>OT Security</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Opérateur d'importance vitale — Conformité NIS2</div>
+              <div class="case-item">Groupe industriel — Sécurisation OT &amp; remédiation</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+
+        <div class="secteur-panel" id="tab-assurance">
+          <div class="panel-left">
+            <div class="panel-num">04</div>
+            <h3 class="panel-title">Assurance</h3>
+            <div class="panel-regs"><span>DORA</span><span>Solvabilité II</span><span>ACPR</span><span>NIS2</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Mutuelle nationale — Audit organisationnel SSI</div>
+              <div class="case-item">Compagnie de réassurance — Conformité DORA</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+
+        <div class="secteur-panel" id="tab-retail">
+          <div class="panel-left">
+            <div class="panel-num">05</div>
+            <h3 class="panel-title">Retail</h3>
+            <div class="panel-regs"><span>RGPD</span><span>NIS2</span><span>Supply Chain</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Groupe cosmétique — Risques tiers &amp; supply chain</div>
+              <div class="case-item">Enseigne nationale — Cartographie des risques SI</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1542992015-4a0b729b1385?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+
+        <div class="secteur-panel" id="tab-techno">
+          <div class="panel-left">
+            <div class="panel-num">06</div>
+            <h3 class="panel-title">Techno</h3>
+            <div class="panel-regs"><span>RGPD</span><span>AI Act</span><span>NIS2</span><span>ISO 27001</span></div>
+            <div class="panel-cases">
+              <div class="case-item">Éditeur logiciel — Sécurisation pipeline CI/CD</div>
+              <div class="case-item">Société technologique — Audit &amp; conformité RGPD</div>
+            </div>
+            <a href="#" class="card-link light">Voir le secteur →</a>
+          </div>
+          <div class="panel-right"><div class="panel-img" style="background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=80&auto=format&fit=crop')"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ressources">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-eyebrow">04 — Publications</div>
+        <h2 class="section-heading">Notre vision<br>de <em>l'expertise</em></h2>
+      </div>
+
+      <div class="ressources-grid" data-publications-home>
+        <div class="ressource-card big reveal">
+          <div class="ressource-tag">Analyse</div>
+          <h3>NIS2 : ce qui change pour les entreprises françaises en 2025</h3>
+          <p>Tour d'horizon des nouvelles obligations et de la stratégie à adopter pour les entités essentielles et importantes.</p>
+          <a href="#" class="card-link">Lire →</a>
+        </div>
+        <div class="ressource-card reveal" data-delay="100">
+          <div class="ressource-tag">Guide</div>
+          <h3>DORA : checklist de conformité pour les établissements financiers</h3>
+          <a href="#" class="card-link">Télécharger →</a>
+        </div>
+        <div class="ressource-card reveal" data-delay="200">
+          <div class="ressource-tag">Webinaire</div>
+          <h3>AI Act &amp; cybersécurité : préparer votre organisation</h3>
+          <a href="#" class="card-link">S'inscrire →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-apropos" id="apropos">
+    <div class="container">
+      <div class="apropos-inner">
+        <div class="apropos-left reveal">
+          <div class="section-eyebrow">05 — À propos</div>
+          <h2 class="section-heading">Expert en risques digitaux,<br>compliance &amp; <em>cybersécurité</em></h2>
+          <p>Actinuance est un cabinet de conseil <strong>à taille humaine</strong>, fondé en 2013, spécialisé dans la gestion des risques digitaux, la compliance et la cybersécurité. Nous accompagnons nos clients grands comptes avec un accompagnement sur-mesure, qualitatif et à <strong>haute valeur ajoutée</strong>.</p>
+          <p style="margin-top: -10px;">Nous portons une vision exigeante et structurée de la cybersécurité, où la maîtrise des risques s'inscrit au service de la performance. L'<strong>excellence opérationnelle</strong> constitue le socle de chacune de nos interventions.</p>
+          <a href="equipe-dirigeante.html" class="btn-primary">Découvrir l'équipe</a>
+        </div>
+        <div class="apropos-right reveal" data-delay="150">
+          <div class="apropos-commitments">
+            <div class="apropos-commitments-title">Nos engagements</div>
+            <article class="apropos-commitment-card">
+              <h3>Simplicité &amp; pragmatisme</h3>
+              <p>Des recommandations claires, actionnables et adaptées à la réalité terrain de vos équipes.</p>
+            </article>
+            <article class="apropos-commitment-card">
+              <h3>Bienveillance &amp; convivialité</h3>
+              <p>Une relation de travail saine, fondée sur l'écoute, la co-construction et la progression collective.</p>
+            </article>
+            <article class="apropos-commitment-card">
+              <h3>Confiance &amp; honnêteté</h3>
+              <p>Une posture transparente, des avis francs et une exigence constante sur la qualité des livrables.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-contact" id="contact">
+    <div class="contact-inner contact-inner--simple reveal">
+      <div class="section-eyebrow light">06 — Contact</div>
+      <h2>Parlons de<br>votre <em>projet</em></h2>
+      <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
+      <a href="mailto:contact@actinuance.com" class="contact-mail">contact@actinuance.com</a>
+      <div class="contact-address">147 Rue de Rennes, 75006 Paris</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
+        <p>Cabinet de conseil en gestion des risques digitaux et cybersécurité.</p>
+        <div class="happy-work-badge">
+          <div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="risques-digitaux.html">Risques Digitaux</a>
+          <a href="cyber-defense.html">Cyber Défense</a>
+          <a href="audit-conformite.html">Audit et Conformité</a>
+          <a href="transfo-cyber.html">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="index.html#secteurs">Banque</a>
+          <a href="index.html#secteurs">Assurance</a>
+          <a href="index.html#secteurs">Luxe</a>
+          <a href="index.html#secteurs">Retail</a>
+          <a href="index.html#secteurs">Industrie &amp; Transport</a>
+          <a href="index.html#secteurs">Techno</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="index.html#apropos">À propos</a>
+          <a href="equipe-dirigeante.html">Equipe dirigeante</a>
+          <a href="nous-rejoindre.html">Nous rejoindre</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="#">Mentions légales</a>
+        <a href="#">Politique des cookies</a>
+        <a href="#">Protection des données</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="sanity.config.js"></script>
+  <script src="publications.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
