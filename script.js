@@ -365,9 +365,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── 2. HERO CAROUSEL ──────────────────────────
   const slides     = Array.from(document.querySelectorAll('.slide'));
-  const dots       = Array.from(document.querySelectorAll('.dot'));
-  const progressBar = document.getElementById('progressBar');
-  const hasHeroCarousel = slides.length > 0 && dots.length > 0 && progressBar;
+  const heroTabs   = Array.from(document.querySelectorAll('.hero-tab'));
+  const hasHeroCarousel = slides.length > 0 && heroTabs.length > 0;
   const DURATION    = 6000; // ms per slide
 
   let current    = 0;
@@ -383,13 +382,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides[current].classList.remove('leaving');
     slides[current].classList.add('active');
-    dots[current].classList.add('active');
+    heroTabs[current].classList.add('active');
 
     // Keep one overlap frame to avoid visual gap/flash.
     requestAnimationFrame(() => {
       slides[previous].classList.remove('active');
       slides[previous].classList.add('leaving');
-      dots[previous].classList.remove('active');
+      heroTabs[previous].classList.remove('active');
     });
 
     clearTimeout(leavingCleanupId);
@@ -403,11 +402,14 @@ document.addEventListener('DOMContentLoaded', () => {
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  // Progress bar via requestAnimationFrame
+  // Story-style segmented progress via requestAnimationFrame
   function resetProgress() {
     if (!hasHeroCarousel) return;
     if (rafId) cancelAnimationFrame(rafId);
-    progressBar.style.width = '0%';
+    heroTabs.forEach((tab) => {
+      const fill = tab.querySelector('.hero-tab-fill');
+      if (fill) fill.style.width = '0%';
+    });
     startTime = performance.now();
     animateProgress();
   }
@@ -417,7 +419,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ts) ts = performance.now();
     const elapsed = ts - startTime;
     const pct = Math.min((elapsed / DURATION) * 100, 100);
-    progressBar.style.width = pct + '%';
+    const activeFill = heroTabs[current].querySelector('.hero-tab-fill');
+    if (activeFill) activeFill.style.width = pct + '%';
 
     if (pct < 100) {
       rafId = requestAnimationFrame(animateProgress);
@@ -434,11 +437,6 @@ document.addEventListener('DOMContentLoaded', () => {
     heroPrevBtn.addEventListener('click', () => { prev(); });
   }
 
-  if (hasHeroCarousel) {
-    dots.forEach(dot => {
-      dot.addEventListener('click', () => goTo(+dot.dataset.slide));
-    });
-  }
 
   // Hero interactions
   const heroEl = document.querySelector('.hero');
@@ -462,6 +460,49 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start
   if (hasHeroCarousel) {
     resetProgress();
+  }
+
+  // Hero orbit — subtle cursor parallax (desktop only)
+  const heroOrbitSvg = document.querySelector('.hero-orbit-svg');
+  if (heroEl && heroOrbitSvg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const desktopOrbitQuery = window.matchMedia('(min-width: 1025px)');
+    let orbitTargetX = 0, orbitTargetY = 0, orbitCurrentX = 0, orbitCurrentY = 0;
+
+    function stepOrbitParallax() {
+      orbitCurrentX += (orbitTargetX - orbitCurrentX) * 0.07;
+      orbitCurrentY += (orbitTargetY - orbitCurrentY) * 0.07;
+      heroOrbitSvg.style.transform = `translate(${orbitCurrentX.toFixed(2)}px, ${orbitCurrentY.toFixed(2)}px) rotate(${(orbitCurrentX * 0.025).toFixed(2)}deg)`;
+      requestAnimationFrame(stepOrbitParallax);
+    }
+
+    heroEl.addEventListener('mousemove', (e) => {
+      if (!desktopOrbitQuery.matches) return;
+      const rect = heroEl.getBoundingClientRect();
+      orbitTargetX = ((e.clientX - rect.left) / rect.width - 0.5) * 26;
+      orbitTargetY = ((e.clientY - rect.top) / rect.height - 0.5) * 26;
+    });
+
+    heroEl.addEventListener('mouseleave', () => {
+      orbitTargetX = 0;
+      orbitTargetY = 0;
+    });
+
+    requestAnimationFrame(stepOrbitParallax);
+  }
+
+  // Hero CTA — magnetic hover
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.hero-cta').forEach((btn) => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const relX = e.clientX - rect.left - rect.width / 2;
+        const relY = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = `translate(${(relX * 0.16).toFixed(2)}px, ${(relY * 0.35).toFixed(2)}px)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = '';
+      });
+    });
   }
 
 
@@ -1034,6 +1075,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="/cyber-4-ai" class="nav-ai-link" onclick="closeMobileNav()">Cyber for AI</a>
                 <a href="/dora" onclick="closeMobileNav()">DORA</a>
                 <a href="/swift" onclick="closeMobileNav()">Swift CSP</a>
+                <a href="/cra" onclick="closeMobileNav()">CRA</a>
               </div>
             </details>
             <details class="m-accordion">

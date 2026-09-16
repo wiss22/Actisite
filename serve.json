@@ -17,6 +17,7 @@
     { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
     { "source": "/resilience-reglemenaire", "destination": "/resilience-reglemenaire.html" },
     { "source": "/dora", "destination": "/dora.html" },
+    { "source": "/cra", "destination": "/cra.html" },
     { "source": "/conformite-sectorielle", "destination": "/conformite-sectorielle.html" },
     { "source": "/cyber-cloud-defense", "destination": "/cyber-cloud-defense.html" },
     { "source": "/cyber-securite-developpement", "destination": "/cyber-securite-developpement.html" },

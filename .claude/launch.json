@@ -4,8 +4,8 @@
     {
       "name": "actinuance",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8765", "--directory", "/Users/wissemchouk/Downloads/Actisite"],
-      "port": 8765
+      "runtimeArgs": ["-m", "http.server", "8877", "--directory", "/Users/wissemchouk/ActiSite/Actisite"],
+      "port": 8877
     }
   ]
 }

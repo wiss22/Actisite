@@ -243,6 +243,11 @@
         "type": 301
       },
       {
+        "source": "/cra.html",
+        "destination": "/cra",
+        "type": 301
+      },
+      {
         "source": "/audit-conformite-nis-dora.html",
         "destination": "/resilience-reglemenaire",
         "type": 301
@@ -425,6 +430,10 @@
       {
         "source": "/dora",
         "destination": "/dora.html"
+      },
+      {
+        "source": "/cra",
+        "destination": "/cra.html"
       },
       {
         "source": "/audit-conformite-nis-dora",

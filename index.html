@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
+  <link rel="stylesheet" href="style.css?v=20260914">
 </head>
 <body class="home-page">
 
@@ -43,6 +43,7 @@
             <li><a href="/cyber-4-ai" class="nav-ai-link">Cyber for AI</a></li>
             <li><a href="/dora">DORA</a></li>
             <li><a href="/swift">Swift CSP</a></li>
+            <li><a href="/cra">CRA</a></li>
           </ul>
         </li>
         <li class="nav-item-dropdown">
@@ -95,11 +96,10 @@
           <div class="s-ring s-r2"></div>
         </div>
         <div class="slide-content">
-          <div class="slide-tag">Protection des systèmes d'IA</div>
           <h1>Sécurisez<br>vos <em>solutions</em><br><em>IA</em></h1>
           <p>Nous aidons les directions métier, risques, conformité et sécurité à structurer, arbitrer et exécuter leurs trajectoires d'intégration des solutions d'Intelligence Artificielle à grande échelle.</p>
           <div class="slide-actions">
-            <a href="/cyber-4-ai" class="btn-primary">Découvrir notre offre</a>
+            <a href="/cyber-4-ai" class="hero-cta">Découvrir notre offre</a>
           </div>
         </div>
         <div class="slide-stat">
@@ -120,11 +120,10 @@
           <div class="s-ring s-r2"></div>
         </div>
         <div class="slide-content">
-          <div class="slide-tag">Programmes Risques &amp; conformité</div>
           <h1>Pilotez<br>vos <em>programmes</em><br>de conformité</h1>
           <p>Nous aidons les directions métier, risques, conformité et sécurité à structurer, arbitrer et exécuter leurs trajectoires GRC à grande échelle.</p>
           <div class="slide-actions">
-            <a href="/audit-conformite" class="btn-primary">Découvrir notre approche</a>
+            <a href="/audit-conformite" class="hero-cta">Découvrir notre approche</a>
           </div>
         </div>
         <div class="slide-stat">
@@ -145,11 +144,10 @@
           <div class="s-ring s-r2"></div>
         </div>
         <div class="slide-content">
-          <div class="slide-tag">Cyber Défense</div>
           <h1>Sécurisez<br>votre <em>socle technique</em><br>en profondeur</h1>
           <p>Cloud, développement, systèmes industriels, remédiations: Chaque environnement à le besoin de qualification spécifique et de solutions actionnables.</p>
           <div class="slide-actions">
-            <a href="/cyber-defense" class="btn-primary">Voir l'expertise</a>
+            <a href="/cyber-defense" class="hero-cta">Voir l'expertise</a>
           </div>
         </div>
         <div class="slide-stat">
@@ -160,21 +158,59 @@
 
     </div>
 
+    <div class="hero-orbit" aria-hidden="true">
+      <svg class="hero-orbit-svg" viewBox="0 0 680 680">
+        <defs>
+          <linearGradient id="heroOrbitGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#F18847" />
+            <stop offset=".55" stop-color="#8e2aa8" />
+            <stop offset="1" stop-color="#f5a066" />
+          </linearGradient>
+          <filter id="heroOrbitBlur"><feGaussianBlur stdDeviation="26" /></filter>
+        </defs>
+        <circle cx="340" cy="340" r="252" class="hero-orbit-ring hero-orbit-ring-a" />
+        <circle cx="340" cy="340" r="178" class="hero-orbit-ring hero-orbit-ring-b" />
+        <circle cx="340" cy="340" r="104" class="hero-orbit-ring hero-orbit-ring-c" />
+        <circle cx="340" cy="340" r="92" fill="url(#heroOrbitGradient)" opacity=".2" filter="url(#heroOrbitBlur)" />
+        <path class="hero-orbit-flow hero-orbit-flow-a" d="M98 385C212 127 428 103 574 260S578 545 340 584 55 520 98 385Z" />
+        <path class="hero-orbit-flow hero-orbit-flow-b" d="M140 276C260 92 505 160 550 355S404 610 230 530 76 372 140 276Z" />
+        <g class="hero-orbit-node hero-orbit-node-a" transform="translate(104 242)">
+          <circle r="5" /><text x="14" y="4">STRATÉGIE</text>
+        </g>
+        <g class="hero-orbit-node hero-orbit-node-b" transform="translate(478 202)">
+          <circle r="5" /><text x="14" y="4">GOUVERNANCE</text>
+        </g>
+        <g class="hero-orbit-node hero-orbit-node-c" transform="translate(458 492)">
+          <circle r="5" /><text x="14" y="4">DELIVERY</text>
+        </g>
+        <g class="hero-orbit-node hero-orbit-node-d" transform="translate(145 470)">
+          <circle r="4" /><text x="12" y="4">RÉSILIENCE</text>
+        </g>
+      </svg>
+    </div>
+
     <div class="hero-controls">
       <button class="hero-prev" id="heroPrev" aria-label="Précédent">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"/></svg>
       </button>
-      <div class="hero-dots">
-        <button class="dot active" data-slide="0"></button>
-        <button class="dot" data-slide="1"></button>
-        <button class="dot" data-slide="2"></button>
+      <div class="hero-tabs" id="heroTabs">
+        <div class="hero-tab active" data-slide="0">
+          <span class="hero-tab-top"><span class="hero-tab-index">01</span><span class="hero-tab-label">Cyber for AI</span></span>
+          <span class="hero-tab-track"><span class="hero-tab-fill"></span></span>
+        </div>
+        <div class="hero-tab" data-slide="1">
+          <span class="hero-tab-top"><span class="hero-tab-index">02</span><span class="hero-tab-label">Audit et Conformité</span></span>
+          <span class="hero-tab-track"><span class="hero-tab-fill"></span></span>
+        </div>
+        <div class="hero-tab" data-slide="2">
+          <span class="hero-tab-top"><span class="hero-tab-index">03</span><span class="hero-tab-label">Cyber Défense</span></span>
+          <span class="hero-tab-track"><span class="hero-tab-fill"></span></span>
+        </div>
       </div>
       <button class="hero-next" id="heroNext" aria-label="Suivant">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
-
-    <div class="hero-progress"><div class="hero-progress-bar" id="progressBar"></div></div>
 
     <a href="#expertises" class="scroll-cue">
       <span>Découvrir</span>
@@ -182,7 +218,7 @@
     </a>
   </section>
 
-  <!-- ── OFFRES À LA UNE ── 
+  <!-- ── OFFRES À LA UNE ──
   <section class="section-featured-offers" id="offres-une">
     <div class="container">
       <div class="section-intro">
@@ -200,12 +236,12 @@
           <span class="featured-offer-card__cta">Découvrir l'offre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
-        <a href="/dora" class="featured-offer-card featured-offer-card--dora">
+        <a href="/cra" class="featured-offer-card featured-offer-card--cra">
           <span class="featured-offer-card__num" aria-hidden="true">02</span>
-          <span class="featured-offer-card__badge">Règlement EU · 2025</span>
-          <div class="featured-offer-card__label">DORA</div>
-          <h3 class="featured-offer-card__title">Résilience<br>sous contrôle</h3>
-          <p class="featured-offer-card__desc">Transformez DORA en dispositif de résilience démontrable et pilotable pour les acteurs du secteur financier.</p>
+          <span class="featured-offer-card__badge">Règlement EU · 2027</span>
+          <div class="featured-offer-card__label">CRA</div>
+          <h3 class="featured-offer-card__title">Sécurité produits<br>par design</h3>
+          <p class="featured-offer-card__desc">Mettez en conformité vos produits numériques avec le Cyber Resilience Act, du cadrage réglementaire au marquage CE.</p>
           <span class="featured-offer-card__cta">Découvrir l'offre <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </a>
 
@@ -424,14 +460,14 @@
           <div class="panel-right">
             <div class="panel-illustration panel-illustration-banque" aria-hidden="true">
               <svg class="panel-illustration-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="52" y="262" width="92" height="96" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
-                <rect x="160" y="212" width="92" height="146" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)"/>
-                <rect x="268" y="238" width="72" height="120" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
-                <rect x="214" y="74" width="140" height="104" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
+                <rect class="sector-float-a" x="52" y="262" width="92" height="96" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
+                <rect class="sector-float-b" x="160" y="212" width="92" height="146" rx="8" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)"/>
+                <rect class="sector-float-c" x="268" y="238" width="72" height="120" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
+                <rect class="sector-breathe" x="214" y="74" width="140" height="104" rx="18" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
                 <path d="M234 147L266 129L292 140L326 104" stroke="#F18847" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M314 104H326V116" stroke="#F18847" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M230 114H338" stroke="rgba(255,255,255,0.22)" stroke-width="3" stroke-linecap="round"/>
-                <path d="M74 236L128 194L184 214L242 154" stroke="rgba(199,160,255,0.72)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/>
+                <path class="sector-flow-dash" d="M74 236L128 194L184 214L242 154" stroke="rgba(199,160,255,0.72)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10"/>
               </svg>
             </div>
           </div>
@@ -453,11 +489,13 @@
           <div class="panel-right">
             <div class="panel-illustration panel-illustration-luxe" aria-hidden="true">
               <svg class="panel-illustration-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="sector-breathe">
                 <path d="M116 110L170 82H252L306 110L258 160H164L116 110Z" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.24)" stroke-width="3"/>
                 <path d="M164 160L116 110L146 246L210 322L274 246L306 110L258 160H164Z" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.22)" stroke-width="3"/>
+                </g>
                 <path d="M170 82L164 160M252 82L258 160M210 82V322M146 246L210 160L274 246M116 110H306" stroke="rgba(241,136,71,0.58)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path d="M88 334H332" stroke="rgba(241,136,71,0.28)" stroke-width="4" stroke-linecap="round"/>
-                <circle cx="210" cy="146" r="4" fill="#F18847"/>
+                <circle class="sector-pulse-dot" cx="210" cy="146" r="4" fill="#F18847"/>
               </svg>
             </div>
           </div>
@@ -480,12 +518,14 @@
             <div class="panel-illustration panel-illustration-industrie" aria-hidden="true">
               <svg class="panel-illustration-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M56 316V238H116L146 208L182 238L210 214L246 238V316H56Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)"/>
-                <rect x="84" y="170" width="18" height="68" fill="rgba(241,136,71,0.3)"/>
-                <rect x="118" y="188" width="18" height="50" fill="rgba(241,136,71,0.22)"/>
+                <rect class="sector-float-a" x="84" y="170" width="18" height="68" fill="rgba(241,136,71,0.3)"/>
+                <rect class="sector-float-b" x="118" y="188" width="18" height="50" fill="rgba(241,136,71,0.22)"/>
                 <path d="M246 314H360" stroke="rgba(255,255,255,0.16)" stroke-width="6" stroke-linecap="round"/>
+                <g class="sector-train-drift">
                 <path d="M252 284H354C362 284 368 290 368 298V314H250L252 284Z" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)"/>
                 <circle cx="280" cy="316" r="10" fill="#F18847"/>
                 <circle cx="338" cy="316" r="10" fill="#F18847"/>
+                </g>
                 <path d="M258 344L360 344" stroke="rgba(199,160,255,0.32)" stroke-width="3" stroke-linecap="round"/>
                 <path d="M258 360L360 360" stroke="rgba(199,160,255,0.2)" stroke-width="3" stroke-linecap="round"/>
               </svg>
@@ -513,8 +553,8 @@
                 <path d="M104 188H232" stroke="rgba(255,255,255,0.24)" stroke-width="4" stroke-linecap="round"/>
                 <path d="M104 216H256" stroke="#F18847" stroke-width="4" stroke-linecap="round"/>
                 <path d="M104 244H214" stroke="rgba(255,255,255,0.24)" stroke-width="4" stroke-linecap="round"/>
-                <path d="M288 150L336 166V220C336 252 316 278 288 292C260 278 240 252 240 220V166L288 150Z" fill="rgba(199,160,255,0.16)" stroke="rgba(255,255,255,0.22)"/>
-                <path d="M268 220L282 234L308 206" stroke="#F18847" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path class="sector-breathe" d="M288 150L336 166V220C336 252 316 278 288 292C260 278 240 252 240 220V166L288 150Z" fill="rgba(199,160,255,0.16)" stroke="rgba(255,255,255,0.22)"/>
+                <path class="sector-pulse-dot" d="M268 220L282 234L308 206" stroke="#F18847" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
           </div>
@@ -560,12 +600,12 @@
                 <rect x="106" y="312" width="208" height="30" rx="10" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.16)"/>
                 <path d="M136 110H248M136 188H248M136 266H248" stroke="rgba(255,255,255,0.22)" stroke-width="3" stroke-linecap="round"/>
                 <path d="M136 124H224M136 202H234M136 280H218" stroke="#F18847" stroke-width="4" stroke-linecap="round"/>
-                <circle cx="276" cy="110" r="7" fill="rgba(241,136,71,0.95)"/>
-                <circle cx="298" cy="110" r="7" fill="rgba(255,255,255,0.72)"/>
-                <circle cx="276" cy="188" r="7" fill="rgba(199,160,255,0.85)"/>
-                <circle cx="298" cy="188" r="7" fill="rgba(255,255,255,0.72)"/>
-                <circle cx="276" cy="266" r="7" fill="rgba(241,136,71,0.95)"/>
-                <circle cx="298" cy="266" r="7" fill="rgba(255,255,255,0.72)"/>
+                <circle class="sector-pulse-dot" cx="276" cy="110" r="7" fill="rgba(241,136,71,0.95)"/>
+                <circle class="sector-pulse-dot" style="animation-delay:-0.5s" cx="298" cy="110" r="7" fill="rgba(255,255,255,0.72)"/>
+                <circle class="sector-pulse-dot" style="animation-delay:-0.9s" cx="276" cy="188" r="7" fill="rgba(199,160,255,0.85)"/>
+                <circle class="sector-pulse-dot" style="animation-delay:-1.3s" cx="298" cy="188" r="7" fill="rgba(255,255,255,0.72)"/>
+                <circle class="sector-pulse-dot" style="animation-delay:-1.7s" cx="276" cy="266" r="7" fill="rgba(241,136,71,0.95)"/>
+                <circle class="sector-pulse-dot" style="animation-delay:-2.1s" cx="298" cy="266" r="7" fill="rgba(255,255,255,0.72)"/>
                 <path d="M210 342V372" stroke="rgba(255,255,255,0.18)" stroke-width="4" stroke-linecap="round"/>
                 <path d="M166 372H254" stroke="rgba(255,255,255,0.18)" stroke-width="4" stroke-linecap="round"/>
               </svg>
@@ -727,6 +767,6 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20260324a"></script>
+  <script src="script.js?v=20260916"></script>
 </body>
 </html>
