@@ -50,8 +50,11 @@
       tab.addEventListener('keydown', (e) => arrowNav(heroTabs, i, e, show));
     });
 
-    hero.addEventListener('focusin', () => { focused = true; });
+    // Pause seulement quand on navigue au clavier : un clic donne aussi le focus
+    // à l'onglet, et ne doit pas figer le défilement.
+    hero.addEventListener('focusin', (e) => { focused = e.target.matches(':focus-visible'); });
     hero.addEventListener('focusout', () => { focused = false; });
+    hero.addEventListener('pointerdown', () => { focused = false; });
     new IntersectionObserver(([entry]) => { onScreen = entry.intersectionRatio > 0.4; }, { threshold: [0, 0.4, 1] }).observe(hero);
 
     let startX = null;
@@ -100,7 +103,10 @@
       const line = window.innerHeight * 0.35;
       let active = null;
       targets.forEach((t) => {
-        if (t.el.getBoundingClientRect().top <= line) active = t;
+        // Section masquée (ex. flux Sanity vide) : on cache aussi son lien.
+        const shown = t.el.getClientRects().length > 0;
+        t.link.hidden = !shown;
+        if (shown && t.el.getBoundingClientRect().top <= line) active = t;
       });
       targets.forEach((t) => t.link.classList.toggle('is-on', t === active));
     };
@@ -190,12 +196,17 @@
       defaults: { ease: 'none' },
       scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: 0.4 }
     });
-    out
-      .to('.ax-hero-inner', { yPercent: -14, autoAlpha: 0, duration: 0.7 }, 0)
-      .to('.ax-tri-s--a', { yPercent: -8, rotate: -10, scale: 1.25, duration: 1 }, 0)
-      .to('.ax-tri-s--b', { yPercent: -30, xPercent: 8, rotate: 16, duration: 1 }, 0)
-      .to('.ax-tri-s--c', { yPercent: -70, xPercent: -10, rotate: -40, duration: 1 }, 0)
-      .to('.ax-tri-s--d', { yPercent: -110, rotate: 60, duration: 1 }, 0);
+    const heroMoves = [
+      ['.ax-hero-inner', { yPercent: -14, autoAlpha: 0, duration: 0.7 }],
+      ['.ax-tri-s--a', { yPercent: -8, rotate: -10, scale: 1.25, duration: 1 }],
+      ['.ax-tri-s--b', { yPercent: -30, xPercent: 8, rotate: 16, duration: 1 }],
+      ['.ax-tri-s--c', { yPercent: -70, xPercent: -10, rotate: -40, duration: 1 }],
+      ['.ax-tri-s--d', { yPercent: -110, rotate: 60, duration: 1 }]
+    ];
+    heroMoves.forEach(([sel, vars]) => {
+      const el = hero.querySelector(sel);
+      if (el) out.to(el, vars, 0);
+    });
   }
 
   // Expertises : les cartes s'empilent, la précédente recule sous la suivante.

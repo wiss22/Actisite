@@ -22,19 +22,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
-  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax.css?v=20261112b">
   <link rel="stylesheet" href="ax-unes.css?v=20261111">
+  <link rel="stylesheet" href="ax-spot.css?v=20261111e">
+  <link rel="stylesheet" href="ax-spot-swift.css?v=20261111">
 </head>
-<body class="ax-page ax-inner ax-unes">
+<body class="ax-page ax-inner ax-unes ax-spot ax-spot--swift">
   <a href="#main" class="ax-skip">Aller au contenu</a>
 
-  <nav id="navbar" class="scrolled">
+  <nav id="navbar">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <img
           src="Logos/logo-blanc.png"
           data-logo-default="Logos/logo-blanc.png"
-          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
           alt="Actinuance"
           class="nav-logo-img"
         />
@@ -86,22 +87,50 @@
 
   <main id="main">
 
-    <section class="ax-hero ax-hero--page" id="hero" data-slide="2">
-      <div class="ax-hero-art" aria-hidden="true">
-        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+    <section class="sp-hero sw-hero" aria-labelledby="sp-title">
+      <div class="sp-aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="sw-net" aria-hidden="true">
+        <svg viewBox="0 0 640 640" aria-hidden="true">
+          <defs>
+            <linearGradient id="swF1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C7A0FF" stop-opacity=".5"/><stop offset="1" stop-color="#9B70E0" stop-opacity=".05"/></linearGradient>
+            <linearGradient id="swF2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9B70E0" stop-opacity=".45"/><stop offset="1" stop-color="#7C3AED" stop-opacity=".04"/></linearGradient>
+            <linearGradient id="swF3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF914D"/><stop offset="1" stop-color="#F18847"/></linearGradient>
+          </defs>
+          <g class="sw-faces">
+            <path class="sw-face" d="M320 70 523 168 320 230Z" fill="url(#swF1)"/>
+            <path class="sw-face" d="M523 168 574 388 407 380Z" fill="url(#swF2)"/>
+            <path class="sw-face" d="M433 564 207 564 233 380Z" fill="url(#swF1)"/>
+            <path class="sw-face" d="M66 388 117 168 233 380Z" fill="url(#swF2)"/>
+            <path class="sw-face sw-face--core" d="M320 230 407 380 233 380Z" fill="url(#swF3)"/>
+          </g>
+          <g class="sw-edges" fill="none" stroke="#C7A0FF" stroke-width="1.2" stroke-linecap="round">
+            <path pathLength="100" d="M320 70 523 168 574 388 433 564 207 564 66 388 117 168Z"/>
+            <path pathLength="100" d="M320 70 320 230M523 168 320 230M523 168 407 380M574 388 407 380M433 564 407 380M433 564 233 380M207 564 233 380M66 388 233 380M117 168 233 380M117 168 320 230"/>
+            <path pathLength="100" d="M320 230 407 380 233 380Z"/>
+          </g>
+          <g class="sw-packets" fill="none" stroke-width="3" stroke-linecap="round">
+            <path class="sw-pk sw-pk--1" pathLength="100" d="M117 168 320 230 407 380 574 388"/>
+            <path class="sw-pk sw-pk--2" pathLength="100" d="M207 564 233 380 320 230 320 70"/>
+            <path class="sw-pk sw-pk--3" pathLength="100" d="M523 168 407 380 233 380 66 388"/>
+            <path class="sw-pk sw-pk--4" pathLength="100" d="M433 564 407 380 320 230 117 168"/>
+          </g>
+          <g class="sw-nodes">
+            <circle class="sw-halo" cx="320" cy="70" r="14"/><circle class="sw-halo" cx="574" cy="388" r="14"/><circle class="sw-halo" cx="207" cy="564" r="14"/>
+            <circle cx="320" cy="70" r="6"/><circle cx="523" cy="168" r="5"/><circle cx="574" cy="388" r="6"/><circle cx="433" cy="564" r="5"/>
+            <circle cx="207" cy="564" r="6"/><circle cx="66" cy="388" r="5"/><circle cx="117" cy="168" r="5"/>
+            <circle class="sw-node--in" cx="320" cy="230" r="4.5"/><circle class="sw-node--in" cx="407" cy="380" r="4.5"/><circle class="sw-node--in" cx="233" cy="380" r="4.5"/>
+          </g>
+        </svg>
       </div>
-      <div class="ax-hero-inner">
-        <div class="ax-hero-copy">
-          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Offres à la une</span><span aria-hidden="true">/</span><span aria-current="page">Swift CSP</span></nav>
-          <h1>SWIFT CSP&nbsp;: fiabiliser la campagne et <em>sécuriser l’attestation</em></h1>
-          <p class="ax-hero-lead">Nous accompagnons les institutions soumises à SWIFT CSP avec une approche evidence-first, de l’évaluation indépendante des contrôles jusqu’au pilotage des remédiations et à la robustesse de l’attestation annuelle.</p>
-          <ul class="ax-pills"><li>Evidence-first</li><li>CSCF</li><li>Remédiations</li><li>Attestation</li></ul>
-          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">Demander un échange</a><a href="#offre-swift" class="ax-link ax-link--light">Découvrir</a></div>
+      <div class="sp-wrap">
+        <div class="sp-hero-copy">
+          <p class="sp-badge"><b>À la une</b>Swift CSP</p>
+          <h1 id="sp-title">SWIFT CSP&nbsp;: fiabiliser la campagne et <em>sécuriser l’attestation</em></h1>
+          <p class="sp-hero-lead">Nous accompagnons les institutions soumises à SWIFT CSP avec une approche evidence-first, de l’évaluation indépendante des contrôles jusqu’au pilotage des remédiations et à la robustesse de l’attestation annuelle.</p>
+          <div class="ax-actions"><a href="#contact" class="sp-btn">Demander un échange</a><a href="#offre-swift" class="ax-link ax-link--light">Découvrir</a></div>
         </div>
       </div>
+      <div class="sp-cue" aria-hidden="true"><span>Défiler</span><i></i></div>
     </section>
 
     <div class="ax-over">
@@ -116,164 +145,158 @@
         </div>
       </div>
 
-      <section class="ax-section" id="offre-swift">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Contexte et enjeux</p>
-            <h2 class="ax-h2">Les enjeux du programme <em>SWIFT CSP.</em></h2>
+      <section class="sp-sec sw-ctx" id="offre-swift">
+        <div class="sp-wrap sw-ctx-grid">
+          <div class="sw-ctx-head">
+            <p class="sp-kicker">Contexte et enjeux</p>
+            <h2 class="sp-h2">Les enjeux du programme <em>SWIFT CSP.</em></h2>
           </div>
-          <div class="ax-trio">
-            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">01</span>
-              <h3>Sécurisation de l'écosystème financier mondial</h3>
-              <p>Le SWIFT Customer Security Programme renforce la sécurité des institutions financières connectées au réseau SWIFT pour réduire les risques d’intrusion, de fraude et d’atteinte à l’intégrité des échanges.</p>
+          <ol class="sw-ledger">
+            <li class="sw-entry">
+              <span class="sw-entry-rule" aria-hidden="true"></span>
+              <span class="sw-entry-n" aria-hidden="true">01</span>
+              <div>
+                <h3>Sécurisation de l'écosystème financier mondial</h3>
+                <p>Le SWIFT Customer Security Programme renforce la sécurité des institutions financières connectées au réseau SWIFT pour réduire les risques d’intrusion, de fraude et d’atteinte à l’intégrité des échanges.</p>
+              </div>
+            </li>
+            <li class="sw-entry">
+              <span class="sw-entry-rule" aria-hidden="true"></span>
+              <span class="sw-entry-n" aria-hidden="true">02</span>
+              <div>
+                <h3>Un cadre d'exigences obligatoires pour tous les membres</h3>
+                <p>Le CSP impose à chaque institution de se conformer à un ensemble de contrôles de sécurité obligatoires (et recommandés), regroupés dans le Customer Security Controls Framework. Ces contrôles couvrent des domaines clés comme la protection de l'environnement, la gestion des accès et la détection des anomalies.</p>
+              </div>
+            </li>
+            <li class="sw-entry">
+              <span class="sw-entry-rule" aria-hidden="true"></span>
+              <span class="sw-entry-n" aria-hidden="true">03</span>
+              <div>
+                <h3>Une discipline continue de maîtrise</h3>
+                <p>Le CSCF évolue chaque année pour suivre les menaces et les meilleures pratiques. La conformité SWIFT protège votre organisation, votre crédibilité et la continuité de vos relations avec l’écosystème financier. Il est nécessaire de réaliser une évaluation annuelle pour suivre les évolutions du programme.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="sw-quote" aria-label="Notre conviction">
+        <div class="sw-quote-box">
+          <p class="sw-quote-ghost" aria-hidden="true">SWIFT CSP comme dispositif durable, pas comme un <em>exercice ponctuel.</em></p>
+          <p class="sw-quote-text">SWIFT CSP comme dispositif durable, pas comme un <em>exercice ponctuel.</em></p>
+          <span class="sw-quote-scan" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="sw-evo" id="evolutions">
+        <div class="sp-wrap">
+          <div class="sw-evo-head">
+            <p class="sp-kicker">Les évolutions du cadre</p>
+            <h2 class="sp-h2">Lecture rapide SWIFT CSP.</h2>
+            <p class="sw-evo-years">Évolutions 2025 / 2026</p>
+          </div>
+          <div class="sw-evo-grid">
+            <div class="sw-evo-stage" aria-hidden="true">
+              <div class="sw-evo-num"><div class="sw-evo-reel"><span>01</span><span>02</span><span>03</span></div></div>
+              <div class="sw-evo-icons">
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <svg viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg viewBox="0 0 48 48" fill="none"><circle cx="12" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="34" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M16.8 16.4l14.4 0M15 18.6l6 9.5M33 18.6l-6 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M24 8.2v5.2" stroke="currentColor" stroke-width="1.6" opacity="0.48" stroke-linecap="round"/></svg>
+              </div>
+              <div class="sw-evo-bar"><i></i></div>
             </div>
-            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">02</span>
-              <h3>Un cadre d'exigences obligatoires pour tous les membres</h3>
-              <p>Le CSP impose à chaque institution de se conformer à un ensemble de contrôles de sécurité obligatoires (et recommandés), regroupés dans le Customer Security Controls Framework. Ces contrôles couvrent des domaines clés comme la protection de l'environnement, la gestion des accès et la détection des anomalies.</p>
-            </div>
-            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">03</span>
-              <h3>Une discipline continue de maîtrise</h3>
-              <p>Le CSCF évolue chaque année pour suivre les menaces et les meilleures pratiques. La conformité SWIFT protège votre organisation, votre crédibilité et la continuité de vos relations avec l’écosystème financier. Il est nécessaire de réaliser une évaluation annuelle pour suivre les évolutions du programme.</p>
+            <div class="sw-evo-list">
+              <article class="sw-evo-item">
+                <span class="sw-evo-k">Évolution 01</span>
+                <h3>Clarification du scope et des architectures couvertes</h3>
+                <p>Le cadre précise mieux ce qui relève du périmètre CSP, notamment autour des customer connectors, des usages API et des architectures A4 / B.</p>
+              </article>
+              <article class="sw-evo-item">
+                <span class="sw-evo-k">Évolution 02</span>
+                <h3>Guidelines d’implémentation renforcées sur les contrôles clés</h3>
+                <p>Les contrôles majeurs sont davantage harmonisés sur des sujets comme la protection d’environnement, la virtualisation, le vulnerability scanning et l’outsourcing.</p>
+              </article>
+              <article class="sw-evo-item">
+                <span class="sw-evo-k">Évolution 03</span>
+                <h3>Responsabilités cloud et définitions mieux cadrées</h3>
+                <p>Les annexes et définitions évoluent pour mieux traiter le partage de responsabilité avec les fournisseurs cloud, les connectivity providers et le General IT Environment.</p>
+              </article>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-quote">
-      <div class="ax-join-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <p class="ax-quote-text ax-quote-text--long">SWIFT CSP comme dispositif durable, pas comme un <em>exercice ponctuel.</em></p>
-        </div>
-      </section>
-
-      <section class="ax-section ax-section--grey" id="evolutions">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Les évolutions du cadre</p>
-            <h2 class="ax-h2">Lecture rapide SWIFT CSP.</h2>
-            <p class="ax-badge">Évolutions 2025 / 2026</p>
-          </div>
-          <div class="ax-stack">
-          <article class="ax-xcard ax-xcard--brief ax-xcard--1" style="--i:0">
-            <div class="ax-xcard-text">
-              <span class="ax-xcard-kicker">Évolution 01</span>
-              <h3>Clarification du scope et des architectures couvertes</h3>
-              <p>Le cadre précise mieux ce qui relève du périmètre CSP, notamment autour des customer connectors, des usages API et des architectures A4 / B.</p>
-            </div>
-            <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-          </article>
-          <article class="ax-xcard ax-xcard--brief ax-xcard--3" style="--i:1">
-            <div class="ax-xcard-text">
-              <span class="ax-xcard-kicker">Évolution 02</span>
-              <h3>Guidelines d’implémentation renforcées sur les contrôles clés</h3>
-              <p>Les contrôles majeurs sont davantage harmonisés sur des sujets comme la protection d’environnement, la virtualisation, le vulnerability scanning et l’outsourcing.</p>
-            </div>
-            <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </article>
-          <article class="ax-xcard ax-xcard--brief ax-xcard--4" style="--i:2">
-            <div class="ax-xcard-text">
-              <span class="ax-xcard-kicker">Évolution 03</span>
-              <h3>Responsabilités cloud et définitions mieux cadrées</h3>
-              <p>Les annexes et définitions évoluent pour mieux traiter le partage de responsabilité avec les fournisseurs cloud, les connectivity providers et le General IT Environment.</p>
-            </div>
-            <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="12" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="34" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M16.8 16.4l14.4 0M15 18.6l6 9.5M33 18.6l-6 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M24 8.2v5.2" stroke="currentColor" stroke-width="1.6" opacity="0.48" stroke-linecap="round"/></svg></div>
-          </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="ax-section" id="methode">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Notre méthode</p>
-            <h2 class="ax-h2">De l’assessment à la <em>mise sous contrôle.</em></h2>
-          </div>
-          <div class="ax-method">
-            <ol class="ax-steps">
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">01</span>
-                <div>
+      <section class="sp-sec" id="methode">
+        <div class="sp-wrap">
+          <p class="sp-kicker">Notre méthode</p>
+          <h2 class="sp-h2">De l’assessment à la <em>mise sous contrôle.</em></h2>
+          <div class="sp-method-grid">
+            <div class="sp-steps">
+              <span class="sp-steps-fill" aria-hidden="true"></span>
+              <ol>
+                <li class="sp-step">
+                  <span class="sp-step-dot" aria-hidden="true">01</span>
                   <h3>Lecture du périmètre et des preuves</h3>
                   <p>Nous analysons l’architecture SWIFT, la portée des contrôles et le niveau de traçabilité existant pour poser une base d’évaluation réaliste.</p>
-                  <span class="ax-step-tag">Cadrage</span>
-                </div>
-              </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">02</span>
-                <div>
+                </li>
+                <li class="sp-step">
+                  <span class="sp-step-dot" aria-hidden="true">02</span>
                   <h3>Évaluation indépendante des contrôles</h3>
                   <p>Nous confrontons les dispositifs observés aux attentes CSCF, qualifions les écarts et consolidons une lecture claire du niveau de maîtrise.</p>
-                  <span class="ax-step-tag">Assessment</span>
-                </div>
-              </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">03</span>
-                <div>
+                </li>
+                <li class="sp-step">
+                  <span class="sp-step-dot" aria-hidden="true">03</span>
                   <h3>Remédiations ciblées et trajectoire</h3>
                   <p>Chaque écart est converti en action priorisée, avec une logique d’atterrissage campagne et de réduction concrète du risque.</p>
-                  <span class="ax-step-tag">Remédiation</span>
-                </div>
-              </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">04</span>
-                <div>
+                </li>
+                <li class="sp-step">
+                  <span class="sp-step-dot" aria-hidden="true">04</span>
                   <h3>Préparation de l’attestation</h3>
                   <p>Nous fiabilisons les preuves, la documentation et la restitution finale pour sécuriser la campagne et limiter les zones d’incertitude.</p>
-                  <span class="ax-step-tag">Attestation</span>
-                </div>
-              </li>
-            </ol>
-            <aside class="ax-deliv" aria-labelledby="livrables-titre">
+                </li>
+              </ol>
+            </div>
+            <aside class="sw-proof" aria-labelledby="livrables-titre">
               <h3 id="livrables-titre">Exemple de livrables</h3>
               <ul>
-                <li>Cartographie de périmètre et matrice de contrôles<span>Scope</span></li>
-                <li>Rapport d’assessment et lecture de maturité<span>Audit</span></li>
-                <li>Plan de remédiation ordonné par risque<span>Pilotage</span></li>
-                <li>Dossier de preuves et support d’attestation<span>Campagne</span></li>
+                <li><i class="sw-box" aria-hidden="true"><svg viewBox="0 0 20 20"><path pathLength="1" d="M4.5 10.5 8.5 14.5 15.5 6"/></svg></i><span class="sw-proof-label">Cartographie de périmètre et matrice de contrôles</span><span class="sw-proof-cat">Scope</span></li>
+                <li><i class="sw-box" aria-hidden="true"><svg viewBox="0 0 20 20"><path pathLength="1" d="M4.5 10.5 8.5 14.5 15.5 6"/></svg></i><span class="sw-proof-label">Rapport d’assessment et lecture de maturité</span><span class="sw-proof-cat">Audit</span></li>
+                <li><i class="sw-box" aria-hidden="true"><svg viewBox="0 0 20 20"><path pathLength="1" d="M4.5 10.5 8.5 14.5 15.5 6"/></svg></i><span class="sw-proof-label">Plan de remédiation ordonné par risque</span><span class="sw-proof-cat">Pilotage</span></li>
+                <li><i class="sw-box" aria-hidden="true"><svg viewBox="0 0 20 20"><path pathLength="1" d="M4.5 10.5 8.5 14.5 15.5 6"/></svg></i><span class="sw-proof-label">Dossier de preuves et support d’attestation</span><span class="sw-proof-cat">Campagne</span></li>
               </ul>
-              <p class="ax-deliv-note">Une approche orientée résultats&nbsp;: conformité démontrable, preuves robustes et trajectoire tenable dans le temps.</p>
+              <div class="sw-proof-meter" aria-hidden="true"><i></i></div>
+              <p class="sw-proof-note">Une approche orientée résultats&nbsp;: conformité démontrable, preuves robustes et trajectoire tenable dans le temps.</p>
             </aside>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-aboutsec" id="atouts">
-      <div class="ax-about-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <div class="ax-two">
-            <div>
-              <p class="ax-kicker">Nos atouts</p>
-              <h2 class="ax-h2">Ce qui nous <em class="ax-o">distingue.</em></h2>
+      <section class="sp-sec" id="atouts">
+        <div class="sp-wrap">
+          <p class="sp-kicker">Nos atouts</p>
+          <h2 class="sp-h2">Ce qui nous <em>distingue.</em></h2>
+          <div class="sp-bento">
+            <div class="sp-tile sp-tile--a">
+              <h3>Exigence conformité et exécution terrain</h3>
+              <p>Nous abordons SWIFT CSP comme un dispositif de maîtrise qui doit vivre dans le temps, avec une logique de campagne mais aussi de robustesse opérationnelle.</p>
+              <i aria-hidden="true"></i>
             </div>
-            <div class="ax-rows" style="margin-top:0">
-              <div class="ax-row">
-                <h3>Exigence conformité et exécution terrain</h3>
-                <p>Nous abordons SWIFT CSP comme un dispositif de maîtrise qui doit vivre dans le temps, avec une logique de campagne mais aussi de robustesse opérationnelle.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Approche evidence-first</h3>
-                <p>Les preuves ne sont pas traitées en aval. Elles sont cadrées dès l’amont pour rendre l’attestation plus lisible et plus solide.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Remédiations orientées impact</h3>
-                <p>Chaque action est priorisée selon son effet sur le risque, la conformité et la capacité de l’organisation à tenir sa trajectoire.</p>
-              </div>
+            <div class="sp-tile sp-tile--b">
+              <h3>Approche evidence-first</h3>
+              <p>Les preuves ne sont pas traitées en aval. Elles sont cadrées dès l’amont pour rendre l’attestation plus lisible et plus solide.</p>
+              <i aria-hidden="true"></i>
+            </div>
+            <div class="sp-tile sp-tile--c">
+              <h3>Remédiations orientées impact</h3>
+              <p>Chaque action est priorisée selon son effet sur le risque, la conformité et la capacité de l’organisation à tenir sa trajectoire.</p>
+              <i aria-hidden="true"></i>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-section--grey" id="rex-swift">
-        <div class="ax-wrap">
+      <section class="sp-sec sp-more" id="rex-swift">
+        <div class="sp-wrap">
           <div class="ax-feed">
             <h3>Client Stories missions Swift CSP</h3>
             <div class="ax-pubs ax-pubs--2">
@@ -384,7 +407,9 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261110"></script>
-  <script src="ax.js?v=20261111b"></script>
+  <script src="script.js?v=20261112a"></script>
+  <script src="ax.js?v=20261112a"></script>
+  <script src="ax-spot.js?v=20261111e"></script>
+  <script src="ax-spot-swift.js?v=20261111"></script>
 </body>
 </html>

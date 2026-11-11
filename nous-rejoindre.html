@@ -22,18 +22,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
-  <link rel="stylesheet" href="ax.css?v=20261110f">
-  <link rel="stylesheet" href="ax-cabinet.css?v=20261111">
+  <link rel="stylesheet" href="ax.css?v=20261112b">
+  <link rel="stylesheet" href="ax-rejoindre.css?v=20261112a">
 </head>
-<body class="ax-page ax-inner">
+<body class="ax-page ax-inner ax-rejoindre">
   <a href="#main" class="ax-skip">Aller au contenu</a>
 
-  <nav id="navbar" class="scrolled">
+  <nav id="navbar">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <img
-          src="Logos/logo-blanc.png"
-          data-logo-default="Logos/logo-blanc.png"
+          src="Logos/actinuancelogo2_vec.svg"
+          data-logo-default="Logos/actinuancelogo2_vec.svg"
           data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
           alt="Actinuance"
           class="nav-logo-img"
@@ -86,19 +86,21 @@
 
   <main id="main">
 
-    <section class="ax-hero ax-hero--page" id="hero" data-slide="0">
-      <div class="ax-hero-art" aria-hidden="true">
-        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
-      </div>
-      <div class="ax-hero-inner">
-        <div class="ax-hero-copy">
-          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#apropos">Cabinet</a><span aria-hidden="true">/</span><span aria-current="page">Votre Carrière chez Actinuance</span></nav>
-          <h1>Vous faire <em>évoluer</em> <br> Nous fait <em>progresser</em></h1>
-          <ul class="ax-pills"><li>Missions à impact</li><li>Progression claire</li><li>Esprit d’équipe réel</li></ul>
-          <div class="ax-actions"><a href="/postes-ouverts" class="ax-btn ax-btn--accent ax-btn--lg">Voir les positions ouvertes</a><a href="#processus-3-etapes" class="ax-link ax-link--light">Recrutement en 3 étapes</a></div>
+    <section class="nr-hero" id="hero" aria-labelledby="nr-title">
+      <div class="nr-hero-tris" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="nr-hero-inner">
+        <div class="nr-hero-copy">
+          <h1 id="nr-title"><span class="nr-l">Vous faire <mark class="nr-mk nr-mk--w">évoluer</mark></span> <span class="nr-l">Nous fait <mark class="nr-mk nr-mk--v">progresser</mark></span></h1>
+          <p class="nr-hero-lead">Une trajectoire lisible, une exigence collective, une équipe qui vous fait progresser.</p>
+          <div class="nr-actions">
+            <a href="/postes-ouverts" class="nr-btn nr-btn--ink">Voir les positions ouvertes</a>
+            <a href="#processus-3-etapes" class="nr-arrow">Recrutement en 3 étapes</a>
+          </div>
+        </div>
+        <div class="nr-hero-photos" aria-hidden="true">
+          <figure class="nr-tri nr-tri--1"><img src="Photos/optimized/IMG_2870-900.jpg" srcset="Photos/optimized/IMG_2870-900.jpg 900w, Photos/optimized/IMG_2870-1600.jpg 1600w" sizes="(max-width: 1000px) 80vw, 440px" alt="" decoding="async" /></figure>
+          <figure class="nr-tri nr-tri--2"><img src="Photos/optimized/Workshop-900.jpg" alt="" decoding="async" /></figure>
+          <figure class="nr-tri nr-tri--3"><img src="Photos/optimized/seminaire%20(7)-900.jpg" alt="" decoding="async" /></figure>
         </div>
       </div>
     </section>
@@ -115,288 +117,140 @@
         </div>
       </div>
 
-      <section class="ax-section" id="ce-que-vous-trouverez">
-        <div class="ax-wrap">
-          <div class="ax-two">
+      <!-- Chez nous : six raisons posées comme des cartes sur une table -->
+      <section class="nr-sec nr-first" id="ce-que-vous-trouverez">
+        <div class="nr-wrap">
+          <div class="nr-intro">
+            <p class="nr-kicker">Ce que vous trouverez chez nous</p>
+            <h2 class="nr-h2">Un cadre de mission exigeant, humain et <mark class="nr-mk nr-mk--o">évolutif</mark></h2>
+            <p class="nr-lead">Actinuance Consulting est avant tout une équipe soudée qui évolue dans un contexte à la fois convivial et exigeant. Notre entreprise existe parce que nous croyons en l'honnêteté intellectuelle comme fondement de l'évolution de carrière dans le monde du conseil.</p>
+          </div>
+          <h3 class="nr-sr">Ce que vous retrouverez chez Actinuance</h3>
+          <div class="nr-deck">
+            <article class="nr-card nr-card--o" style="--r:-2deg"><h3>Missions à impact</h3><p>Intervenez sur des sujets stratégiques auprès de grands comptes, dans des secteurs variés où vos recommandations comptent vraiment.</p></article>
+            <article class="nr-card nr-card--v" style="--r:1.5deg"><h3>Sur-mesure intelligent</h3><p>Challengez vos méthodes, croisez les expertises et construisez des réponses concrètes, adaptées à chaque contexte client.</p></article>
+            <article class="nr-card nr-card--l" style="--r:-1deg"><h3>Confiance &amp; bienveillance</h3><p>Évoluez dans un environnement sain, exigeant et humain, où la qualité du collectif est aussi importante que la qualité des livrables.</p></article>
+            <article class="nr-card nr-card--w" style="--r:2deg"><h3>Progression claire</h3><p>Profitez d’un parcours lisible et individualisé, avec des objectifs transparents et une évolution alignée sur vos ambitions.</p></article>
+            <article class="nr-card nr-card--p" style="--r:-1.5deg"><h3>Esprit d’équipe réel</h3><p>Créez une relation de proximité avec votre équipe et le management, dans une culture d’écoute, d’entraide et de feedback utile au quotidien.</p></article>
+            <article class="nr-card nr-card--d" style="--r:1deg"><h3>Exécution sans surpromesse</h3><p>Nous privilégions un discours factuel et une posture enabler&nbsp;: des recommandations actionnables, une trajectoire claire et des résultats mesurables, de la stratégie à l’opérationnel.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recrutement : un chemin qui se trace au scroll -->
+      <section class="nr-sec nr-road" id="processus-3-etapes">
+        <div class="nr-wrap">
+          <div class="nr-intro nr-intro--row">
             <div>
-              <p class="ax-kicker">Ce que vous trouverez chez nous</p>
-              <h2 class="ax-h2">Un cadre de mission exigeant, humain et <em>évolutif</em></h2>
+              <p class="nr-kicker">Le processus</p>
+              <h2 class="nr-h2">Recrutement en 3 étapes.</h2>
             </div>
-            <div class="ax-prose" data-lit>
-              <p>Actinuance Consulting est avant tout une équipe soudée qui évolue dans un contexte à la fois convivial et exigeant. Notre entreprise existe parce que nous croyons en l'honnêteté intellectuelle comme fondement de l'évolution de carrière dans le monde du conseil.</p>
-            </div>
+            <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" class="nr-arrow nr-arrow--light">Voir les reviews d'entretien</a>
           </div>
-          <h3 class="ax-commit-title">Ce que vous retrouverez chez Actinuance</h3>
-          <div class="ax-trio">
-            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">01</span>
-              <h3>Missions à impact</h3>
-              <p>Intervenez sur des sujets stratégiques auprès de grands comptes, dans des secteurs variés où vos recommandations comptent vraiment.</p>
-            </div>
-            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">02</span>
-              <h3>Sur-mesure intelligent</h3>
-              <p>Challengez vos méthodes, croisez les expertises et construisez des réponses concrètes, adaptées à chaque contexte client.</p>
-            </div>
-            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">03</span>
-              <h3>Confiance &amp; bienveillance</h3>
-              <p>Évoluez dans un environnement sain, exigeant et humain, où la qualité du collectif est aussi importante que la qualité des livrables.</p>
-            </div>
+          <div class="nr-path">
+            <div class="nr-path-line" aria-hidden="true"><i></i><b class="nr-path-dot"></b></div>
+            <ol class="nr-stops" aria-label="Étapes du recrutement">
+              <li class="nr-stop"><span class="nr-stop-time">30 min</span><h3>Échange RH</h3><p>Un premier échange RH pour comprendre votre parcours, vos attentes et votre projet professionnel.</p></li>
+              <li class="nr-stop"><span class="nr-stop-time">1 h</span><h3>Échange technique</h3><p>Questions techniques, étude de cas et approfondissement ciblé selon votre expertise, avec un compte rendu structuré.</p></li>
+              <li class="nr-stop"><span class="nr-stop-time">1 h</span><h3>Rencontre associé</h3><p>Entretien final dans nos locaux pour valider l'ADN Actinuance et vous projeter concrètement dans l'équipe.</p></li>
+              <li class="nr-stop nr-stop--end"><span class="nr-stop-time">Jour 1</span><h3>Bienvenue chez Actinuance</h3><p>Onboarding, prise en main de vos missions et intégration dans l'équipe pour démarrer rapidement dans les meilleures conditions.</p></li>
+            </ol>
           </div>
-          <div class="ax-trio">
-            <div class="ax-commit ax-commit--light"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">04</span>
-              <h3>Progression claire</h3>
-              <p>Profitez d’un parcours lisible et individualisé, avec des objectifs transparents et une évolution alignée sur vos ambitions.</p>
-            </div>
-            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">05</span>
-              <h3>Esprit d’équipe réel</h3>
-              <p>Créez une relation de proximité avec votre équipe et le management, dans une culture d’écoute, d’entraide et de feedback utile au quotidien.</p>
-            </div>
-            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">06</span>
-              <h3>Exécution sans surpromesse</h3>
-              <p>Nous privilégions un discours factuel et une posture enabler&nbsp;: des recommandations actionnables, une trajectoire claire et des résultats mesurables, de la stratégie à l’opérationnel.</p>
-            </div>
+          <div class="nr-actions nr-actions--center">
+            <a href="/postes-ouverts" class="nr-btn nr-btn--orange">Voir les positions ouvertes</a>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-quote">
-      <div class="ax-join-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <p class="ax-kicker">Et la vie chez Actinuance&nbsp;?</p>
-          <p class="ax-quote-text ax-quote-text--long">Une trajectoire lisible, une exigence collective, une équipe qui vous fait progresser.</p>
+      <!-- Perspectives -->
+      <section class="nr-sec" id="perspectives">
+        <div class="nr-wrap nr-split">
+          <div class="nr-split-head">
+            <p class="nr-kicker">Perspectives d'évolution</p>
+            <h2 class="nr-h2">Progresser <mark class="nr-mk nr-mk--o">sans barrière</mark> d'âge ni seuil d'ancienneté.</h2>
+          </div>
+          <div class="nr-points">
+            <div class="nr-point"><h3>Évolution hiérarchique claire</h3><p>Une structure lisible et transparente, avec des niveaux de postes définis du niveau junior jusqu'aux rôles d'experts, de managers seniors et de direction, sans barrière d'âge ni seuil d'ancienneté imposé pour progresser.</p></div>
+            <div class="nr-point"><h3>Formations continues et certifiantes</h3><p>L'acticademy vous accompagne au quotidien pour approfondir vos connaissances sur les sujets qui vous animent. Des formations certifiantes proposées à chaque passage de grade selon votre parcours professionnel défini avec votre manager.</p></div>
+            <div class="nr-point"><h3>Évolution salariale basée sur la performance</h3><p>Vos réalisations et votre contribution sont reconnues, avec une progression salariale alignée sur votre impact.</p></div>
+            <div class="nr-point"><h3>Responsabilités croissantes</h3><p>Votre performance ne se limite pas aux résultats&nbsp;: elle transforme l’organisation. Cette contribution stratégique est reconnue et se traduit par une évolution salariale cohérente avec l’impact que vous créez.</p></div>
+          </div>
         </div>
       </section>
 
-      <section class="ax-section ax-section--grey" id="processus-3-etapes">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Le processus</p>
-            <h2 class="ax-h2">Recrutement en 3 étapes.</h2>
+      <!-- Parcours : un escalier de six marches -->
+      <section class="nr-sec nr-stairs-sec" id="parcours-consultant">
+        <div class="nr-wrap">
+          <div class="nr-intro">
+            <p class="nr-kicker">Parcours consultant</p>
+            <h2 class="nr-h2">Une évolution progressive, lisible et <mark class="nr-mk nr-mk--v">ouverte</mark></h2>
+            <p class="nr-lead">Chaque étape élargit votre impact&nbsp;: excellence en mission, contribution interne, puis participation active aux décisions et au développement du cabinet. Pas d'étapes intermédiaires ou de sous-grades.</p>
           </div>
-          <ol class="ax-trio ax-trio--4" aria-label="Étapes du recrutement">
-            <li class="ax-commit ax-commit--light"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">01</span>
-              <h3>Échange RH</h3>
-              <span class="ax-commit-meta">30 mins</span>
-              <p>Un premier échange RH pour comprendre votre parcours, vos attentes et votre projet professionnel.</p>
-            </li>
-            <li class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">02</span>
-              <h3>Échange technique</h3>
-              <span class="ax-commit-meta">1h</span>
-              <p>Questions techniques, étude de cas et approfondissement ciblé selon votre expertise, avec un compte rendu structuré.</p>
-            </li>
-            <li class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">03</span>
-              <h3>Rencontre associé</h3>
-              <span class="ax-commit-meta">1h</span>
-              <p>Entretien final dans nos locaux pour valider l'ADN Actinuance et vous projeter concrètement dans l'équipe.</p>
-            </li>
-            <li class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-num" aria-hidden="true">04</span>
-              <h3>Bienvenue chez Actinuance</h3>
-              <p>Onboarding, prise en main de vos missions et intégration dans l'équipe pour démarrer rapidement dans les meilleures conditions.</p>
-            </li>
+          <ol class="nr-stairs" aria-label="Grades Actinuance">
+            <li class="nr-stair is-on" style="--n:1"><button type="button" class="nr-stair-btn" aria-expanded="true"><span class="nr-stair-n">01</span><span class="nr-stair-name">Stagiaire</span></button><p class="nr-stair-desc">Le sujet du stage est un tremplin pour comprendre le monde des risques et de la cybersécurité et en même temps pour vous former aux méthodologies et aux savoir-faire Actinuance.</p></li>
+            <li class="nr-stair" style="--n:2"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">02</span><span class="nr-stair-name">Consultant</span></button><p class="nr-stair-desc">Le vrai apprentissage du conseil commence, avec la rigueur et le niveau de qualité qui sont nos marques de fabrique. Vous serez encadrés sur les missions et bénéficierez d'un plan de formation sur-mesure.</p></li>
+            <li class="nr-stair" style="--n:3"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">03</span><span class="nr-stair-name">Consultant Sénior</span></button><p class="nr-stair-desc">C'est là que la différence avec le consultant lambda commence à se voir. Vous pourrez monter en autonomie sur les missions et commencer à gérer une relation client et à encadrer des consultants.</p></li>
+            <li class="nr-stair" style="--n:4"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">04</span><span class="nr-stair-name">Deputy Manager</span></button><p class="nr-stair-desc">La montée vers des tâches managériales et la transmission des valeurs et des méthodes de travail est aussi un apprentissage fondamental. Vous serez en charge de vos propres offres, tout en apprenant à gérer les carrières de consultants.</p></li>
+            <li class="nr-stair" style="--n:5"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">05</span><span class="nr-stair-name">Manager</span></button><p class="nr-stair-desc">Vous contribuez déjà au développement de l'entreprise et à son orientation stratégique. Vous développez vos offres, êtes en charge de la relation client, tout en encadrant les carrières de vos consultants.</p></li>
+            <li class="nr-stair" style="--n:6"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">06</span><span class="nr-stair-name">Sénior Manager</span></button><p class="nr-stair-desc">Le dernier palier avant la direction. Vous pilotez un portefeuille de clients et d'offres, vous faites grandir les managers qui vous entourent et vous portez des chantiers transverses du cabinet. C'est ici que votre vision commence à façonner celle d'Actinuance.</p></li>
+            <li class="nr-stair" style="--n:7"><button type="button" class="nr-stair-btn" aria-expanded="false"><span class="nr-stair-n">07</span><span class="nr-stair-name">Directeur</span></button><p class="nr-stair-desc">Acteur de l'orientation stratégique du cabinet et ambassadeur de ses valeurs, vous êtes au cœur de la culture de l'entreprise et vous portez le développement de la marque et la croissance du chiffre d'affaires.</p></li>
           </ol>
-          <div class="ax-actions ax-after">
-            <a href="/postes-ouverts" class="ax-btn ax-btn--accent ax-btn--lg">Voir les positions ouvertes</a>
-            <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" class="ax-link">Voir les reviews d'entretien</a>
+        </div>
+      </section>
+
+      <!-- Vie du cabinet : un mur de photos qui défile dans les deux sens -->
+      <section class="nr-sec nr-life" id="vie-du-cabinet">
+        <div class="nr-wrap nr-split">
+          <div class="nr-split-head">
+            <p class="nr-kicker">Vie du cabinet</p>
+            <h2 class="nr-h2">Un collectif qui se construit <mark class="nr-mk nr-mk--o">en dehors du cabinet</mark></h2>
+          </div>
+          <div class="nr-rituals">
+            <div class="nr-ritual"><h3>Afterworks</h3><p>Des moments simples et réguliers pour se retrouver, décompresser et garder un vrai lien d'équipe entre les rythmes de mission.</p></div>
+            <div class="nr-ritual"><h3>Séminaires d'été</h3><p>Un temps fort annuel pour prendre du recul, partager la vision du cabinet et renforcer les liens dans un cadre plus informel.</p></div>
+            <div class="nr-ritual"><h3>ActiPéro</h3><p>Un format maison&nbsp;: apéro, présentation d'un sujet et échanges ouverts. Le thème peut être tech, métier, ou simplement une passion portée par le consultant.</p></div>
+          </div>
+        </div>
+        <div class="nr-wall" role="group" aria-label="Photos de la vie du cabinet">
+          <div class="nr-wall-row nr-wall-row--a">
+            <figure class="nr-pola" style="--r:-3deg"><img src="Photos/optimized/Chandleur-900.jpg" alt="Moment convivial au cabinet" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:2deg"><img src="Photos/optimized/IMG_2746-900.jpg" alt="Événement Actinuance" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:-1.5deg"><img src="Photos/optimized/IMG_2844-900.jpg" alt="Moment d'équipe Actinuance" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:3deg"><img src="Photos/optimized/IMG_2870-900.jpg" alt="Afterwork Actinuance" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:-2deg"><img src="Photos/optimized/IMG_2876-900.jpg" alt="Échanges entre consultants" loading="lazy" decoding="async" /></figure>
+          </div>
+          <div class="nr-wall-row nr-wall-row--b">
+            <figure class="nr-pola" style="--r:2.5deg"><img src="Photos/optimized/seminaire%20(7)-900.jpg" alt="Séminaire Actinuance" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:-2deg"><img src="Photos/optimized/Verre-900.jpg" alt="ActiPéro" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:1.5deg"><img src="Photos/optimized/Workshop-900.jpg" alt="Workshop équipe" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:-3deg"><img src="Photos/optimized/Soiree-900.jpg" alt="Soirée d'équipe Actinuance" loading="lazy" decoding="async" /></figure>
+            <figure class="nr-pola" style="--r:2deg"><img src="Photos/optimized/photogroupe-900.jpg" alt="Photo de groupe Actinuance" loading="lazy" decoding="async" /></figure>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-aboutsec" id="perspectives">
-      <div class="ax-about-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <div class="ax-two">
-            <div>
-              <p class="ax-kicker">Perspectives d'évolution</p>
-              <h2 class="ax-h2">Progresser <em>sans barrière</em> d'âge ni seuil <em class="ax-o">d'ancienneté.</em></h2>
-            </div>
-            <div class="ax-rows" style="margin-top:0">
-              <div class="ax-row">
-                <h3>Évolution hiérarchique claire</h3>
-                <p>Une structure lisible et transparente, avec des niveaux de postes définis du niveau junior jusqu'aux rôles d'experts, de managers seniors et de direction, sans barrière d'âge ni seuil d'ancienneté imposé pour progresser.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Formations continues et certifiantes</h3>
-                <p>L'acticademy vous accompagne au quotidien pour approfondir vos connaissances sur les sujets qui vous animent. Des formations certifiantes proposées à chaque passage de grade selon votre parcours professionnel défini avec votre manager.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Évolution salariale basée sur la performance</h3>
-                <p>Vos réalisations et votre contribution sont reconnues, avec une progression salariale alignée sur votre impact.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Responsabilités croissantes</h3>
-                <p>Votre performance ne se limite pas aux résultats&nbsp;: elle transforme l’organisation. Cette contribution stratégique est reconnue et se traduit par une évolution salariale cohérente avec l’impact que vous créez.</p>
-              </div>
-            </div>
+      <!-- Avantages : chaque titre se surligne en passant -->
+      <section class="nr-sec nr-perks-sec" id="avantages">
+        <div class="nr-wrap">
+          <div class="nr-intro">
+            <p class="nr-kicker">Avantages</p>
+            <h2 class="nr-h2">Un cadre social pensé pour durer, dans un environnement de travail exigeant et équilibré</h2>
+          </div>
+          <div class="nr-perks">
+            <article class="nr-perk"><h3><span>Titres-restaurant (partenariat Edenred+)</span></h3><p>Un dispositif Edenred+ simple et avantageux pour accompagner vos journées, avec des bénéfices additionnels via les partenaires.</p></article>
+            <article class="nr-perk"><h3><span>Couverture santé premium</span></h3><p>Une mutuelle de haut niveau, conçue pour sécuriser sereinement votre parcours personnel et professionnel.</p></article>
+            <article class="nr-perk"><h3><span>Congés accessibles dès l'arrivée</span></h3><p>Des congés mobilisables dès le premier jour, pour offrir de la souplesse dès le démarrage de votre trajectoire.</p></article>
+            <article class="nr-perk"><h3><span>Télétravail avantageux</span></h3><p>Une politique flexible et structurée, qui permet d'équilibrer efficacement performance collective et organisation individuelle.</p></article>
+            <article class="nr-perk"><h3><span>Avantages CSE évolutifs</span></h3><p>Un ensemble d'avantages CSE amené à s'enrichir dans le temps, en phase avec les attentes des équipes et la croissance du cabinet.</p></article>
+            <article class="nr-perk"><h3><span>Des bureaux au cœur du 6e arrondissement</span></h3><p>Des locaux situés à Paris Rive Gauche, au sein d'un quartier vivant offrant une richesse gastronomique et culturelle remarquable.</p></article>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-career is-collapsed" id="parcours-consultant">
-        <div class="ax-wrap">
-          <div class="ax-career-head">
-            <div class="ax-head">
-              <p class="ax-kicker">Parcours consultant</p>
-              <h2 class="ax-h2">Une évolution progressive, lisible et <em>ouverte</em></h2>
-              <p class="ax-lead">Chaque étape élargit votre impact&nbsp;: excellence en mission, contribution interne, puis participation active aux décisions et au développement du cabinet. <br>Pas d'étapes intermédiaires ou de sous-grades.</p>
-            </div>
-            <button type="button" class="ax-career-toggle" id="careerToggleBtn" aria-expanded="false" aria-controls="careerPathContent">
-              <span class="career-toggle-label">Afficher</span>
-              <span class="career-toggle-arrow" aria-hidden="true">▾</span>
-            </button>
-          </div>
-
-          <div class="ax-career-body" id="careerPathContent">
-            <div class="career-track" aria-label="Grades Actinuance">
-              <div class="career-track-line"></div>
-              <span>Stagiaire</span>
-              <span>Consultant</span>
-              <span>Consultant Sénior</span>
-              <span>Deputy Manager</span>
-              <span>Manager</span>
-              <span>Directeur</span>
-            </div>
-
-            <div class="career-grid">
-              <article class="career-card">
-                <h3 class="career-rank">01 — Stagiaire</h3>
-                <p>Le sujet du stage est un tremplin pour comprendre le monde des risques et de la cybersécurité et en même temps pour vous former aux méthodologies et aux savoir-faire Actinuance.</p>
-              </article>
-              <article class="career-card">
-                <h3 class="career-rank">02 — Consultant</h3>
-                <p>Le vrai apprentissage du conseil commence, avec la rigueur et le niveau de qualité qui sont nos marques de fabrique. Vous serez encadrés sur les missions et bénéficierez d'un plan de formation sur-mesure.</p>
-              </article>
-              <article class="career-card">
-                <h3 class="career-rank">03 — Consultant Sénior</h3>
-                <p>C'est là que la différence avec le consultant lambda commence à se voir. Vous pourrez monter en autonomie sur les missions et commencer à gérer une relation client et à encadrer des consultants.</p>
-              </article>
-              <article class="career-card">
-                <h3 class="career-rank">04 — Deputy Manager</h3>
-                <p>La montée vers des tâches managériales et la transmission des valeurs et des méthodes de travail est aussi un apprentissage fondamental. Vous serez en charge de vos propres offres, tout en apprenant à gérer les carrières de consultants.</p>
-              </article>
-              <article class="career-card">
-                <h3 class="career-rank">05 — Manager</h3>
-                <p>Vous contribuez déjà au développement de l'entreprise et à son orientation stratégique. Vous développez vos offres, êtes en charge de la relation client, tout en encadrant les carrières de vos consultants.</p>
-              </article>
-              <article class="career-card">
-                <h3 class="career-rank">06 — Directeur</h3>
-                <p>Acteur de l'orientation stratégique du cabinet et ambassadeur de ses valeurs, vous êtes au cœur de la culture de l'entreprise et vous portez le développement de la marque et la croissance du chiffre d'affaires.</p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="ax-section ax-join" id="vie-du-cabinet">
-      <div class="ax-join-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <div class="ax-two">
-            <div>
-              <p class="ax-kicker">Vie du cabinet</p>
-              <h2 class="ax-h2">Un collectif qui se construit <em>en dehors du cabinet</em></h2>
-            </div>
-            <div class="ax-rows" style="margin-top:0">
-              <div class="ax-row">
-                <h3>Afterworks</h3>
-                <p>Des moments simples et réguliers pour se retrouver, décompresser et garder un vrai lien d'équipe entre les rythmes de mission.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Séminaires d'été</h3>
-                <p>Un temps fort annuel pour prendre du recul, partager la vision du cabinet et renforcer les liens dans un cadre plus informel.</p>
-              </div>
-              <div class="ax-row">
-                <h3>ActiPéro</h3>
-                <p>Un format maison&nbsp;: apéro, présentation d'un sujet et échanges ouverts. Le thème peut être tech, métier, ou simplement une passion portée par le consultant.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="ax-gallery" aria-label="Photos de la vie du cabinet" role="group">
-          <div class="ax-gallery-track">
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Chandleur-1600.jpg" srcset="Photos/optimized/Chandleur-900.jpg 900w, Photos/optimized/Chandleur-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Moment convivial au cabinet" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2746-1600.jpg" srcset="Photos/optimized/IMG_2746-900.jpg 900w, Photos/optimized/IMG_2746-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Événement Actinuance" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2844-1600.jpg" srcset="Photos/optimized/IMG_2844-900.jpg 900w, Photos/optimized/IMG_2844-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Moment d'équipe Actinuance" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2870-1600.jpg" srcset="Photos/optimized/IMG_2870-900.jpg 900w, Photos/optimized/IMG_2870-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Afterwork Actinuance" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2876-1600.jpg" srcset="Photos/optimized/IMG_2876-900.jpg 900w, Photos/optimized/IMG_2876-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Échanges entre consultants" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/seminaire%20(7)-1600.jpg" srcset="Photos/optimized/seminaire%20(7)-900.jpg 900w, Photos/optimized/seminaire%20(7)-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Séminaire Actinuance" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Verre-1600.jpg" srcset="Photos/optimized/Verre-900.jpg 900w, Photos/optimized/Verre-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="ActiPéro" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Workshop-1600.jpg" srcset="Photos/optimized/Workshop-900.jpg 900w, Photos/optimized/Workshop-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Workshop équipe" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Soiree-1600.jpg" srcset="Photos/optimized/Soiree-900.jpg 900w, Photos/optimized/Soiree-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="Soirée d'équipe Actinuance" loading="lazy" decoding="async" /></figure>
-          </div>
-          <div class="ax-gallery-track" aria-hidden="true">
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Chandleur-1600.jpg" srcset="Photos/optimized/Chandleur-900.jpg 900w, Photos/optimized/Chandleur-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2746-1600.jpg" srcset="Photos/optimized/IMG_2746-900.jpg 900w, Photos/optimized/IMG_2746-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2844-1600.jpg" srcset="Photos/optimized/IMG_2844-900.jpg 900w, Photos/optimized/IMG_2844-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2870-1600.jpg" srcset="Photos/optimized/IMG_2870-900.jpg 900w, Photos/optimized/IMG_2870-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/IMG_2876-1600.jpg" srcset="Photos/optimized/IMG_2876-900.jpg 900w, Photos/optimized/IMG_2876-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/seminaire%20(7)-1600.jpg" srcset="Photos/optimized/seminaire%20(7)-900.jpg 900w, Photos/optimized/seminaire%20(7)-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Verre-1600.jpg" srcset="Photos/optimized/Verre-900.jpg 900w, Photos/optimized/Verre-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Workshop-1600.jpg" srcset="Photos/optimized/Workshop-900.jpg 900w, Photos/optimized/Workshop-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-            <figure class="ax-gallery-photo"><img src="Photos/optimized/Soiree-1600.jpg" srcset="Photos/optimized/Soiree-900.jpg 900w, Photos/optimized/Soiree-1600.jpg 1600w" sizes="(max-width: 760px) 72vw, 380px" alt="" loading="lazy" decoding="async" /></figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="ax-section" id="avantages">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Avantages</p>
-            <h2 class="ax-h2">Un cadre social pensé pour durer, dans un environnement de travail <em>exigeant et équilibré</em></h2>
-          </div>
-          <div class="ax-perks">
-            <article class="ax-perk">
-              <h3>Titres-restaurant (partenariat Edenred+)</h3>
-              <p>Un dispositif Edenred+ simple et avantageux pour accompagner vos journées, avec des bénéfices additionnels via les partenaires.</p>
-            </article>
-            <article class="ax-perk">
-              <h3>Couverture santé premium</h3>
-              <p>Une mutuelle de haut niveau, conçue pour sécuriser sereinement votre parcours personnel et professionnel.</p>
-            </article>
-            <article class="ax-perk">
-              <h3>Congés accessibles dès l'arrivée</h3>
-              <p>Des congés mobilisables dès le premier jour, pour offrir de la souplesse dès le démarrage de votre trajectoire.</p>
-            </article>
-            <article class="ax-perk">
-              <h3>Télétravail avantageux</h3>
-              <p>Une politique flexible et structurée, qui permet d'équilibrer efficacement performance collective et organisation individuelle.</p>
-            </article>
-            <article class="ax-perk">
-              <h3>Avantages CSE évolutifs</h3>
-              <p>Un ensemble d'avantages CSE amené à s'enrichir dans le temps, en phase avec les attentes des équipes et la croissance du cabinet.</p>
-            </article>
-            <article class="ax-perk">
-              <h3>Des bureaux au cœur du 6e arrondissement</h3>
-              <p>Des locaux situés à Paris Rive Gauche, au sein d'un quartier vivant offrant une richesse gastronomique et culturelle remarquable.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="ax-contact" id="postuler">
-      <div class="ax-contact-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
-      </div>
-        <h2>Envie de <em>nous rejoindre&nbsp;?</em></h2>
-        <a href="/postes-ouverts" class="ax-btn ax-btn--accent ax-btn--lg">Voir les positions ouvertes</a>
+      <section class="nr-cta" id="postuler">
+        <div class="nr-cta-tris" aria-hidden="true"><i></i><i></i></div>
+        <h2>Envie de <mark class="nr-mk nr-mk--v">nous rejoindre&nbsp;?</mark></h2>
+        <a href="/postes-ouverts" class="nr-btn nr-btn--ink">Voir les positions ouvertes</a>
       </section>
 
     </div>
@@ -458,7 +312,8 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261110"></script>
-  <script src="ax.js?v=20261111b"></script>
+  <script src="script.js?v=20261112a"></script>
+  <script src="ax.js?v=20261112a"></script>
+  <script src="ax-rejoindre.js?v=20261112a"></script>
 </body>
 </html>

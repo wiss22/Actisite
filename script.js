@@ -215,7 +215,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const navLogo = document.querySelector('#navbar .nav-logo-img');
   const onScroll = () => {
-    if (window.scrollY > 40) {
+    // Pages sans hero : la barre reste en version claire dès le haut de page.
+    if (window.scrollY > 40 || document.body.classList.contains('ax-nohero')) {
       navbar.classList.add('scrolled');
       if (navLogo) {
         const scrolledSrc = navLogo.dataset.logoScrolled;

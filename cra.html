@@ -22,19 +22,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
-  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax.css?v=20261112b">
   <link rel="stylesheet" href="ax-unes.css?v=20261111">
+  <link rel="stylesheet" href="ax-spot.css?v=20261111e">
+  <link rel="stylesheet" href="ax-spot-cra.css?v=20261111b">
 </head>
-<body class="ax-page ax-inner ax-unes">
+<body class="ax-page ax-inner ax-unes ax-spot ax-spot--cra">
   <a href="#main" class="ax-skip">Aller au contenu</a>
 
-  <nav id="navbar" class="scrolled">
+  <nav id="navbar">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <img
           src="Logos/logo-blanc.png"
           data-logo-default="Logos/logo-blanc.png"
-          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
           alt="Actinuance"
           class="nav-logo-img"
         />
@@ -86,22 +87,29 @@
 
   <main id="main">
 
-    <section class="ax-hero ax-hero--page" id="hero" data-slide="1">
-      <div class="ax-hero-art" aria-hidden="true">
-        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
-        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+    <section class="sp-hero cra-hero" aria-labelledby="sp-title">
+      <div class="cra-product" aria-hidden="true">
+        <svg viewBox="0 0 600 600" aria-hidden="true">
+          <g class="cra-shard cra-shard--a"><path d="M560 80 590 132H530Z" fill="#FF914D"/></g>
+          <g class="cra-shard cra-shard--b"><path d="M58 520 82 562H34Z" fill="none" stroke="#fff" stroke-width="2"/></g>
+          <g class="cra-shard cra-shard--c"><path d="M80 60 100 95H60Z" fill="#0d0713"/></g>
+          <g class="cra-face-g" data-dx="-0.5" data-dy="-0.866"><path class="cra-face" style="--dx:-60px;--dy:-104px" d="M300 300 109.5 190 300 80Z" fill="#C7A0FF"/></g>
+          <g class="cra-face-g" data-dx="0.5" data-dy="-0.866"><path class="cra-face" style="--dx:60px;--dy:-104px" d="M300 300 300 80 490.5 190Z" fill="#FFFFFF"/></g>
+          <g class="cra-face-g" data-dx="1" data-dy="0"><path class="cra-face" style="--dx:120px;--dy:0px" d="M300 300 490.5 190 490.5 410Z" fill="#FF914D"/></g>
+          <g class="cra-face-g" data-dx="0.5" data-dy="0.866"><path class="cra-face" style="--dx:60px;--dy:104px" d="M300 300 490.5 410 300 520Z" fill="#F18847"/></g>
+          <g class="cra-face-g" data-dx="-0.5" data-dy="0.866"><path class="cra-face" style="--dx:-60px;--dy:104px" d="M300 300 300 520 109.5 410Z" fill="#0d0713"/></g>
+          <g class="cra-face-g" data-dx="-1" data-dy="0"><path class="cra-face" style="--dx:-120px;--dy:0px" d="M300 300 109.5 410 109.5 190Z" fill="#1d1028"/></g>
+        </svg>
       </div>
-      <div class="ax-hero-inner">
-        <div class="ax-hero-copy">
-          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Offres à la une</span><span aria-hidden="true">/</span><span aria-current="page">CRA</span></nav>
-          <h1>CRA&nbsp;: sécuriser vos produits numériques <em>par design</em></h1>
-          <p class="ax-hero-lead">Nous accompagnons fabricants, importateurs et distributeurs dans leur mise en conformité au Cyber Resilience Act, du cadrage réglementaire à la préparation du dossier technique et du marquage CE.</p>
-          <ul class="ax-pills"><li>Classification produit</li><li>Analyse d'écart</li><li>Tests techniques</li><li>Marquage CE</li></ul>
-          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">Demander un échange</a><a href="#offre-cra" class="ax-link ax-link--light">Découvrir</a></div>
+      <div class="sp-wrap">
+        <div class="sp-hero-copy">
+          <p class="sp-badge"><b>À la une</b>CRA</p>
+          <h1 id="sp-title">CRA&nbsp;: sécuriser vos produits numériques <em>par design</em></h1>
+          <p class="sp-hero-lead">Nous accompagnons fabricants, importateurs et distributeurs dans leur mise en conformité au Cyber Resilience Act, du cadrage réglementaire à la préparation du dossier technique et du marquage CE.</p>
+          <div class="ax-actions"><a href="#contact" class="sp-btn">Demander un échange</a><a href="#offre-cra" class="ax-link ax-link--light">Découvrir</a></div>
         </div>
       </div>
+      <div class="sp-cue" aria-hidden="true"><span>Défiler</span><i></i></div>
     </section>
 
     <div class="ax-over">
@@ -116,124 +124,116 @@
         </div>
       </div>
 
-      <section class="ax-section" id="offre-cra">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Contexte et enjeux</p>
-            <h2 class="ax-h2">Les enjeux du <em>Cyber Resilience Act.</em></h2>
-          </div>
-          <div class="ax-trio">
-            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">01</span>
-              <h3>Un socle réglementaire unique pour les produits numériques</h3>
-              <p>Publié au Journal Officiel de l’UE le 20 novembre 2024 et entré en vigueur le 10 décembre 2024, le CRA instaure des obligations de cybersécurité claires et uniformes pour tout produit comportant des éléments numériques commercialisé dans l’Union.</p>
-            </div>
-            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">02</span>
-              <h3>Une exigence qui embarque toute la chaîne de valeur</h3>
-              <p>Fabricants, importateurs et distributeurs sont soumis à des obligations différenciées selon leur rôle, avec un niveau d’exigence qui varie selon la classification du produit&nbsp;: standard, important (classe I ou II) ou critique.</p>
-            </div>
-            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
-              <span class="ax-commit-n" aria-hidden="true">03</span>
-              <h3>Une conformité à démontrer techniquement</h3>
-              <p>Pentest, analyse cryptographique, SBOM, notification des vulnérabilités actives sous 24h&nbsp;: le CRA impose une maîtrise vérifiable et pas seulement déclarative, sous peine de sanctions pouvant atteindre 15&nbsp;M€ ou 2,5&nbsp;% du chiffre d’affaires mondial.</p>
-            </div>
+      <section class="sp-sec cra-stakes" id="offre-cra">
+        <div class="sp-wrap">
+          <p class="sp-kicker">Contexte et enjeux</p>
+          <h2 class="sp-h2">Les enjeux du <em>Cyber Resilience Act.</em></h2>
+          <div class="cra-stack">
+            <article class="cra-panel cra-panel--1">
+              <span class="cra-panel-n" aria-hidden="true">01</span>
+              <div class="cra-panel-body">
+                <h3>Un socle réglementaire unique pour les produits numériques</h3>
+                <p>Publié au Journal Officiel de l’UE le 20 novembre 2024 et entré en vigueur le 10 décembre 2024, le CRA instaure des obligations de cybersécurité claires et uniformes pour tout produit comportant des éléments numériques commercialisé dans l’Union.</p>
+              </div>
+            </article>
+            <article class="cra-panel cra-panel--2">
+              <span class="cra-panel-n" aria-hidden="true">02</span>
+              <div class="cra-panel-body">
+                <h3>Une exigence qui embarque toute la chaîne de valeur</h3>
+                <p>Fabricants, importateurs et distributeurs sont soumis à des obligations différenciées selon leur rôle, avec un niveau d’exigence qui varie selon la classification du produit&nbsp;: standard, important (classe I ou II) ou critique.</p>
+              </div>
+            </article>
+            <article class="cra-panel cra-panel--3">
+              <span class="cra-panel-n" aria-hidden="true">03</span>
+              <div class="cra-panel-body">
+                <h3>Une conformité à démontrer techniquement</h3>
+                <p>Pentest, analyse cryptographique, SBOM, notification des vulnérabilités actives sous 24h&nbsp;: le CRA impose une maîtrise vérifiable et pas seulement déclarative, sous peine de sanctions pouvant atteindre 15&nbsp;M€ ou 2,5&nbsp;% du chiffre d’affaires mondial.</p>
+              </div>
+              <p class="cra-fine" aria-hidden="true"><span><b data-to="15">15</b>&nbsp;M€</span><span><b data-to="2.5">2,5</b>&nbsp;%</span></p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-quote">
-      <div class="ax-join-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <p class="ax-quote-text ax-quote-text--long">CRA comme discipline produit, pas comme une <em>contrainte ponctuelle.</em></p>
-        </div>
+      <section class="cra-quote">
+        <p><span class="cra-line"><span>CRA comme discipline produit,</span></span> <span class="cra-line"><span>pas comme une</span></span> <span class="cra-line"><span><em>contrainte ponctuelle.</em></span></span></p>
       </section>
 
-      <section class="ax-section ax-section--grey" id="calendrier">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Calendrier</p>
-            <h2 class="ax-h2">Les échéances du CRA.</h2>
+      <section class="cra-cal" id="calendrier" aria-labelledby="cal-title">
+        <div class="sp-wrap cra-cal-head">
+          <div>
+            <p class="sp-kicker">Calendrier</p>
+            <h2 class="sp-h2" id="cal-title">Les échéances du CRA.</h2>
           </div>
-          <ol class="ax-timeline">
-            <li class="ax-tl">
-              <span class="ax-tl-date">20 nov. 2024</span>
+          <p class="cra-cal-big" aria-hidden="true"><span>20 nov. 2024</span></p>
+        </div>
+        <div class="cra-cal-move">
+          <div class="cra-cal-rail" aria-hidden="true"><i></i></div>
+          <ol class="cra-cal-track">
+            <li class="cra-tl">
+              <span class="cra-tl-date">20 nov. 2024</span>
               <p>Publication du CRA au Journal Officiel de l’UE</p>
             </li>
-            <li class="ax-tl">
-              <span class="ax-tl-date">10 déc. 2024</span>
+            <li class="cra-tl">
+              <span class="cra-tl-date">10 déc. 2024</span>
               <p>Entrée en vigueur, début de la période de transition</p>
             </li>
-            <li class="ax-tl">
-              <span class="ax-tl-date">11 juin 2026</span>
+            <li class="cra-tl">
+              <span class="cra-tl-date">11 juin 2026</span>
               <p>Désignation des organismes notifiés pour l’évaluation de conformité</p>
             </li>
-            <li class="ax-tl ax-tl--now">
-              <span class="ax-tl-date">11 sept. 2026</span>
-              <span class="ax-tl-now">Aujourd’hui</span>
+            <li class="cra-tl cra-tl--now">
+              <span class="cra-tl-date">11 sept. 2026</span>
+              <span class="cra-tl-now">Aujourd’hui</span>
               <p>Notification obligatoire sous 24h des vulnérabilités activement exploitées</p>
             </li>
-            <li class="ax-tl ax-tl--final">
-              <span class="ax-tl-date">11 déc. 2027</span>
+            <li class="cra-tl cra-tl--final">
+              <span class="cra-tl-date">11 déc. 2027</span>
               <p>Application complète&nbsp;: marquage CE et conformité totale exigés</p>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="ax-section" id="methode">
-        <div class="ax-wrap">
-          <div class="ax-head">
-            <p class="ax-kicker">Notre méthode</p>
-            <h2 class="ax-h2">Du cadrage à la <em>mise en conformité pilotée.</em></h2>
-          </div>
-          <div class="ax-method">
-            <ol class="ax-steps">
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">01</span>
-                <div>
-                  <h3>Cadrage et définition du périmètre</h3>
-                  <p>Nous déterminons si vos produits entrent dans le champ du CRA, les classifions (standard, important classe I/II, critique) et cartographions leurs composants, y compris open source et tiers.</p>
-                  <span class="ax-step-tag">Cadrage</span>
-                </div>
+      <section class="sp-sec cra-method" id="methode">
+        <div class="sp-wrap">
+          <p class="sp-kicker">Notre méthode</p>
+          <h2 class="sp-h2">Du cadrage à la <em>mise en conformité pilotée.</em></h2>
+          <div class="sp-method-grid">
+            <ol class="cra-checks">
+              <li class="cra-check">
+                <span class="cra-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="cra-check-n" aria-hidden="true">01</span>
+                <h3>Cadrage et définition du périmètre</h3>
+                <p>Nous déterminons si vos produits entrent dans le champ du CRA, les classifions (standard, important classe I/II, critique) et cartographions leurs composants, y compris open source et tiers.</p>
               </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">02</span>
-                <div>
-                  <h3>Analyse d’écart par thématique</h3>
-                  <p>Nous confrontons chaque produit aux exigences applicables et formalisons un rapport d’écarts, assorti d’un plan d’action structuré et priorisé.</p>
-                  <span class="ax-step-tag">Assessment</span>
-                </div>
+              <li class="cra-check">
+                <span class="cra-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="cra-check-n" aria-hidden="true">02</span>
+                <h3>Analyse d’écart par thématique</h3>
+                <p>Nous confrontons chaque produit aux exigences applicables et formalisons un rapport d’écarts, assorti d’un plan d’action structuré et priorisé.</p>
               </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">03</span>
-                <div>
-                  <h3>Analyse technique du niveau de sécurité</h3>
-                  <p>Pentest complet, analyse cryptographique et reverse engineering, fuzzing et robustness testing&nbsp;: nous validons ce que la documentation affirme.</p>
-                  <span class="ax-step-tag">Audit technique</span>
-                </div>
+              <li class="cra-check">
+                <span class="cra-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="cra-check-n" aria-hidden="true">03</span>
+                <h3>Analyse technique du niveau de sécurité</h3>
+                <p>Pentest complet, analyse cryptographique et reverse engineering, fuzzing et robustness testing&nbsp;: nous validons ce que la documentation affirme.</p>
               </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">04</span>
-                <div>
-                  <h3>Feuille de route et stratégie de conformité</h3>
-                  <p>Nous priorisons les chantiers selon l’impact et la valeur stratégique, estimons le budget associé et intégrons la trajectoire CRA à votre feuille de route cyber existante.</p>
-                  <span class="ax-step-tag">Trajectoire</span>
-                </div>
+              <li class="cra-check">
+                <span class="cra-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="cra-check-n" aria-hidden="true">04</span>
+                <h3>Feuille de route et stratégie de conformité</h3>
+                <p>Nous priorisons les chantiers selon l’impact et la valeur stratégique, estimons le budget associé et intégrons la trajectoire CRA à votre feuille de route cyber existante.</p>
               </li>
-              <li class="ax-step">
-                <span class="ax-step-n" aria-hidden="true">05</span>
-                <div>
-                  <h3>Accompagnement à la mise en conformité</h3>
-                  <p>Nous mettons en œuvre les mesures issues de l’analyse d’écart, testons leur efficacité et préparons le dossier technique complet&nbsp;: déclaration UE, SBOM, guides utilisateurs.</p>
-                  <span class="ax-step-tag">Remédiation</span>
-                </div>
+              <li class="cra-check">
+                <span class="cra-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+                <span class="cra-check-n" aria-hidden="true">05</span>
+                <h3>Accompagnement à la mise en conformité</h3>
+                <p>Nous mettons en œuvre les mesures issues de l’analyse d’écart, testons leur efficacité et préparons le dossier technique complet&nbsp;: déclaration UE, SBOM, guides utilisateurs.</p>
               </li>
             </ol>
             <aside class="ax-deliv" aria-labelledby="livrables-titre">
+              <p class="cra-tally" aria-hidden="true"><b>00</b><span>/ 05</span></p>
               <h3 id="livrables-titre">Exemple de livrables</h3>
               <ul>
                 <li>Cartographie des produits, composants et classification CRA<span>Scope</span></li>
@@ -247,37 +247,32 @@
         </div>
       </section>
 
-      <section class="ax-section ax-aboutsec" id="atouts">
-      <div class="ax-about-art" aria-hidden="true">
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
-        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
-      </div>
-        <div class="ax-wrap">
-          <div class="ax-two">
-            <div>
-              <p class="ax-kicker">Nos atouts</p>
-              <h2 class="ax-h2">Ce qui nous <em class="ax-o">distingue.</em></h2>
+      <section class="sp-sec cra-assets-sec" id="atouts">
+        <div class="sp-wrap">
+          <p class="sp-kicker">Nos atouts</p>
+          <h2 class="sp-h2">Ce qui nous <em>distingue.</em></h2>
+          <div class="cra-assets">
+            <div class="cra-asset cra-asset--1">
+              <i aria-hidden="true"></i>
+              <h3>Une classification juste dès le départ</h3>
+              <p>Nous qualifions précisément le périmètre produit et son niveau de criticité pour éviter la sur-conformité coûteuse comme la sous-conformité risquée.</p>
             </div>
-            <div class="ax-rows" style="margin-top:0">
-              <div class="ax-row">
-                <h3>Une classification juste dès le départ</h3>
-                <p>Nous qualifions précisément le périmètre produit et son niveau de criticité pour éviter la sur-conformité coûteuse comme la sous-conformité risquée.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Une preuve technique, pas seulement documentaire</h3>
-                <p>Pentest, analyse cryptographique et fuzzing viennent valider ce que la documentation affirme, avant que le régulateur ou un incident ne le fasse.</p>
-              </div>
-              <div class="ax-row">
-                <h3>Une conformité tenable dans la durée</h3>
-                <p>SBOM, gestion des vulnérabilités et notification sous 24h s’inscrivent dans un dispositif durable, aligné avec votre feuille de route cyber, pas un exercice ponctuel.</p>
-              </div>
+            <div class="cra-asset cra-asset--2">
+              <i aria-hidden="true"></i>
+              <h3>Une preuve technique, pas seulement documentaire</h3>
+              <p>Pentest, analyse cryptographique et fuzzing viennent valider ce que la documentation affirme, avant que le régulateur ou un incident ne le fasse.</p>
+            </div>
+            <div class="cra-asset cra-asset--3">
+              <i aria-hidden="true"></i>
+              <h3>Une conformité tenable dans la durée</h3>
+              <p>SBOM, gestion des vulnérabilités et notification sous 24h s’inscrivent dans un dispositif durable, aligné avec votre feuille de route cyber, pas un exercice ponctuel.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="ax-section ax-section--grey" id="rex-cra">
-        <div class="ax-wrap offer-shell-main">
+      <section class="sp-sec sp-more cra-more" id="rex-cra">
+        <div class="sp-wrap offer-shell-main">
           <div class="ax-feed">
             <h3>Articles liés au CRA</h3>
             <div class="ax-pubs">
@@ -389,7 +384,9 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261110"></script>
-  <script src="ax.js?v=20261111b"></script>
+  <script src="script.js?v=20261112a"></script>
+  <script src="ax.js?v=20261112a"></script>
+  <script src="ax-spot.js?v=20261111e"></script>
+  <script src="ax-spot-cra.js?v=20261111a"></script>
 </body>
 </html>

@@ -1183,3 +1183,9 @@ a:hover > .ax-link::after { transform: translateX(4px) rotate(45deg); }
 .ax-page .ax-section--grey a.offer-related-card:hover { background: #ece2f2; }
 .ax-aboutsec .ax-lead { color: var(--ax-ink); }
 .ax-owner img { color: transparent; font-size: 0; }
+
+/* ─── PAGES SANS HERO (listes, équipe) : le contenu commence sous la barre ── */
+.ax-nohero .ax-over { margin-top: 0; padding-top: var(--nav-height); border-radius: 0; }
+.ax-nohero .ax-over > :first-child { border-radius: 0; }
+.ax-nohero .ax-over > .ax-section:first-child { padding-top: clamp(56px, 6vw, 88px); }
+.ax-nohero .ax-subnav + .ax-section { padding-top: clamp(80px, 7vw, 104px); }
