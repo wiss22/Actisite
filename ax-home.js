@@ -31,19 +31,20 @@
     });
 
     panels.forEach((panel, k) => {
+      // Assombrissement par un voile (opacité) plutôt qu'un filtre : un filtre sur
+      // un élément en 3D fait clignoter le panneau en noir pendant le défilement.
+      const shade = panel.querySelector('.xh-shade');
       // Profondeur : le panneau arrive de loin (petit, pivoté), passe au premier
       // plan au centre, puis recule en partant vers la gauche.
       if (k > 0) {
-        gsap.fromTo(panel, { scale: 0.82, rotationY: -14, filter: 'brightness(0.6)' }, {
-          scale: 1, rotationY: 0, filter: 'brightness(1)', ease: 'none',
-          scrollTrigger: { trigger: panel, containerAnimation: move, start: 'left right', end: 'left 12%', scrub: true }
-        });
+        const enter = { trigger: panel, containerAnimation: move, start: 'left right', end: 'left 12%', scrub: true };
+        gsap.fromTo(panel, { scale: 0.82, rotationY: -14 }, { scale: 1, rotationY: 0, ease: 'none', scrollTrigger: enter });
+        gsap.fromTo(shade, { opacity: 0.45 }, { opacity: 0, ease: 'none', scrollTrigger: { ...enter } });
       }
       if (k < panels.length - 1) {
-        gsap.to(panel, {
-          scale: 0.86, rotationY: 12, filter: 'brightness(0.55)', ease: 'none', immediateRender: false,
-          scrollTrigger: { trigger: panel, containerAnimation: move, start: 'right 70%', end: 'right left', scrub: true }
-        });
+        const leave = { trigger: panel, containerAnimation: move, start: 'right 70%', end: 'right left', scrub: true };
+        gsap.to(panel, { scale: 0.86, rotationY: 12, ease: 'none', immediateRender: false, scrollTrigger: leave });
+        gsap.to(shade, { opacity: 0.5, ease: 'none', immediateRender: false, scrollTrigger: { ...leave } });
       }
       // Couches : le grand numéro et le halo glissent à une autre vitesse.
       const big = panel.querySelector('.xh-big');

@@ -65,6 +65,16 @@
   background: radial-gradient(closest-side, rgba(255, 255, 255, 0.28), transparent 70%);
   pointer-events: none;
 }
+.xh-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  background: #0d0612;
+  opacity: 0;
+  pointer-events: none;
+}
+.xh--h .xh-panel { will-change: transform; backface-visibility: hidden; }
 .xh-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
