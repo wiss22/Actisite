@@ -1,8 +1,8 @@
 /* ══════════════════════════════════════════════
    ACTINUANCE — Accueil : section « Quatre expertises »
-   Une grande pyramide en relief, faite de quatre triangles (un par
-   expertise). Sur grand écran la section s'épingle : la pyramide
-   s'assemble, pivote, et la pièce de l'expertise lue se soulève.
+   Un grand cube en 3D, une face par expertise. Sur grand écran la
+   section s'épingle : le cube s'assemble puis tourne d'une face à
+   l'autre au défilement, le texte de l'expertise s'affiche à côté.
    Chargée après ax.css.
 ════════════════════════════════════════════════ */
 
@@ -11,19 +11,19 @@
   overflow: hidden;
   padding-bottom: 0;
   background:
-    radial-gradient(60% 50% at 25% 60%, rgba(124, 58, 237, 0.28), transparent 70%),
-    radial-gradient(45% 40% at 85% 20%, rgba(241, 136, 71, 0.16), transparent 70%),
+    radial-gradient(60% 50% at 25% 60%, rgba(124, 58, 237, 0.26), transparent 70%),
+    radial-gradient(45% 40% at 85% 20%, rgba(241, 136, 71, 0.14), transparent 70%),
     #170b20;
   color: #fff;
 }
 .xp .ax-h2 { color: #fff; }
 .xp .ax-lead { color: rgba(255, 255, 255, 0.72); }
 
-/* Couleurs des quatre pièces : face claire, face sombre, tranche. */
-.xp-piece--top,  .xp-item--top  { --c1: #8b4cf5; --c2: #632a7c; --c3: #34113f; --ox: 50%; --oy: 33.33%; --clip: polygon(50% 0, 75% 50%, 25% 50%); }
-.xp-piece--left, .xp-item--left { --c1: #ffa066; --c2: #f18847; --c3: #9a4a1c; --ox: 25%; --oy: 83.33%; --clip: polygon(25% 50%, 50% 100%, 0 100%); }
-.xp-piece--right,.xp-item--right{ --c1: #d6b8ff; --c2: #9b70e0; --c3: #4f2f86; --ox: 75%; --oy: 83.33%; --clip: polygon(75% 50%, 100% 100%, 50% 100%); }
-.xp-piece--core, .xp-item--core { --c1: #9356c9; --c2: #55247a; --c3: #250a33; --ox: 50%; --oy: 66.67%; --clip: polygon(25% 50%, 75% 50%, 50% 100%); }
+/* Couleurs des quatre expertises. */
+.xp-face--1, .xp-item--1 { --c1: #8b4cf5; --c2: #4b1d6b; --ink: #fff; }
+.xp-face--2, .xp-item--2 { --c1: #ffa066; --c2: #e0662a; --ink: #2a0f3a; }
+.xp-face--3, .xp-item--3 { --c1: #e2ccff; --c2: #9b70e0; --ink: #2a0f3a; }
+.xp-face--4, .xp-item--4 { --c1: #f18847; --c2: #632a7c; --ink: #fff; }
 
 /* ─── Mise en page ─────────────────────────────── */
 .xp-pin { position: relative; }
@@ -35,74 +35,89 @@
   padding-block: clamp(48px, 7vw, 96px) clamp(96px, 10vw, 140px);
 }
 
-/* ─── La pyramide ──────────────────────────────── */
+/* ─── Le cube ──────────────────────────────────── */
 .xp-stage {
+  --size: min(30vw, 400px);
   position: relative;
-  width: 100%;
-  max-width: 560px;
-  aspect-ratio: 1.1547;
+  width: var(--size);
+  height: var(--size);
   justify-self: center;
-  perspective: 1400px;
-  perspective-origin: 50% 40%;
+  perspective: 1600px;
+  perspective-origin: 50% 35%;
 }
 .xp-glow {
   position: absolute;
-  inset: -20% -10%;
-  background: radial-gradient(closest-side, var(--glow, rgba(139, 76, 245, 0.55)), transparent 70%);
-  filter: blur(30px);
+  inset: -40%;
+  background: radial-gradient(closest-side, var(--glow, rgba(139, 76, 245, 0.5)), transparent 70%);
+  filter: blur(36px);
   transition: background 0.8s ease;
   pointer-events: none;
 }
-.xp-rot {
+.xp-tilt,
+.xp-cube {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
-  transform: rotateX(22deg) rotateY(-16deg);
 }
-.xp-piece {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-  transform-origin: var(--ox) var(--oy);
-  transform: scale(0.93);
-  cursor: pointer;
-}
-/* Face et tranches : même découpe, empilées en profondeur. */
-.xp-face,
-.xp-l {
-  position: absolute;
-  inset: 0;
-  clip-path: var(--clip);
-}
+/* L'inclinaison est portée par le conteneur : le cube ne fait que tourner,
+   chaque face arrive donc bien droite devant nous. */
+.xp-tilt { transform: rotateX(-12deg); }
+/* Chaque face est posée sur un côté du cube ; --gap les écarte à l'arrivée. */
 .xp-face {
-  background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.38), transparent 38%),
-    linear-gradient(200deg, var(--c1), var(--c2) 70%);
-  transform: translateZ(0);
-  transition: opacity 0.6s ease;
-}
-.xp-l--1 { background: var(--c2); transform: translateZ(-14px); }
-.xp-l--2 { background: color-mix(in srgb, var(--c2) 50%, var(--c3)); transform: translateZ(-28px); }
-.xp-l--3 { background: var(--c3); transform: translateZ(-42px); }
-.xp-tag {
+  --gap: 0px;
   position: absolute;
-  left: var(--ox);
-  top: calc(var(--oy) + 4%);
-  transform: translate(-50%, -50%) translateZ(1px);
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.92);
-  pointer-events: none;
-  transition: opacity 0.6s ease;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(24px, 2.6vw, 36px);
+  border-radius: 28px;
+  overflow: hidden;
+  color: var(--ink);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(255, 255, 255, 0.35), transparent 55%),
+    linear-gradient(150deg, var(--c1), var(--c2));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  backface-visibility: hidden;
+  cursor: pointer;
+  transition: filter 0.6s ease;
 }
-.xp-piece--right .xp-tag { color: #2a0f3a; }
-.xp--3d .xp-piece:not(.is-on) .xp-face { opacity: 0.5; }
-.xp--3d .xp-piece:not(.is-on) .xp-tag { opacity: 0.35; }
+.xp-face--1 { transform: rotateY(0deg)   translateZ(calc(var(--size) / 2 + var(--gap))); }
+.xp-face--2 { transform: rotateY(90deg)  translateZ(calc(var(--size) / 2 + var(--gap))); }
+.xp-face--3 { transform: rotateY(180deg) translateZ(calc(var(--size) / 2 + var(--gap))); }
+.xp-face--4 { transform: rotateY(270deg) translateZ(calc(var(--size) / 2 + var(--gap))); }
+/* Trame de lignes fines qui donne de la matière aux faces. */
+.xp-face::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px 22px);
+  -webkit-mask: linear-gradient(200deg, #000, transparent 70%);
+  mask: linear-gradient(200deg, #000, transparent 70%);
+  pointer-events: none;
+}
+.xp-face-n {
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(4.5rem, 9vw, 8rem);
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  opacity: 0.92;
+}
+.xp-face-t {
+  position: relative;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.xp--3d .xp-face:not(.is-on) { filter: saturate(0.7) brightness(0.72); }
 
 /* ─── Les textes ───────────────────────────────── */
 .xp-list { list-style: none; margin: 0; padding: 0; }
+.xp-item { position: relative; }
 .xp-item h3 {
   margin: 14px 0 18px;
   font-family: 'Raleway', sans-serif;
@@ -130,15 +145,14 @@
   margin-top: 28px;
   padding: 14px 26px;
   border-radius: 980px;
-  background: var(--c2);
-  color: #fff;
+  background: linear-gradient(150deg, var(--c1), var(--c2));
+  color: var(--ink);
   font-weight: 600;
+  white-space: nowrap;
   pointer-events: none; /* le lien du titre couvre déjà la carte */
 }
-.xp-item--right .xp-go { color: #2a0f3a; background: var(--c1); }
 .xp-go::after { content: '→'; transition: transform 0.3s ease; }
 .xp-item:hover .xp-go::after { transform: translateX(5px); }
-.xp-item { position: relative; }
 
 .xp-dots { display: none; }
 
@@ -159,7 +173,6 @@
   visibility: visible;
   transition-delay: 0s;
 }
-.xp--3d .xp-mini { display: none; }
 .xp--3d .xp-dots {
   position: absolute;
   right: 24px;
@@ -185,33 +198,25 @@
 .xp:not(.xp--3d) .xp-item {
   display: grid;
   justify-items: start;
-  padding: 26px 24px 28px;
+  padding: 28px 24px;
   border-radius: 24px;
+  overflow: hidden;
   background: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
 }
-.xp:not(.xp--3d) .xp-mini { width: 64px; margin: 0 0 16px; }
-.xp:not(.xp--3d) .xp-item h3 { margin: 6px 0 10px; font-size: clamp(1.7rem, 7vw, 2.3rem); }
-.xp:not(.xp--3d) .xp-item p { font-size: 0.98rem; }
-.xp:not(.xp--3d) .xp-go { margin-top: 18px; padding: 12px 22px; font-size: 0.95rem; white-space: nowrap; }
-/* Petite pièce en relief à gauche de chaque expertise. */
-.xp-mini {
-  position: relative;
-  width: 76px;
-  aspect-ratio: 1.1547;
-  margin-top: 6px;
-  perspective: 500px;
-  transform-style: preserve-3d;
-}
-.xp-mini > i {
+/* Bande de couleur de l'expertise en haut de chaque carte. */
+.xp:not(.xp--3d) .xp-item::before {
+  content: '';
   position: absolute;
-  inset: 0;
-  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, var(--c1), var(--c2));
 }
-.xp-mini { transform: rotateX(28deg) rotateY(-20deg); }
-.xp-mini .xp-l--1 { transform: translateZ(-4px); }
-.xp-mini .xp-l--2 { transform: translateZ(-8px); }
-.xp-mini .xp-l--3 { transform: translateZ(-12px); }
+.xp:not(.xp--3d) .xp-num { font-size: 2.4rem; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
+.xp:not(.xp--3d) .xp-num small { font-size: 1rem; letter-spacing: 0.04em; }
+.xp:not(.xp--3d) .xp-item h3 { margin: 10px 0 10px; font-size: clamp(1.7rem, 7vw, 2.3rem); }
+.xp:not(.xp--3d) .xp-item p { font-size: 0.98rem; }
+.xp:not(.xp--3d) .xp-go { margin-top: 18px; padding: 12px 22px; font-size: 0.95rem; }
 
 @media (max-width: 999px) {
   .xp-grid { padding-bottom: 72px; }
