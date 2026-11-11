@@ -21,10 +21,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-secteurs.css?v=20261111">
 </head>
-<body class="audit-pillar-page secteur-luxe-page">
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -82,170 +84,180 @@
     </div>
   </nav>
 
-  <section class="page-hero page-hero-animated hero-secteur-luxe">
-    <div class="hero-secteur-luxe-photo" aria-hidden="true">
-      <span class="luxe-photo-slide luxe-photo-1"></span>
-      <span class="luxe-photo-slide luxe-photo-2"></span>
-      <span class="luxe-photo-slide luxe-photo-3"></span>
-    </div>
-    <div class="page-hero-art" aria-hidden="true">
-      <span class="geo geo-a"></span>
-      <span class="geo geo-b"></span>
-      <span class="geo geo-c"></span>
-      <span class="geo geo-d"></span>
-    </div>
-    <div class="container luxe-hero-inner">
-      <h1>Cybersécurité Premium<br><span>Excellence, discrétion, résilience</span></h1>
-      <p class="hero-lead">Nous protégeons les maisons et groupes du luxe contre les risques cyber qui menacent la réputation, la confidentialité client et la valeur des créations.</p>
-      <div class="luxe-hero-pills">
-        <span>Données VIP</span>
-        <span>Supply Chain</span>
-        <span>E-commerce premium</span>
-        <span>Conformité Sectrielle</span>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="2">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
       </div>
-    </div>
-    <a href="#luxe-enjeux" class="offer-scroll-cta" aria-label="Voir les enjeux secteur luxe">
-      <span>Découvrir</span>
-      <span class="arrow">↓</span>
-    </a>
-  </section>
-
-  <section class="page-section luxe-overview" id="luxe-enjeux">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Priorités secteur</p>
-        <h2 class="section-heading">Des enjeux cyber à la hauteur de vos actifs</h2>
-      </div>
-      <div class="enjeux-grid">
-        <div class="enjeu-card reveal">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Protection des créations & propriété intellectuelle</h3>
-          <p class="enjeu-desc">Designs inédits, collections à venir, savoir-faire ancestraux : vos actifs créatifs sont des cibles de premier plan pour l'espionnage industriel et la contrefaçon numérique. Leur protection exige une approche DLP rigoureuse intégrée dès la conception.</p>
-        </div>
-
-        <div class="enjeu-card reveal" data-delay="60">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-              <circle cx="12" cy="7" r="4"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Confidentialité des clients haute valeur</h3>
-          <p class="enjeu-desc">La discrétion est un pilier de la relation client dans le luxe. Les données de vos clients VIP — identités, habitudes d'achat, préférences — constituent une cible très attractive pour des acteurs malveillants cherchant à les cibler ou les compromettre.</p>
-        </div>
-
-        <div class="enjeu-card reveal" data-delay="120">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/>
-              <path d="M8 21h8M12 17v4"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Menace sur la réputation de marque</h3>
-          <p class="enjeu-desc">Une cyberattaque médiatisée, un défacement de site ou une usurpation de compte officiel peut ternir en quelques heures une image construite sur des générations. La résilience cyber est désormais indissociable de la gestion de marque.</p>
-        </div>
-
-        <div class="enjeu-card reveal">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Exposition des chaînes d'approvisionnement</h3>
-          <p class="enjeu-desc">Artisans, sous-traitants, distributeurs multimarques, retail partenaires : votre chaîne de valeur mondiale multiplie les points d'entrée. Une faiblesse chez un tiers peut compromettre l'ensemble de votre architecture de sécurité.</p>
-        </div>
-
-        <div class="enjeu-card reveal" data-delay="60">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-              <polyline points="9 22 9 12 15 12 15 22"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Transformation digitale du retail de luxe</h3>
-          <p class="enjeu-desc">E-commerce premium, applications de personnalisation, expériences phygitales : la digitalisation de l'expérience client ouvre de nouvelles surfaces d'attaque. La sécurité doit être intégrée by design dans chaque initiative numérique.</p>
-        </div>
-
-        <div class="enjeu-card reveal" data-delay="120">
-          <div class="enjeu-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="2" y1="12" x2="22" y2="12"/>
-              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-            </svg>
-          </div>
-          <h3 class="enjeu-title">Présence internationale & conformité multi-juridique</h3>
-          <p class="enjeu-desc">Opérer sur tous les continents implique de naviguer entre RGPD européen, PIPL chinois, CCPA américain et multiples réglementations locales. Une gouvernance des données cohérente et harmonisée est un impératif stratégique.</p>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#secteurs">Secteurs</a><span aria-hidden="true">/</span><span aria-current="page">Luxe</span></nav>
+          <h1>Cybersécurité Premium<br /><em>Excellence, discrétion, résilience</em></h1>
+          <p class="ax-hero-lead">Nous protégeons les maisons et groupes du luxe contre les risques cyber qui menacent la réputation, la confidentialité client et la valeur des créations.</p>
+          <ul class="ax-pills"><li>Données VIP</li><li>Supply Chain</li><li>E-commerce premium</li><li>Conformité sectorielle</li></ul>
+          <div class="ax-actions"><a href="#luxe-enjeux" class="ax-btn ax-btn--accent">Découvrir</a><a href="#contact" class="ax-link ax-link--light">Nous contacter</a></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="page-section section-light luxe-focus">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Cadre de maîtrise</p>
-        <h2 class="section-heading">Comment Actinuance répond à ces enjeux</h2>
-      </div>
-      <div class="luxe-focus-stack">
-        <article class="luxe-focus-card luxe-focus-business reveal">
-          <div class="luxe-focus-step">01</div>
-          <div class="luxe-focus-copy">
-            <h3>Aligner la cybersécurité avec vos priorités business</h3>
-            <p>Nous partons de vos enjeux de marque, de croissance et d'expérience client pour prioriser les risques qui ont un impact réel sur votre activité, vos revenus et votre réputation.</p>
-          </div>
-        </article>
-        <article class="luxe-focus-card luxe-focus-business reveal" data-delay="80">
-          <div class="luxe-focus-step">02</div>
-          <div class="luxe-focus-copy">
-            <h3>Transformer les exigences en décisions pilotables</h3>
-            <p>Plutôt qu'une conformité théorique, nous construisons une trajectoire claire avec des arbitrages concrets, un plan d'action lisible pour les directions métier et des preuves exploitables pour vos parties prenantes.</p>
-          </div>
-        </article>
-        <article class="luxe-focus-card luxe-focus-business reveal" data-delay="140">
-          <div class="luxe-focus-step">03</div>
-          <div class="luxe-focus-copy">
-            <h3>Installer une résilience durable dans l'organisation</h3>
-            <p>Nous sécurisons vos opérations sans ralentir le business, avec un dispositif qui s'intègre à vos équipes, facilite l'exécution terrain et renforce durablement votre capacité à absorber les incidents.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section luxe-rex" id="luxeRexSection">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Exemples de missions</p>
-        <h2 class="section-heading">Exemples de mission</h2>
-      </div>
-      <div class="luxe-rex-list" id="luxeRexFeed" data-rex-sector="luxe">
-        <article class="luxe-rex-item reveal luxe-rex-loading">
-          <p class="luxe-rex-kicker">Chargement</p>
-          <h3>Chargement des Client Stories du secteur luxe…</h3>
-          <p>Connexion en cours avec Sanity Studio.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-simple">
-    <div class="container">
-      <div class="contact-simple-card reveal">
-        <p class="section-eyebrow">Secteur Luxe</p>
-        <h2 class="section-heading">Échangeons sur votre trajectoire cyber</h2>
-        <p class="section-sub">Nous vous aidons à sécuriser vos actifs sensibles et à renforcer durablement votre résilience opérationnelle.</p>
-        <div class="contact-simple-actions">
-          <a href="/#contact" class="btn-primary">Nous contacter</a>
-          <a href="/audit-conformite" class="btn-ghost">Voir l'expertise Audit & Conformité</a>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="/#secteurs" class="ax-subnav-back">‹ Secteurs</a>
+          <a href="#luxe-enjeux">Priorités</a>
+          <a href="#reponse">Notre réponse</a>
+          <a href="#luxeRexSection">Exemples de mission</a>
+          <a href="#autres-secteurs">Autres secteurs</a>
+          <a href="#contact" class="ax-subnav-cta">Nous contacter</a>
         </div>
       </div>
+
+      <section class="ax-section" id="luxe-enjeux">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Priorités secteur</p>
+            <h2 class="ax-h2">Des enjeux cyber à la hauteur de vos actifs</h2>
+          </div>
+          <div class="ax-trio">
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <h3>Protection des créations &amp; propriété intellectuelle</h3>
+              <p>Designs inédits, collections à venir, savoir-faire ancestraux&nbsp;: vos actifs créatifs sont des cibles de premier plan pour l'espionnage industriel et la contrefaçon numérique. Leur protection exige une approche DLP rigoureuse intégrée dès la conception.</p>
+            </div>
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <h3>Confidentialité des clients haute valeur</h3>
+              <p>La discrétion est un pilier de la relation client dans le luxe. Les données de vos clients VIP — identités, habitudes d'achat, préférences — constituent une cible très attractive pour des acteurs malveillants cherchant à les cibler ou les compromettre.</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+              <h3>Menace sur la réputation de marque</h3>
+              <p>Une cyberattaque médiatisée, un défacement de site ou une usurpation de compte officiel peut ternir en quelques heures une image construite sur des générations. La résilience cyber est désormais indissociable de la gestion de marque.</p>
+            </div>
+          </div>
+          <div class="ax-trio">
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              <h3>Exposition des chaînes d'approvisionnement</h3>
+              <p>Artisans, sous-traitants, distributeurs multimarques, retail partenaires&nbsp;: votre chaîne de valeur mondiale multiplie les points d'entrée. Une faiblesse chez un tiers peut compromettre l'ensemble de votre architecture de sécurité.</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              <h3>Transformation digitale du retail de luxe</h3>
+              <p>E-commerce premium, applications de personnalisation, expériences phygitales&nbsp;: la digitalisation de l'expérience client ouvre de nouvelles surfaces d'attaque. La sécurité doit être intégrée by design dans chaque initiative numérique.</p>
+            </div>
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              <h3>Présence internationale &amp; conformité multi-juridique</h3>
+              <p>Opérer sur tous les continents implique de naviguer entre RGPD européen, PIPL chinois, CCPA américain et multiples réglementations locales. Une gouvernance des données cohérente et harmonisée est un impératif stratégique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="reponse">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Cadre de maîtrise</p>
+            <h2 class="ax-h2">Comment Actinuance répond à ces enjeux</h2>
+          </div>
+          <div class="ax-stack">
+            <article class="ax-xcard ax-xcard--step ax-xcard--1" style="--i:0">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">01</p>
+                <h3>Aligner la cybersécurité avec vos priorités business</h3>
+                <p>Nous partons de vos enjeux de marque, de croissance et d'expérience client pour prioriser les risques qui ont un impact réel sur votre activité, vos revenus et votre réputation.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--step ax-xcard--2" style="--i:1">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">02</p>
+                <h3>Transformer les exigences en décisions pilotables</h3>
+                <p>Plutôt qu'une conformité théorique, nous construisons une trajectoire claire avec des arbitrages concrets, un plan d'action lisible pour les directions métier et des preuves exploitables pour vos parties prenantes.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M24 5L11 10.5v11.2c0 8 5.5 15.3 13 16.9 7.5-1.6 13-8.9 13-16.9V10.5L24 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 24.2l4.2 4.2L31 19.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 15.5h16" stroke="currentColor" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--step ax-xcard--3" style="--i:2">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">03</p>
+                <h3>Installer une résilience durable dans l'organisation</h3>
+                <p>Nous sécurisons vos opérations sans ralentir le business, avec un dispositif qui s'intègre à vos équipes, facilite l'exécution terrain et renforce durablement votre capacité à absorber les incidents.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section" id="luxeRexSection">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <h2 class="ax-h2">Exemples de mission</h2>
+          </div>
+          <div class="luxe-rex-list" id="luxeRexFeed" data-rex-sector="luxe">
+            <article class="luxe-rex-item luxe-rex-loading">
+              <p class="luxe-rex-kicker">Chargement</p>
+              <h3>Chargement des Client Stories du secteur luxe…</h3>
+              <p>Connexion en cours avec Sanity Studio.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-aboutsec" id="autres-secteurs">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Autres secteurs</p>
+            <h2 class="ax-h2">Explorer nos autres secteurs.</h2>
+          </div>
+          <div class="ax-links ax-links--2">
+            <a href="/secteur-banque" class="ax-linkcard">
+              <h3>Banque</h3>
+              <p>DORA · NIS2 · SWIFT</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-assurance" class="ax-linkcard">
+              <h3>Assurance</h3>
+              <p>DORA · Solvabilité II · Résilience</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-industrie-transport" class="ax-linkcard">
+              <h3>Industrie &amp; Transport</h3>
+              <p>LPM · IEC 62443 · Résilience opérationnelle</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-technologie" class="ax-linkcard">
+              <h3>Tech</h3>
+              <p>Produits numériques · API Security · DevSecOps · Confiance marché</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <p class="ax-kicker">Secteur Luxe</p>
+        <h2>Échangeons sur votre <em>trajectoire cyber</em></h2>
+        <p class="ax-contact-lead">Nous vous aidons à sécuriser vos actifs sensibles et à renforcer durablement votre résilience opérationnelle.</p>
+        <div class="ax-actions"><a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">Nous contacter</a><a href="/audit-conformite" class="ax-link ax-link--light">Voir l'expertise Audit &amp; Conformité</a></div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
@@ -254,13 +266,11 @@
           <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
         </a>
         <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
-        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés">
-          <div class="badge-icon">★</div>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
           <div>
             <div class="badge-title">Happy at Work 2025</div>
             <div class="badge-sub">Certifié par nos collaborateurs</div>
-          </div>
-        </a>
+          </div></a>
         <div class="footer-social">
           <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -283,21 +293,20 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          <!--  -->
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
@@ -306,6 +315,7 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20260916"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

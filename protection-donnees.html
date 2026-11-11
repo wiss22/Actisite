@@ -21,60 +21,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <style>
-    .privacy-hero {
-      padding: 120px 24px 46px;
-      background: linear-gradient(135deg, #371846 0%, #4a2058 100%);
-      color: #fff;
-    }
-    .privacy-wrap {
-      width: min(980px, 100%);
-      margin: 0 auto;
-    }
-    .privacy-hero .section-eyebrow { color: rgba(241,136,71,0.95); }
-    .privacy-hero h1 {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(2rem, 5.2vw, 3.2rem);
-      margin: 0;
-      line-height: 1.06;
-    }
-    .privacy-main {
-      padding: 44px 24px 80px;
-      background: #f5f2f9;
-    }
-    .privacy-card {
-      width: min(980px, 100%);
-      margin: 0 auto;
-      border: 1px solid rgba(83,35,105,0.14);
-      border-radius: 16px;
-      background: #fff;
-      padding: 28px 24px;
-      box-shadow: 0 10px 30px rgba(20,14,35,0.06);
-    }
-    .privacy-card section + section { margin-top: 22px; }
-    .privacy-card h2 {
-      font-family: 'Raleway', sans-serif;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #F18847;
-      margin: 0 0 8px;
-    }
-    .privacy-card p, .privacy-card li {
-      font-family: 'Poppins', sans-serif;
-      color: #2f2247;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .privacy-card ul { margin: 0; padding-left: 18px; }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-cabinet.css?v=20261111">
 </head>
-<body>
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
+
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" />
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
       </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
@@ -121,113 +84,163 @@
     </div>
   </nav>
 
-  <section class="privacy-hero">
-    <div class="privacy-wrap">
-      <div class="section-eyebrow">Actinuance Consulting</div>
-      <h1>Charte de protection des données</h1>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page ax-hero--short" id="hero" data-slide="2">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <p class="ax-hero-eyebrow">Actinuance Consulting</p>
+          <h1>Charte de protection des données</h1>
+        </div>
+      </div>
+    </section>
+
+    <div class="ax-over">
+      <section class="ax-section ax-legal">
+        <div class="ax-wrap">
+          <article class="ax-legal-doc">
+            <section>
+              <h2>Responsable du traitement</h2>
+              <p>Actinuance<br/>
+              147, Rue de Rennes, 75006, Paris<br/>
+              <a href="mailto:dpo@actinuance.com">dpo@actinuance.com</a></p>
+            </section>
+
+            <section>
+              <h2>Données collectées</h2>
+              <p>Le site ne propose :</p>
+              <ul>
+                <li>aucun formulaire</li>
+                <li>aucun espace utilisateur public</li>
+                <li>aucune inscription</li>
+                <li>aucun outil de suivi marketing</li>
+              </ul>
+              <p>Aucune donnée personnelle n’est volontairement collectée auprès des visiteurs.</p>
+            </section>
+
+            <section>
+              <h2>Données techniques</h2>
+              <p>Lors de la consultation du site, certaines données techniques peuvent être traitées automatiquement :</p>
+              <ul>
+                <li>adresse IP</li>
+                <li>données de connexion</li>
+                <li>informations relatives au navigateur</li>
+                <li>journaux techniques (logs)</li>
+              </ul>
+              <p>Ces données sont utilisées exclusivement pour :</p>
+              <ul>
+                <li>assurer la sécurité du site</li>
+                <li>prévenir les intrusions</li>
+                <li>garantir le bon fonctionnement technique</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2>Hébergement et sous-traitance</h2>
+              <p>Le site est hébergé via Google Cloud Platform.</p>
+              <p>Dans ce cadre, des données techniques peuvent être traitées par ce prestataire en qualité de sous-traitant.</p>
+            </section>
+
+            <section>
+              <h2>Accès administrateur</h2>
+              <p>L’administration du site est réservée aux collaborateurs habilités de la Société.</p>
+              <p>Les données relatives à ces accès relèvent de la gestion interne des systèmes d’information.</p>
+            </section>
+
+            <section>
+              <h2>Base légale</h2>
+              <p>Le traitement repose sur l’intérêt légitime de la Société à assurer la sécurité et le bon fonctionnement de son site.</p>
+            </section>
+
+            <section id="cookies">
+              <h2>Durée de conservation</h2>
+              <p>Les journaux techniques sont conservés pour une durée limitée et proportionnée :<br/>
+              90 jours</p>
+            </section>
+
+            <section>
+              <h2>Droits des personnes</h2>
+              <p>Conformément au RGPD, toute personne dispose des droits suivants :</p>
+              <ul>
+                <li>accès</li>
+                <li>rectification</li>
+                <li>effacement</li>
+                <li>opposition</li>
+                <li>limitation</li>
+              </ul>
+              <p>Les demandes peuvent être adressées à :<br/>
+              dpo@actinuance.com</p>
+              <p>Une réclamation peut être introduite auprès de l’autorité compétente (en France : CNIL).</p>
+            </section>
+          </article>
+        </div>
+      </section>
     </div>
-  </section>
-
-  <main class="privacy-main">
-    <article class="privacy-card">
-      <section>
-        <h2>Responsable du traitement</h2>
-        <p>Actinuance<br/>
-        147, Rue de Rennes, 75006, Paris<br/>
-        <a href="mailto:dpo@actinuance.com">dpo@actinuance.com</a></p>
-      </section>
-
-      <section>
-        <h2>Données collectées</h2>
-        <p>Le site ne propose :</p>
-        <ul>
-          <li>aucun formulaire</li>
-          <li>aucun espace utilisateur public</li>
-          <li>aucune inscription</li>
-          <li>aucun outil de suivi marketing</li>
-        </ul>
-        <p>Aucune donnée personnelle n’est volontairement collectée auprès des visiteurs.</p>
-      </section>
-
-      <section>
-        <h2>Données techniques</h2>
-        <p>Lors de la consultation du site, certaines données techniques peuvent être traitées automatiquement :</p>
-        <ul>
-          <li>adresse IP</li>
-          <li>données de connexion</li>
-          <li>informations relatives au navigateur</li>
-          <li>journaux techniques (logs)</li>
-        </ul>
-        <p>Ces données sont utilisées exclusivement pour :</p>
-        <ul>
-          <li>assurer la sécurité du site</li>
-          <li>prévenir les intrusions</li>
-          <li>garantir le bon fonctionnement technique</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Hébergement et sous-traitance</h2>
-        <p>Le site est hébergé via Google Cloud Platform.</p>
-        <p>Dans ce cadre, des données techniques peuvent être traitées par ce prestataire en qualité de sous-traitant.</p>
-      </section>
-
-      <section>
-        <h2>Accès administrateur</h2>
-        <p>L’administration du site est réservée aux collaborateurs habilités de la Société.</p>
-        <p>Les données relatives à ces accès relèvent de la gestion interne des systèmes d’information.</p>
-      </section>
-
-      <section>
-        <h2>Base légale</h2>
-        <p>Le traitement repose sur l’intérêt légitime de la Société à assurer la sécurité et le bon fonctionnement de son site.</p>
-      </section>
-
-      <section id="cookies">
-        <h2>Durée de conservation</h2>
-        <p>Les journaux techniques sont conservés pour une durée limitée et proportionnée :<br/>
-        90 jours</p>
-      </section>
-
-      <section>
-        <h2>Droits des personnes</h2>
-        <p>Conformément au RGPD, toute personne dispose des droits suivants :</p>
-        <ul>
-          <li>accès</li>
-          <li>rectification</li>
-          <li>effacement</li>
-          <li>opposition</li>
-          <li>limitation</li>
-        </ul>
-        <p>Les demandes peuvent être adressées à :<br/>
-        dpo@actinuance.com</p>
-        <p>Une réclamation peut être introduite auprès de l’autorité compétente (en France : CNIL).</p>
-      </section>
-    </article>
   </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a>
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
         <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
-        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div><div><div class="badge-title">Happy at Work 2025</div><div class="badge-sub">Certifié par nos collaborateurs</div></div></a>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div>
-        <div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div>
-        <div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
   </footer>
-
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

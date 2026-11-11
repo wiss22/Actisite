@@ -1,0 +1,188 @@
+/* ══════════════════════════════════════════════
+   ACTINUANCE — Pages offre Audit et Conformité / Transfo Cyber
+   Chargée après ax.css. Compléments de composants ax uniquement.
+════════════════════════════════════════════════ */
+
+/* ─── Tuiles couleur : grille 2 × 2 et quatrième teinte ─── */
+.ax-trio.ax-trio--4 { grid-template-columns: repeat(2, 1fr); }
+
+.ax-commit--4 { background: #efe4f5; color: var(--ax-ink); }
+.ax-commit--4 p { color: var(--ax-muted); }
+.ax-commit--4 .ax-commit-tri { background: rgba(104, 1, 127, 0.14); }
+
+.ax-commit p + p { margin-top: 10px; }
+
+/* Affirmation courte en guise de titre de tuile (sans intertitre d'origine). */
+.ax-commit .ax-commit-statement {
+  position: relative;
+  margin-top: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+/* Chiffre ou mot-clé mis en avant dans une tuile. */
+.ax-commit-label {
+  position: relative;
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 0.86;
+}
+.ax-commit .ax-commit-fig {
+  position: relative;
+  margin: 6px 0 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: inherit;
+  overflow-wrap: anywhere;
+}
+
+/* ─── Section violette « Pourquoi c'est important » ─── */
+.ax-quote .ax-h2 { color: #fff; }
+.ax-quote .ax-head { margin-bottom: clamp(32px, 4vw, 48px); }
+.ax-quote .ax-trio { margin-top: 0; }
+
+/* La règle générique des paragraphes de .ax-quote ne doit pas toucher les tuiles. */
+.ax-quote .ax-trio .ax-commit p:not(.ax-quote-text) {
+  max-width: none;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+.ax-quote .ax-trio .ax-commit p.ax-commit-label,
+.ax-quote .ax-trio .ax-commit p.ax-commit-fig { margin-top: 0; font-size: 0.875rem; color: inherit; }
+.ax-quote .ax-trio .ax-commit p.ax-commit-fig { margin: 6px 0 4px; font-size: clamp(2rem, 3.4vw, 2.75rem); }
+.ax-quote .ax-trio .ax-commit--1 p:not(.ax-quote-text) { color: rgba(55, 24, 70, 0.9); }
+.ax-quote .ax-trio .ax-commit--1 p.ax-commit-fig { color: var(--ax-dark); }
+.ax-quote .ax-commit--2 { background: #fff; color: var(--ax-ink); }
+.ax-quote .ax-trio .ax-commit--2 p:not(.ax-quote-text) { color: var(--ax-muted); }
+.ax-quote .ax-trio .ax-commit--2 p.ax-commit-label { color: var(--ax-purple); }
+.ax-quote .ax-trio .ax-commit--2 p.ax-commit-fig { color: var(--ax-purple); }
+.ax-quote .ax-commit--2 .ax-commit-tri { background: rgba(104, 1, 127, 0.12); }
+.ax-quote .ax-trio .ax-commit--3 p.ax-commit-fig { color: #ffa466; }
+
+
+/* Comparaison avant / après (NIS 1 → NIS 2). */
+.ax-compare {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px clamp(20px, 3vw, 40px);
+  margin-bottom: 20px;
+}
+.ax-compare-card {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--ax-radius);
+  background: rgba(255, 255, 255, 0.12);
+}
+.ax-compare-card--new { background: var(--ax-orange); color: var(--ax-dark); }
+.ax-compare-label { display: block; font-size: 0.95rem; font-weight: 600; }
+.ax-compare-value {
+  display: block;
+  margin: 8px 0 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.ax-compare-sub { display: block; font-size: 1rem; opacity: 0.86; }
+.ax-compare-arrow {
+  width: 56px;
+  height: 56px;
+  color: #ffa466;
+}
+.ax-compare-ratio {
+  grid-column: 1 / -1;
+  justify-self: start;
+  padding: 10px 20px;
+  border-radius: 980px;
+  background: var(--ax-dark);
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+}
+.ax-compare + .ax-trio { margin-top: 20px; }
+
+/* ─── Démarche : cartes empilées numérotées ─── */
+.ax-stack--steps { margin: 0; padding: 0; list-style: none; }
+.ax-xcard--step { min-height: 320px; }
+.ax-xcard-num {
+  justify-self: end;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(5rem, 11vw, 9rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.ax-xcard--1 .ax-xcard-num { color: var(--ax-orange); }
+.ax-xcard--4 .ax-xcard-num { color: var(--ax-purple); }
+
+.ax-xcard--5 { background: var(--ax-orange); color: var(--ax-dark); }
+.ax-xcard--5 p { color: rgba(55, 24, 70, 0.9); }
+.ax-xcard--5 .ax-xcard-num { color: var(--ax-dark); }
+
+.ax-xcard p strong,
+.ax-xcard p em { color: inherit; }
+
+/* ─── Liste de situations (sans intertitres) ─── */
+.ax-rows--plain .ax-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+.ax-rows--plain .ax-row::before {
+  content: '';
+  flex: none;
+  width: 12px;
+  aspect-ratio: 1 / 0.88;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: var(--ax-orange);
+  transform: rotate(90deg) translateX(-2px);
+}
+.ax-rows--plain .ax-row p {
+  margin-top: 0;
+  font-size: 1.125rem;
+  color: var(--ax-ink);
+}
+
+/* Paragraphe de conclusion sous les tuiles (fond blanc ou gris). */
+.ax-section .ax-note {
+  max-width: 62ch;
+  margin-top: clamp(32px, 4vw, 48px);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* ─── Mise en page réduite ─── */
+@media (max-width: 1000px) {
+  .ax-trio.ax-trio--4 { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .ax-compare { grid-template-columns: 1fr; }
+  .ax-compare-arrow { justify-self: center; transform: rotate(90deg); width: 44px; height: 44px; }
+  .ax-xcard--step { min-height: 0; }
+  .ax-xcard-num { order: -1; justify-self: start; font-size: 3.5rem; }
+}
+
+/* Intertitre suivi de tuiles ou de lignes : écart resserré, comme sur le modèle. */
+.ax-commit-title + .ax-trio,
+.ax-commit-title + .ax-rows { margin-top: 28px; }
+
+/* Mots longs (« opérationalisation », « l’industrialisation ») : pas de débordement à 375 px. */
+.ax-inner main .ax-h2,
+.ax-inner main .ax-xcard h3,
+.ax-inner main .ax-commit h3,
+.ax-inner main .ax-commit-fig { overflow-wrap: break-word; hyphens: auto; }
+@media (max-width: 760px) {
+  .ax-xcard--step h3 { font-size: 1.6rem; }
+}

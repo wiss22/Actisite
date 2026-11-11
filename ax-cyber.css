@@ -1,0 +1,426 @@
+/* ══════════════════════════════════════════════
+   ACTINUANCE — Offres du pilier Cyber Défense
+   (cloud, développement, résilience opérationnelle, industries)
+   Chargée après ax.css. Uniquement des compléments préfixés .ax-.
+════════════════════════════════════════════════ */
+
+/* ─── Tuiles de contexte : variantes à 2 et 4 ───── */
+.ax-trio--4 { grid-template-columns: repeat(4, 1fr); }
+.ax-trio--2 { grid-template-columns: repeat(2, 1fr); }
+
+.ax-trio .ax-commit svg {
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ax-commit--4 { background: var(--ax-purple); color: #fff; }
+.ax-commit--4 .ax-commit-tri { background: rgba(255, 255, 255, 0.18); }
+@media (prefers-reduced-motion: no-preference) {
+  .ax-commit--4 .ax-commit-tri { animation-delay: -5s; }
+}
+
+/* Tuile sans titre : le texte porte la tuile. */
+.ax-commit--text p {
+  margin-top: 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+.ax-commit-title--tight { margin-top: clamp(48px, 6vw, 72px); }
+.ax-commit-title + .ax-trio { margin-top: 28px; }
+
+/* ─── Phrase de conclusion d'une section ────────── */
+.ax-closing {
+  max-width: 60ch;
+  margin-top: clamp(48px, 6vw, 72px);
+  padding-left: 24px;
+  border-left: 4px solid var(--ax-orange);
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.2rem, 1.9vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--ax-ink);
+}
+
+/* ─── Section sombre (démarche) ─────────────────── */
+.ax-darksec {
+  position: relative;
+  overflow: hidden;
+  background: var(--ax-dark);
+  color: #fff;
+}
+.ax-darksec > .ax-wrap { position: relative; }
+.ax-darksec .ax-h2 { color: #fff; }
+.ax-darksec .ax-kicker { color: #ffa466; }
+.ax-darksec .ax-lead { color: var(--ax-on-dark); }
+.ax-darksec .ax-closing { color: #fff; }
+
+/* ─── Étapes de la démarche ─────────────────────── */
+.ax-steps {
+  --n: 3;
+  display: grid;
+  grid-template-columns: repeat(var(--n), 1fr);
+  gap: 0;
+  margin: 0;
+  list-style: none;
+}
+.ax-steps--4 { --n: 4; }
+
+.ax-step {
+  position: relative;
+  padding: 0 clamp(18px, 2.4vw, 36px) 0 0;
+}
+.ax-step::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ax-orange), rgba(241, 136, 71, 0.15));
+  transform-origin: left;
+}
+.ax-step::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--ax-orange);
+  box-shadow: 0 0 0 6px rgba(241, 136, 71, 0.18);
+}
+.ax-step-num {
+  display: block;
+  padding-top: 40px;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.6rem, 4.6vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.22);
+}
+.ax-step h3 {
+  margin-top: 18px;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+}
+.ax-step p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--ax-on-dark);
+}
+
+/* Défilement : la ligne se trace et les étapes arrivent l'une après l'autre
+   (navigateurs compatibles uniquement, sans JS). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ax-steps { view-timeline: --ax-steps block; }
+    .ax-step {
+      animation: ax-step-in linear both;
+      animation-timeline: --ax-steps;
+      animation-range: entry calc(10% + var(--s, 0) * 14%) entry calc(55% + var(--s, 0) * 14%);
+    }
+    .ax-step::before {
+      animation: ax-step-line linear both;
+      animation-timeline: --ax-steps;
+      animation-range: entry calc(20% + var(--s, 0) * 14%) cover 50%;
+    }
+  }
+}
+@keyframes ax-step-in {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes ax-step-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ─── Cartes empilées des offres : plus compactes ─ */
+.ax-stack--offer .ax-xcard { min-height: 340px; }
+.ax-stack--offer .ax-xcard h3 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+
+/* ─── Iceberg OT (risques visibles / sous-jacents) ─ */
+.ax-berg { margin-top: clamp(8px, 2vw, 16px); }
+
+.ax-berg-stats {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.ax-berg-stat {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: var(--ax-radius);
+  background: var(--ax-orange);
+  color: var(--ax-dark);
+}
+.ax-berg-stat--deep { background: var(--ax-dark); color: #fff; }
+.ax-berg-pct {
+  flex: none;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.8rem, 5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.ax-berg-stat--deep .ax-berg-pct { color: #ffa466; }
+.ax-berg-stat p:not(.ax-berg-pct) { font-size: 0.95rem; line-height: 1.45; opacity: 0.88; }
+.ax-berg-stat strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  opacity: 1;
+}
+
+.ax-berg-zone {
+  padding: clamp(24px, 3.4vw, 44px);
+  border-radius: var(--ax-radius) var(--ax-radius) 0 0;
+  background: #fff;
+}
+.ax-berg-zone--deep {
+  border-radius: 0 0 var(--ax-radius) var(--ax-radius);
+  background: var(--ax-dark);
+  color: #fff;
+}
+
+.ax-berg-label {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  color: var(--ax-purple);
+}
+.ax-berg-zone--deep .ax-berg-label { color: #ffa466; }
+.ax-berg-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.25;
+}
+
+.ax-berg-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.ax-berg-cols--2 { grid-template-columns: repeat(2, 1fr); }
+
+.ax-berg-col {
+  padding: 22px 22px 18px;
+  border-radius: 20px;
+  background: #fff3ea;
+}
+.ax-berg-zone--deep .ax-berg-col { background: rgba(255, 255, 255, 0.07); }
+
+.ax-berg-col h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.ax-berg-col ul { list-style: none; }
+.ax-berg-col li {
+  position: relative;
+  padding: 7px 0 7px 18px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ax-muted);
+}
+.ax-berg-col li::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: var(--ax-orange);
+}
+.ax-berg-zone--deep .ax-berg-col li { color: rgba(255, 255, 255, 0.8); }
+.ax-berg-zone--deep .ax-berg-col li::before { background: #c7a0ff; }
+
+.ax-berg-badge {
+  flex: none;
+  padding: 3px 9px;
+  border-radius: 980px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--ax-orange);
+  color: var(--ax-dark);
+}
+.ax-berg-badge--2 { background: #c7a0ff; }
+
+/* Ligne de flottaison, avec une vague qui ondule. */
+.ax-berg-water {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 24px;
+  background: linear-gradient(180deg, #fff 0%, #efe4f5 45%, var(--ax-dark) 100%);
+  text-align: center;
+}
+.ax-berg-water p {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 980px;
+  background: var(--ax-purple);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.ax-berg-wave {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 200%;
+  height: 24px;
+  transform: translateY(-50%);
+  color: rgba(104, 1, 127, 0.35);
+}
+.ax-berg-wave path { fill: none; stroke: currentColor; stroke-width: 2; }
+@media (prefers-reduced-motion: no-preference) {
+  .ax-berg-wave { animation: ax-wave 9s linear infinite; }
+}
+@keyframes ax-wave {
+  from { transform: translate(0, -50%); }
+  to { transform: translate(-50%, -50%); }
+}
+
+/* ─── Client story détaillée ────────────────────── */
+.ax-case-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+.ax-case-meta div {
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: var(--ax-grey);
+}
+.ax-case-meta dt {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ax-purple);
+}
+.ax-case-meta dd { margin: 2px 0 0; font-size: 0.98rem; font-weight: 600; color: var(--ax-ink); }
+
+.ax-tags--light { margin: 24px 0 0; }
+.ax-tags--light li { background: rgba(104, 1, 127, 0.08); color: var(--ax-purple); }
+
+.ax-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1.3fr;
+  gap: 20px;
+  margin-top: clamp(40px, 5vw, 56px);
+}
+.ax-case-col {
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--ax-radius);
+  background: var(--ax-grey);
+}
+.ax-case-col > h3 {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ax-line);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ax-purple);
+}
+.ax-case-col p { font-size: 0.98rem; color: var(--ax-muted); }
+.ax-case-item + .ax-case-item { margin-top: 18px; }
+.ax-case-item h4 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ax-ink); }
+.ax-case-item p { margin-top: 4px; }
+.ax-case-item ul { margin-top: 6px; list-style: none; }
+.ax-case-item li {
+  position: relative;
+  padding: 4px 0 4px 18px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ax-muted);
+}
+.ax-case-item li::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: var(--ax-orange);
+}
+
+.ax-case-results-title {
+  margin-top: clamp(48px, 6vw, 72px);
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 700;
+}
+.ax-case-results .ax-commit h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+/* ─── Citation longue ───────────────────────────── */
+.ax-quote-text--longer { max-width: 34ch; font-size: clamp(1.45rem, 2.6vw, 2.15rem); line-height: 1.2; }
+
+/* ─── RESPONSIVE ────────────────────────────────── */
+@media (max-width: 1100px) {
+  .ax-trio--4 { grid-template-columns: repeat(2, 1fr); }
+  .ax-case-body { grid-template-columns: 1fr 1fr; }
+  .ax-case-body .ax-case-col:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 1000px) {
+  .ax-trio--2 { grid-template-columns: 1fr; }
+  .ax-steps,
+  .ax-steps--4 { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
+  .ax-berg-cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .ax-trio--4 { grid-template-columns: 1fr; }
+  .ax-steps,
+  .ax-steps--4 { grid-template-columns: 1fr; row-gap: 40px; }
+  .ax-step { padding: 0 0 0 40px; }
+  .ax-step::before { top: 16px; bottom: -40px; left: 7px; right: auto; width: 2px; height: auto; transform-origin: top; }
+  .ax-step:last-child::before { display: none; }
+  .ax-step-num { padding-top: 0; }
+  .ax-berg-stats,
+  .ax-berg-cols,
+  .ax-berg-cols--2 { grid-template-columns: 1fr; }
+  .ax-berg-stat { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .ax-case-body { grid-template-columns: 1fr; }
+  .ax-stack--offer .ax-xcard { min-height: 0; }
+  .ax-closing { padding-left: 18px; }
+}
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .ax-step::before { animation-name: ax-step-line-v; }
+  }
+}
+@keyframes ax-step-line-v {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}

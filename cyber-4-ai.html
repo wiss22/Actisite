@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Cyber for AI: sécurisez vos usages IA, réduisez les risques et mettez en place une gouvernance opérationnelle." />
   <link rel="canonical" href="https://www.actinuance.com/cyber-4-ai" />
   <meta property="og:site_name" content="Actinuance" />
@@ -16,28 +16,29 @@
   <meta name="twitter:title" content="Cyber & IA | Actinuance" />
   <meta name="twitter:description" content="Cyber for AI: sécurisez vos usages IA, réduisez les risques et mettez en place une gouvernance opérationnelle." />
   <meta name="twitter:image" content="https://www.actinuance.com/static/og-share.png" />
-<link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
-<title>Cyber & IA | Actinuance</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20260318c">
-<link rel="stylesheet" href="audit-pages.css?v=20260318">
-<link rel="stylesheet" href="cyber-4-ai.css?v=20260315g">
+  <link rel="icon" type="image/png" href="Logos/m5xAqqNUWhqqpHZiZfJfuY-actinuancelogomark_02.png" />
+  <title>Cyber & IA | Actinuance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-unes.css?v=20261111">
 </head>
-<body class="page-cyber4ai">
+<body class="ax-page ax-inner ax-unes">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
-<!-- NAV -->
-<nav id="navbar" class="scrolled">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <img
-        src="Logos/logo-blanc.png"
-        data-logo-default="Logos/logo-blanc.png"
-        data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
-        alt="Actinuance"
-        class="nav-logo-img"
-      />
-    </a>
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
+      </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
@@ -76,365 +77,384 @@
         <li><a href="/#apropos">À propos</a></li>
       </ul>
       <div class="nav-actions">
-      <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
-      <a href="/#contact" class="nav-cta">Nous contacter</a>
-    </div>
-    <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
-  </div>
-</nav>
-
-<!-- ══ HERO ══════════════════════════════════════════ -->
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="orb o1"></div>
-  <div class="orb o2"></div>
-  <div class="orb o3"></div>
-  <div class="orb o4"></div>
-  <div class="orb o5"></div>
-
-  <div class="hero-inner wrap">
-    <div>
-      <!--<div class="hero-tag"><span class="tag-dot"></span>Pratique IA 2026</div>-->
-      <h1>L'IA <em>transforme votre SI</em><br>Nous sécurisons<br><span class="red">ces nouveaux périmètres</span></h1>
-      <p class="hero-sub">
-        Vos systèmes IA traitent les données d'entreprise. <br>Actinuance sécurise ces assets, avec la même rigueur que vos SI traditionnels.
-      </p>
-    </div>
-
-    <!-- Threat card -->
-    <div class="radar-wrap">
-      <div class="radar-card">
-        <div class="radar-hd">
-          <span class="radar-hd-title" id="aiVectorsTitle">Vecteurs IA observés</span>
-          <span class="radar-live"><span class="live-dot"></span><span id="aiVectorsPeriod">2026</span></span>
-        </div>
-        <div class="threat-list" id="aiVectorsList">
-          <div class="threat">
-            <div class="threat-sev sev-c"></div>
-            <div class="threat-name">Exfiltration via LLM & RAG</div>
-            <div class="threat-label tl-c">Critique</div>
-          </div>
-          <div class="threat">
-            <div class="threat-sev sev-c"></div>
-            <div class="threat-name">Shadow AI & fuites de données</div>
-            <div class="threat-label tl-c">Critique</div>
-          </div>
-          <div class="threat">
-            <div class="threat-sev sev-h"></div>
-            <div class="threat-name">Manipulation d'agents autonomes</div>
-            <div class="threat-label tl-h">Élevé</div>
-          </div>
-          <div class="threat">
-            <div class="threat-sev sev-h"></div>
-            <div class="threat-name">Empoisonnement de données</div>
-            <div class="threat-label tl-h">Élevé</div>
-          </div>
-          <div class="threat">
-            <div class="threat-sev sev-h"></div>
-            <div class="threat-name">Accès non contrôlés aux modèles</div>
-            <div class="threat-label tl-h">Élevé</div>
-          </div>
-          <div class="threat">
-            <div class="threat-sev sev-m"></div>
-            <div class="threat-name">Biais & manipulation de sorties</div>
-            <div class="threat-label tl-m">Modéré</div>
-          </div>
-        </div>
-        <div class="radar-foot" id="aiVectorsSource">* Vecteurs issus de nos missions 2025 sur systèmes IA en production</div>
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/#contact" class="nav-cta">Nous contacter</a>
       </div>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
-  </div>
-  <a href="#nos-offres" class="offer-scroll-cta" aria-label="Découvrir">
-    <span>Découvrir</span>
-    <span class="arrow">↓</span>
-  </a>
-</section>
+  </nav>
 
+  <main id="main">
 
-<!-- ══ OFFRE ══════════════════════════════════════════ -->
-<section class="offer" id="nos-offres">
-  <div class="wrap">
-    <h2 class="sh reveal">Trois offres,<br><span class="text-orange">un périmètre complet</span></h2>
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="0">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Offres à la une</span><span aria-hidden="true">/</span><span aria-current="page">Cyber for AI</span></nav>
+          <h1>L'IA transforme votre SI. Nous sécurisons <em>ces nouveaux périmètres</em></h1>
+          <p class="ax-hero-lead">Vos systèmes IA traitent les données d'entreprise. Actinuance sécurise ces assets, avec la même rigueur que vos SI traditionnels.</p>
+          <ul class="ax-pills"><li>Shadow AI</li><li>LLM &amp; RAG</li><li>Agents autonomes</li><li>Gouvernance IA</li></ul>
+          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">Demander un échange</a><a href="#nos-offres" class="ax-link ax-link--light">Découvrir</a></div>
+        </div>
+      </div>
+    </section>
 
-    <div class="offer-grid reveal-stagger">
-
-      <!-- 1 -->
-      <div class="off-card">
-        <div class="off-n">01</div>
-        <h3>Audit sécurité des systèmes IA</h3>
-        <p>Revue technique complète de vos systèmes IA en production : architecture, accès, exposition des données, traçabilité des décisions, robustesse des modèles.</p>
-        <div class="off-list">
-          <div class="oli">Cartographie des systèmes IA & Shadow AI</div>
-          <div class="oli">Analyse des flux de données entrants et sortants</div>
-          <div class="oli">Test des APIs d'inférence et des intégrations</div>
-          <div class="oli">Revue des accès aux datasets et aux modèles</div>
-          <div class="oli">Évaluation de la traçabilité et de l'observabilité</div>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="#contexte">Contexte</a>
+          <a href="#nos-offres">Nos offres</a>
+          <a href="#methode">Méthode</a>
+          <a href="#atouts">Nos atouts</a>
+          <a href="#rex-ia">Aller plus loin</a>
+          <a href="#contact" class="ax-subnav-cta">Demander un échange</a>
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="off-card">
-        <div class="off-n">02</div>
-        <h3>Protection des données & gouvernance IA</h3>
-        <p>Identifier ce qui sort de votre SI via l'IA, mettre en place les contrôles de sécurité des données et construire la gouvernance qui encadre les usages IA à risque.</p>
-        <div class="off-list">
-          <div class="oli">Inventaire des usages IA & exposition des données sensibles</div>
-          <div class="oli">Classification des données transitant par les systèmes IA</div>
-          <div class="oli">Définition et mise en place de contrôles DLP adaptés à l'IA</div>
-          <div class="oli">Politique d'usage IA avec niveaux de risque définis</div>
-          <div class="oli">Registre IA et documentation pour le DPO et le RSSI</div>
+      <section class="ax-section" id="contexte">
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Surface d'attaque</p>
+              <h2 class="ax-h2">L'IA ne crée pas de nouveaux risques. Elle <em>amplifie ceux qui existent déjà.</em></h2>
+            </div>
+            <div class="ax-vectors">
+              <div class="ax-vectors-hd">
+                <span class="ax-vectors-title" id="aiVectorsTitle">Vecteurs IA observés</span>
+                <span class="ax-vectors-live"><i aria-hidden="true"></i><span id="aiVectorsPeriod">2026</span></span>
+              </div>
+              <div class="threat-list" id="aiVectorsList">
+                <div class="threat">
+                  <div class="threat-sev sev-c"></div>
+                  <div class="threat-name">Exfiltration via LLM &amp; RAG</div>
+                  <div class="threat-label tl-c">Critique</div>
+                </div>
+                <div class="threat">
+                  <div class="threat-sev sev-c"></div>
+                  <div class="threat-name">Shadow AI &amp; fuites de données</div>
+                  <div class="threat-label tl-c">Critique</div>
+                </div>
+                <div class="threat">
+                  <div class="threat-sev sev-h"></div>
+                  <div class="threat-name">Manipulation d'agents autonomes</div>
+                  <div class="threat-label tl-h">Élevé</div>
+                </div>
+                <div class="threat">
+                  <div class="threat-sev sev-h"></div>
+                  <div class="threat-name">Empoisonnement de données</div>
+                  <div class="threat-label tl-h">Élevé</div>
+                </div>
+                <div class="threat">
+                  <div class="threat-sev sev-h"></div>
+                  <div class="threat-name">Accès non contrôlés aux modèles</div>
+                  <div class="threat-label tl-h">Élevé</div>
+                </div>
+                <div class="threat">
+                  <div class="threat-sev sev-m"></div>
+                  <div class="threat-name">Biais &amp; manipulation de sorties</div>
+                  <div class="threat-label tl-m">Modéré</div>
+                </div>
+              </div>
+              <p class="ax-vectors-foot" id="aiVectorsSource">* Vecteurs issus de nos missions 2025 sur systèmes IA en production</p>
+            </div>
+          </div>
+          <div class="ax-trio ax-trio--text">
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <span class="ax-commit-n" aria-hidden="true">01</span>
+              <h3>Shadow AI &amp; exposition des données</h3>
+              <p>Vos collaborateurs utilisent ChatGPT, Copilot et des dizaines d'outils SaaS IA pour aller plus vite. Sans le savoir, ils y envoient des données contractuelles, RH, financières et parfois des données personnelles au sens RGPD. Pas d'inventaire, pas de contrôle, pas de traçabilité. La fuite est silencieuse, continue, et déjà en cours.</p>
+              <span class="ax-commit-tag">Risque immédiat</span>
+            </div>
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <span class="ax-commit-n" aria-hidden="true">02</span>
+              <h3>Systèmes IA non durcis en production</h3>
+              <p>Vos équipes ont déployé des modèles et des pipelines IA vite, pour livrer. La sécurité n'était pas dans le scope. Résultat&nbsp;: des accès aux datasets trop larges, des logs insuffisants pour reconstituer un incident, des APIs d'inférence exposées sans politique d'accès claire. Ce ne sont pas des négligences — ce sont des angles morts que personne n'a été formé à voir.</p>
+              <span class="ax-commit-tag">Risque technique</span>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <span class="ax-commit-n" aria-hidden="true">03</span>
+              <h3>Agents autonomes &amp; actions non maîtrisées</h3>
+              <p>Un agent IA qui interagit avec vos systèmes internes, envoie des emails, appelle des APIs ou modifie des données n'a pas de bon sens natif. Sans règles explicites, il peut être manipulé par un contenu malveillant, déclencher des actions non souhaitées ou sortir du périmètre prévu sans alerte, sans trace. Un pipeline peut exposer des données personnelles ou confidentielles à chaque étape de traitement sans que personne ne l'ait prévu ni détecté. La question n'est pas technique. C'est une question de règles et de visibilité&nbsp;: qui a défini ce que cet agent a le droit de faire&nbsp;? Qui contrôle ce qui entre et sort des pipelines&nbsp;? Qui surveille&nbsp;?</p>
+              <span class="ax-commit-tag">Risque émergent</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <!-- 3 -->
-      <div class="off-card">
-        <div class="off-n">03</div>
-        <h3>Sécurisation des agents & pipelines IA</h3>
-        <p>Cadrage sécurité des composants IA à risque : Identifier et évaluer les risques des composants IA les plus exposés : agents autonomes, pipelines traitant des données sensibles, intégrations RAG ouvertes sur des contenus externes. </p>
-        <div class="off-list">
-          <div class="oli">Revue sécurité des architectures agents (LangChain, AutoGen…)</div>
-          <div class="oli">Définition de règles de limites d’action des guardrails</div>
-          <div class="oli">Durcissement des pipelines RAG & des bases vectorielles</div>
-          <div class="oli">Cartographie des actions avec les systèmes tiers et identification des risques</div>
-          <div class="oli">Logging, alerting et plan de réponse incident IA</div>
+      <section class="ax-section ax-quote">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <p class="ax-quote-text">La cybersécurité comme socle. L’IA comme <em>accélérateur.</em></p>
         </div>
-      </div>
+      </section>
 
-    </div>
-  </div>
-</section>
-<!-- ══ SURFACE D'ATTAQUE ══════════════════════════════ -->
-<section class="surface">
-  <div class="wrap">
-    <h2 class="sh reveal">L'IA ne crée pas de <span class="text-orange">nouveaux risques.</span><br>Elle<em>amplifie ceux qui existent déjà</em></h2>
+      <section class="ax-section ax-section--grey" id="nos-offres">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Nos offres</p>
+            <h2 class="ax-h2">Trois offres, <em>un périmètre complet.</em></h2>
+          </div>
+          <div class="ax-stack">
+          <article class="ax-xcard ax-xcard--list ax-xcard--1" style="--i:0">
+            <div class="ax-xcard-text">
+              <span class="ax-xcard-kicker">01</span>
+              <h3>Audit sécurité des systèmes IA</h3>
+              <p>Revue technique complète de vos systèmes IA en production&nbsp;: architecture, accès, exposition des données, traçabilité des décisions, robustesse des modèles.</p>
+            </div>
+            <ul class="ax-xcard-list">
+              <li>Cartographie des systèmes IA &amp; Shadow AI</li>
+              <li>Analyse des flux de données entrants et sortants</li>
+              <li>Test des APIs d'inférence et des intégrations</li>
+              <li>Revue des accès aux datasets et aux modèles</li>
+              <li>Évaluation de la traçabilité et de l'observabilité</li>
+            </ul>
+          </article>
+          <article class="ax-xcard ax-xcard--list ax-xcard--2" style="--i:1">
+            <div class="ax-xcard-text">
+              <span class="ax-xcard-kicker">02</span>
+              <h3>Protection des données &amp; gouvernance IA</h3>
+              <p>Identifier ce qui sort de votre SI via l'IA, mettre en place les contrôles de sécurité des données et construire la gouvernance qui encadre les usages IA à risque.</p>
+            </div>
+            <ul class="ax-xcard-list">
+              <li>Inventaire des usages IA &amp; exposition des données sensibles</li>
+              <li>Classification des données transitant par les systèmes IA</li>
+              <li>Définition et mise en place de contrôles DLP adaptés à l'IA</li>
+              <li>Politique d'usage IA avec niveaux de risque définis</li>
+              <li>Registre IA et documentation pour le DPO et le RSSI</li>
+            </ul>
+          </article>
+          <article class="ax-xcard ax-xcard--list ax-xcard--3" style="--i:2">
+            <div class="ax-xcard-text">
+              <span class="ax-xcard-kicker">03</span>
+              <h3>Sécurisation des agents &amp; pipelines IA</h3>
+              <p>Cadrage sécurité des composants IA à risque&nbsp;: identifier et évaluer les risques des composants IA les plus exposés&nbsp;: agents autonomes, pipelines traitant des données sensibles, intégrations RAG ouvertes sur des contenus externes.</p>
+            </div>
+            <ul class="ax-xcard-list">
+              <li>Revue sécurité des architectures agents (LangChain, AutoGen…)</li>
+              <li>Définition de règles de limites d’action des guardrails</li>
+              <li>Durcissement des pipelines RAG &amp; des bases vectorielles</li>
+              <li>Cartographie des actions avec les systèmes tiers et identification des risques</li>
+              <li>Logging, alerting et plan de réponse incident IA</li>
+            </ul>
+          </article>
+          </div>
+        </div>
+      </section>
 
-    <div class="surface-grid reveal-stagger">
-      <div class="surf-card sc-r">
-        <div class="surf-ico">01</div>
-        <h3>Shadow AI & exposition des données</h3>
-        <p>Vos collaborateurs utilisent ChatGPT, Copilot et des dizaines d'outils SaaS IA pour aller plus vite. Sans le savoir, ils y envoient des données contractuelles, RH, financières et parfois des données personnelles au sens RGPD. Pas d'inventaire, pas de contrôle, pas de traçabilité. La fuite est silencieuse, continue, et déjà en cours.
-          </p>
-        <span class="surf-tag">Risque immédiat</span>
-      </div>
-      <div class="surf-card sc-y">
-        <div class="surf-ico">02</div>
-        <h3>Systèmes IA non durcis en production</h3>
-        <p>•	Vos équipes ont déployé des modèles et des pipelines IA vite, pour livrer. La sécurité n'était pas dans le scope. Résultat : des accès aux datasets trop larges, des logs insuffisants pour reconstituer un incident, des APIs d'inférence exposées sans politique d'accès claire. Ce ne sont pas des négligences — ce sont des angles morts que personne n'a été formé à voir.</p>
-        <span class="surf-tag">Risque technique</span>
-      </div>
-      <div class="surf-card sc-g">
-        <div class="surf-ico">03</div>
-        <h3>Agents autonomes & actions non maîtrisées</h3>
-        <p>Un agent IA qui interagit avec vos systèmes internes, envoie des emails, appelle des APIs ou modifie des données n'a pas de bon sens natif. Sans règles explicites, il peut être manipulé par un contenu malveillant, déclencher des actions non souhaitées ou sortir du périmètre prévu sans alerte, sans trace. Un pipeline peut exposer des données personnelles ou confidentielles à chaque étape de traitement sans que personne ne l'ait prévu ni détecté. La question n'est pas technique. C'est une question de règles et de visibilité : qui a défini ce que cet agent a le droit de faire ? Qui contrôle ce qui entre et sort des pipelines ? Qui surveille ?</p>
-        <span class="surf-tag">Risque émergent</span>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ══ METHODE ════════════════════════════════════════ -->
-<section class="method" id="methode">
-  <div class="wrap">
-  
-    <h2 class="sh reveal"><span class="text-orange">Notre méthode</span> du diagnostic à la <br> <span class="text-orange">facilitation </span>opérationnelle</h2>
+      <section class="ax-section" id="methode">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Notre méthode</p>
+            <h2 class="ax-h2">Du diagnostic à la <em>facilitation opérationnelle.</em></h2>
+          </div>
+          <div class="ax-method">
+            <ol class="ax-steps">
+              <li class="ax-step">
+                <span class="ax-step-n" aria-hidden="true">01</span>
+                <div>
+                  <h3>Cartographie &amp; évaluation des risques</h3>
+                  <p>Inventaire exhaustif des systèmes IA, outils SaaS IA, flux de données. Qualification du Shadow AI. Scoring des risques par système&nbsp;: confidentialité, intégrité, disponibilité, traçabilité.</p>
+                  <span class="ax-step-tag">Phase de cadrage</span>
+                </div>
+              </li>
+              <li class="ax-step">
+                <span class="ax-step-n" aria-hidden="true">02</span>
+                <div>
+                  <h3>Audit technique des composants à risque</h3>
+                  <p>Revue en profondeur des systèmes prioritaires&nbsp;: APIs d'inférence, architectures agents, pipelines RAG, accès aux datasets. Tests ciblés sur les vecteurs identifiés en phase 1.</p>
+                  <span class="ax-step-tag">Phase d'analyse</span>
+                </div>
+              </li>
+              <li class="ax-step">
+                <span class="ax-step-n" aria-hidden="true">03</span>
+                <div>
+                  <h3>Plan de remédiation &amp; contrôles de sécurité</h3>
+                  <p>Priorisation des actions par niveau de risque et effort. Implémentation des contrôles prioritaires&nbsp;: IAM, DLP, guardrails, logging. Politique d'usage IA validée avec le RSSI et le DPO.</p>
+                  <span class="ax-step-tag">Phase de sécurisation</span>
+                </div>
+              </li>
+              <li class="ax-step">
+                <span class="ax-step-n" aria-hidden="true">04</span>
+                <div>
+                  <h3>Restitution CODIR &amp; plan de surveillance</h3>
+                  <p>Présentation exécutive&nbsp;: niveau de risque chiffré, actions réalisées, risques résiduels, plan de surveillance continue. Un document que vos dirigeants comprennent et peuvent défendre.</p>
+                  <span class="ax-step-tag">Phase de restitution</span>
+                </div>
+              </li>
+            </ol>
+            <aside class="ax-deliv" aria-labelledby="livrables-titre">
+              <h3 id="livrables-titre">Exemple de livrables</h3>
+              <ul>
+                <li>Cartographie IA et Shadow AI<span>Cadrage</span></li>
+                <li>Rapport d'audit technique et vulnérabilités<span>Analyse</span></li>
+                <li>Politique de gouvernance IA opérationnelle<span>Gouvernance</span></li>
+                <li>Contrôles DLP et IAM déployés<span>Déploiement</span></li>
+                <li>Plan de remédiation priorisé et budget<span>Pilotage</span></li>
+                <li>Présentation CODIR et roadmap<span>Restitution</span></li>
+              </ul>
+              <p class="ax-deliv-note">Un Manager Actinuance, interlocuteur unique pour votre RSSI, votre DPO et vos équipes techniques.</p>
+            </aside>
+          </div>
+        </div>
+      </section>
 
-    <div class="meth-layout">
-      <div class="steps stagger-steps">
-        <div class="step">
-          <div class="step-n">01</div>
+      <section class="ax-section ax-aboutsec" id="atouts">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Nos atouts</p>
+              <h2 class="ax-h2">Ce qui nous <em class="ax-o">distingue.</em></h2>
+            </div>
+            <div class="ax-rows" style="margin-top:0">
+              <div class="ax-row">
+                <h3>Cyber et IA dans une seule équipe</h3>
+                <p>Pas d'interface entre un cabinet cyber et un intégrateur IA. Nos consultants évaluent la sécurité des systèmes IA sans apprendre l'IA en même temps.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Vecteurs issus de missions réelles</h3>
+                <p>Notre cartographie des menaces IA vient de nos audits 2024 et 2025, pas de rapports de vendors. On sait ce qui se passe dans vos secteurs, dans des SI comparables au vôtre.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Lecture RSSI ET DPO</h3>
+                <p>La sécurité des données dans les systèmes IA est un sujet partagé entre le RSSI et le DPO. Nos livrables parlent aux deux et créent les conditions d'un alignement que la plupart des cabinets ne permettent pas.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Indépendant des éditeurs</h3>
+                <p>Aucun accord commercial avec Microsoft, OpenAI, AWS ou autre. Nos recommandations sont dictées par votre niveau de risque, pas par notre stack partenaire.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="rex-ia">
+        <div class="ax-wrap">
+          <div class="ax-feed rex-section">
+            <h3>Client Stories missions IA</h3>
+            <div class="ax-pubs rex-grid" id="aiRexFeed" data-offer-tag="cyber-4-ai" data-limit="3">
+              <article class="rex-card">
+                <div class="rex-sector">Chargement</div>
+                <h3>Chargement des Client Stories...</h3>
+                <p>Connexion en cours avec Sanity Studio.</p>
+              </article>
+            </div>
+          </div>
+          <div class="ax-feed js-offer-related-wrapper">
+            <h3>Articles liés à l'offre</h3>
+            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-4-ai" data-offer-limit="2"></div>
+          </div>
+          <div class="ax-feed">
+            <h3>Les autres offres à la une</h3>
+            <div class="ax-links">
+              <a href="/dora" class="ax-linkcard">
+                <h3>DORA</h3>
+                <p>Résilience numérique, gestion des risques TIC, continuité, incidents et supervision des prestataires critiques.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/swift" class="ax-linkcard">
+                <h3>Swift CSP</h3>
+                <p>Conformité pilotée, evidence-first, remédiations priorisées et accompagnement opérationnel.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/cra" class="ax-linkcard">
+                <h3>CRA</h3>
+                <p>Classification produit, analyse d'écart, tests techniques et mise en conformité pilotée pour fabricants, importateurs et distributeurs.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <div class="ax-owner">
+          <img src="/Photos/Dirigeant/Ranie.jpg" data-team-slug="rania" alt="Rania, Manager" width="220" height="220" loading="lazy" />
           <div>
-            <div class="step-h">Cartographie & évaluation des risques</div>
-            <p class="step-p">Inventaire exhaustif des systèmes IA, outils SaaS IA, flux de données. Qualification du Shadow AI. Scoring des risques par système : confidentialité, intégrité, disponibilité, traçabilité.</p>
-            <span class="step-t">Phase de cadrage</span>
+            <p class="ax-kicker">Porteur de l'offre</p>
+            <h2>Rania, Manager</h2>
+            <p>Rania accompagne les organisations sur la sécurisation des usages IA en liant enjeux métiers, gouvernance et exigences cyber opérationnelles.</p>
+            <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Cyber%20for%20AI" class="ax-btn ax-btn--accent">Demander un échange</a>
           </div>
         </div>
-        <div class="step">
-          <div class="step-n">02</div>
-          <div>
-            <div class="step-h">Audit technique des composants à risque</div>
-            <p class="step-p">Revue en profondeur des systèmes prioritaires : APIs d'inférence, architectures agents, pipelines RAG, accès aux datasets. Tests ciblés sur les vecteurs identifiés en phase 1.</p>
-            <span class="step-t">Phase d'analyse</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-n">03</div>
-          <div>
-            <div class="step-h">Plan de remédiation & contrôles de sécurité</div>
-            <p class="step-p">Priorisation des actions par niveau de risque et effort. Implémentation des contrôles prioritaires : IAM, DLP, guardrails, logging. Politique d'usage IA validée avec le RSSI et le DPO.</p>
-            <span class="step-t">Phase de sécurisation</span>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-n">04</div>
-          <div>
-            <div class="step-h">Restitution CODIR & plan de surveillance</div>
-            <p class="step-p">Présentation exécutive : niveau de risque chiffré, actions réalisées, risques résiduels, plan de surveillance continue. Un document que vos dirigeants comprennent et peuvent défendre.</p>
-            <span class="step-t">Phase de restitution</span>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      <div class="deliv-card stagger-deliv">
-        <div class="dc-hd">Exemple de Livrables</div>
-        <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Cartographie IA et Shadow AI</div><div class="dr-t">Cadrage</div></div>
-        <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Rapport d'audit technique et vulnérabilités</div><div class="dr-t">Analyse</div></div>
-        <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Politique de gouvernance IA opérationnelle</div><div class="dr-t">Gouvernance</div></div>
-        <div class="dr"><div class="dr-dot" style="background:var(--y)"></div><div class="dr-label">Contrôles DLP et IAM déployés</div><div class="dr-t">Déploiement</div></div>
-        <div class="dr"><div class="dr-dot" style="background:var(--g)"></div><div class="dr-label">Plan de remédiation priorisé et budget</div><div class="dr-t">Pilotage</div></div>
-        <div class="dr"><div class="dr-dot" style="background:var(--r)"></div><div class="dr-label">Présentation CODIR et roadmap</div><div class="dr-t">Restitution</div></div>
-        <div class="dc-note">Un Manager Actinuance, interlocuteur unique pour votre RSSI, votre DPO et vos équipes techniques.</div>
-      </div>
     </div>
-  </div>
-</section>
+  </main>
 
-<!-- ══ WHY ════════════════════════════════════════════ -->
-<section class="why">
-  <div class="wrap why-layout">
-    <div>
-      <div class="why-stmt reveal">
-        La cybersécurité <br>
-        <span class="text-orange">comme socle.</span><br>
-        L’IA comme<br>
-        <em>accélérateur.</em>
-      </div>
-      
-    </div>
-    <div class="why-items stagger-items">
-      <div class="witem">
-        <h4><span class="wn">+</span>Cyber et IA dans une seule équipe</h4>
-        <p>Pas d'interface entre un cabinet cyber et un intégrateur IA. Nos consultants évaluent la sécurité des systèmes IA sans apprendre l'IA en même temps.</p>
-      </div>
-      <div class="witem">
-        <h4><span class="wn">+</span>Vecteurs issus de missions réelles</h4>
-        <p>Notre cartographie des menaces IA vient de nos audits 2024 et 2025, pas de rapports de vendors. On sait ce qui se passe dans vos secteurs, dans des SI comparables au vôtre.</p>
-      </div>
-      <div class="witem">
-        <h4><span class="wn">+</span>Lecture RSSI ET DPO</h4>
-        <p>La sécurité des données dans les systèmes IA est un sujet partagé entre le RSSI et le DPO. Nos livrables parlent aux deux et créent les conditions d'un alignement que la plupart des cabinets ne permettent pas.</p>
-      </div>
-      <div class="witem">
-        <h4><span class="wn">+</span>Indépendant des éditeurs</h4>
-        <p>Aucun accord commercial avec Microsoft, OpenAI, AWS ou autre. Nos recommandations sont dictées par votre niveau de risque, pas par notre stack partenaire.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ REX ════════════════════════════════════════════ -->
-<section class="rex-section" id="rex-ia">
-  <div class="wrap">
-    <span class="eyebrow rex-eyebrow">Client Stories</span>
-    <h2 class="sh rex-title">Client Stories <span class="text-orange">missions IA</span></h2>
-    <div class="rex-grid" id="aiRexFeed" data-offer-tag="cyber-4-ai" data-limit="3">
-      <article class="rex-card">
-        <div class="rex-sector">Chargement</div>
-        <h3>Chargement des Client Stories...</h3>
-        <p>Connexion en cours avec Sanity Studio.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══ OWNER ═════════════════════════════════════════ -->
-<section class="owner">
-  <div class="wrap">
-    <div class="owner-card">
-      <img src="/Photos/Dirigeant/Ranie.jpg" data-team-slug="rania" alt="Rania Manager" class="owner-photo">
-      <div>
-        <div class="owner-role">Porteur de l'offre</div>
-        <h3>Rania, Manager</h3>
-        <p>Rania accompagne les organisations sur la sécurisation des usages IA en liant enjeux métiers, gouvernance et exigences cyber opérationnelles.</p>
-        <div class="owner-actions">
-          <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Cyber%20for%20AI" class="btn-p">Demander un échange</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <a href="/" class="nav-logo">
-        <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
-      </a>
-      <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
-      <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
-        <div>
-          <div class="badge-title">Happy at Work 2025</div>
-          <div class="badge-sub">Certifié par nos collaborateurs</div>
-        </div></a>
-      <div class="footer-social">
-        <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
         </a>
-        <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
-        </a>
+        <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <div class="footer-col-title">Expertises</div>
-        <a href="/risques-digitaux">Risques Digitaux</a>
-        <a href="/cyber-defense">Cyber Défense</a>
-        <a href="/audit-conformite">Audit et Conformité</a>
-        <a href="/transfo-cyber">Transfo Cyber</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Secteurs</div>
-        <a href="/secteur-banque">Banque</a>
-        <a href="/secteur-assurance">Assurance</a>
-        <a href="/secteur-luxe">Luxe</a>
-        
-        <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
-        <a href="/secteur-technologie">Tech</a>
-      </div>
-      <div class="footer-col">
-        <div class="footer-col-title">Cabinet</div>
-        <a href="/#apropos">À propos</a>
-        <a href="/equipe-dirigeante">Equipe dirigeante</a>
-        <a href="/nous-rejoindre">Nous rejoindre</a>
-        <a href="/#contact">Contact</a>
+    <div class="footer-bottom">
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Actinuance Consulting, Tous droits réservés</p>
-    <div class="footer-legal">
-      <a href="/mentions-legales">Mentions légales</a>
-      <a href="/protection-donnees">Protection des données</a>
-    </div>
-  </div>
-</footer>
-
-<script src="script.js?v=20260916"></script>
-
-  <!-- SCROLL REVEAL & INTERACTIONS -->
-  <script>
-  (function() {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    var selectors = [
-      '.reveal', '.reveal-left',
-      '.reveal-stagger',
-      '.stagger-steps', '.stagger-checks',
-      '.stagger-items', '.stagger-deliv'
-    ];
-
-    document.querySelectorAll(selectors.join(',')).forEach(function(el) {
-      io.observe(el);
-    });
-  })();
-  </script>
-
+  </footer>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

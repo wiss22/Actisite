@@ -1,0 +1,47 @@
+/* ══════════════════════════════════════════════
+   ACTINUANCE — Pages pilier et offres Risques Digitaux
+   Chargée après ax.css. Compléments de composants .ax-
+════════════════════════════════════════════════ */
+
+/* Deux blocs « .ax-two » à la suite dans une même section. */
+.ax-two + .ax-two { margin-top: clamp(64px, 8vw, 112px); }
+
+/* Tuiles numérotées (schéma, étapes, phases). */
+.ax-commit-num {
+  position: relative;
+  display: block;
+  margin-bottom: 22px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+.ax-trio .ax-commit p { position: relative; }
+
+/* Variante quatre colonnes de .ax-trio. */
+.ax-trio.ax-trio--4 { grid-template-columns: repeat(4, 1fr); }
+.ax-trio--4 .ax-commit { min-height: 210px; }
+.ax-trio--4 .ax-commit h3 { font-size: 1.25rem; }
+
+@media (max-width: 1000px) {
+  .ax-trio.ax-trio--4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ax-trio.ax-trio--4 { grid-template-columns: 1fr; }
+}
+
+/* Numéro de phase dans une carte empilée. */
+.ax-xcard-num {
+  display: block;
+  margin-bottom: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ax-orange);
+}
+.ax-xcard--4 .ax-xcard-num { color: var(--ax-purple); }
+
+/* Chiffre mis en avant dans une phrase sur fond violet. */
+.ax-quote-text em { font-style: normal; color: var(--ax-orange); }

@@ -1,0 +1,114 @@
+/* ══════════════════════════════════════════════
+   ACTINUANCE — Pages secteur (DA « ax »)
+   Chargée après ax.css sur secteur-*.html uniquement.
+════════════════════════════════════════════════ */
+
+/* Six priorités : deux rangées de tuiles, la seconde serrée sous la première. */
+.ax-trio + .ax-trio { margin-top: 20px; }
+.ax-trio .ax-commit p { max-width: 40ch; }
+
+/* « Comment Actinuance répond » : cartes empilées numérotées. */
+.ax-xcard--step { min-height: 360px; }
+.ax-xcard-step {
+  margin-bottom: 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ax-orange);
+}
+.ax-xcard--step .ax-xcard-text > p.ax-xcard-step { max-width: none; margin-top: 0; color: var(--ax-orange); }
+
+/* Exemples de mission : rendu injecté par script.js (bloc [data-rex-sector]). */
+.ax-page .luxe-rex-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.ax-page .luxe-rex-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--ax-radius);
+  background: var(--ax-grey);
+  color: var(--ax-muted);
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+.ax-page a.luxe-rex-item:hover { background: #ece2f2; box-shadow: none; }
+.ax-page .luxe-rex-media {
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: 0;
+  background: linear-gradient(150deg, #7030a0 0%, var(--ax-dark) 100%);
+}
+.ax-page .luxe-rex-media img { transition: transform 0.7s var(--ax-ease); }
+.ax-page a.luxe-rex-item:hover .luxe-rex-media img { transform: scale(1.04); }
+.ax-page .luxe-rex-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: clamp(24px, 3vw, 32px);
+}
+.ax-page .luxe-rex-kicker {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ax-purple);
+}
+.ax-page .luxe-rex-item h3 {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ax-ink);
+}
+.ax-page .luxe-rex-item p {
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--ax-muted);
+}
+.ax-page .luxe-rex-item .card-link {
+  margin-top: auto;
+  padding-top: 8px;
+  font-weight: 500;
+  color: var(--ax-purple);
+}
+
+/* État de chargement (texte d'origine conservé). */
+.ax-page .luxe-rex-loading {
+  grid-column: 1 / -1;
+  padding: clamp(24px, 3vw, 36px);
+  gap: 10px;
+}
+
+/* Tuiles des autres secteurs : 5 tuiles (page retail) sur 3 + 2. */
+.ax-links--5 { grid-template-columns: repeat(6, 1fr); }
+.ax-links--5 > .ax-linkcard { grid-column: span 2; }
+.ax-links--5 > .ax-linkcard:nth-child(n + 4) { grid-column: span 3; }
+
+/* Contact de fin : accroche, texte et deux actions centrées. */
+.ax-contact .ax-kicker { margin-bottom: 18px; color: #ffa466; }
+.ax-contact > p.ax-contact-lead { max-width: 640px; margin-inline: auto; }
+.ax-contact .ax-actions { justify-content: center; margin-top: 36px; }
+.ax-contact .ax-actions .ax-btn { margin-top: 0; }
+
+@media (max-width: 1000px) {
+  .ax-page .luxe-rex-list { grid-template-columns: 1fr 1fr; }
+  .ax-links--5 { grid-template-columns: 1fr; }
+  .ax-links--5 > .ax-linkcard,
+  .ax-links--5 > .ax-linkcard:nth-child(n + 4) { grid-column: auto; }
+}
+@media (max-width: 760px) {
+  .ax-page .luxe-rex-list { grid-template-columns: 1fr; }
+  .ax-xcard--step { min-height: 0; }
+}

@@ -21,15 +21,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Swiper 11 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css">
-  <link rel="stylesheet" href="cyber-offers-shared.css">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-cyber.css?v=20261111">
 </head>
-<body class="cyber-pillar-page swift-modern-page offer-editorial-page cyber-offer-page">
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
-<nav id="navbar" class="scrolled"><div class="nav-inner"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" /></a>
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
+      </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
@@ -67,265 +76,309 @@
         </li>
         <li><a href="/#apropos">À propos</a></li>
       </ul>
-      <div class="nav-actions"><a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a><a href="/#contact" class="nav-cta">Nous contacter</a></div><button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button></div></nav>
-
-<section class="page-hero page-hero-animated page-hero-sm hero-cyberdefense hero-swift-modern">
-  <div class="page-hero-art" aria-hidden="true">
-    <span class="geo geo-a"></span>
-    <span class="geo geo-b"></span>
-    <span class="geo geo-c"></span>
-    <span class="geo geo-d"></span>
-  </div>
-  <div class="swift-hero-grid swift-hero-grid-no-panel">
-    <div class="swift-hero-copy">
-      <div class="section-eyebrow">Offre — Cyber Défense</div>
-      <h1>Résilience <span>opérationnelle</span></h1>
-      <p class="hero-lead">Transformer la gestion des vulnérabilités en un dispositif piloté, lisible et durable au service de la cyberrésilience des environnements critiques.</p>
-      <div class="swift-hero-pills">
-        <span>Vulnérabilités</span>
-        <span>Priorisation</span>
-        <span>Résilience pilotée</span>
+      <div class="nav-actions">
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/#contact" class="nav-cta">Nous contacter</a>
       </div>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
-  </div>
-  <a href="#offer-content" class="offer-scroll-cta" aria-label="Découvrir"><span>Découvrir</span><span class="arrow">↓</span></a>
-</section>
+  </nav>
 
-<section class="page-section alt" id="offer-content">
-  <div class="container">
-    <div class="offer-shell-layout">
-      <aside class="pillar-flynav offer-flynav" aria-label="Navigation offres Cyber Défense">
-        <div class="pillar-flynav-title pillar-flynav-title-accent">Expertise Cyber Défense</div>
-        <a href="/cyber-defense#presentation-pilier" class="pillar-overview-link">Présentation du pilier</a>
-        <div class="pillar-flynav-sep"></div>
-        <div class="pillar-flynav-title">Offres</div>
-        <a href="/cyber-cloud-defense">Sécurité du cloud</a>
-        <a href="/cyber-securite-developpement">Sécurité du développement</a>
-        <a href="/cyber-resilience-operationnelle" class="is-active">Résilience opérationnelle</a>
-        <a href="/cyber-securite-industries">Sécurité des industries</a>
-      </aside>
-      <div class="offer-shell-main offer-shell-main-lite">
-        <!-- ── 01 CONTEXTE ── -->
-        <article class="offer-shell-section reveal">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">01</div>
-            <h3>Contexte et enjeux</h3>
-          </div>
-          <p>Dans des environnements numériques de plus en plus exposés, les organisations font face à une augmentation continue des vulnérabilités, à la complexité croissante des systèmes et à des exigences réglementaires renforcées.</p>
+  <main id="main">
 
-          <div class="swiper ccd-context-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-                  </div>
-                  <p><strong>Exposition Hybride</strong> — Les vulnérabilités se diffusent entre infrastructures historiques, environnements cloud et systèmes critiques.</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                  </div>
-                  <p><strong>Visibilité Fragmentée</strong> — L’absence de lecture consolidée des actifs exposés ralentit les arbitrages et dilue les priorités de traitement.</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-                  </div>
-                  <p><strong>Priorisation Ciblée</strong> — La remédiation doit être orientée par le risque réel, l’exposition et l’impact opérationnel, pas par le seul volume d’alertes.</p>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                  </div>
-                  <p><strong>Résilience Pilotée</strong> — La gestion des vulnérabilités devient un sujet de gouvernance continue et non plus un exercice purement technique.</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
-          </div>
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="2">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#expertises">Expertises</a><span aria-hidden="true">/</span><a href="/cyber-defense">Cyber Défense</a><span aria-hidden="true">/</span><span aria-current="page">Résilience opérationnelle</span></nav>
+          <h1>Résilience <em>opérationnelle</em></h1>
+          <p class="ax-hero-lead">Transformer la gestion des vulnérabilités en un dispositif piloté, lisible et durable au service de la cyberrésilience des environnements critiques.</p>
+          <ul class="ax-pills"><li>Vulnérabilités</li><li>Priorisation</li><li>Résilience pilotée</li></ul>
+          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">En discuter</a><a href="#offre" class="ax-link ax-link--light">Découvrir l'offre</a></div>
+        </div>
+      </div>
+    </section>
 
-          <p class="offer-context-highlight">La gestion des vulnérabilités constitue désormais un pilier essentiel de la résilience opérationnelle et de la maîtrise du risque cyber.</p>
-        </article>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="/cyber-defense" class="ax-subnav-back">‹ Cyber Défense</a>
+          <a href="#contexte">Contexte</a>
+          <a href="#offre">L'offre</a>
+          <a href="#demarche">Démarche</a>
+          <a href="#atouts">Nos atouts</a>
+          <a href="#contact" class="ax-subnav-cta">En discuter</a>
+        </div>
+      </div>
 
-        <!-- ── 02 OFFRE ── -->
-        <article class="offer-shell-section reveal" data-delay="90">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">02</div>
-            <h3>L’offre Actinuance</h3>
-          </div>
-          <p>Actinuance accompagne les organisations dans la structuration et le pilotage de leur dispositif de gestion des vulnérabilités, afin de renforcer leur résilience face aux menaces et d’améliorer durablement leur posture de sécurité.</p>
-          <div class="ccd-deliverables-grid">
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">01</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-              <strong>Structurer les dispositifs de détection</strong>
-              <p>Mettre en place un cadre clair pour identifier, qualifier et suivre les vulnérabilités dans la durée.</p>
+      <section class="ax-section" id="contexte">
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Contexte et enjeux</p>
+              <h2 class="ax-h2">Des vulnérabilités en hausse continue.</h2>
             </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">02</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-              <strong>Améliorer la visibilité sur les actifs exposés</strong>
-              <p>Consolider la lecture des surfaces d’attaque et des ressources les plus critiques.</p>
-            </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">03</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-              <strong>Définir des processus de priorisation et de remédiation</strong>
-              <p>Orienter le traitement selon le risque réel, l’exposition et les enjeux métier.</p>
-            </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">04</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
-              <strong>Renforcer gouvernance et outillage</strong>
-              <p>Accompagner le pilotage des risques liés aux vulnérabilités et l’optimisation des outils de gestion.</p>
+            <div class="ax-prose" data-lit>
+              <p>Dans des environnements numériques de plus en plus exposés, les organisations font face à une augmentation continue des vulnérabilités, à la complexité croissante des systèmes et à des exigences réglementaires renforcées.</p>
             </div>
           </div>
-          <p class="offer-context-highlight">Notre objectif est d’aider les organisations à transformer la gestion des vulnérabilités en un levier structurant de leur cyberrésilience.</p>
-        </article>
+          <div class="ax-trio ax-trio--4">
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              <h3>Exposition Hybride</h3>
+              <p>Les vulnérabilités se diffusent entre infrastructures historiques, environnements cloud et systèmes critiques.</p>
+            </div>
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <h3>Visibilité Fragmentée</h3>
+              <p>L’absence de lecture consolidée des actifs exposés ralentit les arbitrages et dilue les priorités de traitement.</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <h3>Priorisation Ciblée</h3>
+              <p>La remédiation doit être orientée par le risque réel, l’exposition et l’impact opérationnel, pas par le seul volume d’alertes.</p>
+            </div>
+            <div class="ax-commit ax-commit--4"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <h3>Résilience Pilotée</h3>
+              <p>La gestion des vulnérabilités devient un sujet de gouvernance continue et non plus un exercice purement technique.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- ── 03 DÉMARCHE ── -->
-        <article class="offer-shell-section ccd-section-dark reveal" data-delay="140">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">03</div>
-            <h3>Notre démarche</h3>
-          </div>
-          <p class="ccd-timeline-intro">Notre approche combine expertise technique, gouvernance du risque et intégration opérationnelle, afin d’inscrire la gestion des vulnérabilités dans une logique durable de pilotage de la sécurité.</p>
-          <div class="ccd-timeline">
-            <div class="ccd-timeline-step">
-              <div class="ccd-timeline-left">
-                <div class="ccd-timeline-dot">1</div>
-                <div class="ccd-timeline-connector"></div>
-              </div>
-              <div class="ccd-timeline-content">
-                <strong>Cadrage</strong>
-                <p>Identification du périmètre, cartographie des actifs critiques et analyse de la posture de gestion des vulnérabilités.</p>
-              </div>
-            </div>
-            <div class="ccd-timeline-step">
-              <div class="ccd-timeline-left">
-                <div class="ccd-timeline-dot">2</div>
-                <div class="ccd-timeline-connector"></div>
-              </div>
-              <div class="ccd-timeline-content">
-                <strong>Structuration</strong>
-                <p>Définition des processus de détection, qualification et priorisation, ainsi que des rôles et responsabilités associés.</p>
-              </div>
-            </div>
-            <div class="ccd-timeline-step">
-              <div class="ccd-timeline-left">
-                <div class="ccd-timeline-dot">3</div>
-                <div class="ccd-timeline-connector"></div>
-              </div>
-              <div class="ccd-timeline-content">
-                <strong>Pilotage opérationnel</strong>
-                <p>Organisation du suivi, coordination avec les équipes de remédiation et mise en place de tableaux de bord consolidés.</p>
-              </div>
-            </div>
-            <div class="ccd-timeline-step">
-              <div class="ccd-timeline-left">
-                <div class="ccd-timeline-dot">4</div>
-                <div class="ccd-timeline-connector"></div>
-              </div>
-              <div class="ccd-timeline-content">
-                <strong>Amélioration continue</strong>
-                <p>Mise en place d’indicateurs de performance et évolution du dispositif pour s’adapter aux menaces et aux exigences réglementaires.</p>
-              </div>
-            </div>
-          </div>
-          <p class="offer-context-highlight">Cette approche inscrit la gestion des vulnérabilités dans une logique de maîtrise durable des risques et de soutien aux exigences de résilience opérationnelle.</p>
-        </article>
+      <section class="ax-section ax-quote">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <p class="ax-quote-text ax-quote-text--long">La gestion des vulnérabilités constitue désormais un pilier essentiel de la résilience opérationnelle et de la maîtrise du risque cyber.</p>
+        </div>
+      </section>
 
-        <!-- ── 04 ATOUTS ── -->
-        <article class="offer-shell-section reveal" data-delay="180">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">04</div>
-            <h3>Nos atouts</h3>
+      <section class="ax-section ax-section--grey" id="offre">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">L’offre Actinuance</p>
+            <h2 class="ax-h2">Un dispositif structuré et piloté.</h2>
+            <p class="ax-lead">Actinuance accompagne les organisations dans la structuration et le pilotage de leur dispositif de gestion des vulnérabilités, afin de renforcer leur résilience face aux menaces et d’améliorer durablement leur posture de sécurité.</p>
           </div>
-          <div class="swiper ccd-atouts-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="01">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M21 10V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16v-2"/><path d="M3.3 7l8.7 5 8.7-5"/><path d="M12 22V12"/></svg></div>
-                  <strong>Expertise des environnements hybrides</strong>
-                  <p>Nous combinons lecture technique des infrastructures, plateformes cloud et systèmes critiques dans des contextes complexes.</p>
-                </div>
+          <div class="ax-stack ax-stack--offer">
+            <article class="ax-xcard ax-xcard--1" style="--i:0">
+              <div class="ax-xcard-text">
+                <h3>Structurer les dispositifs de détection</h3>
+                <p>Mettre en place un cadre clair pour identifier, qualifier et suivre les vulnérabilités dans la durée.</p>
               </div>
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="02">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                  <strong>Vision pilotage, risque et conformité</strong>
-                  <p>Nous relions la gestion des vulnérabilités aux enjeux de gouvernance, de priorisation et d’exigences réglementaires.</p>
-                </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--2" style="--i:1">
+              <div class="ax-xcard-text">
+                <h3>Améliorer la visibilité sur les actifs exposés</h3>
+                <p>Consolider la lecture des surfaces d’attaque et des ressources les plus critiques.</p>
               </div>
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="03">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></div>
-                  <strong>Dispositif exploitable par les décideurs</strong>
-                  <p>Nous transformons une accumulation de constats techniques en pilotage lisible, hiérarchisé et aligné avec les objectifs de résilience.</p>
-                </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M24 5L11 10.5v11.2c0 8 5.5 15.3 13 16.9 7.5-1.6 13-8.9 13-16.9V10.5L24 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 24.2l4.2 4.2L31 19.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 15.5h16" stroke="currentColor" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--3" style="--i:2">
+              <div class="ax-xcard-text">
+                <h3>Définir des processus de priorisation et de remédiation</h3>
+                <p>Orienter le traitement selon le risque réel, l’exposition et les enjeux métier.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--4" style="--i:3">
+              <div class="ax-xcard-text">
+                <h3>Renforcer gouvernance et outillage</h3>
+                <p>Accompagner le pilotage des risques liés aux vulnérabilités et l’optimisation des outils de gestion.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="12" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="34" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M16.8 16.4l14.4 0M15 18.6l6 9.5M33 18.6l-6 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M24 8.2v5.2" stroke="currentColor" stroke-width="1.6" opacity="0.48" stroke-linecap="round"/></svg></div>
+            </article>
+          </div>
+          <p class="ax-closing">Notre objectif est d’aider les organisations à transformer la gestion des vulnérabilités en un levier structurant de leur cyberrésilience.</p>
+        </div>
+      </section>
+
+      <section class="ax-section ax-darksec" id="demarche">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Notre démarche</p>
+            <h2 class="ax-h2">Du cadrage à l’amélioration continue.</h2>
+            <p class="ax-lead">Notre approche combine expertise technique, gouvernance du risque et intégration opérationnelle, afin d’inscrire la gestion des vulnérabilités dans une logique durable de pilotage de la sécurité.</p>
+          </div>
+          <ol class="ax-steps ax-steps--4">
+            <li class="ax-step" style="--s:0">
+              <span class="ax-step-num" aria-hidden="true">01</span>
+              <h3>Cadrage</h3>
+              <p>Identification du périmètre, cartographie des actifs critiques et analyse de la posture de gestion des vulnérabilités.</p>
+            </li>
+            <li class="ax-step" style="--s:1">
+              <span class="ax-step-num" aria-hidden="true">02</span>
+              <h3>Structuration</h3>
+              <p>Définition des processus de détection, qualification et priorisation, ainsi que des rôles et responsabilités associés.</p>
+            </li>
+            <li class="ax-step" style="--s:2">
+              <span class="ax-step-num" aria-hidden="true">03</span>
+              <h3>Pilotage opérationnel</h3>
+              <p>Organisation du suivi, coordination avec les équipes de remédiation et mise en place de tableaux de bord consolidés.</p>
+            </li>
+            <li class="ax-step" style="--s:3">
+              <span class="ax-step-num" aria-hidden="true">04</span>
+              <h3>Amélioration continue</h3>
+              <p>Mise en place d’indicateurs de performance et évolution du dispositif pour s’adapter aux menaces et aux exigences réglementaires.</p>
+            </li>
+          </ol>
+          <p class="ax-closing">Cette approche inscrit la gestion des vulnérabilités dans une logique de maîtrise durable des risques et de soutien aux exigences de résilience opérationnelle.</p>
+        </div>
+      </section>
+
+      <section class="ax-section ax-aboutsec" id="atouts">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Nos atouts</p>
+              <h2 class="ax-h2">Des constats techniques à un pilotage <em class="ax-o">lisible.</em></h2>
+            </div>
+            <div class="ax-rows" style="margin-top:0">
+              <div class="ax-row">
+                <h3>Expertise des environnements hybrides</h3>
+                <p>Nous combinons lecture technique des infrastructures, plateformes cloud et systèmes critiques dans des contextes complexes.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Vision pilotage, risque et conformité</h3>
+                <p>Nous relions la gestion des vulnérabilités aux enjeux de gouvernance, de priorisation et d’exigences réglementaires.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Dispositif exploitable par les décideurs</h3>
+                <p>Nous transformons une accumulation de constats techniques en pilotage lisible, hiérarchisé et aligné avec les objectifs de résilience.</p>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-        </article>
+        </div>
+      </section>
 
-        <!-- ── 05 CLIENT STORIES ── -->
-        <article class="offer-shell-section reveal" data-delay="220">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">05</div>
+      <section class="ax-section ax-section--grey" id="aller-plus-loin">
+        <div class="ax-wrap offer-shell-main">
+          <div class="ax-feed offer-shell-section">
             <h3>Client Stories</h3>
+            <div class="offer-retex-grid"></div>
           </div>
-          <div class="offer-retex-grid"></div>
-        </article>
-
-        <article class="offer-shell-section reveal" data-delay="260">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">06</div>
+          <div class="ax-feed offer-shell-section">
             <h3>Articles liés à l’offre</h3>
+            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-resilience-operationnelle" data-offer-limit="2"></div>
           </div>
-          <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-resilience-operationnelle" data-offer-limit="2">
-            
+          <div class="ax-feed">
+            <h3>Les autres offres Cyber Défense</h3>
+            <div class="ax-links">
+              <a href="/cyber-cloud-defense" class="ax-linkcard">
+                <h3>Sécurité du cloud</h3>
+                <p>Auditer, renforcer et piloter la sécurité de vos environnements cloud, de la configuration à la détection des menaces.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/cyber-securite-developpement" class="ax-linkcard">
+                <h3>Sécurité du développement</h3>
+                <p>Intégrer la sécurité dans les cycles DevOps pour réduire la surface d'attaque dès la conception.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/cyber-securite-industries" class="ax-linkcard">
+                <h3>Sécurité des industries</h3>
+                <p>Sécuriser les environnements OT/ICS avec une approche métier, sans perturber les opérations industrielles.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+            </div>
           </div>
-        </article>
+        </div>
+      </section>
 
-        <article class="offer-shell-profile reveal" data-delay="300"><img src="Photos/Dirigeant/Auguste.jpg" data-team-slug="auguste" alt="Auguste — Consultant" class="offer-shell-profile-photo" /><div class="offer-shell-profile-content"><div class="section-eyebrow">Porteur de l’offre</div><h3>Auguste — Deputy Manager</h3><p>Auguste accompagne les organisations dans la structuration et le pilotage de dispositifs de gestion des vulnérabilités adaptés aux environnements hybrides, cloud et critiques.</p>
-          <div class="card-cta" style="margin-top:14px;"><a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Resilience%20operationnelle" class="btn-primary">En discuter avec Auguste</a></div></div></article>
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <div class="ax-owner">
+          <img src="Photos/Dirigeant/Auguste.jpg" data-team-slug="auguste" alt="Auguste — Consultant" width="220" height="220" loading="lazy" />
+          <div>
+            <p class="ax-kicker">Porteur de l’offre</p>
+            <h2>Auguste — Deputy Manager</h2>
+            <p>Auguste accompagne les organisations dans la structuration et le pilotage de dispositifs de gestion des vulnérabilités adaptés aux environnements hybrides, cloud et critiques.</p>
+            <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Resilience%20operationnelle" class="ax-btn ax-btn--accent">En discuter avec Auguste</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
+        <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<footer><div class="footer-inner"><div class="footer-brand"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a><p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p><a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div><div><div class="badge-title">Happy at Work 2025</div><div class="badge-sub">Certifié par nos collaborateurs</div></div></a><div class="footer-social"><a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg></a></div></div><div class="footer-links"><div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div><div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div><div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div></div></div><div class="footer-bottom"><p>© 2025 Actinuance Consulting — Tous droits réservés</p><div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/protection-donnees">Protection des données</a></div></div></footer>
-
-<script src="script.js?v=20260916"></script>
-  <!-- Swiper 11 -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-  (function () {
-    'use strict';
-    if (typeof Swiper === 'undefined') return;
-    new Swiper('.ccd-context-swiper', {
-      slidesPerView: 1.12, spaceBetween: 16, loop: false, grabCursor: true,
-      autoplay: { delay: 4200, disableOnInteraction: true, pauseOnMouseEnter: true },
-      pagination: { el: '.ccd-context-swiper .swiper-pagination', clickable: true },
-      navigation: { prevEl: '.ccd-context-swiper .swiper-button-prev', nextEl: '.ccd-context-swiper .swiper-button-next' },
-      breakpoints: { 0: { enabled: false }, 520: { enabled: true, slidesPerView: 1.5, spaceBetween: 18 }, 740: { enabled: true, slidesPerView: 2, spaceBetween: 20 }, 960: { enabled: true, slidesPerView: 2, spaceBetween: 24 } },
-    });
-    new Swiper('.ccd-atouts-swiper', {
-      slidesPerView: 1.1, centeredSlides: true, spaceBetween: 18, loop: false, grabCursor: true,
-      pagination: { el: '.ccd-atouts-swiper .swiper-pagination', clickable: true },
-      breakpoints: { 0: { enabled: false, centeredSlides: false }, 520: { enabled: true, slidesPerView: 1.4, centeredSlides: true, spaceBetween: 20 }, 740: { enabled: true, slidesPerView: 2, centeredSlides: false, spaceBetween: 22 }, 1060: { enabled: true, slidesPerView: 3, centeredSlides: false, spaceBetween: 22 } },
-    });
-  })();
-  </script>
+    <div class="footer-bottom">
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/protection-donnees">Protection des données</a>
+      </div>
+    </div>
+  </footer>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

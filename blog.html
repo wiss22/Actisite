@@ -21,9 +21,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-publications.css?v=20261111">
 </head>
-<body class="blog-page">
+<body class="ax-page ax-inner ax-pub">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -81,38 +84,77 @@
     </div>
   </nav>
 
-  <section class="section section-dark publications-hero blog-hero" style="padding-top: 140px;">
-    <div class="container">
-      <div class="section-intro light">
-        <div class="section-eyebrow">Publications — Articles</div>
-        <h1 class="section-heading" style="color:#fff;">Analyses, inforgraphies<br>et décryptages <em>cyber</em></h1>
-        <p class="section-sub">Une sélection d’articles pratiques sur les tendances cyber, les nouveautés sur l'ecosystème et parfois <em>autre chose</em>.</p>
-      </div>
+  <main id="main">
 
-      <div class="blog-linkedin-band" id="blogLinkedinBand">
-        <div class="blog-linkedin-band-head">
-          <div class="section-eyebrow">Publications — LinkedIn</div>
+    <section class="ax-hero ax-hero--page ax-hero--list" id="hero" data-slide="0">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Publications</span><span aria-hidden="true">/</span><span aria-current="page">Articles</span></nav>
+          <h1>Analyses, infographies<br> et décryptages <em>cyber</em></h1>
+          <p class="ax-hero-lead">Une sélection d’articles pratiques sur les tendances cyber, les nouveautés sur l’écosystème et parfois <em>autre chose</em>.</p>
         </div>
-        <div class="blog-linkedin-band-wrap">
-          <div class="blog-linkedin-band-track" id="linkedinBandTrack">
-            <a class="blog-linkedin-chip" href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">
-              <span class="chip-source">LinkedIn</span>
-              <strong>Chargement des posts LinkedIn...</strong>
-            </a>
+      </div>
+    </section>
+
+    <div class="ax-over">
+      <section class="ax-section" id="articles">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Publications — Articles</p>
+            <h2 class="ax-h2">Nos derniers articles.</h2>
+          </div>
+          <div class="ax-pubgrid" id="blogGrid" aria-live="polite">
+            <article class="ressource-card" id="blogLoadingCard">
+              <div class="ressource-tag">Chargement</div>
+              <h3>Chargement des publications…</h3>
+            </article>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div class="ressources-grid" id="blogGrid">
-        <article class="ressource-card" id="blogLoadingCard">
-          <div class="ressource-tag">Chargement</div>
-          <h3>Chargement des publications…</h3>
-        </article>
+      <section class="ax-section ax-join ax-pub-linkedin" id="blogLinkedinBand">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
       </div>
+        <div class="ax-wrap">
+          <div class="ax-head blog-linkedin-band-head">
+            <p class="ax-kicker">Publications — LinkedIn</p>
+            <h2 class="ax-h2">Nos publications LinkedIn.</h2>
+          </div>
+          <div class="blog-linkedin-band-wrap">
+            <div class="blog-linkedin-band-track" id="linkedinBandTrack">
+              <a class="blog-linkedin-chip" href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">
+                <span class="chip-source">LinkedIn</span>
+                <strong>Chargement des posts LinkedIn...</strong>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <h2>Parlons de votre <em>projet.</em></h2>
+        <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
+        <a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
+        <address>147 Rue de Rennes, 75006 Paris</address>
+      </section>
+
     </div>
-  </section>
+  </main>
 
-    <footer>
+  <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
@@ -146,27 +188,27 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
   </footer>
+
   <script>
     (async function () {
       const escapeHtml = (value) =>
@@ -338,6 +380,9 @@
       linkedinTrack.innerHTML = shouldLoop ? `${chips}${chips}` : chips
     })()
   </script>
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

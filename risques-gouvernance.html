@@ -21,140 +21,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css?v=20260318">
-  <style>
-  /* ── Bloc diagnostic "point faible commun" ── */
-  .rg-diag {
-    background: rgba(83,35,105,0.05);
-    border: 1px solid rgba(83,35,105,0.16);
-    border-left: 3px solid #7a28a0;
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin: 22px 0;
-  }
-  .rg-diag-label {
-    font-size: 0.64rem;
-    text-transform: uppercase;
-    letter-spacing: 0.13em;
-    font-weight: 700;
-    color: #7a28a0;
-    margin-bottom: 12px;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-questions {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
-  .rg-question {
-    background: #fff;
-    border: 1px solid rgba(83,35,105,0.12);
-    border-radius: 8px;
-    padding: 12px 12px 14px;
-    text-align: center;
-  }
-  .rg-question-icon {
-    width: 32px;
-    height: 32px;
-    margin: 0 auto 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .rg-question-icon svg { width: 100%; height: 100%; display: block; }
-  .rg-question-text {
-    font-size: 0.70rem;
-    font-weight: 600;
-    color: #3a1a5a;
-    line-height: 1.45;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-question-sub {
-    font-size: 0.65rem;
-    color: #7a6a8a;
-    line-height: 1.4;
-    margin-top: 4px;
-    font-family: 'Raleway', sans-serif;
-  }
-
-  /* ── 3 Axes de l'offre ── */
-  .rg-axes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 22px 0;
-  }
-  .rg-axis {
-    background: #fff;
-    border: 1px solid rgba(83,35,105,0.12);
-    border-top: 3px solid;
-    border-radius: 10px;
-    padding: 16px 14px 18px;
-  }
-  .rg-axis:nth-child(1) { border-top-color: #f18847; }
-  .rg-axis:nth-child(2) { border-top-color: #b06ad4; }
-  .rg-axis:nth-child(3) { border-top-color: #7a28a0; }
-  .rg-axis-num {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.68rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 10px;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-axis:nth-child(1) .rg-axis-num { background: #f18847; }
-  .rg-axis:nth-child(2) .rg-axis-num { background: #b06ad4; }
-  .rg-axis:nth-child(3) .rg-axis-num { background: #7a28a0; }
-  .rg-axis-title {
-    font-size: 0.82rem;
-    font-weight: 800;
-    color: #1a0c2e;
-    margin-bottom: 6px;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-axis-desc {
-    font-size: 0.73rem;
-    color: #5a5a7a;
-    line-height: 1.55;
-    margin-bottom: 10px;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-axis-items {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    border-top: 1px solid rgba(83,35,105,0.08);
-    padding-top: 8px;
-  }
-  .rg-axis-items li {
-    font-size: 0.72rem;
-    color: #4a4a6a;
-    line-height: 1.55;
-    padding: 3px 0 3px 12px;
-    position: relative;
-    font-family: 'Raleway', sans-serif;
-  }
-  .rg-axis-items li::before {
-    content: '·';
-    position: absolute;
-    left: 2px;
-    color: #aaaacc;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 700px) {
-    .rg-questions { grid-template-columns: 1fr; }
-    .rg-axes { grid-template-columns: 1fr; }
-  }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
 </head>
-<body class="risques-pillar-page swift-modern-page offer-editorial-page">
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
@@ -212,181 +83,208 @@
     </div>
   </nav>
 
-  
-  <section class="page-hero page-hero-animated page-hero-sm hero-risques hero-swift-modern">
-    <div class="page-hero-art" aria-hidden="true">
-      <span class="geo geo-a"></span>
-      <span class="geo geo-b"></span>
-      <span class="geo geo-c"></span>
-      <span class="geo geo-d"></span>
-    </div>
-    <div class="swift-hero-grid swift-hero-grid-no-panel">
-      <div class="swift-hero-copy">
-        <div class="section-eyebrow">Offre — Risques Digitaux</div>
-        <h1>Gouvernance <span>des risques digitaux</span></h1>
-        <p class="hero-lead">Face à une surface d'attaque en expansion constante, disposer d'outils de sécurité ne suffit plus. Ce qui fait la différence, c'est la capacité à détecter, décider et réagir vite. Cela ne s'improvise pas.</p>
-        <div class="swift-hero-pills">
-          <span>Organisation sécurité</span>
-          <span>Gestion des risques IT</span>
-          <span>Roadmap RSSI</span>
-          <span>Processus GRC</span>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="2">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#expertises">Expertises</a><span aria-hidden="true">/</span><a href="/risques-digitaux">Risques Digitaux</a><span aria-hidden="true">/</span><span aria-current="page">Gouvernance</span></nav>
+          <h1>Gouvernance <em>des risques digitaux</em></h1>
+          <p class="ax-hero-lead">Face à une surface d'attaque en expansion constante, disposer d'outils de sécurité ne suffit plus. Ce qui fait la différence, c'est la capacité à détecter, décider et réagir vite. Cela ne s'improvise pas.</p>
+          <ul class="ax-pills"><li>Organisation sécurité</li><li>Gestion des risques IT</li><li>Roadmap RSSI</li><li>Processus GRC</li></ul>
+          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">En discuter</a><a href="#offre" class="ax-link ax-link--light">Découvrir l'offre</a></div>
         </div>
       </div>
-    </div>
-    <a href="#offre-risques-gouvernance" class="offer-scroll-cta" aria-label="Découvrir">
-      <span>Découvrir</span>
-      <span class="arrow">↓</span>
-    </a>
-  </section>
+    </section>
 
-  <section class="page-section alt" id="offre-risques-gouvernance">
-    <div class="container">
-      <div class="offer-shell-layout">
-        <aside class="pillar-flynav offer-flynav" aria-label="Navigation offres Risques Digitaux">
-          <div class="pillar-flynav-title pillar-flynav-title-accent">Expertise Risques Digitaux</div>
-          <a href="/risques-digitaux#presentation-pilier" class="pillar-overview-link">Présentation du pilier</a>
-          <div class="pillar-flynav-sep"></div>
-          <div class="pillar-flynav-title">Offres</div>
-          <a href="/risques-gouvernance" class="is-active">Gouvernance</a>
-          <a href="/risques-resilience">Résilience</a>
-          <a href="/risques-sensibilisation">Sensibilisation</a>
-        </aside>
-        <div class="offer-shell-main offer-shell-main-lite">
-          <article class="offer-shell-section reveal">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">01</div>
-              <h3>Contexte et enjeux</h3>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="/risques-digitaux" class="ax-subnav-back">‹ Risques Digitaux</a>
+          <a href="#contexte">Contexte</a>
+          <a href="#offre">L'offre</a>
+          <a href="#atouts">Nos atouts</a>
+          <a href="#aller-plus-loin">Aller plus loin</a>
+          <a href="#contact" class="ax-subnav-cta">En discuter</a>
+        </div>
+      </div>
+
+      <section class="ax-section" id="contexte">
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Contexte et enjeux</p>
+              <h2 class="ax-h2">Disposer d'outils ne suffit plus.</h2>
             </div>
-            <p><strong>Dans un environnement où les menaces évoluent en permanence, il est difficile pour les RSSI et Responsables Risques IT de maintenir une vision claire de leur exposition.</strong> Définir les bons rôles, les bons processus et la bonne trajectoire de sécurité est souvent le premier défi à relever, avant même d’investir dans des outils.</p>
-            <p>Les entreprises victimes d’incidents majeurs partagent souvent le même point faible : non pas l’absence de solutions techniques, mais l’absence de processus clairs et de gouvernance opérationnelle. Disposer d’outils ne suffit plus. Ce qui fait la différence, c’est la capacité d’une organisation à détecter, décider et réagir vite.</p>
-
-            <div class="rg-diag">
-              <div class="rg-diag-label">Les questions sans réponse qui fragilisent les organisations</div>
-              <div class="rg-questions">
-                <div class="rg-question">
-                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                  <div class="rg-question-text">Qui est responsable de quoi ?</div>
-                  <div class="rg-question-sub">Rôles et périmètres flous entre IT, SSI et métiers</div>
-                </div>
-                <div class="rg-question">
-                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
-                  <div class="rg-question-text">Comment les risques remontent-ils ?</div>
-                  <div class="rg-question-sub">Absence de circuit clair vers les décideurs</div>
-                </div>
-                <div class="rg-question">
-                  <div class="rg-question-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#7a28a0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-                  <div class="rg-question-text">Quels contrôles sont en place ?</div>
-                  <div class="rg-question-sub">Des mesures définies mais rarement vérifiées</div>
-                </div>
-              </div>
+            <div class="ax-prose" data-lit>
+              <p><strong>Dans un environnement où les menaces évoluent en permanence, il est difficile pour les RSSI et Responsables Risques IT de maintenir une vision claire de leur exposition.</strong> Définir les bons rôles, les bons processus et la bonne trajectoire de sécurité est souvent le premier défi à relever, avant même d'investir dans des outils.</p>
+              <p>Les entreprises victimes d'incidents majeurs partagent souvent le même point faible&nbsp;: non pas l'absence de solutions techniques, mais l'absence de processus clairs et de gouvernance opérationnelle.</p>
             </div>
+          </div>
+          <h3 class="ax-commit-title">Les questions sans réponse qui fragilisent les organisations</h3>
+          <div class="ax-trio" style="margin-top:28px">
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <h3>Qui est responsable de quoi&nbsp;?</h3>
+              <p>Rôles et périmètres flous entre IT, SSI et métiers</p>
+            </div>
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              <h3>Comment les risques remontent-ils&nbsp;?</h3>
+              <p>Absence de circuit clair vers les décideurs</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <h3>Quels contrôles sont en place&nbsp;?</h3>
+              <p>Des mesures définies mais rarement vérifiées</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <p class="offer-context-highlight">Structurer sa gouvernance risques, c’est se donner les moyens de prioriser, d’arbitrer et d’agir avec méthode, même sous pression.</p>
+      <section class="ax-section ax-quote">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <p class="ax-quote-text ax-quote-text--long">Structurer sa gouvernance risques, c'est se donner les moyens de prioriser, d'arbitrer et d'agir avec méthode, même sous pression.</p>
+        </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="offre">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">L'offre Actinuance</p>
+            <h2 class="ax-h2">Trois axes complémentaires.</h2>
+            <p class="ax-lead">Notre accompagnement Gouvernance s'articule autour de trois axes complémentaires, pensés pour s'adapter au profil de risques, à la maturité et à la culture de chaque organisation.</p>
+          </div>
+          <div class="ax-stack">
+          <article class="ax-xcard ax-xcard--list ax-xcard--1" style="--i:0">
+            <div class="ax-xcard-text">
+              <h3>Organisation</h3>
+              <p>Définir une organisation sécurité en phase avec les standards du marché, adaptée au profil de risques et à la culture de l'entreprise.</p>
+            </div>
+            <ul class="ax-xcard-list">
+              <li>Structuration de la fonction sécurité</li>
+              <li>Définition des rôles et responsabilités</li>
+              <li>Roadmap de sécurité et budgets OPEX / CAPEX</li>
+              <li>Alignement avec la direction générale</li>
+            </ul>
           </article>
-
-          <article class="offer-shell-section reveal" data-delay="90">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">02</div>
-              <h3>L’offre Actinuance</h3>
+          <article class="ax-xcard ax-xcard--list ax-xcard--2" style="--i:1">
+            <div class="ax-xcard-text">
+              <h3>Risques</h3>
+              <p>Identifier et évaluer les risques informatiques en lien avec les assets et processus métiers, pour prioriser les actions selon le niveau de maturité.</p>
             </div>
-            <p>Notre accompagnement Gouvernance s’articule autour de trois axes complémentaires, pensés pour s’adapter au profil de risques, à la maturité et à la culture de chaque organisation.</p>
-
-            <div class="rg-axes">
-              <div class="rg-axis">
-                <div class="rg-axis-num">01</div>
-                <div class="rg-axis-title">Organisation</div>
-                <div class="rg-axis-desc">Définir une organisation sécurité en phase avec les standards du marché, adaptée au profil de risques et à la culture de l’entreprise.</div>
-                <ul class="rg-axis-items">
-                  <li>Structuration de la fonction sécurité</li>
-                  <li>Définition des rôles et responsabilités</li>
-                  <li>Roadmap de sécurité et budgets OPEX / CAPEX</li>
-                  <li>Alignement avec la direction générale</li>
-                </ul>
-              </div>
-              <div class="rg-axis">
-                <div class="rg-axis-num">02</div>
-                <div class="rg-axis-title">Risques</div>
-                <div class="rg-axis-desc">Identifier et évaluer les risques informatiques en lien avec les assets et processus métiers, pour prioriser les actions selon le niveau de maturité.</div>
-                <ul class="rg-axis-items">
-                  <li>Analyse des assets informatiques</li>
-                  <li>Identification des risques associés aux processus métiers</li>
-                  <li>Mesures de gestion des risques et contrôles de sécurité</li>
-                  <li>Cartographie et priorisation des expositions</li>
-                </ul>
-              </div>
-              <div class="rg-axis">
-                <div class="rg-axis-num">03</div>
-                <div class="rg-axis-title">Processus</div>
-                <div class="rg-axis-desc">Mettre en place les processus de gestion des risques IT en coordination avec les métiers et la Direction Sécurité, avec un pilotage mesurable dans la durée.</div>
-                <ul class="rg-axis-items">
-                  <li>Processus de gestion des risques IT</li>
-                  <li>Indicateurs de suivi et tableaux de bord</li>
-                  <li>Rituels de gouvernance et circuits de remontée</li>
-                  <li>Dispositif de pilotage du risque</li>
-                </ul>
-              </div>
-            </div>
+            <ul class="ax-xcard-list">
+              <li>Analyse des assets informatiques</li>
+              <li>Identification des risques associés aux processus métiers</li>
+              <li>Mesures de gestion des risques et contrôles de sécurité</li>
+              <li>Cartographie et priorisation des expositions</li>
+            </ul>
           </article>
-
-          <article class="offer-shell-section reveal" data-delay="140">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">03</div>
-              <h3>Nos atouts</h3>
+          <article class="ax-xcard ax-xcard--list ax-xcard--3" style="--i:2">
+            <div class="ax-xcard-text">
+              <h3>Processus</h3>
+              <p>Mettre en place les processus de gestion des risques IT en coordination avec les métiers et la Direction Sécurité, avec un pilotage mesurable dans la durée.</p>
             </div>
-            <p>Actinuance associe une expertise pointue en GRC à une vision concrète des réalités opérationnelles. Nous intervenons auprès de RSSI et de directions risques dans des contextes variés, des PME aux grandes organisations multi-pays.</p>
-            <div class="offer-differentiators">
-              <div class="offer-diff-item">
-                <strong>Lecture métier des risques</strong>
-                <p>Nous traduisons les risques techniques en arbitrages compréhensibles par les dirigeants et les comités. La gouvernance que nous construisons est lisible à tous les niveaux de l’organisation.</p>
+            <ul class="ax-xcard-list">
+              <li>Processus de gestion des risques IT</li>
+              <li>Indicateurs de suivi et tableaux de bord</li>
+              <li>Rituels de gouvernance et circuits de remontée</li>
+              <li>Dispositif de pilotage du risque</li>
+            </ul>
+          </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-aboutsec" id="atouts">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Nos atouts</p>
+              <h2 class="ax-h2">L'expertise <em>GRC,</em> avec une vision concrète du <em class="ax-o">terrain.</em></h2>
+              <p class="ax-lead">Actinuance associe une expertise pointue en GRC à une vision concrète des réalités opérationnelles. Nous intervenons auprès de RSSI et de directions risques dans des contextes variés, des PME aux grandes organisations multi-pays.</p>
+            </div>
+            <div class="ax-rows" style="margin-top:0">
+              <div class="ax-row">
+                <h3>Lecture métier des risques</h3>
+                <p>Nous traduisons les risques techniques en arbitrages compréhensibles par les dirigeants et les comités. La gouvernance que nous construisons est lisible à tous les niveaux de l'organisation.</p>
               </div>
-              <div class="offer-diff-item">
-                <strong>Dispositifs opérationnels, pas théoriques</strong>
-                <p>Chaque cadre de gouvernance est calibré pour fonctionner dans votre réalité : taille d’équipe, culture décisionnelle, contraintes réglementaires. Rien qui ne puisse pas être appliqué dès la semaine suivante.</p>
+              <div class="ax-row">
+                <h3>Dispositifs opérationnels, pas théoriques</h3>
+                <p>Chaque cadre de gouvernance est calibré pour fonctionner dans votre réalité&nbsp;: taille d'équipe, culture décisionnelle, contraintes réglementaires. Rien qui ne puisse pas être appliqué dès la semaine suivante.</p>
               </div>
-              <div class="offer-diff-item">
-                <strong>Vision multisectorielle et benchmarks concrets</strong>
+              <div class="ax-row">
+                <h3>Vision multisectorielle et benchmarks concrets</h3>
                 <p>Nos consultants ont structuré des fonctions sécurité dans des secteurs exigeants (banque, assurance, industrie). Cette diversité de contextes nourrit chaque mission de repères concrets et de pratiques éprouvées.</p>
               </div>
             </div>
-          </article>
-
-          <article class="offer-shell-section reveal" data-delay="180">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">04</div>
-              <h3>Client Stories</h3>
-            </div>
-            <div class="offer-retex-grid"></div>
-          </article>
-
-          <article class="offer-shell-section reveal" data-delay="220">
-            <div class="offer-shell-head">
-              <div class="offer-shell-num">05</div>
-              <h3>Articles liés à l’offre</h3>
-            </div>
-            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="risques-gouvernance" data-offer-limit="2">
-              
-            </div>
-          </article>
-
-          <article class="offer-shell-profile reveal" data-delay="260">
-            <img src="Photos/Dirigeant/Nidhal.JPG" data-team-slug="nidhal" alt="Nidhal — Associé fondateur" class="offer-shell-profile-photo" />
-            <div class="offer-shell-profile-content">
-              <div class="section-eyebrow">Porteur de l’offre</div>
-              <h3>Nidhal — Associé fondateur, Risques &amp; Conformité</h3>
-              <p>Nidhal accompagne les directions risques et cybersécurité dans la structuration d’une gouvernance pilotable, lisible et durable.</p>
-              <div class="card-cta" style="margin-top:14px;">
-                <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Gouvernance%20des%20risques" class="btn-primary">En discuter avec Nidhal</a>
-              </div>
-            </div>
-          </article>
-
+          </div>
         </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="aller-plus-loin">
+        <div class="ax-wrap offer-shell-main">
+          <div class="ax-feed offer-shell-section">
+            <h3>Client Stories</h3>
+            <div class="offer-retex-grid"></div>
+          </div>
+          <div class="ax-feed offer-shell-section">
+            <h3>Articles liés à l'offre</h3>
+            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="risques-gouvernance" data-offer-limit="2"></div>
+          </div>
+          <div class="ax-feed">
+            <h3>Les autres offres Risques Digitaux</h3>
+            <div class="ax-links ax-links--2">
+              <a href="/risques-resilience" class="ax-linkcard">
+                <h3>Résilience</h3>
+                <p>Bâtir et tester un dispositif de continuité, adapté à votre exposition et besoins réels.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/risques-sensibilisation" class="ax-linkcard">
+                <h3>Sensibilisation</h3>
+                <p>Réduire le facteur humain en formant et sensibilisant les équipes aux risques cyber du quotidien.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
       </div>
+        <div class="ax-owner">
+          <img src="Photos/Dirigeant/Nidhal.JPG" data-team-slug="nidhal" alt="Nidhal — Associé fondateur" width="220" height="220" loading="lazy" />
+          <div>
+            <p class="ax-kicker">Porteur de l'offre</p>
+            <h2>Nidhal — Associé fondateur, Risques &amp; Conformité</h2>
+            <p>Nidhal accompagne les directions risques et cybersécurité dans la structuration d'une gouvernance pilotable, lisible et durable.</p>
+            <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Gouvernance%20des%20risques" class="ax-btn ax-btn--accent">En discuter avec Nidhal</a>
+          </div>
+        </div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
-
-    <footer>
+  <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
@@ -420,28 +318,29 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
   </footer>
-
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

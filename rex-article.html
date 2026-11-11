@@ -21,168 +21,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <style>
-    .article-shell { max-width: 1160px; margin: 0 auto; }
-    .article-meta { color: rgba(255,255,255,.78); font-size: .95rem; margin-bottom: 0; }
-    .article-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(320px, 44%) minmax(0, 1fr);
-      gap: 30px;
-      align-items: stretch;
-      margin-bottom: 26px;
-    }
-    .article-hero-media {
-      margin: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      min-height: 300px;
-    }
-    .article-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .article-hero-copy {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 16px;
-      padding: 26px 26px 22px;
-      background: linear-gradient(160deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
-      backdrop-filter: blur(2px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-    }
-    .rex-hero-title-box {
-      border: 1px solid rgba(255,255,255,.24);
-      border-radius: 12px;
-      padding: 14px 16px;
-      background: rgba(27, 18, 44, 0.22);
-    }
-    .article-hero-copy .section-heading { margin-bottom: 0; }
-    .article-hero-excerpt {
-      margin: 0;
-      color: rgba(255,255,255,.86);
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.7;
-      font-size: .95rem;
-    }
-    .rex-layout {
-      display: grid;
-      grid-template-columns: 320px minmax(0, 1fr);
-      gap: 24px;
-      align-items: start;
-    }
-    .rex-sidebar {
-      position: sticky;
-      top: 110px;
-      border-radius: 14px;
-      border: 1px solid rgba(45,33,66,.14);
-      background: linear-gradient(180deg, #eef0f3 0%, #e6e8ec 100%);
-      padding: 18px;
-      box-shadow: 0 10px 24px rgba(16, 12, 25, 0.10);
-    }
-    .rex-meta-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: grid;
-      gap: 10px;
-    }
-    .rex-meta-item {
-      border: 1px solid rgba(45,33,66,.16);
-      border-radius: 10px;
-      padding: 11px 12px;
-      background: rgba(255,255,255,0.9);
-    }
-    .rex-meta-label {
-      display: block;
-      font-family: 'Poppins', sans-serif;
-      font-size: .64rem;
-      font-weight: 600;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: #4b2c70;
-      margin-bottom: 4px;
-    }
-    .rex-meta-value {
-      display: block;
-      color: #1f1630;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      line-height: 1.45;
-      font-size: .9rem;
-    }
-    .article-content { background: #fff; border-radius: 16px; padding: 34px 34px 24px; box-shadow: 0 22px 48px rgba(12,8,20,.2); }
-    .article-cover { width: 100%; max-height: 540px; object-fit: cover; border-radius: 12px; margin: 0 0 22px; border: 1px solid rgba(45,33,66,.1); }
-    .article-content p {
-      font-family: 'Poppins', sans-serif;
-      font-size: 0.95rem;
-      color: #2b2b35;
-      line-height: 1.8;
-      margin: 0 0 1rem;
-    }
-    .article-content-image { margin: 1.2rem 0 1.4rem; border-radius: 10px; overflow: hidden; border: 1px solid rgba(45,33,66,.12); background: #f3f3f6; }
-    .article-content-image img { width: 100%; display: block; height: auto; }
-    .article-content-image figcaption { font-family: 'Poppins', sans-serif; font-size: .78rem; color: rgba(45,33,66,.62); padding: 8px 10px; border-top: 1px solid rgba(45,33,66,.1); background: rgba(255,255,255,.86); }
-    .article-content h1,
-    .article-content h2,
-    .article-content h3,
-    .article-content h4 {
-      font-family: 'Raleway', sans-serif;
-      color: #1c1a24;
-      line-height: 1.18;
-      letter-spacing: -.02em;
-    }
-    .article-content h1 { margin: 0 0 1.1rem; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; }
-    .article-content h2 { margin: 1.6rem 0 .8rem; font-size: clamp(1.6rem, 3vw, 2.05rem); font-weight: 800; }
-    .article-content h3 { margin: 1.4rem 0 .7rem; font-size: clamp(1.3rem, 2vw, 1.55rem); font-weight: 700; }
-    .article-content h4 { margin: 1.2rem 0 .65rem; font-size: 1.08rem; font-weight: 700; color: #532369; text-transform: uppercase; letter-spacing: .06em; }
-    .article-content ul, .article-content ol {
-      font-family: 'Poppins', sans-serif;
-      color: #2b2b35;
-      padding-left: 1.2rem;
-      margin: 0 0 1rem;
-    }
-    .article-content li { margin-bottom: .5rem; }
-    .article-content blockquote { margin: 1rem 0; border-left: 3px solid var(--color-accent, #f08b45); padding: .5rem 0 .5rem 1rem; color: #4a4657; font-style: italic; }
-    .article-content a { color: #663399; text-decoration: underline; }
-    .article-content code { background: #f5f5f8; padding: .1rem .35rem; border-radius: 4px; }
-    .article-content .accent-text { color: #F18847; }
-    .article-content .violet-text { color: #532369; }
-    .article-content .soft-violet-text { color: #8E6BC7; }
-    .article-content .ink-text { color: #1F1630; }
-    .article-content .muted-text { color: #6F6A78; }
-    .article-back { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; color: #fff; text-decoration: none; }
-    .rex-article-hero {
-      padding-top: 140px;
-      padding-bottom: 44px;
-      min-height: 70vh;
-    }
-    .rex-article-hero .section-intro.light {
-      max-width: 900px;
-      margin-bottom: 18px;
-    }
-    @media (max-width: 1024px) {
-      .article-hero-grid { grid-template-columns: 1fr; gap: 18px; }
-      .article-hero-media { min-height: 260px; }
-      .rex-layout { grid-template-columns: 1fr; }
-      .rex-sidebar { position: static; }
-    }
-    @media (max-width: 768px) {
-      .article-hero-copy { padding: 18px 16px 16px; }
-      .article-content { padding: 24px 18px 16px; border-radius: 12px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-publications.css?v=20261111">
 </head>
-<body class="blog-page rex-page">
+<body class="ax-page ax-inner ax-pub">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
+
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
-      <a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" /></a>
+      <a href="/" class="nav-logo">
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
+      </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
@@ -220,53 +76,124 @@
         </li>
         <li><a href="/#apropos">À propos</a></li>
       </ul>
-      <div class="nav-actions"><a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a><a href="/#contact" class="nav-cta">Nous contacter</a></div>
+      <div class="nav-actions">
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/#contact" class="nav-cta">Nous contacter</a>
+      </div>
       <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
-  <section class="section section-dark publications-hero blog-hero rex-article-hero">
-    <div class="container article-shell">
-      <div class="section-intro light" style="max-width:none;">
-        <div class="article-hero-grid">
-          <figure class="article-hero-media" id="articleHeroMedia">
-            <img id="articleHeroCover" src="" alt="" loading="eager" decoding="async" />
-          </figure>
-          <div class="article-hero-copy">
-            <div class="section-eyebrow" id="articleTag">Publication — Client Story</div>
-            <div class="rex-hero-title-box">
-              <h1 class="section-heading" id="articleTitle" style="color:#fff;">Chargement de la Client Story…</h1>
-            </div>
-            <p class="article-hero-excerpt" id="articleHeroExcerpt"></p>
-          </div>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page ax-hero--article" id="hero" data-slide="1">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Publications</span><span aria-hidden="true">/</span><a href="/rex">Client Stories</a></nav>
+          <p class="ax-pub-tag" id="articleTag">Publication — Client Story</p>
+          <h1 id="articleTitle">Chargement de la Client Story…</h1>
+          <p class="ax-hero-lead" id="articleHeroExcerpt"></p>
         </div>
       </div>
-      <div class="rex-layout">
-        <aside class="rex-sidebar">
-          <ul class="rex-meta-list" id="rexMetaList">
-            <li class="rex-meta-item"><span class="rex-meta-label">Secteur</span><span class="rex-meta-value">—</span></li>
-            <li class="rex-meta-item"><span class="rex-meta-label">Localisation</span><span class="rex-meta-value">—</span></li>
-            <li class="rex-meta-item"><span class="rex-meta-label">Nombre d’employés</span><span class="rex-meta-value">—</span></li>
-            <li class="rex-meta-item"><span class="rex-meta-label">Dispositif</span><span class="rex-meta-value">—</span></li>
-            <li class="rex-meta-item"><span class="rex-meta-label">Durée d’intervention</span><span class="rex-meta-value">—</span></li>
-          </ul>
-        </aside>
-        <article class="article-content" id="articleContent"><p>Chargement du contenu en cours…</p></article>
+    </section>
+
+    <div class="ax-over">
+      <section class="ax-section ax-pub-read" id="lecture">
+        <div class="ax-article">
+          <figure class="ax-article-cover article-hero-media" id="articleHeroMedia">
+            <img id="articleHeroCover" src="" alt="" loading="eager" decoding="async" />
+          </figure>
+          <div class="ax-rexlayout">
+            <aside class="rex-sidebar" aria-labelledby="rexSidebarTitle">
+              <p class="ax-kicker" id="rexSidebarTitle">Fiche mission</p>
+              <ul class="rex-meta-list" id="rexMetaList">
+                <li class="rex-meta-item"><span class="rex-meta-label">Secteur</span><span class="rex-meta-value">—</span></li>
+                <li class="rex-meta-item"><span class="rex-meta-label">Localisation</span><span class="rex-meta-value">—</span></li>
+                <li class="rex-meta-item"><span class="rex-meta-label">Nombre d’employés</span><span class="rex-meta-value">—</span></li>
+                <li class="rex-meta-item"><span class="rex-meta-label">Dispositif</span><span class="rex-meta-value">—</span></li>
+                <li class="rex-meta-item"><span class="rex-meta-label">Durée d’intervention</span><span class="rex-meta-value">—</span></li>
+              </ul>
+            </aside>
+            <article class="article-content" id="articleContent"><p>Chargement du contenu en cours…</p></article>
+          </div>
+          <div class="ax-back-row"><a href="/rex" class="ax-back">Retour aux Client Stories</a></div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
       </div>
-      <a href="/rex" class="article-back">← Retour aux Client Stories</a>
+        <h2>Parlons de votre <em>projet.</em></h2>
+        <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
+        <a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
+        <address>147 Rue de Rennes, 75006 Paris</address>
+      </section>
+
     </div>
-  </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-brand"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a><p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p></div>
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
+        <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
+      </div>
       <div class="footer-links">
-        <div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div>
-        <div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div>
-        <div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2025 Actinuance Consulting — Tous droits réservés</p><div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/protection-donnees">Protection des données</a></div></div>
+    <div class="footer-bottom">
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/protection-donnees">Protection des données</a>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -460,6 +387,9 @@
       ].join('');
     })();
   </script>
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

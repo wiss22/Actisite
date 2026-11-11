@@ -22,83 +22,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css">
-  <style>
-    * { box-sizing: border-box; }
-    .notfound-wrap {
-      min-height: calc(100vh - 72px);
-      display: grid;
-      place-items: center;
-      padding: 120px 24px 56px;
-      background:
-        radial-gradient(circle at 80% 20%, rgba(241,136,71,0.16), transparent 38%),
-        radial-gradient(circle at 20% 70%, rgba(104,1,127,0.24), transparent 42%),
-        linear-gradient(135deg, #371846 0%, #4a2058 100%);
-    }
-    .notfound-card {
-      width: min(760px, 100%);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 18px;
-      padding: 44px 34px;
-      background: rgba(55,24,70,0.75);
-      box-shadow: 0 16px 56px rgba(0,0,0,0.25);
-      text-align: center;
-    }
-    .notfound-title {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 900;
-      color: #fff;
-      line-height: 1.05;
-      margin-bottom: 12px;
-    }
-    .notfound-title em { color: #F18847; font-style: normal; }
-    .notfound-text {
-      font-family: 'Poppins', sans-serif;
-      color: rgba(255,255,255,0.82);
-      font-size: 1rem;
-      line-height: 1.65;
-      margin-bottom: 26px;
-    }
-    .notfound-actions {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .notfound-actions a {
-      min-width: 220px;
-    }
-    @media (max-width: 768px) {
-      .notfound-wrap {
-        min-height: auto;
-        padding: 104px 16px 40px;
-      }
-      .notfound-card {
-        border-radius: 14px;
-        padding: 30px 18px;
-      }
-      .notfound-title {
-        font-size: clamp(1.7rem, 10vw, 2.2rem);
-      }
-      .notfound-text {
-        font-size: 0.95rem;
-        line-height: 1.55;
-        margin-bottom: 22px;
-      }
-      .notfound-actions {
-        flex-direction: column;
-        gap: 10px;
-      }
-      .notfound-actions a {
-        width: 100%;
-        min-width: 0;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-cabinet.css?v=20261111">
 </head>
-<body>
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
+
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
@@ -155,15 +85,25 @@
     </div>
   </nav>
 
-  <main class="notfound-wrap">
-    <section class="notfound-card">
-      <h1 class="notfound-title">Oups, page <em>inexistante</em></h1>
-      <p class="notfound-text">Le contenu que vous recherchez n'est plus disponible ou l'URL est incorrecte.</p>
-      <div class="notfound-actions">
-        <a href="/" class="btn-primary">Retour à l'accueil</a>
-        <a href="/blog" class="btn-ghost">Voir les publications</a>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page ax-hero--404" data-slide="1">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <p class="ax-hero-eyebrow">Erreur 404</p>
+          <h1>Oups, page <em>inexistante</em></h1>
+          <p class="ax-hero-lead">Le contenu que vous recherchez n'est plus disponible ou l'URL est incorrecte.</p>
+          <div class="ax-actions"><a href="/" class="ax-btn ax-btn--accent ax-btn--lg">Retour à l'accueil</a><a href="/blog" class="ax-link ax-link--light">Voir les publications</a></div>
+        </div>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -200,28 +140,29 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
   </footer>
-
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

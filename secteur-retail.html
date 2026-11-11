@@ -21,15 +21,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-secteurs.css?v=20261111">
 </head>
-<body class="audit-pillar-page secteur-luxe-page secteur-retail-page">
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
-        <img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" />
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
       </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
@@ -76,160 +84,243 @@
     </div>
   </nav>
 
-  <section class="page-hero page-hero-animated hero-secteur-luxe">
-    <div class="hero-secteur-luxe-photo" aria-hidden="true">
-      <span class="luxe-photo-slide luxe-photo-1"></span>
-      <span class="luxe-photo-slide luxe-photo-2"></span>
-      <span class="luxe-photo-slide luxe-photo-3"></span>
-    </div>
-    <div class="page-hero-art" aria-hidden="true">
-      <span class="geo geo-a"></span>
-      <span class="geo geo-b"></span>
-      <span class="geo geo-c"></span>
-      <span class="geo geo-d"></span>
-    </div>
-    <div class="container luxe-hero-inner">
-      <h1>Sécurité numérique pour le <span>retail</span></h1>
-      <p class="hero-lead">Nous accompagnons les enseignes retail et e-commerce pour sécuriser les parcours clients, protéger les données et fiabiliser les opérations omnicanales.</p>
-      <div class="luxe-hero-pills">
-        
-      </div>
-    </div>
-    <a href="#retail-enjeux" class="offer-scroll-cta" aria-label="Voir les enjeux secteur retail">
-      <span>Découvrir</span>
-      <span class="arrow">↓</span>
-    </a>
-  </section>
+  <main id="main">
 
-  
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="2">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#secteurs">Secteurs</a><span aria-hidden="true">/</span><span aria-current="page">Retail</span></nav>
+          <h1>Sécurité numérique pour le <em>retail</em></h1>
+          <p class="ax-hero-lead">Nous accompagnons les enseignes retail et e-commerce pour sécuriser les parcours clients, protéger les données et fiabiliser les opérations omnicanales.</p>
+          <div class="ax-actions"><a href="#retail-enjeux" class="ax-btn ax-btn--accent">Découvrir</a><a href="#contact" class="ax-link ax-link--light">Nous contacter</a></div>
+        </div>
+      </div>
+    </section>
 
-  <section class="page-section luxe-overview" id="retail-enjeux">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Priorités secteur</p>
-        <h2 class="section-heading">Des enjeux cyber au coeur de la performance retail</h2>
-      </div>
-      <div class="enjeux-grid">
-        <div class="enjeu-card reveal">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18"/><path d="M4 10V7l8-4 8 4v3"/><path d="M5 10v7M9 10v7M15 10v7M19 10v7"/><path d="M3 21h18"/></svg></div>
-          <h3 class="enjeu-title">Disponibilité des parcours omnicanaux</h3>
-          <p class="enjeu-desc">Site e-commerce, application mobile, caisse et click & collect doivent rester fluides et disponibles, y compris en période de pic.</p>
-        </div>
-        <div class="enjeu-card reveal" data-delay="60">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M6 8h8a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg></div>
-          <h3 class="enjeu-title">Fraude paiement et détournement de comptes clients</h3>
-          <p class="enjeu-desc">Les scénarios ATO, fraude carte et abus promotionnels imposent une surveillance continue et des contrôles calibrés sans friction excessive.</p>
-        </div>
-        <div class="enjeu-card reveal" data-delay="120">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7z"/></svg></div>
-          <h3 class="enjeu-title">Protection des données clients et conformité</h3>
-          <p class="enjeu-desc">RGPD, NIS2 et PCI DSS demandent une maîtrise concrète des données personnelles et des flux sensibles sur l'ensemble des canaux.</p>
-        </div>
-        <div class="enjeu-card reveal">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M7 16h4"/></svg></div>
-          <h3 class="enjeu-title">Sécurité des plateformes digitales retail</h3>
-          <p class="enjeu-desc">CMS, API, applications de fidélité et outils marketing doivent être sécurisés by design pour éviter rupture d'activité et fuite de données.</p>
-        </div>
-        <div class="enjeu-card reveal" data-delay="60">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><circle cx="8" cy="6" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="10" cy="18" r="1"/></svg></div>
-          <h3 class="enjeu-title">Risque tiers sur la supply chain retail</h3>
-          <p class="enjeu-desc">Prestataires logistiques, marketplaces, PSP et partenaires digitaux exposent la chaîne de valeur et nécessitent une gouvernance tiers rigoureuse.</p>
-        </div>
-        <div class="enjeu-card reveal" data-delay="120">
-          <div class="enjeu-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20V11"/><path d="M12 20V7"/><path d="M17 20v-5"/></svg></div>
-          <h3 class="enjeu-title">Pilotage cyber multi-enseignes et multi-pays</h3>
-          <p class="enjeu-desc">Les groupes retail ont besoin d'un pilotage homogène pour prioriser les risques et accélérer les décisions sur des périmètres distribués.</p>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="/#secteurs" class="ax-subnav-back">‹ Secteurs</a>
+          <a href="#retail-enjeux">Priorités</a>
+          <a href="#reponse">Notre réponse</a>
+          <a href="#retailRexSection">Exemples de mission</a>
+          <a href="#autres-secteurs">Autres secteurs</a>
+          <a href="#contact" class="ax-subnav-cta">Nous contacter</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="page-section section-light luxe-focus">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Cadre de maîtrise</p>
-        <h2 class="section-heading">Comment Actinuance répond aux enjeux retail</h2>
-      </div>
-      <div class="luxe-focus-stack">
-        <article class="luxe-focus-card luxe-focus-business reveal">
-          <div class="luxe-focus-step">01</div>
-          <div class="luxe-focus-copy">
-            <h3>Protéger le chiffre d'affaires et l'expérience client</h3>
-            <p>Nous priorisons les risques qui impactent directement les ventes, la disponibilité des canaux et la qualité de service.</p>
+      <section class="ax-section" id="retail-enjeux">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Priorités secteur</p>
+            <h2 class="ax-h2">Des enjeux cyber au cœur de la performance retail</h2>
           </div>
-        </article>
-        <article class="luxe-focus-card luxe-focus-business reveal" data-delay="80">
-          <div class="luxe-focus-step">02</div>
-          <div class="luxe-focus-copy">
-            <h3>Sécuriser les flux omnicanaux de bout en bout</h3>
-            <p>Nous alignons e-commerce, magasin, logistique et partenaires pour réduire les ruptures et limiter l'exposition aux attaques.</p>
+          <div class="ax-trio">
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10h18"/><path d="M4 10V7l8-4 8 4v3"/><path d="M5 10v7M9 10v7M15 10v7M19 10v7"/><path d="M3 21h18"/></svg>
+              <h3>Disponibilité des parcours omnicanaux</h3>
+              <p>Site e-commerce, application mobile, caisse et click &amp; collect doivent rester fluides et disponibles, y compris en période de pic.</p>
+            </div>
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M6 8h8a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h9"/></svg>
+              <h3>Fraude paiement et détournement de comptes clients</h3>
+              <p>Les scénarios ATO, fraude carte et abus promotionnels imposent une surveillance continue et des contrôles calibrés sans friction excessive.</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V7z"/></svg>
+              <h3>Protection des données clients et conformité</h3>
+              <p>RGPD, NIS2 et PCI DSS demandent une maîtrise concrète des données personnelles et des flux sensibles sur l'ensemble des canaux.</p>
+            </div>
           </div>
-        </article>
-        <article class="luxe-focus-card luxe-focus-business reveal" data-delay="140">
-          <div class="luxe-focus-step">03</div>
-          <div class="luxe-focus-copy">
-            <h3>Rendre la conformité utile aux opérations</h3>
-            <p>Nous transformons les obligations réglementaires en mesures concrètes qui renforcent la résilience sans freiner la dynamique commerciale.</p>
+          <div class="ax-trio">
+            <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M7 16h4"/></svg>
+              <h3>Sécurité des plateformes digitales retail</h3>
+              <p>CMS, API, applications de fidélité et outils marketing doivent être sécurisés by design pour éviter rupture d'activité et fuite de données.</p>
+            </div>
+            <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/><circle cx="8" cy="6" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="10" cy="18" r="1"/></svg>
+              <h3>Risque tiers sur la supply chain retail</h3>
+              <p>Prestataires logistiques, marketplaces, PSP et partenaires digitaux exposent la chaîne de valeur et nécessitent une gouvernance tiers rigoureuse.</p>
+            </div>
+            <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 20V11"/><path d="M12 20V7"/><path d="M17 20v-5"/></svg>
+              <h3>Pilotage cyber multi-enseignes et multi-pays</h3>
+              <p>Les groupes retail ont besoin d'un pilotage homogène pour prioriser les risques et accélérer les décisions sur des périmètres distribués.</p>
+            </div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="page-section luxe-rex" id="retailRexSection">
-    <div class="container">
-      <div class="section-intro reveal">
-        <p class="section-eyebrow">Exemples de missions</p>
-        <h2 class="section-heading">REX dans le retail</h2>
-      </div>
-      <div class="luxe-rex-list" id="retailRexFeed" data-rex-sector="retail">
-        <article class="luxe-rex-item reveal luxe-rex-loading">
-          <p class="luxe-rex-kicker">Chargement</p>
-          <h3>Chargement des Client Stories du secteur retail…</h3>
-          <p>Connexion en cours avec Sanity Studio.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-simple">
-    <div class="container">
-      <div class="contact-simple-card reveal">
-        <p class="section-eyebrow">Secteur Retail</p>
-        <h2 class="section-heading">Échangeons sur votre trajectoire cyber retail</h2>
-        <p class="section-sub">Nous sécurisons vos parcours omnicanaux, réduisons la fraude et renforçons la continuité opérationnelle de vos activités retail.</p>
-        <div class="contact-simple-actions">
-          <a href="/#contact" class="btn-primary">Nous contacter</a>
-          <a href="/audit-conformite" class="btn-ghost">Voir l'expertise Audit & Conformité</a>
         </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="reponse">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Cadre de maîtrise</p>
+            <h2 class="ax-h2">Comment Actinuance répond aux enjeux retail</h2>
+          </div>
+          <div class="ax-stack">
+            <article class="ax-xcard ax-xcard--step ax-xcard--1" style="--i:0">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">01</p>
+                <h3>Protéger le chiffre d'affaires et l'expérience client</h3>
+                <p>Nous priorisons les risques qui impactent directement les ventes, la disponibilité des canaux et la qualité de service.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--step ax-xcard--2" style="--i:1">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">02</p>
+                <h3>Sécuriser les flux omnicanaux de bout en bout</h3>
+                <p>Nous alignons e-commerce, magasin, logistique et partenaires pour réduire les ruptures et limiter l'exposition aux attaques.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M24 5L11 10.5v11.2c0 8 5.5 15.3 13 16.9 7.5-1.6 13-8.9 13-16.9V10.5L24 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 24.2l4.2 4.2L31 19.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 15.5h16" stroke="currentColor" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--step ax-xcard--3" style="--i:2">
+              <div class="ax-xcard-text">
+                <p class="ax-xcard-step" aria-hidden="true">03</p>
+                <h3>Rendre la conformité utile aux opérations</h3>
+                <p>Nous transformons les obligations réglementaires en mesures concrètes qui renforcent la résilience sans freiner la dynamique commerciale.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section" id="retailRexSection">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Exemples de missions</p>
+            <h2 class="ax-h2">REX dans le retail</h2>
+          </div>
+          <div class="luxe-rex-list" id="retailRexFeed" data-rex-sector="retail">
+            <article class="luxe-rex-item luxe-rex-loading">
+              <p class="luxe-rex-kicker">Chargement</p>
+              <h3>Chargement des Client Stories du secteur retail…</h3>
+              <p>Connexion en cours avec Sanity Studio.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-aboutsec" id="autres-secteurs">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
       </div>
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Autres secteurs</p>
+            <h2 class="ax-h2">Explorer nos autres secteurs.</h2>
+          </div>
+          <div class="ax-links ax-links--5">
+            <a href="/secteur-banque" class="ax-linkcard">
+              <h3>Banque</h3>
+              <p>DORA · NIS2 · SWIFT</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-assurance" class="ax-linkcard">
+              <h3>Assurance</h3>
+              <p>DORA · Solvabilité II · Résilience</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-luxe" class="ax-linkcard">
+              <h3>Luxe</h3>
+              <p>Données VIP · Supply Chain · E-commerce premium · Conformité sectorielle</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-industrie-transport" class="ax-linkcard">
+              <h3>Industrie &amp; Transport</h3>
+              <p>LPM · IEC 62443 · Résilience opérationnelle</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+            <a href="/secteur-technologie" class="ax-linkcard">
+              <h3>Tech</h3>
+              <p>Produits numériques · API Security · DevSecOps · Confiance marché</p>
+              <span class="ax-link">Découvrir le secteur</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <p class="ax-kicker">Secteur Retail</p>
+        <h2>Échangeons sur votre <em>trajectoire cyber retail</em></h2>
+        <p class="ax-contact-lead">Nous sécurisons vos parcours omnicanaux, réduisons la fraude et renforçons la continuité opérationnelle de vos activités retail.</p>
+        <div class="ax-actions"><a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">Nous contacter</a><a href="/audit-conformite" class="ax-link ax-link--light">Voir l'expertise Audit &amp; Conformité</a></div>
+      </section>
+
     </div>
-  </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a>
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
         <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
-        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div><div><div class="badge-title">Happy at Work 2025</div><div class="badge-sub">Certifié par nos collaborateurs</div></div></a>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
         <div class="footer-social">
-          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg></a>
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer-links">
-        <div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div>
-        <div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><!--  --><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div>
-        <div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div>
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
-      <div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/protection-donnees">Protection des données</a></div>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/protection-donnees">Protection des données</a>
+      </div>
     </div>
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20260916"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

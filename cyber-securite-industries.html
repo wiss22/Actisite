@@ -21,283 +21,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Swiper 11 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <link rel="stylesheet" href="audit-pages.css">
-  <link rel="stylesheet" href="cyber-offers-shared.css">
-  <style>
-  /* ── Hero plein écran + bouton ancré ── */
-  .cyber-offer-page .hero-swift-modern {
-    height: 100svh;
-    min-height: unset;
-    box-sizing: border-box;
-  }
-  .cyber-offer-page .offer-scroll-cta {
-    bottom: 5px !important;
-  }
-
-  /* ════════════════════════════════════════════════
-     ICEBERG OT — visualisation enjeux systémiques
-  ════════════════════════════════════════════════ */
-  .ci-wrap {
-    margin: 36px 0 28px;
-    font-family: 'Raleway', sans-serif;
-  }
-
-  /* ── Bandeau 40 / 60 ── */
-  .ci-stats-bar {
-    display: flex;
-    align-items: stretch;
-    border-radius: 12px;
-    overflow: hidden;
-    margin-bottom: 2px;
-    border: 1px solid rgba(0,0,0,0.08);
-  }
-  .ci-stat-block {
-    flex: 1;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  .ci-stat-block.orange { background: rgba(241,136,71,0.08); }
-  .ci-stat-block.violet { background: rgba(154,62,192,0.07); }
-  .ci-stat-block + .ci-stat-block { border-left: 1px solid rgba(0,0,0,0.07); }
-  .ci-stat-pct {
-    font-size: 2rem;
-    font-weight: 900;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-  .ci-stat-block.orange .ci-stat-pct { color: #d4621a; }
-  .ci-stat-block.violet .ci-stat-pct { color: #8b2eb0; }
-  .ci-stat-desc {
-    color: #5a5a7a;
-    font-size: 0.82rem;
-    line-height: 1.45;
-  }
-  .ci-stat-desc strong {
-    display: block;
-    color: #1a1a2e;
-    font-size: 0.88rem;
-    margin-bottom: 2px;
-  }
-
-  /* ── Zone Surface (40%) ── */
-  .ci-surface {
-    background: rgba(241,136,71,0.04);
-    border: 1px solid rgba(241,136,71,0.20);
-    border-top: 3px solid #e07030;
-    padding: 20px 22px 22px;
-  }
-  .ci-zone-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.70rem;
-    text-transform: uppercase;
-    letter-spacing: 0.13em;
-    font-weight: 700;
-    margin-bottom: 18px;
-  }
-  .ci-zone-label.orange { color: #c85e18; }
-  .ci-zone-label.violet { color: #7a28a0; }
-  .ci-zone-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: currentColor;
-    opacity: 0.22;
-  }
-  .ci-cols-3 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  .ci-col {
-    padding: 14px 14px 14px 16px;
-    background: #fff;
-    border-radius: 8px;
-    border-left: 3px solid;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .ci-col-org { border-color: #e07030; }
-  .ci-col-net { border-color: #f0a060; }
-  .ci-col-phy { border-color: #f4c090; }
-  .ci-col-title {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 10px;
-  }
-  .ci-col ul,
-  .ci-cat ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .ci-col ul li,
-  .ci-cat ul li {
-    color: #4a4a6a;
-    font-size: 0.76rem;
-    line-height: 1.55;
-    padding: 3px 0 3px 12px;
-    position: relative;
-  }
-  .ci-col ul li::before,
-  .ci-cat ul li::before {
-    content: '·';
-    position: absolute;
-    left: 2px;
-    color: #aaaacc;
-  }
-
-  /* ── Séparateur ── */
-  .ci-waterline {
-    background: linear-gradient(90deg, transparent, rgba(61,120,220,0.07) 30%, rgba(61,120,220,0.13) 50%, rgba(61,120,220,0.07) 70%, transparent);
-    border-top: 1px dashed rgba(61,120,220,0.25);
-    border-bottom: 1px dashed rgba(61,120,220,0.25);
-    padding: 8px 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    position: relative;
-    margin-top: -2px;
-  }
-  .ci-waterline-rule { flex: 1; height: 1px; background: rgba(61,120,220,0.15); }
-  .ci-waterline-text {
-    color: rgba(61,120,220,0.60);
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-  }
-
-  /* ── Zone Profondeur (60%) ── */
-  .ci-depth {
-    background: rgba(104,1,127,0.04);
-    border: 1px solid rgba(154,62,192,0.20);
-    border-top: none;
-    border-bottom: 3px solid #8b2eb0;
-    border-radius: 0 0 12px 12px;
-    padding: 20px 22px 22px;
-  }
-  .ci-cats-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-  .ci-cat {
-    padding: 14px 14px 14px 16px;
-    background: #fff;
-    border-radius: 8px;
-    border-left: 3px solid;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  }
-  .ci-cat-p1 { border-color: #F18847; }
-  .ci-cat-p2 { border-color: #a050d0; }
-  .ci-cat-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-  }
-  .ci-cat-badge {
-    display: inline-block;
-    padding: 2px 7px;
-    border-radius: 4px;
-    font-size: 0.66rem;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    flex-shrink: 0;
-  }
-  .ci-cat-p1 .ci-cat-badge { background: rgba(224,112,48,0.12); color: #c85e18; }
-  .ci-cat-p2 .ci-cat-badge { background: rgba(139,46,176,0.12); color: #7a28a0; }
-  .ci-cat-title {
-    font-size: 0.80rem;
-    font-weight: 700;
-    color: #1a1a2e;
-  }
-
-  /* ── Responsive iceberg ── */
-  @media (max-width: 760px) {
-    .ci-stats-bar { flex-direction: column; }
-    .ci-stat-block + .ci-stat-block { border-left: none; border-top: 1px solid rgba(0,0,0,0.07); }
-    .ci-cols-3 { grid-template-columns: 1fr; }
-    .ci-cats-grid { grid-template-columns: 1fr; }
-    .ci-waterline-text { white-space: normal; text-align: center; }
-  }
-
-  /* ════════════════════════════════════════════════
-     CLIENT STORY — cs-*
-  ════════════════════════════════════════════════ */
-  .cs-card {
-    border: 1px solid rgba(241,136,71,0.18);
-    border-left: 4px solid #f18847;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #fff 0%, #fdf9f4 100%);
-    overflow: hidden;
-    font-family: 'Raleway', sans-serif;
-  }
-  .cs-header { padding: 22px 24px 18px; border-bottom: 1px solid rgba(241,136,71,0.10); }
-  .cs-eyebrow { font-size: 0.67rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #f18847; margin-bottom: 14px; }
-  .cs-header-grid { display: grid; grid-template-columns: 190px 1fr; gap: 22px; align-items: start; }
-  .cs-img-placeholder {
-    aspect-ratio: 4/3;
-    background: rgba(241,136,71,0.05);
-    border: 1px dashed rgba(241,136,71,0.28);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: rgba(241,136,71,0.38);
-    font-size: 0.70rem;
-    text-align: center;
-    padding: 12px;
-  }
-  .cs-img-placeholder svg { width: 26px; height: 26px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-  .cs-title-block h4 { font-size: 1.02rem; font-weight: 800; color: #1a0c2e; line-height: 1.3; margin: 0 0 10px; }
-  .cs-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-  .cs-tag { background: rgba(241,136,71,0.09); border: 1px solid rgba(241,136,71,0.22); color: #b85215; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; }
-  .cs-meta-strip { display: flex; flex-wrap: wrap; gap: 8px; }
-  .cs-meta-item { background: rgba(154,62,192,0.05); border: 1px solid rgba(154,62,192,0.13); border-radius: 8px; padding: 6px 10px; }
-  .cs-meta-item span { display: block; font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.12em; color: #7a28a0; font-weight: 700; margin-bottom: 2px; }
-  .cs-meta-item strong { display: block; font-size: 0.74rem; color: #1a1a2e; font-weight: 600; }
-  .cs-body { display: grid; grid-template-columns: 1fr 1.1fr 1.4fr; border-bottom: 1px solid rgba(241,136,71,0.09); }
-  .cs-col { padding: 18px 20px; }
-  .cs-col + .cs-col { border-left: 1px solid rgba(0,0,0,0.06); }
-  .cs-col-label { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #7a28a0; margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid rgba(154,62,192,0.14); }
-  .cs-col p { font-size: 0.76rem; color: #3a3a5a; line-height: 1.65; margin: 0; }
-  .cs-defi + .cs-defi { margin-top: 12px; }
-  .cs-defi-title { font-size: 0.74rem; font-weight: 700; color: #1a1a2e; margin-bottom: 3px; }
-  .cs-defi p { font-size: 0.72rem; color: #5a5a7a; margin: 0; line-height: 1.55; }
-  .cs-contrib-axe + .cs-contrib-axe { margin-top: 11px; }
-  .cs-contrib-axe > strong { display: block; font-size: 0.72rem; font-weight: 700; color: #c85e18; margin-bottom: 4px; }
-  .cs-contrib-axe ul { list-style: none; padding: 0; margin: 0; }
-  .cs-contrib-axe ul li { font-size: 0.71rem; color: #4a4a6a; line-height: 1.5; padding: 2px 0 2px 12px; position: relative; }
-  .cs-contrib-axe ul li::before { content: '·'; position: absolute; left: 2px; color: #f18847; }
-  .cs-results { padding: 16px 20px 18px; background: rgba(241,136,71,0.03); }
-  .cs-results-label { font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: #c85e18; margin-bottom: 10px; }
-  .cs-results-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
-  .cs-result-item { background: #fff; border: 1px solid rgba(241,136,71,0.15); border-radius: 8px; padding: 10px 12px; font-size: 0.74rem; color: #3a3a5a; line-height: 1.55; }
-  .cs-result-item strong { display: block; color: #c85e18; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 3px; }
-  @media (max-width: 860px) {
-    .cs-header-grid { grid-template-columns: 1fr; }
-    .cs-img-placeholder { aspect-ratio: 16/6; }
-    .cs-body { grid-template-columns: 1fr; }
-    .cs-col + .cs-col { border-left: none; border-top: 1px solid rgba(0,0,0,0.06); }
-    .cs-results-grid { grid-template-columns: 1fr; }
-  }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-cyber.css?v=20261111">
 </head>
-<body class="cyber-pillar-page swift-modern-page offer-editorial-page cyber-offer-page">
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
-<nav id="navbar" class="scrolled"><div class="nav-inner"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" data-logo-default="Logos/logo-blanc.png" data-logo-scrolled="Logos/actinuancelogo2_vec.svg" alt="Actinuance" class="nav-logo-img" /></a>
+  <nav id="navbar" class="scrolled">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <img
+          src="Logos/logo-blanc.png"
+          data-logo-default="Logos/logo-blanc.png"
+          data-logo-scrolled="Logos/actinuancelogo2_vec.svg"
+          alt="Actinuance"
+          class="nav-logo-img"
+        />
+      </a>
       <ul class="nav-links">
         <li class="nav-item-dropdown">
           <button type="button" class="nav-dropdown-trigger" id="featuredOffersDropdownTrigger" aria-expanded="false" aria-haspopup="true">Offres à la une</button>
@@ -335,141 +76,109 @@
         </li>
         <li><a href="/#apropos">À propos</a></li>
       </ul>
-      <div class="nav-actions"><a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a><a href="/#contact" class="nav-cta">Nous contacter</a></div><button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button></div></nav>
-
-<section class="page-hero page-hero-animated page-hero-sm hero-cyberdefense hero-swift-modern">
-  <div class="page-hero-art" aria-hidden="true">
-    <span class="geo geo-a"></span>
-    <span class="geo geo-b"></span>
-    <span class="geo geo-c"></span>
-    <span class="geo geo-d"></span>
-  </div>
-  <div class="swift-hero-grid swift-hero-grid-no-panel">
-    <div class="swift-hero-copy">
-      <div class="section-eyebrow">Offre — Cyber Défense</div>
-      <h1>Sécurité des <span>industries</span></h1>
-      <p class="hero-lead">Accompagnement des organisations industrielles dans l’évaluation et l’amélioration durable de leur posture de cybersécurité, grâce à une approche pragmatique et orientée métier.</p>
-      <div class="swift-hero-pills">
-        <span>Audit OT</span>
-        <span>SecOps OT</span>
-        <span>IEC 62443</span>
-        <span>NIS2 / LPM</span>
+      <div class="nav-actions">
+        <a href="/nous-rejoindre" class="nav-cta nav-cta-join">Nous rejoindre</a>
+        <a href="/#contact" class="nav-cta">Nous contacter</a>
       </div>
+      <button class="burger" id="burger" aria-label="menu"><span></span><span></span><span></span></button>
     </div>
-  </div>
-  <a href="#offer-content" class="offer-scroll-cta" aria-label="Découvrir"><span>Découvrir</span><span class="arrow">↓</span></a>
-</section>
+  </nav>
 
-<section class="page-section alt" id="offer-content">
-  <div class="container">
-    <div class="offer-shell-layout">
-      <aside class="pillar-flynav offer-flynav" aria-label="Navigation offres Cyber Défense">
-        <div class="pillar-flynav-title pillar-flynav-title-accent">Expertise Cyber Défense</div>
-        <a href="/cyber-defense#presentation-pilier" class="pillar-overview-link">Présentation du pilier</a>
-        <div class="pillar-flynav-sep"></div>
-        <div class="pillar-flynav-title">Offres</div>
-        <a href="/cyber-cloud-defense">Sécurité du cloud</a>
-        <a href="/cyber-securite-developpement">Sécurité du développement</a>
-        <a href="/cyber-resilience-operationnelle">Résilience opérationnelle</a>
-        <a href="/cyber-securite-industries" class="is-active">Sécurité des industries</a>
-      </aside>
-      <div class="offer-shell-main offer-shell-main-lite">
-        <!-- ── 01 CONTEXTE ── -->
-        <article class="offer-shell-section reveal">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">01</div>
-            <h3>Contexte et enjeux</h3>
-          </div>
-          <p><strong>Vos systèmes industriels sont le cœur de votre chaîne de valeur. Sont-ils vraiment protégés&nbsp;?</strong></p>
-          <p>Les environnements industriels (OT) restent parmi les plus exposés et les moins matures en matière de cybersécurité. Contrairement à l’IT, une attaque sur vos systèmes industriels ne menace pas seulement la confidentialité de vos données, elle peut compromettre la disponibilité des systèmes et perturber la continuité des opérations.</p>
+  <main id="main">
 
-          <div class="swiper ccd-context-swiper">
-            <div class="swiper-wrapper">
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="0">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#expertises">Expertises</a><span aria-hidden="true">/</span><a href="/cyber-defense">Cyber Défense</a><span aria-hidden="true">/</span><span aria-current="page">Sécurité des industries</span></nav>
+          <h1>Sécurité des <em>industries</em></h1>
+          <p class="ax-hero-lead">Accompagnement des organisations industrielles dans l’évaluation et l’amélioration durable de leur posture de cybersécurité, grâce à une approche pragmatique et orientée métier.</p>
+          <ul class="ax-pills"><li>Audit OT</li><li>SecOps OT</li><li>IEC 62443</li><li>NIS2 / LPM</li></ul>
+          <div class="ax-actions"><a href="#contact" class="ax-btn ax-btn--accent">En discuter</a><a href="#offre" class="ax-link ax-link--light">Découvrir l'offre</a></div>
+        </div>
+      </div>
+    </section>
 
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  </div>
-                  <p>Tolérance zéro aux interruptions des opérations. Chaque action de sécurité doit préserver la continuité de la production sans compromis.</p>
-                </div>
-              </div>
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="/cyber-defense" class="ax-subnav-back">‹ Cyber Défense</a>
+          <a href="#contexte">Contexte</a>
+          <a href="#risques-ot">Risques OT</a>
+          <a href="#offre">L'offre</a>
+          <a href="#atouts">Nos atouts</a>
+          <a href="#contact" class="ax-subnav-cta">En discuter</a>
+        </div>
+      </div>
 
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/></svg>
-                  </div>
-                  <p>Des équipements anciens aux protocoles legacy non sécurisés, présentant des failles souvent impossibles à corriger sans arrêt de service.</p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux techniques opérationnels</div>
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
-                  </div>
-                  <p>Manque de visibilité sur les actifs industriels et hétérogénéité des équipements et des fournisseurs : cartographier et surveiller cet environnement dispersé reste un défi majeur.</p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux structurels</div>
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                  </div>
-                  <p>Secteurs indus/manufacturiers fortement réglementés (CRA, NIS2, LPM) — des exigences croissantes qui imposent une mise en conformité structurée de la sécurité OT.</p>
-                </div>
-              </div>
-
-              <div class="swiper-slide">
-                <div class="ccd-ctx-card">
-                  <div class="section-eyebrow" style="font-size:0.68rem;margin-bottom:10px;">Enjeux structurels</div>
-                  <div class="ccd-ctx-icon">
-                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                  </div>
-                  <p>Faible gouvernance : absence d’ownership claire de la sécurité OT, silos entre IT, OT et sécurité. Une convergence difficile à orchestrer sans pilotage dédié.</p>
-                </div>
-              </div>
-
+      <section class="ax-section" id="contexte">
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Contexte et enjeux</p>
+              <h2 class="ax-h2">Vos systèmes industriels sont le cœur de votre chaîne de valeur. Sont-ils vraiment protégés&nbsp;?</h2>
             </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="ax-prose" data-lit>
+              <p>Les environnements industriels (OT) restent parmi les plus exposés et les moins matures en matière de cybersécurité. Contrairement à l’IT, une attaque sur vos systèmes industriels ne menace pas seulement la confidentialité de vos données, elle peut compromettre la disponibilité des systèmes et perturber la continuité des opérations.</p>
+            </div>
           </div>
+          <h3 class="ax-commit-title">Enjeux techniques opérationnels</h3>
+          <div class="ax-trio">
+            <div class="ax-commit ax-commit--1 ax-commit--text"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <p>Tolérance zéro aux interruptions des opérations. Chaque action de sécurité doit préserver la continuité de la production sans compromis.</p>
+            </div>
+            <div class="ax-commit ax-commit--2 ax-commit--text"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="2" x2="9" y2="4"/><line x1="15" y1="2" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="22"/><line x1="15" y1="20" x2="15" y2="22"/></svg>
+              <p>Des équipements anciens aux protocoles legacy non sécurisés, présentant des failles souvent impossibles à corriger sans arrêt de service.</p>
+            </div>
+            <div class="ax-commit ax-commit--3 ax-commit--text"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              <p>Manque de visibilité sur les actifs industriels et hétérogénéité des équipements et des fournisseurs&nbsp;: cartographier et surveiller cet environnement dispersé reste un défi majeur.</p>
+            </div>
+          </div>
+          <h3 class="ax-commit-title ax-commit-title--tight">Enjeux structurels</h3>
+          <div class="ax-trio ax-trio--2">
+            <div class="ax-commit ax-commit--4 ax-commit--text"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              <p>Secteurs indus/manufacturiers fortement réglementés (CRA, NIS2, LPM) — des exigences croissantes qui imposent une mise en conformité structurée de la sécurité OT.</p>
+            </div>
+            <div class="ax-commit ax-commit--3 ax-commit--text"><i class="ax-commit-tri" aria-hidden="true"></i>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+              <p>Faible gouvernance&nbsp;: absence d’ownership claire de la sécurité OT, silos entre IT, OT et sécurité. Une convergence difficile à orchestrer sans pilotage dédié.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          <!-- ── Iceberg : enjeux systémiques OT ── -->
-          <div class="ci-wrap">
-
-            <!-- Bandeau 40% / 60% -->
-            <div class="ci-stats-bar">
-              <div class="ci-stat-block orange">
-                <div class="ci-stat-pct">40%</div>
-                <div class="ci-stat-desc">
-                  <strong>Problèmes visibles en surface</strong>
-                  Organisationnel, réseau, physique
-                </div>
+      <section class="ax-section ax-section--grey" id="risques-ot">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Enjeux systémiques OT</p>
+            <h2 class="ax-h2">Ce qui se voit, et ce qui reste <em>sous la surface.</em></h2>
+          </div>
+          <div class="ax-berg">
+            <div class="ax-berg-stats">
+              <div class="ax-berg-stat">
+                <p class="ax-berg-pct">40&nbsp;%</p>
+                <p><strong>Problèmes visibles en surface</strong> Organisationnel, réseau, physique</p>
               </div>
-              <div class="ci-stat-block violet">
-                <div class="ci-stat-pct">60%</div>
-                <div class="ci-stat-desc">
-                  <strong>Problèmes systémiques sous-jacents</strong>
-                  Architecture, opérations, détection, gouvernance
-                </div>
+              <div class="ax-berg-stat ax-berg-stat--deep">
+                <p class="ax-berg-pct">60&nbsp;%</p>
+                <p><strong>Problèmes systémiques sous-jacents</strong> Architecture, opérations, détection, gouvernance</p>
               </div>
             </div>
 
-            <!-- Zone surface (40%) -->
-            <div class="ci-surface">
-              <div class="ci-zone-label orange">Risques identifiés en surface</div>
-              <div class="ci-cols-3">
-
-                <div class="ci-col ci-col-org">
-                  <div class="ci-col-title">Organisationnel</div>
+            <div class="ax-berg-zone">
+              <h3 class="ax-berg-label">Risques identifiés en surface</h3>
+              <div class="ax-berg-cols">
+                <div class="ax-berg-col">
+                  <h4>Organisationnel</h4>
                   <ul>
                     <li>Responsabilité cybersécurité OT non définie</li>
                     <li>Politiques OT insuffisantes, inventaires perfectibles</li>
@@ -477,9 +186,8 @@
                     <li>Sensibilisation et formation à renforcer</li>
                   </ul>
                 </div>
-
-                <div class="ci-col ci-col-net">
-                  <div class="ci-col-title">Sécurité réseau</div>
+                <div class="ax-berg-col">
+                  <h4>Sécurité réseau</h4>
                   <ul>
                     <li>Wi-Fi process exposés</li>
                     <li>Interfaces admin accessibles</li>
@@ -487,35 +195,26 @@
                     <li>Détection des incidents IT/OT absente</li>
                   </ul>
                 </div>
-
-                <div class="ci-col ci-col-phy">
-                  <div class="ci-col-title">Sécurité physique</div>
+                <div class="ax-berg-col">
+                  <h4>Sécurité physique</h4>
                   <ul>
                     <li>Restrictions d'accès aux zones insuffisantes</li>
                     <li>Contrôle d'accès physique à renforcer</li>
                   </ul>
                 </div>
-
               </div>
             </div>
 
-            <!-- Ligne surface de l'eau -->
-            <div class="ci-waterline">
-              <div class="ci-waterline-rule"></div>
-              <div class="ci-waterline-text">Surface — Les sujets systémiques restent sous-jacents</div>
-              <div class="ci-waterline-rule"></div>
+            <div class="ax-berg-water">
+              <svg class="ax-berg-wave" aria-hidden="true" viewBox="0 0 400 24" preserveAspectRatio="none"><path d="M0 12 Q25 2 50 12 T100 12 T150 12 T200 12 T250 12 T300 12 T350 12 T400 12"/></svg>
+              <p>Surface — Les sujets systémiques restent sous-jacents</p>
             </div>
 
-            <!-- Zone profondeur (60%) -->
-            <div class="ci-depth">
-              <div class="ci-zone-label violet">Risques systémiques sous-jacents</div>
-              <div class="ci-cats-grid">
-
-                <div class="ci-cat ci-cat-p1">
-                  <div class="ci-cat-header">
-                    <span class="ci-cat-badge">P1</span>
-                    <span class="ci-cat-title">Architecture &amp; Sécurité</span>
-                  </div>
+            <div class="ax-berg-zone ax-berg-zone--deep">
+              <h3 class="ax-berg-label">Risques systémiques sous-jacents</h3>
+              <div class="ax-berg-cols ax-berg-cols--2">
+                <div class="ax-berg-col">
+                  <h4><span class="ax-berg-badge">P1</span> Architecture &amp; Sécurité</h4>
                   <ul>
                     <li>Exposition VLAN aux réseaux non fiables</li>
                     <li>Segmentation IT/OT insuffisante</li>
@@ -525,12 +224,8 @@
                     <li>Implémentation administration dédiée</li>
                   </ul>
                 </div>
-
-                <div class="ci-cat ci-cat-p1">
-                  <div class="ci-cat-header">
-                    <span class="ci-cat-badge">P1</span>
-                    <span class="ci-cat-title">Détection &amp; Résilience</span>
-                  </div>
+                <div class="ax-berg-col">
+                  <h4><span class="ax-berg-badge">P1</span> Détection &amp; Résilience</h4>
                   <ul>
                     <li>Capacités de reprise technique à l'échelle site</li>
                     <li>Stratégie de backup réseau et actifs</li>
@@ -539,254 +234,303 @@
                     <li>Gestion des logs actifs industriels</li>
                   </ul>
                 </div>
-
-                <div class="ci-cat ci-cat-p2">
-                  <div class="ci-cat-header">
-                    <span class="ci-cat-badge">P2</span>
-                    <span class="ci-cat-title">Sécurité opérationnelle</span>
-                  </div>
+                <div class="ax-berg-col">
+                  <h4><span class="ax-berg-badge ax-berg-badge--2">P2</span> Sécurité opérationnelle</h4>
                   <ul>
                     <li>Maintenance et monitoring des tiers</li>
                     <li>Gestion des comptes tiers industriels</li>
                     <li>IAM Shopfloor (comptes génériques)</li>
                   </ul>
                 </div>
-
-                <div class="ci-cat ci-cat-p2">
-                  <div class="ci-cat-header">
-                    <span class="ci-cat-badge">P2</span>
-                    <span class="ci-cat-title">Gouvernance &amp; Conformité</span>
-                  </div>
+                <div class="ax-berg-col">
+                  <h4><span class="ax-berg-badge ax-berg-badge--2">P2</span> Gouvernance &amp; Conformité</h4>
                   <ul>
                     <li>Sécurité intégrée dans les projets shopfloor</li>
                     <li>Conformité sécurité des tiers industriels</li>
                   </ul>
                 </div>
-
               </div>
             </div>
-
           </div>
-          <!-- / Iceberg -->
+        </div>
+      </section>
 
-          <p class="offer-context-highlight">Intégrer la cybersécurité au cœur des environnements OT permet de gagner en visibilité sur les actifs industriels, de maîtriser les risques sans compromettre la continuité des opérations, et de bâtir une posture durable, conforme aux exigences réglementaires (NIS2, LPM, CRA) et adaptée aux réalités du terrain.</p>
-        </article>
+      <section class="ax-section ax-quote">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <p class="ax-quote-text ax-quote-text--longer">Intégrer la cybersécurité au cœur des environnements OT permet de gagner en visibilité sur les actifs industriels, de maîtriser les risques sans compromettre la continuité des opérations, et de bâtir une posture durable, conforme aux exigences réglementaires (NIS2, LPM, CRA) et adaptée aux réalités du terrain.</p>
+        </div>
+      </section>
 
-        <!-- ── 02 OFFRE ── -->
-        <article class="offer-shell-section reveal" data-delay="90">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">02</div>
-            <h3>L’offre Actinuance</h3>
+      <section class="ax-section" id="offre">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">L’offre Actinuance</p>
+            <h2 class="ax-h2">De l’état des lieux au pilotage quotidien.</h2>
+            <p class="ax-lead">Actinuance propose un accompagnement modulaire couvrant l’ensemble du cycle de la sécurité OT — de l’état des lieux initial au pilotage opérationnel quotidien. Franchir ce cap à l’aide de nos experts&nbsp;!</p>
           </div>
-          <p>Actinuance propose un accompagnement modulaire couvrant l’ensemble du cycle de la sécurité OT — de l’état des lieux initial au pilotage opérationnel quotidien. Franchir ce cap à l’aide de nos experts&nbsp;!</p>
-          <div class="ccd-deliverables-grid">
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">01</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg></div>
-              <strong>Audit Cybersécurité OT</strong>
-              <p>Évaluation de la maturité cyber, technique et organisationnelle, basée sur les référentiels IEC 62443, NIS2 et LPM. En sortie : une vision globale axée sur les risques et une feuille de route pour renforcer la protection de vos environnements industriels.</p>
-            </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">02</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-              <strong>Programme de sécurité OT</strong>
-              <p>Accompagnement pour concevoir et mettre en place un programme OT complet : structuration de la fonction sécurité, corpus documentaire, stratégie de gestion des risques, sécurité de l’architecture, des réseaux, des accès, détection, supervision et résilience.</p>
-            </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">03</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><polyline points="7 8 12 13 17 8"/></svg></div>
-              <strong>SecOps OT &amp; ISP</strong>
-              <p>Pilotage opérationnel : gestion des vulnérabilités, des changements, des incidents, patching, accès distants, SOC avec use-cases OT. Et pilotage d’un processus d’intégration de la sécurité dans les projets (ISP) : évaluation fournisseurs, cadre contractuel.</p>
-            </div>
-            <div class="ccd-deliverable">
-              <span class="ccd-deliverable-ghost-num">04</span>
-              <div class="ccd-deliverable-icon"><svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-7 10 7-10 7z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
-              <strong>Sensibilisation</strong>
-              <p>Conception et animation d’ateliers adaptés aux profils OT (opérateurs, maintenance, ingénierie, IT/OT), avec cas concrets d’attaques sur environnements industriels et SCADA. Sessions ludiques et sessions techniques.</p>
-            </div>
-          </div>
-        </article>
-
-        <!-- ── 03 ATOUTS ── -->
-        <article class="offer-shell-section reveal" data-delay="140">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">03</div>
-            <h3>Nos atouts</h3>
-          </div>
-          <p>La sécurité industrielle exige une double légitimité : celle du monde cyber et celle du monde opérationnel. Notre équipe conjugue ces deux expertises avec une approche pragmatique, adaptée aux réalités de terrain des industriels.</p>
-          <div class="swiper ccd-atouts-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="01">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
-                  <strong>Double expertise IT &amp; OT</strong>
-                  <p>Au-delà de la cybersécurité, nous maîtrisons les spécificités des environnements industriels : systèmes SCADA, protocoles de communication OT, contraintes d’exploitation.</p>
-                </div>
+          <div class="ax-stack ax-stack--offer">
+            <article class="ax-xcard ax-xcard--1" style="--i:0">
+              <div class="ax-xcard-text">
+                <h3>Audit Cybersécurité OT</h3>
+                <p>Évaluation de la maturité cyber, technique et organisationnelle, basée sur les référentiels IEC 62443, NIS2 et LPM. En sortie&nbsp;: une vision globale axée sur les risques et une feuille de route pour renforcer la protection de vos environnements industriels.</p>
               </div>
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="02">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                  <strong>Couverture sectorielle</strong>
-                  <p>Une connaissance métier solide avec des présences et références dans des secteurs variés : pharmaceutique, transport, luxe. Nous comprenons les réalités opérationnelles et réglementaires propres à chaque environnement industriel.</p>
-                </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="17.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="24" r="10.5" stroke="currentColor" stroke-width="1.4" opacity="0.58"/><path d="M24 24l8-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="24" cy="24" r="3.2" fill="currentColor"/><path d="M24 7.5V12M40.5 24H36M24 40.5V36M7.5 24H12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--2" style="--i:1">
+              <div class="ax-xcard-text">
+                <h3>Programme de sécurité OT</h3>
+                <p>Accompagnement pour concevoir et mettre en place un programme OT complet&nbsp;: structuration de la fonction sécurité, corpus documentaire, stratégie de gestion des risques, sécurité de l’architecture, des réseaux, des accès, détection, supervision et résilience.</p>
               </div>
-              <div class="swiper-slide">
-                <div class="ccd-atout-card" data-num="03">
-                  <div class="ccd-atout-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-                  <strong>Maîtrise des référentiels</strong>
-                  <p>NIS2, LPM, IEC 62443 : nos équipes sont certifiées sur les standards industriels et formées sur les réglementations qui s’imposent à vos secteurs d’activité. Une expertise normative directement opérationnelle.</p>
-                </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><path d="M24 5L11 10.5v11.2c0 8 5.5 15.3 13 16.9 7.5-1.6 13-8.9 13-16.9V10.5L24 5z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M18 24.2l4.2 4.2L31 19.7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 15.5h16" stroke="currentColor" stroke-width="1.4" opacity="0.5" stroke-linecap="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--3" style="--i:2">
+              <div class="ax-xcard-text">
+                <h3>SecOps OT &amp; ISP</h3>
+                <p>Pilotage opérationnel&nbsp;: gestion des vulnérabilités, des changements, des incidents, patching, accès distants, SOC avec use-cases OT. Et pilotage d’un processus d’intégration de la sécurité dans les projets (ISP)&nbsp;: évaluation fournisseurs, cadre contractuel.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><rect x="11" y="9" width="26" height="30" rx="4" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 24h12M18 30h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M31 34l2.7 2.7L39 29.9" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            </article>
+            <article class="ax-xcard ax-xcard--4" style="--i:3">
+              <div class="ax-xcard-text">
+                <h3>Sensibilisation</h3>
+                <p>Conception et animation d’ateliers adaptés aux profils OT (opérateurs, maintenance, ingénierie, IT/OT), avec cas concrets d’attaques sur environnements industriels et SCADA. Sessions ludiques et sessions techniques.</p>
+              </div>
+              <div class="ax-xcard-art"><svg aria-hidden="true" viewBox="0 0 48 48" fill="none"><circle cx="12" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="36" cy="14" r="5.5" stroke="currentColor" stroke-width="1.6"/><circle cx="24" cy="34" r="5.5" stroke="currentColor" stroke-width="1.6"/><path d="M16.8 16.4l14.4 0M15 18.6l6 9.5M33 18.6l-6 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M24 8.2v5.2" stroke="currentColor" stroke-width="1.6" opacity="0.48" stroke-linecap="round"/></svg></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-aboutsec" id="atouts">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-two">
+            <div>
+              <p class="ax-kicker">Nos atouts</p>
+              <h2 class="ax-h2">Une double légitimité, <em>cyber</em> et <em class="ax-o">opérationnelle.</em></h2>
+              <p class="ax-lead">La sécurité industrielle exige une double légitimité&nbsp;: celle du monde cyber et celle du monde opérationnel. Notre équipe conjugue ces deux expertises avec une approche pragmatique, adaptée aux réalités de terrain des industriels.</p>
+            </div>
+            <div class="ax-rows" style="margin-top:0">
+              <div class="ax-row">
+                <h3>Double expertise IT &amp; OT</h3>
+                <p>Au-delà de la cybersécurité, nous maîtrisons les spécificités des environnements industriels&nbsp;: systèmes SCADA, protocoles de communication OT, contraintes d’exploitation.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Couverture sectorielle</h3>
+                <p>Une connaissance métier solide avec des présences et références dans des secteurs variés&nbsp;: pharmaceutique, transport, luxe. Nous comprenons les réalités opérationnelles et réglementaires propres à chaque environnement industriel.</p>
+              </div>
+              <div class="ax-row">
+                <h3>Maîtrise des référentiels</h3>
+                <p>NIS2, LPM, IEC 62443&nbsp;: nos équipes sont certifiées sur les standards industriels et formées sur les réglementations qui s’imposent à vos secteurs d’activité. Une expertise normative directement opérationnelle.</p>
               </div>
             </div>
-            <div class="swiper-pagination"></div>
           </div>
-        </article>
+        </div>
+      </section>
 
-        <!-- ── 04 CLIENT STORIES ── -->
-        <article class="offer-shell-section reveal" data-delay="180">
-          <div class="offer-shell-head">
-            <div class="offer-shell-num">04</div>
+      <section class="ax-section" id="client-story">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Client Story · Industrie pharmaceutique</p>
+            <h2 class="ax-h2">Intégration de la sécurité dans les projets OT d'un groupe pharmaceutique européen</h2>
+            <ul class="ax-tags ax-tags--light"><li>Pharma / GxP</li><li>NIS2</li><li>SecOps OT &amp; ISP</li><li>Multi-sites</li></ul>
+            <dl class="ax-case-meta">
+              <div><dt>Secteur</dt><dd>Industrie pharmaceutique</dd></div>
+              <div><dt>Périmètre</dt><dd>Sites industriels européens</dd></div>
+              <div><dt>Mission</dt><dd>ISP OT · RevArchi · Formation</dd></div>
+            </dl>
+          </div>
+
+          <div class="ax-case-body">
+            <div class="ax-case-col">
+              <h3>Contexte</h3>
+              <p>Acteur pharmaceutique soumis à de fortes contraintes réglementaires (GxP, NIS2, exigences clients), confronté à la multiplication de projets OT sur ses sites industriels européens. L'entreprise souhaitait définir et piloter un cadre d'intégration de la sécurité dans ses projets OT, adapté aux spécificités des environnements industriels et déployé à l'échelle du groupe.</p>
+            </div>
+            <div class="ax-case-col">
+              <h3>Défis principaux</h3>
+              <div class="ax-case-item">
+                <h4>Adaptation aux réalités OT</h4>
+                <p>Les processus ISP existants étaient conçus pour des environnements IT classiques. Les adapter aux contraintes OT (disponibilité avant confidentialité, protocoles propriétaires, cycles de vie longs) nécessitait une expertise combinée IT/OT.</p>
+              </div>
+              <div class="ax-case-item">
+                <h4>Multiplicité des projets et interlocuteurs</h4>
+                <p>Équipes projet, fournisseurs et responsables sécurité de sites multiples avec des niveaux de maturité hétérogènes. Maintenir un suivi consolidé à l'échelle du groupe représentait un défi organisationnel structurant.</p>
+              </div>
+              <div class="ax-case-item">
+                <h4>Ancrage culturel de la sécurité</h4>
+                <p>Faire adopter une culture de sécurité by design par des équipes dont la priorité est la continuité de production. La formation était aussi importante que la conception du dispositif.</p>
+              </div>
+            </div>
+            <div class="ax-case-col">
+              <h3>Notre contribution</h3>
+              <div class="ax-case-item">
+                <h4>Process ISP OT</h4>
+                <ul>
+                  <li>Questionnaires d'évaluation fournisseurs et études RFP</li>
+                  <li>Définition des exigences de sécurité</li>
+                  <li>Revue des architectures OT&nbsp;: segmentation réseau, accès distants</li>
+                  <li>Recette des mesures de sécurité et tests</li>
+                  <li>Suivi des projets via instances régulières multi-sites</li>
+                </ul>
+              </div>
+              <div class="ax-case-item">
+                <h4>Montée en compétences</h4>
+                <ul>
+                  <li>Programme de formation pour les équipes sécurité locales des sites industriels</li>
+                  <li>Renforcement de l'autonomie sur le pilotage des volets sécurité OT locaux</li>
+                </ul>
+              </div>
+              <div class="ax-case-item">
+                <h4>Reporting &amp; Gouvernance</h4>
+                <ul>
+                  <li>Reporting hebdomadaire à destination du RSSI</li>
+                  <li>Synthèse des avancements, points de blocage et risques majeurs</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="ax-case-results">
+            <h3 class="ax-case-results-title">Résultats</h3>
+            <div class="ax-trio ax-trio--4">
+              <div class="ax-commit ax-commit--1"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h4>Process ISP adapté à l'OT</h4>
+                <p>Opérationnel sur l'ensemble des sites industriels du périmètre, intégrant les spécificités des environnements industriels.</p>
+              </div>
+              <div class="ax-commit ax-commit--2"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h4>Culture ISP ancrée</h4>
+                <p>Référents sécurité locaux formés et autonomes sur le pilotage des volets sécurité des projets OT.</p>
+              </div>
+              <div class="ax-commit ax-commit--3"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h4>Maîtrise du risque tiers</h4>
+                <p>Évaluation systématique des fournisseurs OT dès les phases amont et revue structurée des architectures.</p>
+              </div>
+              <div class="ax-commit ax-commit--4"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h4>Visibilité consolidée</h4>
+                <p>Pour la direction sécurité groupe sur l'ensemble des projets OT en cours, leurs risques et leur conformité aux exigences.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="ax-section ax-section--grey" id="aller-plus-loin">
+        <div class="ax-wrap offer-shell-main">
+          <div class="ax-feed offer-shell-section">
             <h3>Client Stories</h3>
+            <div class="offer-retex-grid"></div>
           </div>
-          <div class="offer-retex-grid">
-
-            <div class="cs-card">
-
-              <!-- En-tête -->
-              <div class="cs-header">
-                <div class="cs-eyebrow">Client Story &middot; Industrie pharmaceutique</div>
-                <div class="cs-header-grid">
-                  <div class="cs-img-placeholder">
-                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-                    <span>Illustration à venir</span>
-                  </div>
-                  <div class="cs-title-block">
-                    <h4>Intégration de la sécurité dans les projets OT d'un groupe pharmaceutique européen</h4>
-                    <div class="cs-tags">
-                      <span class="cs-tag">Pharma / GxP</span>
-                      <span class="cs-tag">NIS2</span>
-                      <span class="cs-tag">SecOps OT &amp; ISP</span>
-                      <span class="cs-tag">Multi-sites</span>
-                    </div>
-                    <div class="cs-meta-strip">
-                      <div class="cs-meta-item"><span>Secteur</span><strong>Industrie pharmaceutique</strong></div>
-                      <div class="cs-meta-item"><span>Périmètre</span><strong>Sites industriels européens</strong></div>
-                      <div class="cs-meta-item"><span>Mission</span><strong>ISP OT · RevArchi · Formation</strong></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Corps -->
-              <div class="cs-body">
-
-                <div class="cs-col">
-                  <div class="cs-col-label">Contexte</div>
-                  <p>Acteur pharmaceutique soumis à de fortes contraintes réglementaires (GxP, NIS2, exigences clients), confronté à la multiplication de projets OT sur ses sites industriels européens. L'entreprise souhaitait définir et piloter un cadre d'intégration de la sécurité dans ses projets OT, adapté aux spécificités des environnements industriels et déployé à l'échelle du groupe.</p>
-                </div>
-
-                <div class="cs-col">
-                  <div class="cs-col-label">Défis principaux</div>
-                  <div class="cs-defi">
-                    <div class="cs-defi-title">Adaptation aux réalités OT</div>
-                    <p>Les processus ISP existants étaient conçus pour des environnements IT classiques. Les adapter aux contraintes OT (disponibilité avant confidentialité, protocoles propriétaires, cycles de vie longs) nécessitait une expertise combinée IT/OT.</p>
-                  </div>
-                  <div class="cs-defi">
-                    <div class="cs-defi-title">Multiplicité des projets et interlocuteurs</div>
-                    <p>Équipes projet, fournisseurs et responsables sécurité de sites multiples avec des niveaux de maturité hétérogènes. Maintenir un suivi consolidé à l'échelle du groupe représentait un défi organisationnel structurant.</p>
-                  </div>
-                  <div class="cs-defi">
-                    <div class="cs-defi-title">Ancrage culturel de la sécurité</div>
-                    <p>Faire adopter une culture de sécurité by design par des équipes dont la priorité est la continuité de production. La formation était aussi importante que la conception du dispositif.</p>
-                  </div>
-                </div>
-
-                <div class="cs-col">
-                  <div class="cs-col-label">Notre contribution</div>
-                  <div class="cs-contrib-axe">
-                    <strong>Process ISP OT</strong>
-                    <ul>
-                      <li>Questionnaires d'évaluation fournisseurs et études RFP</li>
-                      <li>Définition des exigences de sécurité</li>
-                      <li>Revue des architectures OT : segmentation réseau, accès distants</li>
-                      <li>Recette des mesures de sécurité et tests</li>
-                      <li>Suivi des projets via instances régulières multi-sites</li>
-                    </ul>
-                  </div>
-                  <div class="cs-contrib-axe">
-                    <strong>Montée en compétences</strong>
-                    <ul>
-                      <li>Programme de formation pour les équipes sécurité locales des sites industriels</li>
-                      <li>Renforcement de l'autonomie sur le pilotage des volets sécurité OT locaux</li>
-                    </ul>
-                  </div>
-                  <div class="cs-contrib-axe">
-                    <strong>Reporting &amp; Gouvernance</strong>
-                    <ul>
-                      <li>Reporting hebdomadaire à destination du RSSI</li>
-                      <li>Synthèse des avancements, points de blocage et risques majeurs</li>
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Résultats -->
-              <div class="cs-results">
-                <div class="cs-results-label">Résultats</div>
-                <div class="cs-results-grid">
-                  <div class="cs-result-item">
-                    <strong>Process ISP adapté à l'OT</strong>
-                    Opérationnel sur l'ensemble des sites industriels du périmètre, intégrant les spécificités des environnements industriels.
-                  </div>
-                  <div class="cs-result-item">
-                    <strong>Culture ISP ancrée</strong>
-                    Référents sécurité locaux formés et autonomes sur le pilotage des volets sécurité des projets OT.
-                  </div>
-                  <div class="cs-result-item">
-                    <strong>Maîtrise du risque tiers</strong>
-                    Évaluation systématique des fournisseurs OT dès les phases amont et revue structurée des architectures.
-                  </div>
-                  <div class="cs-result-item">
-                    <strong>Visibilité consolidée</strong>
-                    Pour la direction sécurité groupe sur l'ensemble des projets OT en cours, leurs risques et leur conformité aux exigences.
-                  </div>
-                </div>
-              </div>
-
+          <div class="ax-feed offer-shell-section">
+            <h3>Articles liés à l’offre</h3>
+            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-industries" data-offer-limit="2"></div>
+          </div>
+          <div class="ax-feed">
+            <h3>Les autres offres Cyber Défense</h3>
+            <div class="ax-links">
+              <a href="/cyber-cloud-defense" class="ax-linkcard">
+                <h3>Sécurité du cloud</h3>
+                <p>Auditer, renforcer et piloter la sécurité de vos environnements cloud, de la configuration à la détection des menaces.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/cyber-securite-developpement" class="ax-linkcard">
+                <h3>Sécurité du développement</h3>
+                <p>Intégrer la sécurité dans les cycles DevOps pour réduire la surface d'attaque dès la conception.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
+              <a href="/cyber-resilience-operationnelle" class="ax-linkcard">
+                <h3>Résilience opérationnelle</h3>
+                <p>Gérer les vulnérabilités, renforcer la disponibilité des systèmes et structurer un dispositif de réponse aux incidents.</p>
+                <span class="ax-link">Découvrir l'offre</span>
+              </a>
             </div>
-
           </div>
-        </article>
-        <article class="offer-shell-section reveal" data-delay="220"><div class="offer-shell-head"><div class="offer-shell-num">05</div><h3>Articles liés à l’offre</h3></div><div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-industries" data-offer-limit="2"></div></article>
-        <article class="offer-shell-profile reveal" data-delay="260"><img src="Photos/Dirigeant/Ayoub.jpg" data-team-slug="ayoub" alt="Ayoub — Manager" class="offer-shell-profile-photo" /><div class="offer-shell-profile-content"><div class="section-eyebrow">Porteur de l’offre</div><h3>Ayoub — Manager</h3><p>Ayoub intervient sur la sécurisation des environnements industriels critiques avec une approche pragmatique et opérationnelle.</p><div class="card-cta" style="margin-top:14px;"><a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Securite%20des%20industries" class="btn-primary">En discuter avec Ayoub</a></div></div></article>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <div class="ax-owner">
+          <img src="Photos/Dirigeant/Ayoub.jpg" data-team-slug="ayoub" alt="Ayoub — Manager" width="220" height="220" loading="lazy" />
+          <div>
+            <p class="ax-kicker">Porteur de l’offre</p>
+            <h2>Ayoub — Manager</h2>
+            <p>Ayoub intervient sur la sécurisation des environnements industriels critiques avec une approche pragmatique et opérationnelle.</p>
+            <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20l%27offre%20Securite%20des%20industries" class="ax-btn ax-btn--accent">En discuter avec Ayoub</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">
+          <img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" />
+        </a>
+        <p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p>
+        <a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div>
+          <div>
+            <div class="badge-title">Happy at Work 2025</div>
+            <div class="badge-sub">Certifié par nos collaborateurs</div>
+          </div></a>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Expertises</div>
+          <a href="/risques-digitaux">Risques Digitaux</a>
+          <a href="/cyber-defense">Cyber Défense</a>
+          <a href="/audit-conformite">Audit et Conformité</a>
+          <a href="/transfo-cyber">Transfo Cyber</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Secteurs</div>
+          <a href="/secteur-banque">Banque</a>
+          <a href="/secteur-assurance">Assurance</a>
+          <a href="/secteur-luxe">Luxe</a>
+          <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
+          <a href="/secteur-technologie">Tech</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Cabinet</div>
+          <a href="/#apropos">À propos</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
+          <a href="/nous-rejoindre">Nous rejoindre</a>
+          <a href="/#contact">Contact</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
-<footer><div class="footer-inner"><div class="footer-brand"><a href="/" class="nav-logo"><img src="Logos/logo-blanc.png" alt="Actinuance" class="nav-logo-img" /></a><p>Cabinet de conseil en gouvernance et exécution des programmes Cyber, Risques et Conformité.</p><a href="https://choosemycompany.com/fr/actinuance/employees/fr/resultats-certifies" class="happy-work-badge" target="_blank" rel="noopener noreferrer" aria-label="Happy at Work 2025 - résultats certifiés"><div class="badge-icon">★</div><div><div class="badge-title">Happy at Work 2025</div><div class="badge-sub">Certifié par nos collaborateurs</div></div></a><div class="footer-social"><a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a><a href="https://www.glassdoor.fr/Avis/Actinuance-Consulting-Avis-E3130350.htm" target="_blank" rel="noopener noreferrer" aria-label="Glassdoor"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12-5.372 12-12S18.628 0 12 0zm.49 5.498h5.38v7.54h-5.38zm-6.36 3.462h5.38v7.54H6.13z"/></svg></a></div></div><div class="footer-links"><div class="footer-col"><div class="footer-col-title">Expertises</div><a href="/risques-digitaux">Risques Digitaux</a><a href="/cyber-defense">Cyber Défense</a><a href="/audit-conformite">Audit et Conformité</a><a href="/transfo-cyber">Transfo Cyber</a></div><div class="footer-col"><div class="footer-col-title">Secteurs</div><a href="/secteur-banque">Banque</a><a href="/secteur-assurance">Assurance</a><a href="/secteur-luxe">Luxe</a><a href="/secteur-industrie-transport">Industrie &amp; Transport</a><a href="/secteur-technologie">Tech</a></div><div class="footer-col"><div class="footer-col-title">Cabinet</div><a href="/#apropos">À propos</a><a href="/equipe-dirigeante">Equipe dirigeante</a><a href="/nous-rejoindre">Nous rejoindre</a><a href="/#contact">Contact</a></div></div></div><div class="footer-bottom"><p>© 2025 Actinuance Consulting — Tous droits réservés</p><div class="footer-legal"><a href="/mentions-legales">Mentions légales</a><a href="/protection-donnees">Protection des données</a></div></div></footer>
-
-<script src="script.js?v=20260916"></script>
-  <!-- Swiper 11 -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-  (function () {
-    'use strict';
-    if (typeof Swiper === 'undefined') return;
-    new Swiper('.ccd-context-swiper', {
-      slidesPerView: 1.12, spaceBetween: 16, loop: false, grabCursor: true,
-      autoplay: { delay: 4200, disableOnInteraction: true, pauseOnMouseEnter: true },
-      pagination: { el: '.ccd-context-swiper .swiper-pagination', clickable: true },
-      navigation: { prevEl: '.ccd-context-swiper .swiper-button-prev', nextEl: '.ccd-context-swiper .swiper-button-next' },
-      breakpoints: { 0: { enabled: false }, 520: { enabled: true, slidesPerView: 1.5, spaceBetween: 18 }, 740: { enabled: true, slidesPerView: 2, spaceBetween: 20 } },
-    });
-    new Swiper('.ccd-atouts-swiper', {
-      slidesPerView: 1.1, centeredSlides: true, spaceBetween: 18, loop: false, grabCursor: true,
-      pagination: { el: '.ccd-atouts-swiper .swiper-pagination', clickable: true },
-      breakpoints: { 0: { enabled: false, centeredSlides: false }, 520: { enabled: true, slidesPerView: 1.4, centeredSlides: true, spaceBetween: 20 }, 740: { enabled: true, slidesPerView: 2, centeredSlides: false, spaceBetween: 22 }, 1060: { enabled: true, slidesPerView: 3, centeredSlides: false, spaceBetween: 22 } },
-    });
-  })();
-  </script>
+    <div class="footer-bottom">
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
+      <div class="footer-legal">
+        <a href="/mentions-legales">Mentions légales</a>
+        <a href="/protection-donnees">Protection des données</a>
+      </div>
+    </div>
+  </footer>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

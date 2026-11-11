@@ -4,7 +4,7 @@
     {
       "name": "actinuance",
       "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8877", "--directory", "/Users/wissemchouk/ActiSite/Actisite"],
+      "runtimeArgs": ["/Users/wissemchouk/ActiSite/Actisite/scripts/dev-server.py", "8877"],
       "port": 8877
     }
   ]

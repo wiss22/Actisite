@@ -21,125 +21,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
-  <style>
-    .article-shell { max-width: 1160px; margin: 0 auto; }
-    .article-hero-grid {
-      display: grid;
-      grid-template-columns: minmax(320px, 44%) minmax(0, 1fr);
-      gap: 30px;
-      align-items: stretch;
-      margin-bottom: 26px;
-    }
-    .article-hero-media {
-      margin: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.08);
-      min-height: 300px;
-    }
-    .article-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .article-meta { color: rgba(255,255,255,.72); font-size: .95rem; margin-bottom: 0; }
-    .article-hero-copy {
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 16px;
-      padding: 26px 26px 22px;
-      background: linear-gradient(160deg, rgba(255,255,255,.1), rgba(255,255,255,.04));
-      backdrop-filter: blur(2px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 14px;
-      margin: 0 0 28px;
-    }
-    .article-hero-copy .section-heading { margin-bottom: 0; }
-    .article-hero-excerpt {
-      margin: 0;
-      color: rgba(255,255,255,.86);
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.7;
-      font-size: .95rem;
-    }
-    .article-content { background: #fff; border-radius: 16px; padding: 40px 44px 30px; box-shadow: 0 22px 48px rgba(12,8,20,.2); }
-    .article-content p { color: #2b2b35; line-height: 1.8; margin: 0 0 1rem; }
-    .article-content-image {
-      margin: 1.2rem 0 1.4rem;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(45,33,66,.12);
-      background: #f3f3f6;
-    }
-    .article-content-image img {
-      width: 100%;
-      display: block;
-      height: auto;
-    }
-    .article-content-image figcaption {
-      font-family: 'Poppins', sans-serif;
-      font-size: .78rem;
-      color: rgba(45,33,66,.62);
-      padding: 8px 10px;
-      border-top: 1px solid rgba(45,33,66,.1);
-      background: rgba(255,255,255,.86);
-    }
-    .article-content-video,
-    .article-content-pdf {
-      margin: 1.2rem 0 1.4rem;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid rgba(45,33,66,.12);
-      background: #f3f3f6;
-    }
-    .article-content-video iframe {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border: 0;
-      display: block;
-      background: #000;
-    }
-    .article-content-pdf iframe {
-      width: 100%;
-      min-height: 560px;
-      border: 0;
-      display: block;
-      background: #fff;
-    }
-    .media-caption {
-      font-family: 'Poppins', sans-serif;
-      font-size: .78rem;
-      color: rgba(45,33,66,.62);
-      padding: 8px 10px;
-      border-top: 1px solid rgba(45,33,66,.1);
-      background: rgba(255,255,255,.86);
-    }
-    .article-content h2 { color: #1c1a24; margin: 1.6rem 0 .8rem; font-size: 1.65rem; }
-    .article-content h3 { color: #1c1a24; margin: 1.4rem 0 .7rem; font-size: 1.3rem; }
-    .article-content ul, .article-content ol { color: #2b2b35; padding-left: 1.2rem; margin: 0 0 1rem; }
-    .article-content li { margin-bottom: .5rem; }
-    .article-content blockquote { margin: 1rem 0; border-left: 3px solid var(--color-accent, #f08b45); padding: .5rem 0 .5rem 1rem; color: #4a4657; font-style: italic; }
-    .article-content a { color: #663399; text-decoration: underline; }
-    .article-content code { background: #f5f5f8; padding: .1rem .35rem; border-radius: 4px; }
-    .article-back { margin-top: 18px; display: inline-flex; align-items: center; gap: 6px; color: #fff; text-decoration: none; }
-    @media (max-width: 1100px) {
-      .article-shell { max-width: 940px; }
-      .article-hero-grid { grid-template-columns: 1fr; gap: 18px; }
-      .article-hero-media { min-height: 260px; }
-      .article-content { padding: 32px 28px 20px; }
-    }
-
-    @media (max-width: 768px) {
-      .article-hero-copy { padding: 18px 16px 16px; }
-      .article-content { padding: 24px 18px 16px; border-radius: 12px; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-publications.css?v=20261111">
 </head>
-<body>
+<body class="ax-page ax-inner ax-pub">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
+
   <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
@@ -196,28 +84,53 @@
     </div>
   </nav>
 
-  <section class="section section-dark" style="padding-top: 140px; min-height: 70vh;">
-    <div class="container article-shell">
-      <div class="section-intro light" style="max-width:none;">
-        <div class="article-hero-grid">
-          <figure class="article-hero-media" id="articleHeroMedia">
-            <img id="articleHeroCover" src="" alt="" loading="eager" decoding="async" />
-          </figure>
-          <div class="article-hero-copy">
-            <div class="section-eyebrow" id="articleTag">Publication</div>
-            <h1 class="section-heading" id="articleTitle" style="color:#fff;">Chargement de l’article…</h1>
-            <p class="article-meta" id="articleMeta"></p>
-            <p class="article-hero-excerpt" id="articleHeroExcerpt"></p>
-          </div>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page ax-hero--article" id="hero" data-slide="0">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
+      </div>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><span>Publications</span><span aria-hidden="true">/</span><a href="/blog">Articles</a></nav>
+          <p class="ax-pub-tag" id="articleTag">Publication</p>
+          <h1 id="articleTitle">Chargement de l’article…</h1>
+          <p class="ax-pub-meta" id="articleMeta"></p>
+          <p class="ax-hero-lead" id="articleHeroExcerpt"></p>
         </div>
       </div>
+    </section>
 
-      <article class="article-content" id="articleContent">
-        <p>Chargement du contenu en cours…</p>
-      </article>
-      <a href="/blog" class="article-back">← Retour aux articles</a>
+    <div class="ax-over">
+      <section class="ax-section ax-pub-read" id="lecture">
+        <div class="ax-article">
+          <figure class="ax-article-cover article-hero-media" id="articleHeroMedia">
+            <img id="articleHeroCover" src="" alt="" loading="eager" decoding="async" />
+          </figure>
+          <article class="article-content" id="articleContent">
+            <p>Chargement du contenu en cours…</p>
+          </article>
+          <div class="ax-back-row"><a href="/blog" class="ax-back">Retour aux articles</a></div>
+        </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
+      </div>
+        <h2>Parlons de votre <em>projet.</em></h2>
+        <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
+        <a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
+        <address>147 Rue de Rennes, 75006 Paris</address>
+      </section>
+
     </div>
-  </section>
+  </main>
 
   <footer>
     <div class="footer-inner">
@@ -253,21 +166,20 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
@@ -460,6 +372,9 @@
       ].join('')
     })()
   </script>
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>

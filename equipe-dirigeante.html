@@ -21,11 +21,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260318c">
+  <link rel="stylesheet" href="style.css?v=20260914">
+  <link rel="stylesheet" href="ax.css?v=20261110f">
+  <link rel="stylesheet" href="ax-cabinet.css?v=20261111">
 </head>
-<body>
+<body class="ax-page ax-inner">
+  <a href="#main" class="ax-skip">Aller au contenu</a>
 
-  <nav id="navbar">
+  <nav id="navbar" class="scrolled">
     <div class="nav-inner">
       <a href="/" class="nav-logo">
         <img
@@ -81,138 +84,145 @@
     </div>
   </nav>
 
-  <section class="section section-dark" style="padding-top: 108px; padding-bottom: 44px;">
-    <div class="container">
-      <div class="section-intro light">
-        <div class="section-eyebrow">Cabinet — Equipe dirigeante</div>
-        <h1 class="section-heading" style="color:#fff;">Des profils complémentaires au service d'une même <em>exigence</em></h1>
+  <main id="main">
+
+    <section class="ax-hero ax-hero--page" id="hero" data-slide="1">
+      <div class="ax-hero-art" aria-hidden="true">
+        <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
+        <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
       </div>
-    </div>
-  </section>
+      <div class="ax-hero-inner">
+        <div class="ax-hero-copy">
+          <nav class="ax-crumb" aria-label="Fil d'Ariane"><a href="/#apropos">Cabinet</a><span aria-hidden="true">/</span><span aria-current="page">Équipe dirigeante</span></nav>
+          <h1>Des profils complémentaires au service d'une même <em>exigence</em></h1>
+          <ul class="ax-pills"><li>Associés</li><li>Managers</li><li>Ressources humaines</li></ul>
+          <div class="ax-actions"><a href="#associes" class="ax-btn ax-btn--accent">Découvrir l'équipe</a><a href="/nous-rejoindre" class="ax-link ax-link--light">Nous rejoindre</a></div>
+        </div>
+      </div>
+    </section>
 
-  <section class="section leadership-section" style="padding-top: 62px; padding-bottom: 82px;">
-    <div class="container">
+    <div class="ax-over">
+      <div class="ax-subnav" aria-label="Sections de la page">
+        <div class="ax-subnav-bar">
+          <a href="#associes">Associés</a>
+          <a href="#managers">Managers</a>
+          <a href="#ressources-humaines">Ressources humaines</a>
+          <a href="#contact" class="ax-subnav-cta">Nous contacter</a>
+        </div>
+      </div>
 
-      <div class="leadership-group reveal">
-        <div class="section-eyebrow">Associés</div>
-        <div class="leadership-grid leadership-grid-3">
-          <article class="leader-card leader-nidhal" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Nidhal.JPG" data-team-slug="nidhal" alt="Nidhal" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Associé fondateur</div>
-              <div class="leader-caption-name">Nidhal</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Associé fondateur</div>
+      <section class="ax-section" id="associes">
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <p class="ax-kicker">Équipe dirigeante</p>
+            <h2 class="ax-h2">Associés.</h2>
+          </div>
+          <div class="ax-leaders">
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Nidhal.JPG" data-team-slug="nidhal" alt="Nidhal" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Associé fondateur</p>
               <h3>Nidhal</h3>
               <p>Porte la vision stratégique et opérationnelle pour apporter des solutions innovantes et une expertise constructive à nos clients.</p>
-            </div>
-          </article>
-          <article class="leader-card leader-wissem" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Wissem.jpg" data-team-slug="wissem" alt="Wissem" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Associé</div>
-              <div class="leader-caption-name">Wissem</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Associé</div>
+            </article>
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Wissem.jpg" data-team-slug="wissem" alt="Wissem" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Associé</p>
               <h3>Wissem</h3>
               <p>Porte la vision Cybersécurité du cabinet et accompagne les clients dans la continuité sur leurs enjeux critiques de transformation.</p>
-            </div>
-          </article>
-          <article class="leader-card leader-estelle" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Estelle.jpg" data-team-slug="estelle" alt="Estelle" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Associée &amp; Directrice commerciale</div>
-              <div class="leader-caption-name">Estelle</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Associée &amp; Directrice commerciale</div>
+            </article>
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Estelle.jpg" data-team-slug="estelle" alt="Estelle" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Associée &amp; Directrice commerciale</p>
               <h3>Estelle</h3>
               <p>Porte la stratégie commerciale du cabinet et suit l'évolution des besoins de nos clients historiques.</p>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="leadership-group reveal" data-delay="80">
-        <div class="section-eyebrow">Managers</div>
-        <div class="leadership-grid leadership-grid-3">
-          <article class="leader-card leader-pauline" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Pauline.jpg" data-team-slug="pauline" alt="Pauline" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Manager</div>
-              <div class="leader-caption-name">Pauline</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Manager</div>
+      <section class="ax-section ax-join" id="managers">
+      <div class="ax-join-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <div class="ax-head">
+            <h2 class="ax-h2">Managers.</h2>
+          </div>
+          <div class="ax-leaders">
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Pauline.jpg" data-team-slug="pauline" alt="Pauline" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Manager</p>
               <h3>Pauline</h3>
               <p>Pilote les missions avec précision, accompagne les équipes et sécurise la qualité d'exécution.</p>
-            </div>
-          </article>
-          <article class="leader-card leader-ayoub" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Ayoub.jpg" data-team-slug="ayoub" alt="Ayoub" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Manager</div>
-              <div class="leader-caption-name">Ayoub</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Manager</div>
+            </article>
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Ayoub.jpg" data-team-slug="ayoub" alt="Ayoub" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Manager</p>
               <h3>Ayoub</h3>
               <p>Intervient sur des programmes complexes en alliant expertise technique et pilotage opérationnel.</p>
-            </div>
-          </article>
-          <article class="leader-card leader-rania" tabindex="0">
-            <div class="leader-media">
-              <img src="/Photos/Dirigeant/Ranie.jpg" data-team-slug="rania" alt="Rania" loading="lazy" />
-            </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">Manager</div>
-              <div class="leader-caption-name">Rania</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">Manager</div>
+            </article>
+            <article class="ax-leader">
+              <div class="ax-leader-media">
+                <img src="/Photos/Dirigeant/Ranie.jpg" data-team-slug="rania" alt="Rania" loading="lazy" />
+              </div>
+              <p class="ax-leader-role">Manager</p>
               <h3>Rania</h3>
               <p>Accompagne les clients dans la durée avec une approche structurée, collaborative et orientée impact.</p>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="leadership-group reveal" data-delay="140">
-        <div class="section-eyebrow">Ressources humaines</div>
-        <div class="leadership-grid leadership-grid-1">
-          <article class="leader-card leader-emilie" tabindex="0">
-            <div class="leader-media">
+      <section class="ax-section ax-aboutsec" id="ressources-humaines">
+      <div class="ax-about-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--k"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--m"><i></i></div></div>
+      </div>
+        <div class="ax-wrap">
+          <article class="ax-leader ax-leader--wide">
+            <div class="ax-leader-media">
               <img src="/Photos/Dirigeant/Emilie.JPG" data-team-slug="emilie" alt="Emilie" loading="lazy" />
             </div>
-            <div class="leader-caption">
-              <div class="leader-caption-role">RRH</div>
-              <div class="leader-caption-name">Emilie</div>
-            </div>
-            <div class="leader-overlay">
-              <div class="leader-role">RRH</div>
+            <div>
+              <h2 class="ax-h2">Ressources humaines.</h2>
+              <p class="ax-leader-role">RRH</p>
               <h3>Emilie</h3>
               <p>Structure les parcours, accompagne les talents et veille à la qualité de l'expérience collaborateur.</p>
+              <div class="ax-actions ax-after"><a href="/nous-rejoindre" class="ax-btn ax-btn--primary">Nous rejoindre</a></div>
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="ax-contact" id="contact">
+      <div class="ax-contact-art" aria-hidden="true">
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--e"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--f"><i></i></div></div>
+        <div class="ax-tri-s"><div class="ax-tri ax-tri--g"><i></i></div></div>
       </div>
+        <h2>Échanger avec <em>l'équipe.</em></h2>
+        <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
+        <a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
+        <address>147 Rue de Rennes, 75006 Paris</address>
+      </section>
 
     </div>
-  </section>
+  </main>
 
-    <footer>
+  <footer>
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="/" class="nav-logo">
@@ -246,29 +256,29 @@
           <a href="/secteur-banque">Banque</a>
           <a href="/secteur-assurance">Assurance</a>
           <a href="/secteur-luxe">Luxe</a>
-          
           <a href="/secteur-industrie-transport">Industrie &amp; Transport</a>
           <a href="/secteur-technologie">Tech</a>
         </div>
         <div class="footer-col">
           <div class="footer-col-title">Cabinet</div>
           <a href="/#apropos">À propos</a>
-          <a href="/equipe-dirigeante">Equipe dirigeante</a>
+          <a href="/equipe-dirigeante">Équipe dirigeante</a>
           <a href="/nous-rejoindre">Nous rejoindre</a>
           <a href="/#contact">Contact</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Actinuance Consulting — Tous droits réservés</p>
+      <p>© 2026 Actinuance Consulting — Tous droits réservés</p>
       <div class="footer-legal">
         <a href="/mentions-legales">Mentions légales</a>
         <a href="/protection-donnees">Protection des données</a>
       </div>
     </div>
   </footer>
-
-
-  <script src="script.js?v=20260916"></script>
+  <script src="vendor/gsap.min.js"></script>
+  <script src="vendor/ScrollTrigger.min.js"></script>
+  <script src="script.js?v=20261110"></script>
+  <script src="ax.js?v=20261111b"></script>
 </body>
 </html>
