@@ -1,0 +1,218 @@
+/* ══════════════════════════════════════════════
+   ACTINUANCE — Accueil : section « Quatre expertises »
+   Une grande pyramide en relief, faite de quatre triangles (un par
+   expertise). Sur grand écran la section s'épingle : la pyramide
+   s'assemble, pivote, et la pièce de l'expertise lue se soulève.
+   Chargée après ax.css.
+════════════════════════════════════════════════ */
+
+.xp {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0;
+  background:
+    radial-gradient(60% 50% at 25% 60%, rgba(124, 58, 237, 0.28), transparent 70%),
+    radial-gradient(45% 40% at 85% 20%, rgba(241, 136, 71, 0.16), transparent 70%),
+    #170b20;
+  color: #fff;
+}
+.xp .ax-h2 { color: #fff; }
+.xp .ax-lead { color: rgba(255, 255, 255, 0.72); }
+
+/* Couleurs des quatre pièces : face claire, face sombre, tranche. */
+.xp-piece--top,  .xp-item--top  { --c1: #8b4cf5; --c2: #632a7c; --c3: #34113f; --ox: 50%; --oy: 33.33%; --clip: polygon(50% 0, 75% 50%, 25% 50%); }
+.xp-piece--left, .xp-item--left { --c1: #ffa066; --c2: #f18847; --c3: #9a4a1c; --ox: 25%; --oy: 83.33%; --clip: polygon(25% 50%, 50% 100%, 0 100%); }
+.xp-piece--right,.xp-item--right{ --c1: #d6b8ff; --c2: #9b70e0; --c3: #4f2f86; --ox: 75%; --oy: 83.33%; --clip: polygon(75% 50%, 100% 100%, 50% 100%); }
+.xp-piece--core, .xp-item--core { --c1: #9356c9; --c2: #55247a; --c3: #250a33; --ox: 50%; --oy: 66.67%; --clip: polygon(25% 50%, 75% 50%, 50% 100%); }
+
+/* ─── Mise en page ─────────────────────────────── */
+.xp-pin { position: relative; }
+.xp-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 96px);
+  padding-block: clamp(48px, 7vw, 96px) clamp(96px, 10vw, 140px);
+}
+
+/* ─── La pyramide ──────────────────────────────── */
+.xp-stage {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1.1547;
+  justify-self: center;
+  perspective: 1400px;
+  perspective-origin: 50% 40%;
+}
+.xp-glow {
+  position: absolute;
+  inset: -20% -10%;
+  background: radial-gradient(closest-side, var(--glow, rgba(139, 76, 245, 0.55)), transparent 70%);
+  filter: blur(30px);
+  transition: background 0.8s ease;
+  pointer-events: none;
+}
+.xp-rot {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform: rotateX(22deg) rotateY(-16deg);
+}
+.xp-piece {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transform-origin: var(--ox) var(--oy);
+  transform: scale(0.93);
+  cursor: pointer;
+}
+/* Face et tranches : même découpe, empilées en profondeur. */
+.xp-face,
+.xp-l {
+  position: absolute;
+  inset: 0;
+  clip-path: var(--clip);
+}
+.xp-face {
+  background:
+    linear-gradient(155deg, rgba(255, 255, 255, 0.38), transparent 38%),
+    linear-gradient(200deg, var(--c1), var(--c2) 70%);
+  transform: translateZ(0);
+  transition: opacity 0.6s ease;
+}
+.xp-l--1 { background: var(--c2); transform: translateZ(-14px); }
+.xp-l--2 { background: color-mix(in srgb, var(--c2) 50%, var(--c3)); transform: translateZ(-28px); }
+.xp-l--3 { background: var(--c3); transform: translateZ(-42px); }
+.xp-tag {
+  position: absolute;
+  left: var(--ox);
+  top: calc(var(--oy) + 4%);
+  transform: translate(-50%, -50%) translateZ(1px);
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+.xp-piece--right .xp-tag { color: #2a0f3a; }
+.xp--3d .xp-piece:not(.is-on) .xp-face { opacity: 0.5; }
+.xp--3d .xp-piece:not(.is-on) .xp-tag { opacity: 0.35; }
+
+/* ─── Les textes ───────────────────────────────── */
+.xp-list { list-style: none; margin: 0; padding: 0; }
+.xp-item h3 {
+  margin: 14px 0 18px;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.2rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+.xp-item h3 a { color: #fff; }
+.xp-item h3 a::after { content: ''; position: absolute; inset: 0; } /* toute la carte est cliquable */
+.xp-item h3 a:focus-visible { outline: 2px solid var(--c1); outline-offset: 6px; border-radius: 6px; }
+.xp-item p { max-width: 46ch; font-size: 1.06rem; line-height: 1.7; color: rgba(255, 255, 255, 0.74); }
+.xp-num {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--c1);
+}
+.xp-num small { font-size: 0.85em; font-weight: 500; color: rgba(255, 255, 255, 0.4); }
+.xp-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 14px 26px;
+  border-radius: 980px;
+  background: var(--c2);
+  color: #fff;
+  font-weight: 600;
+  pointer-events: none; /* le lien du titre couvre déjà la carte */
+}
+.xp-item--right .xp-go { color: #2a0f3a; background: var(--c1); }
+.xp-go::after { content: '→'; transition: transform 0.3s ease; }
+.xp-item:hover .xp-go::after { transform: translateX(5px); }
+.xp-item { position: relative; }
+
+.xp-dots { display: none; }
+
+/* ─── Mode 3D épinglé (grand écran, animations autorisées) ─── */
+.xp--3d .xp-grid { min-height: 100vh; padding-block: calc(var(--nav-height) + 24px) 48px; }
+.xp--3d .xp-list { position: relative; min-height: 420px; }
+.xp--3d .xp-item {
+  position: absolute;
+  inset: 50% 0 auto;
+  transform: translateY(calc(-50% + 30px));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, transform 0.6s var(--ax-ease), visibility 0s linear 0.6s;
+}
+.xp--3d .xp-item.is-on {
+  transform: translateY(-50%);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.xp--3d .xp-mini { display: none; }
+.xp--3d .xp-dots {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  display: grid;
+  gap: 12px;
+  transform: translateY(-50%);
+}
+.xp--3d .xp-dots i {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.4s ease, transform 0.4s ease;
+}
+.xp--3d .xp-dots i.is-on { background: #f18847; transform: scale(1.4); }
+
+/* ─── Mode empilé (mobile, ou animations réduites) ─── */
+.xp:not(.xp--3d) .xp-grid { grid-template-columns: 1fr; padding-top: 24px; }
+.xp:not(.xp--3d) .xp-stage { display: none; }
+.xp:not(.xp--3d) .xp-list { display: grid; gap: 18px; }
+.xp:not(.xp--3d) .xp-item {
+  display: grid;
+  justify-items: start;
+  padding: 26px 24px 28px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.xp:not(.xp--3d) .xp-mini { width: 64px; margin: 0 0 16px; }
+.xp:not(.xp--3d) .xp-item h3 { margin: 6px 0 10px; font-size: clamp(1.7rem, 7vw, 2.3rem); }
+.xp:not(.xp--3d) .xp-item p { font-size: 0.98rem; }
+.xp:not(.xp--3d) .xp-go { margin-top: 18px; padding: 12px 22px; font-size: 0.95rem; white-space: nowrap; }
+/* Petite pièce en relief à gauche de chaque expertise. */
+.xp-mini {
+  position: relative;
+  width: 76px;
+  aspect-ratio: 1.1547;
+  margin-top: 6px;
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+.xp-mini > i {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.xp-mini { transform: rotateX(28deg) rotateY(-20deg); }
+.xp-mini .xp-l--1 { transform: translateZ(-4px); }
+.xp-mini .xp-l--2 { transform: translateZ(-8px); }
+.xp-mini .xp-l--3 { transform: translateZ(-12px); }
+
+@media (max-width: 999px) {
+  .xp-grid { padding-bottom: 72px; }
+}
