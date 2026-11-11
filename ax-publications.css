@@ -579,3 +579,22 @@
   .ax-page .ax-pubgrid .ressource-cover,
   .ax-page .ax-pubgrid .ressource-card::after { transition: none; }
 }
+
+/* ─── EN-TÊTE D'ARTICLE (sans hero) ─────────────── */
+.ax-article-head { max-width: 70ch; margin: 0 auto clamp(36px, 5vw, 56px); }
+.ax-article--media .ax-article-head { max-width: 900px; }
+.ax-rexlayout ~ .ax-back-row, .ax-article:has(.ax-rexlayout) .ax-article-head { max-width: none; }
+.ax-back--top { margin: 0 0 28px; font-size: 0.95rem; }
+.ax-article-head .ax-pub-tag { margin-bottom: 14px; }
+.ax-page main .ax-article-head h1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2rem, 4.6vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: var(--ax-ink);
+}
+.ax-article-head .ax-pub-meta { margin-top: 18px; color: var(--ax-muted); }
+.ax-article-lead { margin-top: 22px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.6; color: var(--ax-muted); }
+.ax-article-lead:empty { display: none; }
+.ax-nohero .ax-pub-read { padding-top: clamp(40px, 5vw, 64px); }
