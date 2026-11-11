@@ -287,52 +287,106 @@
 .ax-maison .lx-rex .luxe-rex-item .card-link { color: var(--ax-purple); letter-spacing: 0.04em; }
 .ax-maison .lx-rex .luxe-rex-loading { grid-template-columns: 1fr; padding: 36px 0; }
 
-/* Autres secteurs : index typographique. */
+/* Autres secteurs : index éditorial, une couleur par secteur.
+   Numéro, nom, une ligne de description et le picto de l'accueil dans un
+   carré de la couleur du secteur ; au survol, la ligne se remplit de cette couleur. */
 .lx-index { list-style: none; margin-top: 56px; border-top: 1px solid var(--lx-line); }
+.lx-index li { --c: var(--lx-plum); }
 .lx-index a {
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto 40px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 30px 4px;
+  gap: clamp(16px, 3vw, 36px);
+  padding: 22px clamp(8px, 2vw, 24px) 22px 4px;
   border-bottom: 1px solid var(--lx-line);
   overflow: hidden;
   isolation: isolate;
 }
+/* Filet de couleur à gauche, qui s'élargit en fond au survol. */
 .lx-index a::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0 auto 0 0;
   z-index: -1;
-  background: var(--lx-plum);
-  transform: scaleY(0);
-  transform-origin: bottom;
-  transition: transform 0.6s var(--lx-ease);
+  width: 4px;
+  background: var(--c);
+  transition: width 0.6s var(--lx-ease);
 }
+.lx-index-n {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--c);
+  padding-left: 16px;
+  transition: color 0.5s var(--lx-ease);
+}
+.lx-index-txt { display: grid; gap: 6px; transition: transform 0.6s var(--lx-ease); }
 .lx-index strong {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(1.7rem, 3.6vw, 3rem);
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem);
   font-weight: 300;
+  line-height: 1.1;
   letter-spacing: -0.03em;
   color: var(--lx-ink);
-  transition: color 0.5s var(--lx-ease), transform 0.6s var(--lx-ease);
+  transition: color 0.5s var(--lx-ease);
 }
-.lx-index span {
-  flex: none;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
+.lx-index em {
+  font-style: normal;
+  font-size: 0.95rem;
   color: var(--lx-soft);
   transition: color 0.5s var(--lx-ease);
 }
+.lx-index-pic {
+  display: grid;
+  place-items: center;
+  width: clamp(72px, 8vw, 96px);
+  aspect-ratio: 1;
+  border-radius: 18px;
+  background: var(--c);
+  transition: transform 0.6s var(--lx-ease), background-color 0.5s ease;
+}
+.lx-index-pic { overflow: hidden; }
+/* Les pictos de l'accueil ont beaucoup de marge et des traits très légers :
+   on les zoome dans le carré et on les éclaircit pour qu'ils restent lisibles. */
+.lx-index-pic svg { width: 150%; max-width: none; height: auto; filter: brightness(1.7) saturate(1.15); }
+.lx-index-go {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--lx-line);
+  border-radius: 50%;
+  position: relative;
+  transition: border-color 0.5s ease, transform 0.6s var(--lx-ease);
+}
+.lx-index-go::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 9px;
+  height: 9px;
+  border-top: 1.5px solid var(--lx-ink);
+  border-right: 1.5px solid var(--lx-ink);
+  transform: translateX(-2px) rotate(45deg);
+  transition: border-color 0.5s ease;
+}
 .lx-index a:hover::before,
-.lx-index a:focus-visible::before { transform: scaleY(1); }
+.lx-index a:focus-visible::before { width: 100%; }
+.lx-index a:hover .lx-index-txt,
+.lx-index a:focus-visible .lx-index-txt { transform: translateX(10px); }
 .lx-index a:hover strong,
-.lx-index a:focus-visible strong { color: #fff; transform: translateX(16px); }
-.lx-index a:hover span,
-.lx-index a:focus-visible span { color: #fff; }
+.lx-index a:focus-visible strong,
+.lx-index a:hover .lx-index-n,
+.lx-index a:focus-visible .lx-index-n { color: #fff; }
+.lx-index a:hover em,
+.lx-index a:focus-visible em { color: rgba(255, 255, 255, 0.82); }
+.lx-index a:hover .lx-index-pic,
+.lx-index a:focus-visible .lx-index-pic { transform: rotate(-6deg) scale(1.08); background-color: rgba(255, 255, 255, 0.14); }
+.lx-index a:hover .lx-index-go,
+.lx-index a:focus-visible .lx-index-go { border-color: rgba(255, 255, 255, 0.6); transform: translateX(6px); }
+.lx-index a:hover .lx-index-go::after,
+.lx-index a:focus-visible .lx-index-go::after { border-color: #fff; }
 
 /* Contact. */
 .lx-contact {
@@ -367,7 +421,10 @@
 }
 @media (max-width: 760px) {
   .ax-maison .lx-rex .luxe-rex-item { grid-template-columns: 1fr; gap: 20px; }
-  .lx-index span { display: none; }
+  .lx-index a { grid-template-columns: 40px minmax(0, 1fr) auto; }
+  .lx-index-n { padding-left: 12px; }
+  .lx-index-go { display: none; }
+  .lx-index-pic { width: 60px; border-radius: 14px; }
 }
 
 /* Titres de section secondaires et section sans marge haute. */
