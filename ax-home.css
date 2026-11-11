@@ -18,8 +18,14 @@
     #170b20;
   color: #fff;
 }
-.xh .ax-h2 { color: #fff; }
-.xh .ax-lead { color: rgba(255, 255, 255, 0.72); }
+.xh-title {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(3.2rem, 9vw, 8.5rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  color: #fff;
+}
 
 /* Palette de chaque panneau (couleurs Actinuance : violets, orange, gris). */
 .xh-panel--1 { --tile: rgba(255, 255, 255, 0.12); --tile-h: #f18847; --tile-hink: #2a0f3a; --bg1: #8a4bd6; --bg2: #632a7c; --ink: #fff; --soft: rgba(255, 255, 255, 0.8); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.18); }
@@ -74,7 +80,10 @@
   opacity: 0;
   pointer-events: none;
 }
-.xh--h .xh-panel { will-change: transform; backface-visibility: hidden; }
+.xh--h .xh-panel { will-change: transform; backface-visibility: hidden; pointer-events: auto; }
+/* La bande qui porte les panneaux est transparente : elle ne doit pas
+   intercepter les clics quand un panneau pivote derrière son plan. */
+.xh--h .xh-track { pointer-events: none; }
 .xh-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -107,13 +116,6 @@
 
 /* Offres : tuiles numérotées, contrastées sur le panneau ; au survol la
    tuile se remplit de la couleur d'accent. */
-.xh-offers-title {
-  margin-bottom: 14px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--ink);
-}
 .xh-offers ul { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
 .xh-offer {
   position: relative;
