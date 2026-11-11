@@ -11,23 +11,11 @@
   const pin = section.querySelector('.xh-pin');
   const track = section.querySelector('.xh-track');
   const panels = Array.from(section.querySelectorAll('.xh-panel'));
-  const rail = section.querySelector('.xh-rail');
-  const stations = Array.from(section.querySelectorAll('.xh-rail li'));
 
   const mm = gsap.matchMedia();
   mm.add('(min-width: 1000px)', () => {
     section.classList.add('xh--h');
     const distance = () => Math.max(0, track.scrollWidth - window.innerWidth);
-
-    const setStep = (p) => {
-      const i = Math.min(panels.length - 1, Math.round(p * (panels.length - 1)));
-      stations.forEach((s, k) => {
-        s.classList.toggle('is-on', k === i);
-        s.classList.toggle('is-done', k <= i);
-      });
-      // Les étapes sont en début de colonne : la dernière est aux 3/4 de la ligne.
-      rail.style.setProperty('--p', (p * 0.75).toFixed(4));
-    };
 
     const move = gsap.to(track, {
       x: () => -distance(),
@@ -38,11 +26,9 @@
         end: () => `+=${distance()}`,
         pin: true,
         scrub: 0.6,
-        invalidateOnRefresh: true,
-        onUpdate: (self) => setStep(self.progress)
+        invalidateOnRefresh: true
       }
     });
-    setStep(0);
 
     panels.forEach((panel, k) => {
       // Profondeur : le panneau arrive de loin (petit, pivoté), passe au premier
@@ -70,12 +56,19 @@
         xPercent: 60, yPercent: -10, ease: 'none',
         scrollTrigger: { trigger: panel, containerAnimation: move, start: 'left right', end: 'right left', scrub: true }
       });
+      // Les mots clés se surlignent quand le panneau arrive au premier plan.
+      ScrollTrigger.create({
+        trigger: panel, containerAnimation: move, start: 'left 55%',
+        onEnter: () => panel.classList.add('is-lit')
+      });
       // Les offres arrivent l'une après l'autre quand le panneau entre.
       gsap.from(panel.querySelectorAll('.xh-offer'), {
         x: 70, autoAlpha: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08,
         scrollTrigger: { trigger: panel, containerAnimation: move, start: 'left 65%' }
       });
     });
+
+    ScrollTrigger.create({ trigger: pin, start: 'top 60%', onEnter: () => panels[0].classList.add('is-lit') });
 
     // Tabuler vers une offre d'un panneau hors écran amène ce panneau au centre.
     const st = move.scrollTrigger;
@@ -91,6 +84,7 @@
       section.classList.remove('xh--h');
       section.removeEventListener('focusin', onFocus);
       gsap.set([track, ...panels], { clearProps: 'all' });
+      panels.forEach((p) => p.classList.remove('is-lit'));
     };
   });
 })();

@@ -4,7 +4,7 @@
    avec ce qu'elle couvre et ses offres (liens vers chaque offre).
    Profondeur : le panneau qui arrive grandit, celui qui part recule,
    le grand numéro et le halo défilent à une autre vitesse.
-   Une ligne de progression relie les quatre expertises.
+   Mots clés surlignés au marqueur à l'arrivée de chaque panneau.
    Chargée après ax.css.
 ════════════════════════════════════════════════ */
 
@@ -21,50 +21,11 @@
 .xh .ax-h2 { color: #fff; }
 .xh .ax-lead { color: rgba(255, 255, 255, 0.72); }
 
-/* Palette de chaque panneau : fond, encre, accent. */
-.xh-panel--1 { --bg1: #7a3aa8; --bg2: #2e1040; --ink: #fff; --soft: rgba(255, 255, 255, 0.74); --acc: #ffa066; --line: rgba(255, 255, 255, 0.16); }
-.xh-panel--2 { --bg1: #ffa066; --bg2: #e0662a; --ink: #2a0f3a; --soft: rgba(42, 15, 58, 0.78); --acc: #2a0f3a; --line: rgba(42, 15, 58, 0.18); }
-.xh-panel--3 { --bg1: #f6efff; --bg2: #d9c3fb; --ink: #2a0f3a; --soft: #5d4f68; --acc: #7c3aed; --line: rgba(42, 15, 58, 0.14); }
-.xh-panel--4 { --bg1: #3a1652; --bg2: #13081a; --ink: #fff; --soft: rgba(255, 255, 255, 0.72); --acc: #f18847; --line: rgba(255, 255, 255, 0.14); }
-
-/* ─── Ligne de progression (chaîne de valeur) ───── */
-.xh-railwrap { margin-top: clamp(32px, 4vw, 48px); }
-.xh-rail {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.xh-rail::before,
-.xh-rail-fill {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 7px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.16);
-}
-.xh-rail-fill {
-  background: linear-gradient(90deg, #c7a0ff, #f18847);
-  transform: scaleX(var(--p, 0));
-  transform-origin: left;
-}
-.xh-rail li { position: relative; display: grid; gap: 14px; justify-items: start; }
-.xh-rail i {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.35);
-  background: #170b20;
-  transition: background 0.4s ease, border-color 0.4s ease, transform 0.4s ease;
-}
-.xh-rail span { font-size: 0.92rem; font-weight: 500; color: rgba(255, 255, 255, 0.5); transition: color 0.4s ease; }
-.xh-rail li.is-done i { border-color: #f18847; background: #f18847; }
-.xh-rail li.is-on i { transform: scale(1.35); }
-.xh-rail li.is-on span { color: #fff; }
+/* Palette de chaque panneau (couleurs Actinuance : violets, orange, gris). */
+.xh-panel--1 { --bg1: #8a4bd6; --bg2: #632a7c; --ink: #fff; --soft: rgba(255, 255, 255, 0.8); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.18); }
+.xh-panel--2 { --bg1: #ff9a5c; --bg2: #e86f30; --ink: #2a0f3a; --soft: rgba(42, 15, 58, 0.82); --acc: #2a0f3a; --mk: #632a7c; --mk-ink: #fff; --line: rgba(42, 15, 58, 0.2); }
+.xh-panel--3 { --bg1: #f5f4f7; --bg2: #dedae3; --ink: #2a0f3a; --soft: #5a5163; --acc: #632a7c; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(42, 15, 58, 0.14); }
+.xh-panel--4 { --bg1: #632a7c; --bg2: #2c0f3b; --ink: #fff; --soft: rgba(255, 255, 255, 0.78); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.16); }
 
 /* ─── Panneaux ─────────────────────────────────── */
 .xh-view { perspective: 1600px; }
@@ -122,7 +83,20 @@
 }
 .xh-intro h3 a { color: var(--ink); }
 .xh-intro h3 a:focus-visible { outline: 2px solid var(--acc); outline-offset: 6px; border-radius: 6px; }
-.xh-desc { max-width: 44ch; font-size: 1.04rem; line-height: 1.7; color: var(--soft); }
+.xh-desc { max-width: 44ch; font-size: 1.1rem; line-height: 1.75; color: var(--soft); }
+/* Mots clés passés au marqueur, couleur d'accent du panneau. */
+.xh-mk {
+  padding: 0.05em 0.2em;
+  border-radius: 0.2em;
+  color: var(--mk-ink);
+  font-weight: 600;
+  background: linear-gradient(var(--mk), var(--mk)) no-repeat 0 0 / 100% 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.4s ease 0.3s;
+}
+.xh--h .xh-panel:not(.is-lit) .xh-mk { background-size: 0 100%; color: inherit; }
+.xh--h .xh-panel.is-lit .xh-mk:nth-of-type(2) { transition-delay: 0.35s, 0.65s; }
 .xh-cta {
   display: inline-flex;
   align-items: center;
@@ -147,15 +121,13 @@
 .xh-offers ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
 .xh-offer {
   position: relative;
-  display: grid;
-  gap: 4px;
-  padding: 18px 44px 18px 0;
+  display: block;
+  padding: 16px 44px 16px 0;
   border-bottom: 1px solid var(--line);
   color: var(--ink);
   transition: padding 0.4s var(--ax-ease);
 }
-.xh-offer strong { font-family: 'Raleway', sans-serif; font-size: 1.2rem; font-weight: 700; letter-spacing: -0.01em; }
-.xh-offer span { font-size: 0.94rem; line-height: 1.55; color: var(--soft); }
+.xh-offer strong { font-family: 'Raleway', sans-serif; font-size: clamp(1.25rem, 1.8vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; }
 .xh-offer::after {
   content: '→';
   position: absolute;
@@ -178,7 +150,6 @@
   height: 100vh;
   padding-top: var(--nav-height);
 }
-.xh--h .xh-railwrap { margin-top: 0; }
 .xh--h .xh-view { overflow: visible; }
 .xh--h .xh-track {
   display: flex;
@@ -194,12 +165,9 @@
   transform-origin: center center;
 }
 .xh--h .xh-body { height: 100%; align-items: center; padding-block: clamp(28px, 4vh, 48px); }
-.xh--h .xh-offer { padding-block: 13px; }
-.xh--h .xh-offer span { font-size: 0.9rem; line-height: 1.5; }
 
 /* ─── Petits écrans ─────────────────────────────── */
 @media (max-width: 999px) {
-  .xh-rail { display: none; }
   .xh-body { grid-template-columns: 1fr; gap: 28px; padding: 32px 24px; }
   .xh-big { font-size: 12rem; bottom: -6%; }
 }
