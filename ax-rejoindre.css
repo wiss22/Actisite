@@ -291,7 +291,7 @@
 .nr-stairs {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   align-items: end;
   gap: 10px;
   margin: 0;
@@ -303,9 +303,8 @@
 .nr-stair:nth-child(2) { --c: var(--nr-lilac); }
 .nr-stair:nth-child(3) { --c: #9b70e0; --t: #fff; }
 .nr-stair:nth-child(4) { --c: var(--nr-vivid); --t: #fff; }
-.nr-stair:nth-child(5) { --c: var(--nr-violet); --t: #fff; }
-.nr-stair:nth-child(6) { --c: #45185a; --t: #fff; }
-.nr-stair:nth-child(7) { --c: var(--nr-orange); }
+.nr-stair:nth-child(5) { --c: #45185a; --t: #fff; }
+.nr-stair:nth-child(6) { --c: var(--nr-orange); }
 .nr-stair-btn {
   display: flex;
   flex-direction: column;
