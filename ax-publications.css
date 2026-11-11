@@ -581,20 +581,85 @@
 }
 
 /* ─── EN-TÊTE D'ARTICLE (sans hero) ─────────────── */
-.ax-article-head { max-width: 70ch; margin: 0 auto clamp(36px, 5vw, 56px); }
-.ax-article--media .ax-article-head { max-width: 900px; }
-.ax-rexlayout ~ .ax-back-row, .ax-article:has(.ax-rexlayout) .ax-article-head { max-width: none; }
-.ax-back--top { margin: 0 0 28px; font-size: 0.95rem; }
-.ax-article-head .ax-pub-tag { margin-bottom: 14px; }
-.ax-page main .ax-article-head h1 {
-  font-family: 'Raleway', sans-serif;
-  font-size: clamp(2rem, 4.6vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  color: var(--ax-ink);
+/* Panneau coloré avec triangles de marque ; les derniers mots du titre
+   passent au marqueur (orange : article, violet : Client Story, lilas : innovation). */
+.ax-article-head {
+  --mk: #f18847;
+  --mk-ink: #2a0f3a;
+  --head-bg: #fff4ec;
+  --tri-a: #f18847;
+  --tri-b: #c7a0ff;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 clamp(40px, 5vw, 64px);
+  padding: clamp(32px, 5vw, 64px) clamp(24px, 5vw, 64px) clamp(36px, 5vw, 60px);
+  border-radius: 32px;
+  background:
+    radial-gradient(60% 90% at 100% 0%, color-mix(in srgb, var(--tri-b) 28%, transparent), transparent 70%),
+    var(--head-bg);
 }
+.ax-article-head--rex { --mk: #632a7c; --mk-ink: #fff; --head-bg: #f3ecfc; --tri-a: #7c3aed; --tri-b: #f18847; }
+.ax-article-head--innov { --mk: #c7a0ff; --mk-ink: #2a0f3a; --head-bg: #f3ecfc; --tri-a: #9b70e0; --tri-b: #f18847; }
+
+/* Triangles de marque : un grand en filigrane, un petit plein qui flotte. */
+.ax-article-head::before,
+.ax-article-head::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.ax-article-head::before {
+  right: -6%;
+  bottom: -30%;
+  width: min(42%, 360px);
+  aspect-ratio: 1.15;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--tri-a) 30%, transparent), transparent 75%);
+  transform: rotate(-14deg);
+}
+.ax-article-head::after {
+  right: clamp(24px, 7vw, 96px);
+  top: clamp(24px, 4vw, 48px);
+  width: clamp(26px, 3vw, 40px);
+  aspect-ratio: 1.15;
+  background: var(--tri-b);
+  transform: rotate(18deg);
+  animation: ax-head-float 6s ease-in-out infinite;
+}
+@keyframes ax-head-float { 50% { transform: translateY(-10px) rotate(32deg); } }
+
+.ax-article:has(.ax-rexlayout) .ax-article-head { max-width: none; }
+.ax-back--top { margin: 0 0 24px; font-size: 0.95rem; }
+.ax-article-head .ax-pub-tag { margin-bottom: 14px; font-weight: 600; }
+.ax-article-head--rex .ax-pub-tag,
+.ax-article-head--innov .ax-pub-tag { color: #7c3aed; }
+.ax-page main .ax-article-head h1 {
+  max-width: 22ch;
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: #2a0f3a;
+}
+.ax-article-head .ax-mk {
+  padding: 0 0.14em;
+  border-radius: 0.14em;
+  color: inherit;
+  background: linear-gradient(var(--mk), var(--mk)) no-repeat 0 0 / 0 100%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s, color 0.4s ease 0.5s;
+}
+.ax-article-head .ax-mk.is-lit { background-size: 100% 100%; color: var(--mk-ink); }
 .ax-article-head .ax-pub-meta { margin-top: 18px; color: var(--ax-muted); }
-.ax-article-lead { margin-top: 22px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.6; color: var(--ax-muted); }
+.ax-article-lead { max-width: 60ch; margin-top: 22px; font-size: clamp(1.1rem, 1.6vw, 1.3rem); line-height: 1.6; color: #4b3f55; }
 .ax-article-lead:empty { display: none; }
-.ax-nohero .ax-pub-read { padding-top: clamp(40px, 5vw, 64px); }
+.ax-nohero .ax-pub-read { padding-top: clamp(32px, 4vw, 56px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-article-head::after { animation: none; }
+  .ax-article-head .ax-mk { transition: none; }
+}

@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
   <link rel="stylesheet" href="ax.css?v=20261112d">
-  <link rel="stylesheet" href="ax-publications.css?v=20261112a">
+  <link rel="stylesheet" href="ax-publications.css?v=20261112b">
 </head>
 <body class="ax-page ax-nohero ax-inner ax-pub">
   <a href="#main" class="ax-skip">Aller au contenu</a>
@@ -234,7 +234,7 @@
         const paramsStr = Object.entries(params)
           .map(([key, value]) => `&$${encodeURIComponent(key)}=${encodeURIComponent(JSON.stringify(value))}`)
           .join('')
-        const cacheBuster = useCdn ? `&t=${Date.now()}` : ''
+        const cacheBuster = '' // Sanity refuse les paramètres inconnus (ex. « t »)
         return `${base}${paramsStr}${cacheBuster}`
       }
 
@@ -367,7 +367,7 @@
   </script>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261112b"></script>
-  <script src="ax.js?v=20261112b"></script>
+  <script src="script.js?v=20261112c"></script>
+  <script src="ax.js?v=20261112d"></script>
 </body>
 </html>

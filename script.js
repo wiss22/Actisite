@@ -1559,7 +1559,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&t=${Date.now()}`,
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}`,
       ];
 
       let result = [];
@@ -1646,7 +1646,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`
       ];
 
       let rows = [];
@@ -1735,7 +1735,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&t=${Date.now()}`
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}`
       ];
 
       let doc = null;
@@ -1815,7 +1815,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$offerTag=${encodeURIComponent(JSON.stringify(offerTag))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`
       ];
 
       let rows = [];
@@ -1912,7 +1912,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectorPattern = `*${sectorTag}*`;
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$sectorPattern=${encodeURIComponent(JSON.stringify(sectorPattern))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$sectorPattern=${encodeURIComponent(JSON.stringify(sectorPattern))}&$limit=${encodeURIComponent(JSON.stringify(limit))}&t=${Date.now()}`
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}&$sectorPattern=${encodeURIComponent(JSON.stringify(sectorPattern))}&$limit=${encodeURIComponent(JSON.stringify(limit))}`
       ];
 
       let rows = [];
@@ -2052,7 +2052,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .join('');
       const endpoints = [
         `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}${serializedParams}`,
-        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}${serializedParams}&t=${Date.now()}`
+        `https://${projectId}.apicdn.sanity.io/v${apiVersion}/data/query/${dataset}?perspective=published&query=${encodeURIComponent(query)}${serializedParams}`
       ];
 
       for (const endpoint of endpoints) {

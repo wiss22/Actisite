@@ -185,6 +185,34 @@
   }, { threshold: 0.4 });
   headings.forEach((h) => headingObserver.observe(h));
 
+  // ── Titre d'article / Client Story : les derniers mots passent au marqueur ──
+  // Le titre arrive de Sanity (textContent) : on attend le vrai titre, puis on
+  // enveloppe les 1 à 2 derniers mots dans un <mark> qui se colorie de gauche à droite.
+  const articleTitle = document.querySelector('.ax-article-head h1');
+  if (articleTitle) {
+    const highlight = () => {
+      if (articleTitle.querySelector('mark')) return;
+      const text = articleTitle.textContent.trim();
+      if (!text || /^Chargement/i.test(text)) return;
+      const words = text.split(/\s+/);
+      let n = words.length >= 5 ? 2 : 1;
+      // Une ponctuation isolée (« ? », « ! ») ne compte pas comme un mot.
+      const isPunct = (w) => /^[?!:;.…»]+$/.test(w);
+      if (words.length > n && isPunct(words[words.length - 1])) n += 1;
+      if (words.length > n && n === 2 && isPunct(words[words.length - 2])) n += 1;
+      const head = words.slice(0, -n).join(' ');
+      const tail = words.slice(-n).join(' ');
+      articleTitle.textContent = head ? `${head} ` : '';
+      const mk = document.createElement('mark');
+      mk.className = 'ax-mk';
+      mk.textContent = tail;
+      articleTitle.append(mk);
+      requestAnimationFrame(() => requestAnimationFrame(() => mk.classList.add('is-lit')));
+    };
+    new MutationObserver(highlight).observe(articleTitle, { childList: true, characterData: true, subtree: true });
+    highlight();
+  }
+
   // ── Effets liés au défilement (GSAP) ───────────
   const { gsap, ScrollTrigger } = window;
   if (!gsap || !ScrollTrigger) return;
