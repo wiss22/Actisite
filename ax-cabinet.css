@@ -147,13 +147,15 @@
 /* Fiche seule, en deux colonnes. */
 .ax-leader--wide {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) 1fr;
+  /* Même grille que les associés et managers : la photo prend une colonne
+     (mêmes dimensions que les autres photos), le texte les deux autres. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  gap: clamp(28px, 6vw, 96px);
+  gap: clamp(20px, 3vw, 32px);
 }
 .ax-leader--wide .ax-h2 { margin-bottom: 28px; }
 .ax-leader--wide .ax-leader-role { margin-top: 0; }
-.ax-leader--wide .ax-leader-media { max-width: 420px; }
+.ax-leader--wide > :last-child { grid-column: span 2; padding-left: clamp(8px, 3vw, 48px); }
 
 /* ─── NOUS REJOINDRE : PARCOURS CONSULTANT ──────── */
 /* script.js bascule .is-collapsed sur #parcours-consultant et
@@ -539,7 +541,7 @@
   .ax-perks,
   .ax-career .career-grid { grid-template-columns: 1fr; }
   .ax-leader-media { aspect-ratio: 1 / 1; }
-  .ax-leader--wide .ax-leader-media { max-width: none; }
+  .ax-leader--wide > :last-child { grid-column: auto; padding-left: 0; }
   .ax-career .career-card { min-height: 0; }
   .ax-perk { min-height: 0; }
   .ax-career-toggle { align-self: flex-start; }

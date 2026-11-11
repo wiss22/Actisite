@@ -232,13 +232,13 @@ a:hover > .ax-link::after { transform: translateX(4px) rotate(45deg); }
 .ax-slide.is-active > * {
   opacity: 1;
   transform: none;
-  transition: opacity 0.9s var(--ax-ease), transform 0.9s var(--ax-ease);
+  transition: opacity 0.6s var(--ax-ease), transform 0.6s var(--ax-ease);
 }
-.ax-slide.is-active > :nth-child(1) { transition-delay: 0.3s; }
-.ax-slide.is-active > :nth-child(2) { transition-delay: 0.38s; }
-.ax-slide.is-active > :nth-child(3) { transition-delay: 0.5s; }
-.ax-slide.is-active > :nth-child(4) { transition-delay: 0.6s; }
-.ax-slide.is-active > :nth-child(5) { transition-delay: 0.7s; }
+.ax-slide.is-active > :nth-child(1) { transition-delay: 0.15s; }
+.ax-slide.is-active > :nth-child(2) { transition-delay: 0.2s; }
+.ax-slide.is-active > :nth-child(3) { transition-delay: 0.27s; }
+.ax-slide.is-active > :nth-child(4) { transition-delay: 0.33s; }
+.ax-slide.is-active > :nth-child(5) { transition-delay: 0.4s; }
 
 .ax-slide-label {
   margin-bottom: 20px;

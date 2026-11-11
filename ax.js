@@ -19,7 +19,7 @@
   const heroTabs = hero ? Array.from(hero.querySelectorAll('.ax-hero-tab')) : [];
 
   if (slides.length && slides.length === heroTabs.length) {
-    const DURATION = 7000;
+    const DURATION = 4000; // durée d'affichage de chaque offre (ms)
     let current = 0;
     let elapsed = 0;
     let last = performance.now();
