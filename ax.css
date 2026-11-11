@@ -1311,3 +1311,27 @@ html.m-lock, html.m-lock body { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   #mobile-nav, #mobile-nav .m-sub > a, .burger span { transition: none; animation: none; }
 }
+
+/* ─── MOBILE : pas de barre de sections ─────────── */
+/* Sur petit écran la barre n'apporte rien : on la retire et on rend
+   à la première section un espacement normal (prioritaire sur les
+   feuilles de page chargées après). */
+@media (max-width: 768px) {
+  .ax-subnav { display: none !important; }
+  .ax-page .ax-subnav + .ax-section,
+  .ax-page .ax-subnav + .lx-sec,
+  .ax-page .ax-subnav + .sp-sec,
+  .ax-page .ax-subnav + .nr-sec { padding-top: 72px !important; }
+  .ax-nohero .ax-subnav + .ax-section { padding-top: 48px !important; }
+}
+#mobile-nav .m-solo {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+}

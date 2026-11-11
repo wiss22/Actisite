@@ -993,10 +993,7 @@ document.addEventListener('DOMContentLoaded', () => {
         link('/secteur-luxe', t('Luxe', 'Luxury')), link('/secteur-industrie-transport', t('Industrie & Transport', 'Industry & Transportation')),
         link('/secteur-technologie', 'Tech')]],
       [t('Publications', 'Publications'), [
-        link('/blog', 'Articles'), link('/rex', 'Client Stories'), link('/innovation', 'Innovation')]],
-      [t('Cabinet', 'Firm'), [
-        link('/#apropos', t('À propos', 'About')), link('/equipe-dirigeante', t('Équipe dirigeante', 'Leadership')),
-        link('/nous-rejoindre', t('Nous rejoindre', 'Join us')), link('/postes-ouverts', t('Postes ouverts', 'Open positions'))]]
+        link('/blog', 'Articles'), link('/rex', 'Client Stories')]]
     ];
     // Le groupe qui contient la page courante est ouvert d'office.
     const html = groups.map(([title, links]) => group(title, links, links.some((l) => l.includes('aria-current')))).join('');
@@ -1008,6 +1005,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.innerHTML = `
       <nav class="m-inner" aria-label="${t('Navigation principale', 'Main navigation')}">
         ${html}
+        <a href="/#apropos" class="m-solo">${t('À propos', 'About')}</a>
         <div class="m-actions">
           <a href="/#contact" class="m-cta">${t('Nous contacter', 'Contact us')}</a>
           <a href="/nous-rejoindre" class="m-cta m-cta--ghost">${t('Nous rejoindre', 'Join us')}</a>
