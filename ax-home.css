@@ -12,18 +12,20 @@
   position: relative;
   overflow: hidden;
   padding-bottom: clamp(72px, 9vw, 120px);
+  /* Le haut reprend le violet du hero puis plonge vers la nuit :
+     la section n'arrive plus comme un bloc noir. */
   background:
-    radial-gradient(60% 50% at 20% 70%, rgba(124, 58, 237, 0.24), transparent 70%),
-    radial-gradient(45% 40% at 85% 20%, rgba(241, 136, 71, 0.14), transparent 70%),
-    #170b20;
+    radial-gradient(60% 40% at 20% 75%, rgba(124, 58, 237, 0.22), transparent 70%),
+    radial-gradient(45% 30% at 85% 45%, rgba(241, 136, 71, 0.12), transparent 70%),
+    linear-gradient(180deg, #5a2378 0%, #3b1650 14%, #24102f 32%, #170b20 52%);
   color: #fff;
 }
 .xh-title {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(3.2rem, 9vw, 8.5rem);
-  font-weight: 800;
-  line-height: 0.95;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   color: #fff;
 }
 
@@ -116,6 +118,14 @@
 
 /* Offres : tuiles numérotées, contrastées sur le panneau ; au survol la
    tuile se remplit de la couleur d'accent. */
+.xh-offers-label {
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
 .xh-offers ul { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
 .xh-offer {
   position: relative;

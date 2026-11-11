@@ -336,9 +336,10 @@
   // Photo d'équipe : léger zoom arrière en parallaxe.
   const photo = document.querySelector('.ax-photo img');
   if (photo) {
-    gsap.fromTo(photo, { scale: 1.22, yPercent: -5 }, {
-      scale: 1,
-      yPercent: 5,
+    // Léger zoom conservé tout du long : le décalage ne découvre jamais de bord.
+    gsap.fromTo(photo, { scale: 1.12, yPercent: -2.5 }, {
+      scale: 1.06,
+      yPercent: 2.5,
       ease: 'none',
       scrollTrigger: { trigger: '.ax-photo', start: 'top bottom', end: 'bottom top', scrub: true }
     });

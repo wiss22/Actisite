@@ -562,9 +562,10 @@ a:hover > .ax-link::after { transform: translateX(4px) rotate(45deg); }
   background: #e6e6ea;
 }
 .ax-photo img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 4 / 3.4;
+  aspect-ratio: 3 / 2; /* format d'origine de la photo de groupe */
   object-fit: cover;
 }
 
