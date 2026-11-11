@@ -56,19 +56,13 @@
         xPercent: 60, yPercent: -10, ease: 'none',
         scrollTrigger: { trigger: panel, containerAnimation: move, start: 'left right', end: 'right left', scrub: true }
       });
-      // Les mots clés se surlignent quand le panneau arrive au premier plan.
-      ScrollTrigger.create({
-        trigger: panel, containerAnimation: move, start: 'left 55%',
-        onEnter: () => panel.classList.add('is-lit')
-      });
       // Les offres arrivent l'une après l'autre quand le panneau entre.
-      gsap.from(panel.querySelectorAll('.xh-offer'), {
+      // On anime l'élément de liste, pas le lien : celui-ci a sa propre transition au survol.
+      gsap.from(panel.querySelectorAll('.xh-offers li'), {
         x: 70, autoAlpha: 0, duration: 0.6, ease: 'power3.out', stagger: 0.08,
         scrollTrigger: { trigger: panel, containerAnimation: move, start: 'left 65%' }
       });
     });
-
-    ScrollTrigger.create({ trigger: pin, start: 'top 60%', onEnter: () => panels[0].classList.add('is-lit') });
 
     // Tabuler vers une offre d'un panneau hors écran amène ce panneau au centre.
     const st = move.scrollTrigger;
@@ -84,7 +78,6 @@
       section.classList.remove('xh--h');
       section.removeEventListener('focusin', onFocus);
       gsap.set([track, ...panels], { clearProps: 'all' });
-      panels.forEach((p) => p.classList.remove('is-lit'));
     };
   });
 })();

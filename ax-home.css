@@ -4,7 +4,7 @@
    avec ce qu'elle couvre et ses offres (liens vers chaque offre).
    Profondeur : le panneau qui arrive grandit, celui qui part recule,
    le grand numéro et le halo défilent à une autre vitesse.
-   Mots clés surlignés au marqueur à l'arrivée de chaque panneau.
+   Les offres de chaque expertise sont mises en avant en tuiles.
    Chargée après ax.css.
 ════════════════════════════════════════════════ */
 
@@ -22,10 +22,10 @@
 .xh .ax-lead { color: rgba(255, 255, 255, 0.72); }
 
 /* Palette de chaque panneau (couleurs Actinuance : violets, orange, gris). */
-.xh-panel--1 { --bg1: #8a4bd6; --bg2: #632a7c; --ink: #fff; --soft: rgba(255, 255, 255, 0.8); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.18); }
-.xh-panel--2 { --bg1: #ff9a5c; --bg2: #e86f30; --ink: #2a0f3a; --soft: rgba(42, 15, 58, 0.82); --acc: #2a0f3a; --mk: #632a7c; --mk-ink: #fff; --line: rgba(42, 15, 58, 0.2); }
-.xh-panel--3 { --bg1: #f5f4f7; --bg2: #dedae3; --ink: #2a0f3a; --soft: #5a5163; --acc: #632a7c; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(42, 15, 58, 0.14); }
-.xh-panel--4 { --bg1: #632a7c; --bg2: #2c0f3b; --ink: #fff; --soft: rgba(255, 255, 255, 0.78); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.16); }
+.xh-panel--1 { --tile: rgba(255, 255, 255, 0.12); --tile-h: #f18847; --tile-hink: #2a0f3a; --bg1: #8a4bd6; --bg2: #632a7c; --ink: #fff; --soft: rgba(255, 255, 255, 0.8); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.18); }
+.xh-panel--2 { --tile: rgba(255, 255, 255, 0.3); --tile-h: #632a7c; --tile-hink: #fff; --bg1: #ff9a5c; --bg2: #e86f30; --ink: #2a0f3a; --soft: rgba(42, 15, 58, 0.82); --acc: #2a0f3a; --mk: #632a7c; --mk-ink: #fff; --line: rgba(42, 15, 58, 0.2); }
+.xh-panel--3 { --tile: #fff; --tile-h: #632a7c; --tile-hink: #fff; --bg1: #f5f4f7; --bg2: #dedae3; --ink: #2a0f3a; --soft: #5a5163; --acc: #632a7c; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(42, 15, 58, 0.14); }
+.xh-panel--4 { --tile: rgba(255, 255, 255, 0.1); --tile-h: #f18847; --tile-hink: #2a0f3a; --bg1: #632a7c; --bg2: #2c0f3b; --ink: #fff; --soft: rgba(255, 255, 255, 0.78); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.16); }
 
 /* ─── Panneaux ─────────────────────────────────── */
 .xh-view { perspective: 1600px; }
@@ -71,10 +71,8 @@
   gap: clamp(32px, 5vw, 80px);
   padding: clamp(32px, 5vw, 64px);
 }
-.xh-kicker { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em; color: var(--acc); }
-.xh-kicker span { color: var(--soft); font-weight: 400; }
 .xh-intro h3 {
-  margin: 14px 0 20px;
+  margin: 0 0 20px;
   font-family: 'Raleway', sans-serif;
   font-size: clamp(2.2rem, 4.4vw, 3.8rem);
   font-weight: 800;
@@ -84,19 +82,6 @@
 .xh-intro h3 a { color: var(--ink); }
 .xh-intro h3 a:focus-visible { outline: 2px solid var(--acc); outline-offset: 6px; border-radius: 6px; }
 .xh-desc { max-width: 44ch; font-size: 1.1rem; line-height: 1.75; color: var(--soft); }
-/* Mots clés passés au marqueur, couleur d'accent du panneau. */
-.xh-mk {
-  padding: 0.05em 0.2em;
-  border-radius: 0.2em;
-  color: var(--mk-ink);
-  font-weight: 600;
-  background: linear-gradient(var(--mk), var(--mk)) no-repeat 0 0 / 100% 100%;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-  transition: background-size 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), color 0.4s ease 0.3s;
-}
-.xh--h .xh-panel:not(.is-lit) .xh-mk { background-size: 0 100%; color: inherit; }
-.xh--h .xh-panel.is-lit .xh-mk:nth-of-type(2) { transition-delay: 0.35s, 0.65s; }
 .xh-cta {
   display: inline-flex;
   align-items: center;
@@ -110,37 +95,62 @@
 .xh-cta::after { content: '→'; transition: transform 0.3s ease; }
 .xh-cta:hover::after { transform: translateX(5px); }
 
+/* Offres : tuiles numérotées, contrastées sur le panneau ; au survol la
+   tuile se remplit de la couleur d'accent. */
 .xh-offers-title {
-  margin-bottom: 10px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--soft);
+  margin-bottom: 14px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
 }
-.xh-offers ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.xh-offers ul { display: grid; gap: 10px; list-style: none; margin: 0; padding: 0; }
 .xh-offer {
   position: relative;
-  display: block;
-  padding: 16px 44px 16px 0;
-  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 18px 18px 22px;
+  border-radius: 18px;
+  background: var(--tile);
   color: var(--ink);
-  transition: padding 0.4s var(--ax-ease);
+  box-shadow: 0 14px 30px -22px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.35s ease, color 0.35s ease, transform 0.4s var(--ax-ease);
 }
-.xh-offer strong { font-family: 'Raleway', sans-serif; font-size: clamp(1.25rem, 1.8vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; }
+.xh-offer-n {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--acc);
+  transition: color 0.35s ease;
+}
+.xh-offer strong {
+  font-family: 'Raleway', sans-serif;
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
 .xh-offer::after {
   content: '→';
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--acc);
-  font-size: 1.2rem;
-  transition: transform 0.35s var(--ax-ease);
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--tile-h);
+  color: var(--tile-hink);
+  font-size: 1.05rem;
+  transition: transform 0.35s var(--ax-ease), background-color 0.35s ease, color 0.35s ease;
 }
-.xh-offer:hover { padding-left: 10px; }
-.xh-offer:hover::after { transform: translate(6px, -50%); }
-.xh-offer:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; border-radius: 6px; }
+.xh-offer:hover,
+.xh-offer:focus-visible { background: var(--tile-h); color: var(--tile-hink); transform: translateX(6px); }
+.xh-offer:hover .xh-offer-n,
+.xh-offer:focus-visible .xh-offer-n { color: var(--tile-hink); }
+.xh-offer:hover::after,
+.xh-offer:focus-visible::after { background: var(--tile-hink); color: var(--tile-h); transform: translateX(4px); }
+.xh-offer:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
 
 /* ─── Mode horizontal épinglé (grand écran) ────── */
 .xh--h .xh-pin {
@@ -172,7 +182,7 @@
   .xh-big { font-size: 12rem; bottom: -6%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .xh-offer, .xh-offer::after, .xh-cta::after { transition: none; }
+  .xh-offer, .xh-offer::after, .xh-offer-n, .xh-cta::after { transition: none; }
 }
 /* Mode empilé : marges latérales comme le reste de la page. */
 .xh:not(.xh--h) .xh-track { max-width: 1168px; margin-inline: auto; padding-inline: 16px; }
