@@ -190,6 +190,21 @@
   if (!gsap || !ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
 
+  // Les contenus Sanity (Client Stories, articles…) arrivent après coup et changent
+  // la hauteur de la page : on recalcule alors les déclencheurs, sinon les sections
+  // situées en dessous s'animent trop tard, voire jamais.
+  if ('ResizeObserver' in window) {
+    let lastH = document.body.scrollHeight;
+    let timer = 0;
+    new ResizeObserver(() => {
+      const h = document.body.scrollHeight;
+      if (Math.abs(h - lastH) < 2) return;
+      lastH = h;
+      clearTimeout(timer);
+      timer = setTimeout(() => ScrollTrigger.refresh(), 120);
+    }).observe(document.body);
+  }
+
   // Hero : le texte s'efface, les triangles se dispersent pendant que la suite le recouvre.
   if (hero) {
     const out = gsap.timeline({

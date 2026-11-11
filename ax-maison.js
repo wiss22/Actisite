@@ -36,12 +36,18 @@
 
   // Titres : apparition par masque, ligne après ligne.
   gsap.utils.toArray('.lx-title, .lx-contact h2').forEach((title) => {
-    gsap.from(title, { clipPath: 'inset(0 0 100% 0)', y: 24, duration: 1.4, ease: 'power3.out', scrollTrigger: { trigger: title, start: 'top 85%' } });
+    gsap.from(title, { clipPath: 'inset(0 0 100% 0)', y: 20, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: title, start: 'top 92%' } });
   });
+
+  // Contact : le texte et les boutons suivent le titre sans attendre.
+  const contact = document.querySelector('.lx-contact');
+  if (contact) {
+    gsap.from(contact.querySelectorAll('.lx-label, p, .ax-actions'), { y: 16, autoAlpha: 0, duration: 0.7, ease, stagger: 0.08, scrollTrigger: { trigger: contact, start: 'top 85%' } });
+  }
 
   // Index des autres secteurs : les lignes glissent depuis la gauche.
   const rows = gsap.utils.toArray('.lx-index li');
   if (rows.length) {
-    gsap.from(rows, { x: -30, autoAlpha: 0, duration: 1.1, ease, stagger: 0.1, scrollTrigger: { trigger: '.lx-index', start: 'top 85%' } });
+    gsap.from(rows, { x: -24, autoAlpha: 0, duration: 0.6, ease, stagger: 0.06, scrollTrigger: { trigger: '.lx-index', start: 'top 92%' } });
   }
 })();
