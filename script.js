@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Hero orbit — subtle cursor parallax (desktop only)
   const heroOrbitSvg = document.querySelector('.hero-orbit-svg');
   if (heroEl && heroOrbitSvg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const desktopOrbitQuery = window.matchMedia('(min-width: 1025px)');
+    const desktopOrbitQuery = window.matchMedia('(min-width: 769px)');
     let orbitTargetX = 0, orbitTargetY = 0, orbitCurrentX = 0, orbitCurrentY = 0;
 
     function stepOrbitParallax() {
@@ -966,180 +966,100 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ── 5. MOBILE BURGER MENU ─────────────────────
+  // Panneau plein écran (styles dans ax.css, « MENU MOBILE »).
   const burger = document.getElementById('burger');
+  const navbarEl = document.getElementById('navbar');
+  const t = (fr, en) => (currentLang === 'en' ? en : fr);
 
-  if (burger) {
-    burger.addEventListener('click', () => {
-      const isOpen = burger.classList.toggle('open');
+  const buildMobileNav = () => {
+    const here = window.location.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+    const link = (href, label, extra = '') => {
+      const on = href.replace(/#.*$/, '') === here && !href.includes('#');
+      return `<a href="${href}"${on ? ' aria-current="page"' : ''}${extra}>${label}</a>`;
+    };
+    const group = (title, links, open) => `
+      <details class="m-group"${open ? ' open' : ''}>
+        <summary>${title}</summary>
+        <div class="m-sub">${links.join('')}</div>
+      </details>`;
+    const groups = [
+      [t('Offres à la une', 'Featured offers'), [
+        link('/cyber-4-ai', 'Cyber for AI'), link('/dora', 'DORA'), link('/swift', 'Swift CSP'), link('/cra', 'CRA')]],
+      [t('Expertises', 'Expertise'), [
+        link('/risques-digitaux', t('Risques Digitaux', 'Digital Risk')), link('/cyber-defense', t('Cyber Défense', 'Cyber Defense')),
+        link('/audit-conformite', t('Audit et Conformité', 'Audit & Compliance')), link('/transfo-cyber', t('Transfo Cyber', 'Cyber Transformation'))]],
+      [t('Secteurs', 'Industries'), [
+        link('/secteur-banque', t('Banque', 'Banking')), link('/secteur-assurance', t('Assurance', 'Insurance')),
+        link('/secteur-luxe', t('Luxe', 'Luxury')), link('/secteur-industrie-transport', t('Industrie & Transport', 'Industry & Transportation')),
+        link('/secteur-technologie', 'Tech')]],
+      [t('Publications', 'Publications'), [
+        link('/blog', 'Articles'), link('/rex', 'Client Stories'), link('/innovation', 'Innovation')]],
+      [t('Cabinet', 'Firm'), [
+        link('/#apropos', t('À propos', 'About')), link('/equipe-dirigeante', t('Équipe dirigeante', 'Leadership')),
+        link('/nous-rejoindre', t('Nous rejoindre', 'Join us')), link('/postes-ouverts', t('Postes ouverts', 'Open positions'))]]
+    ];
+    // Le groupe qui contient la page courante est ouvert d'office.
+    const html = groups.map(([title, links]) => group(title, links, links.some((l) => l.includes('aria-current')))).join('');
+    const nav = document.createElement('div');
+    nav.id = 'mobile-nav';
+    nav.setAttribute('role', 'dialog');
+    nav.setAttribute('aria-modal', 'true');
+    nav.setAttribute('aria-label', t('Menu', 'Menu'));
+    nav.innerHTML = `
+      <nav class="m-inner" aria-label="${t('Navigation principale', 'Main navigation')}">
+        ${html}
+        <div class="m-actions">
+          <a href="/#contact" class="m-cta">${t('Nous contacter', 'Contact us')}</a>
+          <a href="/nous-rejoindre" class="m-cta m-cta--ghost">${t('Nous rejoindre', 'Join us')}</a>
+        </div>
+        <p class="m-foot"><a href="https://www.linkedin.com/company/actinuance/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span aria-hidden="true">·</span><a href="mailto:contact@actinuance.com">contact@actinuance.com</a></p>
+      </nav>`;
+    // Un seul groupe ouvert à la fois ; un lien referme le menu.
+    nav.querySelectorAll('.m-group').forEach((d) => d.addEventListener('toggle', () => {
+      if (d.open) nav.querySelectorAll('.m-group[open]').forEach((o) => { if (o !== d) o.open = false; });
+    }));
+    nav.addEventListener('click', (e) => { if (e.target.closest('a')) closeMobileNav(); });
+    document.body.appendChild(nav);
+    return nav;
+  };
 
-      if (isOpen) {
-        // Inject mobile nav if not exists
-        let mobileNav = document.getElementById('mobile-nav');
-        if (!mobileNav) {
-          mobileNav = document.createElement('div');
-          mobileNav.id = 'mobile-nav';
-          mobileNav.innerHTML = `
-            <style>
-              #mobile-nav {
-                position: fixed;
-                top: 72px; left: 0; right: 0;
-                background: rgba(7,15,30,0.97);
-                backdrop-filter: blur(12px);
-                z-index: 999;
-                padding: 30px 24px 40px;
-                display: flex;
-                flex-direction: column;
-                gap: 0;
-                animation: slideDown 0.3s ease forwards;
-              }
-              @keyframes slideDown {
-                from { opacity:0; transform: translateY(-10px); }
-                to   { opacity:1; transform: translateY(0); }
-              }
-              #mobile-nav a {
-                font-family: 'Raleway', sans-serif;
-                font-weight: 600;
-                font-size: 0.9rem;
-                color: rgba(255,255,255,0.8);
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(255,255,255,0.06);
-                display: block;
-                transition: color 0.2s;
-              }
-              #mobile-nav a:hover { color: #F18847; }
-              #mobile-nav .m-accordion {
-                border-bottom: 1px solid rgba(255,255,255,0.06);
-              }
-              #mobile-nav .m-accordion summary {
-                list-style: none;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 600;
-                font-size: 0.9rem;
-                color: rgba(255,255,255,0.86);
-                padding: 12px 0;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-              }
-              #mobile-nav .m-accordion summary::-webkit-details-marker {
-                display: none;
-              }
-              #mobile-nav .m-accordion summary::after {
-                content: '▾';
-                font-size: 0.75rem;
-                opacity: 0.8;
-                transition: transform 0.2s ease;
-              }
-              #mobile-nav .m-accordion[open] summary::after {
-                transform: rotate(180deg);
-              }
-              #mobile-nav .m-sub {
-                padding: 0 0 8px 10px;
-              }
-              #mobile-nav .m-sub a {
-                font-family: 'Poppins', sans-serif;
-                font-weight: 400;
-                font-size: 0.8rem;
-                color: rgba(255,255,255,0.72);
-                padding: 8px 0;
-                border-bottom: none;
-              }
-              #mobile-nav .m-actions {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 8px;
-                margin-top: 18px;
-              }
-              #mobile-nav .m-actions a {
-                border-bottom: none;
-                padding: 12px 10px;
-                text-align: center;
-                font-family: 'Poppins', sans-serif;
-                font-weight: 500;
-                font-size: 0.72rem;
-                letter-spacing: 0.06em;
-                text-transform: uppercase;
-              }
-              #mobile-nav .m-cta-join {
-                background: #5f2d78;
-                color: #fff !important;
-              }
-              #mobile-nav .m-cta {
-                background: #F18847;
-                color: white !important;
-                border: none;
-              }
-            </style>
-            <details class="m-accordion">
-              <summary>${currentLang === 'en' ? 'Expertise' : 'Expertises'}</summary>
-              <div class="m-sub">
-                <a href="/risques-digitaux" onclick="closeMobileNav()">${currentLang === 'en' ? 'Digital Risk' : 'Risques Digitaux'}</a>
-                <a href="/cyber-defense" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Defense' : 'Cyber Défense'}</a>
-                <a href="/audit-conformite" onclick="closeMobileNav()">${currentLang === 'en' ? 'Audit & Compliance' : 'Audit et Conformité'}</a>
-                <a href="/transfo-cyber" onclick="closeMobileNav()">${currentLang === 'en' ? 'Cyber Transformation' : 'Transfo Cyber'}</a>
-              </div>
-            </details>
-            <details class="m-accordion">
-              <summary>${currentLang === 'en' ? 'Featured offers' : 'Offres à la une'}</summary>
-              <div class="m-sub">
-                <a href="/cyber-4-ai" class="nav-ai-link" onclick="closeMobileNav()">Cyber for AI</a>
-                <a href="/dora" onclick="closeMobileNav()">DORA</a>
-                <a href="/swift" onclick="closeMobileNav()">Swift CSP</a>
-                <a href="/cra" onclick="closeMobileNav()">CRA</a>
-              </div>
-            </details>
-            <details class="m-accordion">
-              <summary>${currentLang === 'en' ? 'Industries' : 'Secteurs'}</summary>
-              <div class="m-sub">
-                <a href="/secteur-banque" onclick="closeMobileNav()">${currentLang === 'en' ? 'Banking' : 'Banque'}</a>
-                <a href="/secteur-assurance" onclick="closeMobileNav()">${currentLang === 'en' ? 'Insurance' : 'Assurance'}</a>
-                <a href="/secteur-luxe" onclick="closeMobileNav()">${currentLang === 'en' ? 'Luxury' : 'Luxe'}</a>
-                <a href="/secteur-industrie-transport" onclick="closeMobileNav()">${currentLang === 'en' ? 'Industry & Transportation' : 'Industrie & Transport'}</a>
-                <a href="/secteur-technologie" onclick="closeMobileNav()">${currentLang === 'en' ? 'Technology' : 'Tech'}</a>
-              </div>
-            </details>
-            <details class="m-accordion">
-              <summary>${currentLang === 'en' ? 'Publications' : 'Publications'}</summary>
-              <div class="m-sub">
-                <a href="/blog" onclick="closeMobileNav()">Articles</a>
-                <a href="/rex" onclick="closeMobileNav()">Client Stories</a>
-              </div>
-            </details>
-            <a href="/#apropos" onclick="closeMobileNav()">${currentLang === 'en' ? 'About' : 'À propos'}</a>
-            <div class="m-actions">
-              <a href="/nous-rejoindre" class="m-cta-join" onclick="closeMobileNav()">${currentLang === 'en' ? 'Join us' : 'Nous rejoindre'}</a>
-              <a href="/#contact" class="m-cta" onclick="closeMobileNav()">${currentLang === 'en' ? 'Contact us' : 'Nous contacter'}</a>
-            </div>
-          `;
-          document.body.appendChild(mobileNav);
-        } else {
-          mobileNav.style.display = 'flex';
-        }
-        applyLanguage(currentLang);
+  const openMobileNav = () => {
+    const nav = document.getElementById('mobile-nav') || buildMobileNav();
+    applyLanguage(currentLang);
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    if (navbarEl) navbarEl.classList.add('m-open');
+    document.documentElement.classList.add('m-lock');
+    requestAnimationFrame(() => nav.classList.add('is-open'));
+    const first = nav.querySelector('summary');
+    if (first) first.focus({ preventScroll: true });
+  };
 
-        // Animate burger to X
-        const spans = burger.querySelectorAll('span');
-        spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-      } else {
-        closeMobileNav();
-      }
-    });
-  }
-
-  window.closeMobileNav = function() {
-    const mobileNav = document.getElementById('mobile-nav');
-    if (mobileNav) mobileNav.style.display = 'none';
+  window.closeMobileNav = function () {
+    const nav = document.getElementById('mobile-nav');
+    if (nav) nav.classList.remove('is-open');
+    if (navbarEl) navbarEl.classList.remove('m-open');
+    document.documentElement.classList.remove('m-lock');
     if (burger) {
       burger.classList.remove('open');
-      const spans = burger.querySelectorAll('span');
-      spans[0].style.transform = '';
-      spans[1].style.opacity = '';
-      spans[2].style.transform = '';
+      burger.setAttribute('aria-expanded', 'false');
     }
   };
+
+  if (burger) {
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'mobile-nav');
+    burger.setAttribute('aria-label', t('Ouvrir le menu', 'Open menu'));
+    burger.addEventListener('click', () => {
+      if (burger.classList.contains('open')) closeMobileNav();
+      else openMobileNav();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && burger.classList.contains('open')) { closeMobileNav(); burger.focus(); }
+    });
+    // Repasser en grand écran referme le menu.
+    window.matchMedia('(min-width: 769px)').addEventListener('change', (e) => { if (e.matches) closeMobileNav(); });
+  }
 
 
   // ── TEAM MEMBER PHOTOS FROM SANITY ───────────────────
