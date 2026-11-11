@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
-  <link rel="stylesheet" href="ax.css?v=20261112e">
+  <link rel="stylesheet" href="ax.css?v=20261112h">
   <link rel="stylesheet" href="ax-unes.css?v=20261111">
   <link rel="stylesheet" href="ax-spot.css?v=20261111e">
 </head>
@@ -334,19 +334,15 @@
 
       <section class="sp-sec sp-more" id="rex-ia">
         <div class="sp-wrap">
-          <div class="ax-feed rex-section">
-            <h3>Client Stories missions IA</h3>
-            <div class="ax-pubs rex-grid" id="aiRexFeed" data-offer-tag="cyber-4-ai" data-limit="3">
-              <article class="rex-card">
-                <div class="rex-sector">Chargement</div>
-                <h3>Chargement des Client Stories...</h3>
-                <p>Connexion en cours avec Sanity Studio.</p>
-              </article>
+          <div class="ax-feeds" data-offer-tag="cyber-4-ai">
+            <div class="ax-feed" data-feed="stories" hidden>
+              <h3>Client Stories missions IA</h3>
+              <div class="ax-pubs" data-feed-list></div>
             </div>
-          </div>
-          <div class="ax-feed js-offer-related-wrapper">
-            <h3>Articles liés à l'offre</h3>
-            <div class="offer-related-feed" id="offerRelatedFeed" data-offer-tag="cyber-4-ai" data-offer-limit="2"></div>
+            <div class="ax-feed" data-feed="articles" hidden>
+              <h3>Articles liés à l'offre</h3>
+              <div class="ax-pubs" data-feed-list></div>
+            </div>
           </div>
           <div class="ax-feed">
             <h3>Les autres offres à la une</h3>
@@ -442,8 +438,8 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261112d"></script>
-  <script src="ax.js?v=20261112d"></script>
+  <script src="script.js?v=20261112e"></script>
+  <script src="ax.js?v=20261112e"></script>
   <script src="ax-spot.js?v=20261111e"></script>
 </body>
 </html>

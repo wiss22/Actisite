@@ -213,6 +213,56 @@
     highlight();
   }
 
+  // ── Offres : articles et Client Stories liés, uniquement depuis Sanity ──
+  // Chaque bloc [data-feed] est caché par défaut ; il ne s'affiche que si Sanity
+  // renvoie au moins un contenu publié rattaché à l'offre (relatedOffers ou offerTag).
+  const feeds = document.querySelector('.ax-feeds[data-offer-tag]');
+  if (feeds) {
+    const tag = feeds.dataset.offerTag.trim();
+    const norm = (v) => String(v || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase().replace(/&/g, 'et').replace(/[^a-z0-9]+/g, '');
+    const esc = (v) => String(v || '').replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    const linked = (item) => {
+      const tags = Array.isArray(item.relatedOffers) ? item.relatedOffers : (item.offerTag ? [item.offerTag] : []);
+      return tags.some((t) => norm(t) === norm(tag));
+    };
+    const query = `{
+      "articles": *[_type == "blogPost" && (!defined(status) || status == "published")]
+        | order(coalesce(publishedAt, _createdAt) desc){ title, relatedOffers, offerTag, excerpt, publishedAt,
+          "slug": slug.current, externalUrl },
+      "stories": *[_type == "offerRex" && status == "published"]
+        | order(coalesce(publishedAt, _createdAt) desc){ title, relatedOffers, offerTag, summary, sector,
+          "url": linkUrl, "slug": slug.current }
+    }`;
+    const base = 'https://vnmxplwi.api.sanity.io/v2024-10-01/data/query/production?perspective=published&query=';
+    const card = (href, kicker, title, text, cta) => {
+      const ext = /^https?:\/\//i.test(href);
+      return `<a href="${esc(href)}" class="ax-pubcard"${ext ? ' target="_blank" rel="noopener noreferrer"' : ''}>`
+        + `<div class="rex-sector">${esc(kicker)}</div><h4>${esc(title)}</h4>`
+        + (text ? `<p>${esc(text)}</p>` : '') + `<span class="ax-link">${cta}</span></a>`;
+    };
+    const fill = (kind, html) => {
+      const block = feeds.querySelector(`[data-feed="${kind}"]`);
+      if (!block || !html) return;
+      block.querySelector('[data-feed-list]').innerHTML = html;
+      block.hidden = false;
+    };
+    fetch(base + encodeURIComponent(query), { headers: { Accept: 'application/json' }, cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((json) => {
+        const res = json && json.result;
+        if (!res) return;
+        fill('articles', (res.articles || []).filter(linked).slice(0, 3).map((a) => card(
+          a.externalUrl || (a.slug ? `/article?slug=${encodeURIComponent(a.slug)}` : '/blog'),
+          'Article', a.title, a.excerpt, 'Lire l’article')).join(''));
+        fill('stories', (res.stories || []).filter(linked).slice(0, 3).map((r) => card(
+          r.url || (r.slug ? `/rex-article?slug=${encodeURIComponent(r.slug)}` : '/rex'),
+          r.sector || 'Client Story', r.title, r.summary, 'Lire la Client Story')).join(''));
+      })
+      .catch(() => {});
+  }
+
   // ── Effets liés au défilement (GSAP) ───────────
   const { gsap, ScrollTrigger } = window;
   if (!gsap || !ScrollTrigger) return;

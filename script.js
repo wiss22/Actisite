@@ -1966,6 +1966,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
         `;
       }).join('');
+      // La section est cachée tant qu'aucune Client Story publiée n'existe pour ce secteur.
+      if (section) section.hidden = false;
     };
 
     sectorRexFeeds.forEach((feed) => loadSectorRex(feed));
