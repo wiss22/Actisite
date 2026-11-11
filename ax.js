@@ -247,6 +247,9 @@
       if (!block || !html) return;
       block.querySelector('[data-feed-list]').innerHTML = html;
       block.hidden = false;
+      // Sur les piliers, la section entière n'apparaît qu'avec au moins un contenu.
+      const section = feeds.closest('[data-feeds-section]');
+      if (section) section.hidden = false;
     };
     fetch(base + encodeURIComponent(query), { headers: { Accept: 'application/json' }, cache: 'no-store' })
       .then((r) => (r.ok ? r.json() : null))
