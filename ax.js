@@ -138,18 +138,30 @@
       a.innerHTML = `<span class="sn-ico">${svg}</span><span class="sn-label">${label}</span>`;
       a.setAttribute('title', label);
     });
-    // Déployé un instant à son apparition, il se rétracte dès qu'on fait défiler.
+    // Déployé un instant à son apparition, il se replie au premier défilement,
+    // mouvement de souris ou clic.
     let shown = false;
     const obs = new MutationObserver(() => {
       const nav = sideRail.parentElement;
       if (!shown && nav.classList.contains('is-docked')) {
         shown = true;
         nav.classList.add('is-open');
-        const close = () => { setTimeout(() => nav.classList.remove('is-open'), 900); window.removeEventListener('scroll', close); };
-        setTimeout(() => window.addEventListener('scroll', close, { passive: true }), 400);
+        const close = () => {
+          nav.classList.remove('is-open');
+          ['scroll', 'mousemove', 'pointerdown', 'keydown'].forEach((t) => window.removeEventListener(t, close));
+        };
+        setTimeout(() => ['scroll', 'mousemove', 'pointerdown', 'keydown'].forEach((t) => window.addEventListener(t, close, { passive: true })), 500);
       }
     });
     obs.observe(sideRail.parentElement, { attributes: true, attributeFilter: ['class'] });
+    // Un clic sur un lien replie aussitôt le rail (même si la souris reste dessus),
+    // pour libérer la vue ; il se redéploie quand on revient dessus.
+    sideRail.addEventListener('click', (e) => {
+      if (!e.target.closest('a')) return;
+      sideRail.parentElement.classList.add('is-shut');
+      if (document.activeElement) document.activeElement.blur();
+    });
+    sideRail.addEventListener('mouseleave', () => sideRail.parentElement.classList.remove('is-shut'));
   }
 
   // La barre de sections part en bas de l'écran dès qu'on défile, et s'efface devant le pied de page.
@@ -346,6 +358,7 @@
   // Expertises : les cartes s'empilent, la précédente recule sous la suivante.
   const cards = gsap.utils.toArray('.ax-xcard');
   cards.forEach((card, i) => {
+    if (card.closest('.ax-stack--grid')) return; // cartes fixes : pas d'animation au défilement
     const art = card.querySelector('.ax-xcard-art');
     if (art) {
       gsap.from(art, {
