@@ -1404,3 +1404,85 @@ html.m-lock, html.m-lock body { overflow: hidden; }
 .ax-feeds > .ax-feed[hidden] + .ax-feed { margin-top: 0; }
 .ax-feeds:not(:has(> .ax-feed:not([hidden]))) + .ax-feed { margin-top: 0; }
 @media (max-width: 900px) { .ax-feeds .ax-pubs { grid-template-columns: 1fr; } }
+
+/* ─── BARRE DE SECTIONS VERTICALE (essai : body.ax-sidenav) ───────────
+   Sur grand écran, la barre se range dans la marge gauche, à la verticale :
+   floue et atténuée au repos, nette au survol ou au clavier. Elle n'apparaît
+   que si la marge (à gauche du contenu de 1168 px) peut la contenir, pour ne
+   jamais chevaucher le texte. En dessous, la barre en bas d'écran reste. */
+@media (min-width: 1360px) {
+  .ax-sidenav .ax-subnav,
+  .ax-sidenav .ax-subnav.is-docked {
+    position: fixed;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 20px;
+    display: block;
+    height: auto;
+    padding: 0;
+    transform: translateY(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+  }
+  .ax-sidenav .ax-subnav.is-docked:not(.is-away) { opacity: 1; visibility: visible; transition-delay: 0s; }
+  .ax-sidenav .ax-subnav-bar,
+  .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    width: max-content;
+    max-width: calc((100vw - 1168px) / 2 - 12px);
+    height: auto;
+    margin: 0;
+    padding: 12px 8px;
+    border: 1px solid rgba(99, 42, 124, 0.12);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 18px 40px -24px rgba(42, 15, 58, 0.45);
+    overflow: visible;
+    transform: none;
+    animation: none;
+    filter: blur(1.6px);
+    opacity: 0.55;
+    transition: filter 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+  }
+  .ax-sidenav .ax-subnav .ax-subnav-bar:hover,
+  .ax-sidenav .ax-subnav .ax-subnav-bar:focus-within,
+  .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar:hover,
+  .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar:focus-within { filter: none; opacity: 1; background: rgba(255, 255, 255, 0.94); }
+  .ax-sidenav .ax-subnav a,
+  .ax-sidenav .ax-subnav.is-docked a {
+    position: relative;
+    padding: 8px 12px 8px 18px;
+    border-radius: 10px;
+    background: none;
+    font-size: 0.82rem;
+    line-height: 1.25;
+    color: var(--ax-ink);
+    white-space: normal;
+  }
+  .ax-sidenav .ax-subnav a:hover { background: rgba(99, 42, 124, 0.08); color: var(--ax-purple); }
+  /* Section en cours : trait orange et texte violet. */
+  .ax-sidenav .ax-subnav a.is-on { background: none; color: var(--ax-purple); font-weight: 600; }
+  .ax-sidenav .ax-subnav a.is-on::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 3px;
+    height: 60%;
+    border-radius: 3px;
+    background: var(--ax-orange);
+    transform: translateY(-50%);
+  }
+  .ax-sidenav .ax-subnav a.ax-subnav-back { color: var(--ax-purple); font-weight: 500; }
+  .ax-sidenav .ax-subnav a.ax-subnav-cta {
+    margin-top: 8px;
+    padding-left: 12px;
+    background: var(--ax-orange);
+    color: var(--ax-dark);
+    text-align: center;
+  }
+}
