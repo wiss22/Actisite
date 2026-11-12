@@ -25,11 +25,12 @@
         start: 'top top',
         end: () => `+=${distance()}`,
         pin: true,
-        scrub: 0.6,
+        scrub: 0.4,
         invalidateOnRefresh: true,
-        // Si le défilement s'arrête entre deux panneaux (barre de défilement,
-        // glissé), la page se cale sur le panneau le plus proche.
-        snap: { snapTo: 1 / (panels.length - 1), directional: false, inertia: false, duration: { min: 0.25, max: 0.6 }, delay: 0.08, ease: 'power2.inOut' }
+        // Défilement natif (fluide dans les deux sens) ; dès qu'on s'arrête, la
+        // page se cale sur le panneau suivant ou précédent dans le sens du
+        // défilement : on ne reste jamais entre deux panneaux.
+        snap: { snapTo: 1 / (panels.length - 1), directional: true, inertia: false, duration: { min: 0.3, max: 0.7 }, delay: 0.06, ease: 'power2.inOut' }
       }
     });
 
@@ -80,55 +81,31 @@
     };
     section.addEventListener('focusin', onFocus);
 
-    // Défilement panneau par panneau : pendant que la section est épinglée,
-    // un geste (molette, pavé tactile, touche) amène au panneau suivant ou
-    // précédent. Avant le premier et après le dernier, la page défile normalement.
+    // Clavier : flèches, Page suivante/précédente et espace passent d'un panneau
+    // à l'autre pendant que la section est épinglée. La molette et le pavé
+    // tactile gardent le défilement natif (calé par le snap ci-dessus).
     let busy = false;
-    let lastInput = 0;
     const current = () => Math.round(((window.scrollY - st.start) / (st.end - st.start)) * last);
+    const inside = () => window.scrollY >= st.start - 2 && window.scrollY <= st.end + 2;
     const go = (k) => {
       busy = true;
       const pos = { y: window.scrollY };
-      gsap.to(pos, {
-        y: stepY(k),
-        duration: 0.85,
-        ease: 'power2.inOut',
-        onUpdate: () => window.scrollTo(0, pos.y),
-        onComplete: () => { busy = false; }
-      });
-    };
-    // Renvoie true si le geste a été pris en charge (et la page ne doit pas défiler).
-    // Bornes propres : st.isActive est faux pile sur le premier ou le dernier panneau.
-    const inside = () => window.scrollY >= st.start - 2 && window.scrollY <= st.end + 2;
-    const step = (dir) => {
-      if (!inside()) return false;
-      const next = current() + dir;
-      if (next < 0 || next > last) return false;
-      const now = performance.now();
-      const fresh = now - lastInput > 260; // un nouveau geste, pas l'inertie du précédent
-      lastInput = now;
-      if (!busy && fresh) go(next);
-      return true;
-    };
-    const onWheel = (e) => {
-      const dir = Math.sign(Math.abs(e.deltaY) >= Math.abs(e.deltaX) ? e.deltaY : e.deltaX);
-      if (dir && step(dir)) e.preventDefault();
-      else if (busy) e.preventDefault();
+      gsap.to(pos, { y: stepY(k), duration: 0.7, ease: 'power2.inOut', onUpdate: () => window.scrollTo(0, pos.y), onComplete: () => { busy = false; } });
     };
     const keys = { ArrowDown: 1, ArrowRight: 1, PageDown: 1, ' ': 1, ArrowUp: -1, ArrowLeft: -1, PageUp: -1 };
     const onKey = (e) => {
-      if (!(e.key in keys) || e.target.closest('input, textarea, select')) return;
+      if (!(e.key in keys) || e.target.closest('input, textarea, select') || !inside()) return;
       const dir = e.key === ' ' && e.shiftKey ? -1 : keys[e.key];
-      lastInput = 0; // une touche est toujours un geste distinct
-      if (step(dir)) e.preventDefault();
+      const next = current() + dir;
+      if (next < 0 || next > last) return;
+      e.preventDefault();
+      if (!busy) go(next);
     };
-    window.addEventListener('wheel', onWheel, { passive: false });
     window.addEventListener('keydown', onKey);
 
     return () => {
       section.classList.remove('xh--h');
       section.removeEventListener('focusin', onFocus);
-      window.removeEventListener('wheel', onWheel);
       window.removeEventListener('keydown', onKey);
       gsap.set([track, ...panels], { clearProps: 'all' });
     };
