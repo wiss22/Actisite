@@ -551,3 +551,32 @@
   .ax-hero--404 { min-height: 0; }
   .ax-jobs .job-card-head { flex-wrap: wrap; }
 }
+
+/* ─── ÉQUIPE : description au survol de la photo ───
+   La description passe sur la photo (voile violet) au survol, au toucher
+   ou au clavier (carte focalisable) ; rôle et nom restent dessous. */
+.ax-leader { outline: none; }
+.ax-leader p.ax-leader-bio {
+  max-width: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* au-dessus du triangle décoratif */
+  display: flex;
+  align-items: flex-end;
+  margin: 0;
+  padding: clamp(22px, 2.4vw, 32px) clamp(22px, 2.4vw, 32px) 76px; /* le texte reste au-dessus du badge LinkedIn */
+  background: linear-gradient(180deg, rgba(42, 15, 58, 0.15) 0%, rgba(42, 15, 58, 0.88) 55%, rgba(42, 15, 58, 0.96) 100%);
+  color: #fff;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.35s ease, transform 0.45s var(--ax-ease);
+  pointer-events: none;
+}
+.ax-page main .ax-leader .ax-leader-bio { color: #fff; }
+.ax-leader:hover .ax-leader-bio,
+.ax-leader:focus-within .ax-leader-bio,
+.ax-leader:focus .ax-leader-bio { opacity: 1; transform: none; }
+.ax-leader:focus-visible .ax-leader-media { outline: 3px solid var(--ax-orange); outline-offset: 4px; }
+.ax-leader-media .team-linkedin-badge { z-index: 3; }

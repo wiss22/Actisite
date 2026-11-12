@@ -364,21 +364,25 @@
 }
 .nr-ritual p { font-size: 1.02rem; line-height: 1.65; color: var(--nr-soft); }
 
-.nr-wall { display: grid; gap: 34px; margin-top: clamp(64px, 8vw, 110px); }
-.nr-wall-row { display: flex; gap: 30px; width: max-content; padding-block: 12px; }
+/* Mur de photos : images nettes aux coins arrondis, sans cadre ni inclinaison. */
+.nr-wall { display: grid; gap: 20px; margin-top: clamp(64px, 8vw, 110px); }
+.nr-wall-row { display: flex; gap: 20px; width: max-content; }
 .nr-pola {
   flex: none;
-  width: clamp(220px, 24vw, 330px);
+  width: clamp(240px, 26vw, 380px);
   margin: 0;
-  padding: 12px 12px 40px;
-  background: #fff;
-  border-radius: 6px;
-  box-shadow: 0 24px 46px -26px rgba(42, 15, 58, 0.55), 0 0 0 1px rgba(42, 15, 58, 0.06);
-  transform: rotate(var(--r, 0deg));
-  transition: transform 0.5s var(--nr-ease);
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--nr-lav);
 }
-.nr-pola:hover { transform: rotate(0deg) scale(1.04); }
-.nr-pola img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 2px; }
+.nr-pola img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.6s var(--nr-ease);
+}
+.nr-pola:hover img { transform: scale(1.05); }
 
 /* ─── AVANTAGES ─────────────────────────────────── */
 .nr-perks-sec { background: var(--nr-violet); color: #fff; }
