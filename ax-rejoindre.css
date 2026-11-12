@@ -99,7 +99,7 @@
 .nr-arrow--light { color: #fff; }
 
 .nr-sec { position: relative; padding-block: clamp(96px, 11vw, 150px); }
-.nr-sec.nr-first { padding-top: clamp(128px, 13vw, 184px); border-radius: 36px 36px 0 0; }
+.nr-sec.nr-first { padding-top: clamp(88px, 9vw, 128px); border-radius: 36px 36px 0 0; }
 
 .nr-intro { margin-bottom: clamp(48px, 6vw, 80px); }
 .nr-intro--row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; }
