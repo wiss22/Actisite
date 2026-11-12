@@ -103,43 +103,10 @@
     };
     window.addEventListener('keydown', onKey);
 
-    // Butée : un même geste (défilement sans pause de plus de 220 ms) ne peut
-    // avancer ou reculer que d'un panneau. Un geste rapide s'arrête donc sur
-    // l'expertise suivante au lieu de la dépasser ; entrer vite dans la section
-    // s'arrête sur la première (ou la dernière en remontant).
-    let prevY = window.scrollY;
-    let lastScrollAt = 0;
-    let gestureFrom = null;
-    const toPanel = (y) => ((y - st.start) / (st.end - st.start)) * last;
-    const onScroll = () => {
-      const now = performance.now();
-      if (now - lastScrollAt > 220) gestureFrom = toPanel(prevY);
-      lastScrollAt = now;
-      let y = window.scrollY;
-      if (!busy && gestureFrom !== null) {
-        let lo = -Infinity;
-        let hi = Infinity;
-        if (gestureFrom < -0.02) hi = stepY(0); // arrive d'au-dessus
-        else if (gestureFrom > last + 0.02) lo = stepY(last); // arrive d'en dessous
-        else {
-          const base = Math.round(gestureFrom);
-          if (base > 0) lo = stepY(base - 1);
-          if (base < last) hi = stepY(base + 1);
-        }
-        if (y > hi + 1 || y < lo - 1) {
-          y = Math.min(hi, Math.max(lo, y));
-          window.scrollTo(0, y);
-        }
-      }
-      prevY = y;
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-
     return () => {
       section.classList.remove('xh--h');
       section.removeEventListener('focusin', onFocus);
       window.removeEventListener('keydown', onKey);
-      window.removeEventListener('scroll', onScroll);
       gsap.set([track, ...panels], { clearProps: 'all' });
     };
   });
