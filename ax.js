@@ -114,6 +114,44 @@
     spy();
   }
 
+  // Rail latéral (body.ax-sidenav) : un picto par lien, le libellé se déploie au survol.
+  // Le picto est choisi d'après la cible du lien ; à défaut, un point.
+  const sideRail = document.body.classList.contains('ax-sidenav') && document.querySelector('.ax-subnav-bar');
+  if (sideRail) {
+    const P = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+    const icons = [
+      [/contact|discuter|echange/, P('<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/>')],
+      [/autres|secteurs$|^\/#/, P('<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M17.5 14v7M14 17.5h7"/>')],
+      [/publication|rex|article|exemple|aller-plus-loin/, P('<path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h4"/>')],
+      [/vision|quote/, P('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>')],
+      [/offre|methode|approche/, P('<rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/>')],
+      [/enjeu|priorit|risque|contexte/, P('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>')],
+      [/reponse|atout|engagement/, P('<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>')],
+      [/presentation|intro|pilier/, P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>')]
+    ];
+    const back = P('<path d="M15 18 9 12l6-6"/>');
+    const dot = P('<circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/>');
+    sideRail.querySelectorAll('a').forEach((a) => {
+      const key = (a.getAttribute('href') || '').toLowerCase();
+      const label = a.textContent.replace(/^‹\s*/, '').trim();
+      const svg = a.classList.contains('ax-subnav-back') ? back : ((icons.find(([re]) => re.test(key)) || [])[1] || dot);
+      a.innerHTML = `<span class="sn-ico">${svg}</span><span class="sn-label">${label}</span>`;
+      a.setAttribute('title', label);
+    });
+    // Déployé un instant à son apparition, il se rétracte dès qu'on fait défiler.
+    let shown = false;
+    const obs = new MutationObserver(() => {
+      const nav = sideRail.parentElement;
+      if (!shown && nav.classList.contains('is-docked')) {
+        shown = true;
+        nav.classList.add('is-open');
+        const close = () => { setTimeout(() => nav.classList.remove('is-open'), 900); window.removeEventListener('scroll', close); };
+        setTimeout(() => window.addEventListener('scroll', close, { passive: true }), 400);
+      }
+    });
+    obs.observe(sideRail.parentElement, { attributes: true, attributeFilter: ['class'] });
+  }
+
   // La barre de sections part en bas de l'écran dès qu'on défile, et s'efface devant le pied de page.
   const subnav = document.querySelector('.ax-subnav');
   if (subnav) {

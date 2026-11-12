@@ -1406,10 +1406,12 @@ html.m-lock, html.m-lock body { overflow: hidden; }
 @media (max-width: 900px) { .ax-feeds .ax-pubs { grid-template-columns: 1fr; } }
 
 /* ─── BARRE DE SECTIONS VERTICALE (essai : body.ax-sidenav) ───────────
-   Sur grand écran, la barre se range dans la marge gauche, à la verticale :
-   floue et atténuée au repos, nette au survol ou au clavier. Elle n'apparaît
-   que si la marge (à gauche du contenu de 1168 px) peut la contenir, pour ne
-   jamais chevaucher le texte. En dessous, la barre en bas d'écran reste. */
+   Sur grand écran, un rail compact dans la marge gauche : pictos seuls
+   pendant le défilement, libellés déployés au survol ou au clavier (et un
+   instant à son apparition, classe .is-open posée par ax.js). Déployé, il
+   reste borné à la marge pour ne jamais chevaucher le texte.
+   En dessous de 1360 px, la barre en bas d'écran reste, sans pictos. */
+.ax-sidenav .sn-ico { display: none; }
 @media (min-width: 1360px) {
   .ax-sidenav .ax-subnav,
   .ax-sidenav .ax-subnav.is-docked {
@@ -1431,58 +1433,68 @@ html.m-lock, html.m-lock body { overflow: hidden; }
   .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar {
     flex-direction: column;
     align-items: stretch;
-    gap: 2px;
-    width: max-content;
+    gap: 4px;
+    width: auto;
     max-width: calc((100vw - 1168px) / 2 - 12px);
     height: auto;
     margin: 0;
-    padding: 12px 8px;
+    padding: 6px;
     border: 1px solid rgba(99, 42, 124, 0.12);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.6);
-    box-shadow: 0 18px 40px -24px rgba(42, 15, 58, 0.45);
-    overflow: visible;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(16px);
+    box-shadow: 0 18px 40px -22px rgba(42, 15, 58, 0.5);
+    overflow: hidden;
     transform: none;
     animation: none;
-    filter: blur(1.6px);
-    opacity: 0.55;
-    transition: filter 0.4s ease, opacity 0.4s ease, background-color 0.4s ease;
+    transition: border-radius 0.35s ease, box-shadow 0.35s ease;
   }
-  .ax-sidenav .ax-subnav .ax-subnav-bar:hover,
-  .ax-sidenav .ax-subnav .ax-subnav-bar:focus-within,
-  .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar:hover,
-  .ax-sidenav .ax-subnav.is-docked .ax-subnav-bar:focus-within { filter: none; opacity: 1; background: rgba(255, 255, 255, 0.94); }
   .ax-sidenav .ax-subnav a,
   .ax-sidenav .ax-subnav.is-docked a {
-    position: relative;
-    padding: 8px 12px 8px 18px;
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 9px;
+    border-radius: 999px;
     background: none;
-    font-size: 0.82rem;
-    line-height: 1.25;
+    font-size: 0.86rem;
+    line-height: 1.2;
     color: var(--ax-ink);
-    white-space: normal;
+    white-space: nowrap;
+    transition: background-color 0.25s ease, color 0.25s ease, gap 0.35s ease;
   }
+  .ax-sidenav .sn-ico { display: grid; place-items: center; flex: none; width: 22px; height: 22px; }
+  .ax-sidenav .sn-ico svg { width: 20px; height: 20px; }
+  /* Libellé replié : largeur nulle, il se déploie au survol. */
+  .ax-sidenav .sn-label {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.25s ease;
+  }
+  /* Déployé au survol ou au clavier : il peut alors dépasser la marge le
+     temps de la lecture (replié, il ne chevauche jamais le texte). */
+  .ax-sidenav .ax-subnav .ax-subnav-bar:hover,
+  .ax-sidenav .ax-subnav .ax-subnav-bar:focus-within { max-width: 260px; border-radius: 22px; box-shadow: 0 24px 50px -24px rgba(42, 15, 58, 0.6); }
+  .ax-sidenav .ax-subnav-bar:hover a,
+  .ax-sidenav .ax-subnav-bar:focus-within a { gap: 10px; padding-right: 14px; border-radius: 14px; }
+  .ax-sidenav .ax-subnav-bar:hover .sn-label,
+  .ax-sidenav .ax-subnav-bar:focus-within .sn-label { max-width: 180px; opacity: 1; transition-delay: 0s, 0.08s; }
+
   .ax-sidenav .ax-subnav a:hover { background: rgba(99, 42, 124, 0.08); color: var(--ax-purple); }
-  /* Section en cours : trait orange et texte violet. */
-  .ax-sidenav .ax-subnav a.is-on { background: none; color: var(--ax-purple); font-weight: 600; }
-  .ax-sidenav .ax-subnav a.is-on::before {
-    content: '';
-    position: absolute;
-    left: 6px;
-    top: 50%;
-    width: 3px;
-    height: 60%;
-    border-radius: 3px;
-    background: var(--ax-orange);
-    transform: translateY(-50%);
-  }
-  .ax-sidenav .ax-subnav a.ax-subnav-back { color: var(--ax-purple); font-weight: 500; }
-  .ax-sidenav .ax-subnav a.ax-subnav-cta {
-    margin-top: 8px;
-    padding-left: 12px;
-    background: var(--ax-orange);
-    color: var(--ax-dark);
-    text-align: center;
-  }
+  /* Section en cours : picto sur pastille violette. */
+  .ax-sidenav .ax-subnav a.is-on,
+  .ax-sidenav .ax-subnav.is-docked a.is-on { background: var(--ax-purple); color: #fff; font-weight: 500; }
+  .ax-sidenav .ax-subnav a.ax-subnav-back { color: var(--ax-purple); }
+  .ax-sidenav .ax-subnav a.ax-subnav-cta,
+  .ax-sidenav .ax-subnav.is-docked a.ax-subnav-cta { margin-top: 4px; background: var(--ax-orange); color: var(--ax-dark); font-weight: 600; }
 }
+/* Ouverture automatique à l'apparition : seulement si la marge contient le rail déployé. */
+@media (min-width: 1600px) {
+  .ax-sidenav .ax-subnav.is-open .ax-subnav-bar { border-radius: 22px; box-shadow: 0 24px 50px -24px rgba(42, 15, 58, 0.6); }
+  .ax-sidenav .ax-subnav.is-open a { gap: 10px; padding-right: 14px; border-radius: 14px; }
+  .ax-sidenav .ax-subnav.is-open .sn-label { max-width: 180px; opacity: 1; }
+}
+/* Lien vers une section masquée (ex. flux Sanity vide) : caché, quel que soit le style du lien. */
+.ax-subnav a[hidden] { display: none !important; }
