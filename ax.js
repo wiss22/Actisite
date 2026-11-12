@@ -119,21 +119,27 @@
   const sideRail = document.body.classList.contains('ax-sidenav') && document.querySelector('.ax-subnav-bar');
   if (sideRail) {
     const P = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+    // Ordre important : le premier motif qui correspond (libellé + ancre) l'emporte.
     const icons = [
       [/contact|discuter|echange/, P('<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/>')],
-      [/autres|secteurs$|^\/#/, P('<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M17.5 14v7M14 17.5h7"/>')],
-      [/publication|rex|article|exemple|aller-plus-loin/, P('<path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h4"/>')],
-      [/vision|quote/, P('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>')],
-      [/offre|methode|approche/, P('<rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/>')],
-      [/enjeu|priorit|risque|contexte/, P('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>')],
-      [/reponse|atout|engagement/, P('<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>')],
-      [/presentation|intro|pilier/, P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>')]
+      [/autres/, P('<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M17.5 14v7M14 17.5h7"/>')],
+      [/publication|exemple|aller plus loin|rex/, P('<path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h4"/>')],
+      [/vision/, P('<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>')],
+      [/calendrier|echeance/, P('<rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/>')],
+      [/lecture/, P('<path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/>')],
+      [/evolution/, P('<path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/>')],
+      [/methode/, P('<circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 6h5a3 3 0 0 1 3 3v0M7 18h5a3 3 0 0 0 3-3v0M15 9v6M17 12h-2"/>')],
+      [/atout/, P('<path d="m12 3 2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6L3.3 9.2l6.1-.6z"/>')],
+      [/reponse/, P('<path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/>')],
+      [/contexte|enjeu|priorit|risque/, P('<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/>')],
+      [/offre/, P('<rect x="3" y="3" width="8" height="8" rx="2"/><rect x="13" y="3" width="8" height="8" rx="2"/><rect x="3" y="13" width="8" height="8" rx="2"/><rect x="13" y="13" width="8" height="8" rx="2"/>')],
+      [/presentation|intro/, P('<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/>')]
     ];
     const back = P('<path d="M15 18 9 12l6-6"/>');
     const dot = P('<circle cx="12" cy="12" r="3.5" fill="currentColor" stroke="none"/>');
     sideRail.querySelectorAll('a').forEach((a) => {
-      const key = (a.getAttribute('href') || '').toLowerCase();
       const label = a.textContent.replace(/^‹\s*/, '').trim();
+      const key = `${label} ${a.getAttribute('href') || ''}`.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
       const svg = a.classList.contains('ax-subnav-back') ? back : ((icons.find(([re]) => re.test(key)) || [])[1] || dot);
       a.innerHTML = `<span class="sn-ico">${svg}</span><span class="sn-label">${label}</span>`;
       a.setAttribute('title', label);
@@ -169,9 +175,14 @@
   if (subnav) {
     const anchor = subnav.parentElement;
     const footer = document.querySelector('footer');
+    // Sections pleine largeur qui défilent à l'horizontale : le rail latéral
+    // s'efface pendant qu'elles occupent l'écran (aucune marge pour lui).
+    const fullBleed = Array.from(document.querySelectorAll('.sp-risks, .cra-cal, .cra-quote, [data-rail-hide]'));
     const dock = () => {
-      subnav.classList.toggle('is-docked', anchor.getBoundingClientRect().top < window.innerHeight * 0.45);
-      subnav.classList.toggle('is-away', Boolean(footer) && footer.getBoundingClientRect().top < window.innerHeight - 40);
+      const h = window.innerHeight;
+      subnav.classList.toggle('is-docked', anchor.getBoundingClientRect().top < h * 0.45);
+      subnav.classList.toggle('is-away', Boolean(footer) && footer.getBoundingClientRect().top < h - 40);
+      subnav.classList.toggle('is-masked', fullBleed.some((el) => { const r = el.getBoundingClientRect(); return r.top < h * 0.7 && r.bottom > h * 0.3; }));
     };
     window.addEventListener('scroll', dock, { passive: true });
     window.addEventListener('resize', dock);
