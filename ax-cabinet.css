@@ -526,6 +526,19 @@
   overflow-wrap: anywhere;
 }
 .ax-legal-doc a:hover { color: var(--ax-dark); }
+.ax-legal-btn {
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--ax-dark);
+  border-radius: 999px;
+  background: var(--ax-dark);
+  color: #fff;
+  font: 600 0.9rem 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.ax-legal-btn:hover { background: transparent; color: var(--ax-dark); }
+.ax-legal-btn:focus-visible { outline: 2px solid var(--ax-orange); outline-offset: 3px; }
 
 /* ─── RESPONSIVE ────────────────────────────────── */
 @media (max-width: 1000px) {

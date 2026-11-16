@@ -20,14 +20,55 @@
     linear-gradient(180deg, #5a2378 0%, #3b1650 14%, #24102f 32%, #170b20 52%);
   color: #fff;
 }
+/* En-tête de section : surtitre orange, titre, et repère des quatre expertises
+   (le repère n'apparaît qu'en mode horizontal, où il suit le défilement). */
+.xh.ax-section { padding-top: clamp(56px, 7vw, 88px); }
+.xh-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 8px;
+}
+.xh-kicker {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ax-orange);
+}
 .xh-title {
   font-family: 'Raleway', sans-serif;
-  font-size: clamp(2.2rem, 4.2vw, 3.6rem);
-  font-weight: 600;
-  line-height: 1.05;
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.08;
   letter-spacing: -0.03em;
   color: #fff;
 }
+.xh-title em { font-style: normal; color: var(--ax-orange); }
+.xh-index { display: none; margin: 0; padding: 0; list-style: none; }
+.xh-index li {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+.xh-index button {
+  display: block;
+  width: 100%;
+  padding: 12px 0 6px;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.xh-index li:hover { border-color: rgba(255, 255, 255, 0.6); color: #fff; }
+.xh-index button:focus-visible { outline: 2px solid var(--ax-orange); outline-offset: 4px; border-radius: 4px; }
+.xh-index span { display: block; margin-bottom: 2px; font-size: 0.72rem; letter-spacing: 0.08em; }
+.xh-index li.is-active { border-color: var(--ax-orange); color: #fff; }
+.xh-index li.is-active span { color: var(--ax-orange); }
 
 /* Palette de chaque panneau (couleurs Actinuance : violets, orange, gris). */
 .xh-panel--1 { --tile: rgba(255, 255, 255, 0.12); --tile-h: #f18847; --tile-hink: #2a0f3a; --bg1: #8a4bd6; --bg2: #632a7c; --ink: #fff; --soft: rgba(255, 255, 255, 0.8); --acc: #f18847; --mk: #f18847; --mk-ink: #2a0f3a; --line: rgba(255, 255, 255, 0.18); }
@@ -175,6 +216,7 @@
 .xh-offer:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px; }
 
 /* ─── Mode horizontal épinglé (grand écran) ────── */
+.xh.xh--h { padding-top: 0; }
 .xh--h .xh-pin {
   display: flex;
   flex-direction: column;
@@ -182,18 +224,24 @@
   height: 100vh;
   padding-top: var(--nav-height);
 }
+/* L'en-tête reste épinglé avec les panneaux, aligné sur leur bord gauche. */
+.xh--h .xh-head { width: 100%; max-width: none; margin: 0; padding-inline: 6vw; }
+.xh--h .xh-index { display: grid; grid-template-columns: repeat(4, minmax(0, 150px)); gap: 16px; }
+@media (max-height: 720px) {
+  .xh--h .xh-kicker { display: none; }
+}
 .xh--h .xh-view { overflow: visible; }
 .xh--h .xh-track {
   display: flex;
   gap: clamp(24px, 3vw, 40px);
   width: max-content;
-  padding: 36px 6vw 0;
+  padding: 24px 6vw 0;
   transform-style: preserve-3d;
 }
 .xh--h .xh-panel {
   flex: none;
   width: min(84vw, 1180px);
-  height: min(70vh, 640px);
+  height: min(64vh, 620px);
   transform-origin: center center;
 }
 .xh--h .xh-body { height: 100%; align-items: center; padding-block: clamp(28px, 4vh, 48px); }
@@ -208,3 +256,284 @@
 }
 /* Mode empilé : marges latérales comme le reste de la page. */
 .xh:not(.xh--h) .xh-track { max-width: 1168px; margin-inline: auto; padding-inline: 16px; }
+
+/* ---------- Haut de page : présentation fixe + colonne « À la une » ---------- */
+.ax-hero-inner--split {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) minmax(300px, 400px);
+  justify-content: space-between;
+  align-items: center;
+  gap: 56px;
+}
+.ax-hero-inner--split .ax-hero-copy > .ax-btn { margin-top: 34px; }
+
+.ax-une[hidden] { display: none; }
+/* Carrousel : une actu à la fois, en carte (photo à fond perdu, type, titre, résumé). */
+.ax-une {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--ax-radius);
+  background: rgba(24, 10, 32, 0.82);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+}
+/* Étiquette posée sur la photo. */
+.ax-une-title {
+  position: absolute;
+  top: 14px;
+  z-index: 2;
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(24, 10, 32, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+.ax-une-title { left: 14px; text-transform: uppercase; color: var(--ax-orange); }
+.ax-une ul { display: grid; margin: 0; padding: 0; list-style: none; }
+.ax-une-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease, visibility 0s 0.6s;
+}
+.ax-une-slide.is-active { opacity: 1; visibility: visible; transition-delay: 0s; }
+.ax-une-item { display: block; color: #fff; text-decoration: none; }
+.ax-une-media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(150deg, #7a3aa6, #3b1650 70%);
+}
+/* Fondu de la photo vers la carte. */
+.ax-une-media::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 1;
+  height: 45%;
+  background: linear-gradient(to top, rgba(24, 10, 32, 0.9), rgba(24, 10, 32, 0));
+  pointer-events: none;
+}
+.ax-une-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ax-ease);
+}
+.ax-une-item:hover .ax-une-media img,
+.ax-une-item:focus-visible .ax-une-media img { transform: scale(1.05); }
+/* Sans photo : un triangle de la charte à la place. */
+.ax-une-media--empty::after {
+  content: '';
+  position: absolute;
+  right: 10%;
+  bottom: -14%;
+  width: 46%;
+  aspect-ratio: 1 / 0.88;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  background: linear-gradient(170deg, #f18847, rgba(241, 136, 71, 0.45));
+  transform: rotate(-8deg);
+}
+.ax-une-body { display: block; padding: 16px 22px 0; }
+.ax-une-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+.ax-une-item strong {
+  margin-top: 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  transition: color 0.25s ease;
+}
+.ax-une-item:hover strong { color: var(--ax-orange); }
+.ax-une-desc {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ax-on-dark);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ax-une-item:focus-visible { outline: 2px solid var(--ax-orange); outline-offset: -3px; border-radius: var(--ax-radius); }
+
+/* Pied de carte : barres de progression et flèches. */
+.ax-une-nav { display: flex; align-items: center; gap: 18px; padding: 18px 22px 20px; }
+.ax-une-dots { display: flex; flex: 1; gap: 6px; }
+.ax-une-dot {
+  position: relative;
+  flex: 1;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.ax-une-dot::before,
+.ax-une-dot i {
+  content: '';
+  position: absolute;
+  top: 9px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background 0.25s ease;
+}
+.ax-une-dot:hover::before { background: rgba(255, 255, 255, 0.38); }
+.ax-une-dot i { background: var(--ax-orange); transform: scaleX(0); transform-origin: left; }
+.ax-une-dot.is-done i,
+.ax-une-dot.is-active i { transform: scaleX(1); }
+.ax-une.is-playing .ax-une-dot.is-active i { animation: ax-une-fill var(--une-delay, 6s) linear both; }
+.ax-une.is-paused .ax-une-dot.is-active i { animation-play-state: paused; }
+@keyframes ax-une-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.ax-une-arrows { display: flex; flex: none; gap: 6px; }
+.ax-une-arrow {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.2s ease;
+}
+.ax-une-arrow svg { display: block; transition: transform 0.25s var(--ax-ease); }
+.ax-une-arrow--prev svg { transform: scaleX(-1); }
+.ax-une-arrow:hover,
+.ax-une-arrow:focus-visible { background: var(--ax-orange); color: var(--ax-dark); }
+.ax-une-arrow--next:hover svg { transform: translateX(2px); }
+.ax-une-arrow--prev:hover svg { transform: scaleX(-1) translateX(2px); }
+.ax-une-arrow:active { transform: scale(0.93); }
+.ax-une-dot:focus-visible,
+.ax-une-arrow:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+/* Une seule actu : pas de pied de carte, on rend la marge basse. */
+.ax-une ul:last-child .ax-une-body { padding-bottom: 22px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .ax-une { animation: ax-rise 0.9s var(--ax-ease) 0.3s both; }
+  /* Le texte de l'actu monte légèrement à l'arrivée. */
+  .ax-une-body { transform: translateY(10px); transition: transform 0.7s var(--ax-ease); }
+  .ax-une-slide.is-active .ax-une-body { transform: none; }
+}
+@media (max-height: 760px) {
+  .ax-une-media { aspect-ratio: 16 / 8; }
+}
+
+/* Mobile et tablette étroite : la présentation seule. */
+@media (max-width: 1000px) {
+  .ax-hero-inner--split { display: block; }
+  .ax-une { display: none; }
+}
+
+/* ---------- Section « Notre différence » et boutons de recrutement sous « Nos engagements » ---------- */
+.ax-join .ax-lead { font-size: 1.02rem; line-height: 1.6; color: rgba(255, 255, 255, 0.86); }
+.ax-join .ax-lead + .ax-lead { margin-top: 12px; }
+.ax-actions--join { margin-top: clamp(40px, 5vw, 56px); }
+
+/* ---------- « Notre différence » : en-tête sur deux colonnes + trois cartes à retourner ---------- */
+.df-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 88px);
+  align-items: end;
+}
+.df-head .ax-lead:first-child { margin-top: 0; }
+
+.df-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: clamp(40px, 5vw, 64px);
+}
+.df-card {
+  height: 320px;
+  perspective: 1400px;
+  border-radius: var(--ax-radius);
+  cursor: pointer;
+  outline: none;
+}
+.df-card:focus-visible { outline: 2px solid var(--ax-orange); outline-offset: 4px; }
+.df-inner {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s var(--ax-ease);
+}
+.df-card.is-flipped .df-inner,
+.df-card:focus-visible .df-inner { transform: rotateY(180deg); }
+@media (hover: hover) {
+  .df-card:hover .df-inner { transform: rotateY(180deg); }
+}
+/* Les deux faces reprennent les cartes « Nos engagements » : mêmes couleurs,
+   même triangle décoratif dans l'angle. */
+.df-face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--ax-radius);
+  background: var(--ax-dark);
+  color: #fff;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.df-back { transform: rotateY(180deg); }
+.df-face h3 {
+  position: relative;
+  max-width: 14ch;
+  font-size: clamp(1.45rem, 2.1vw, 1.85rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: inherit;
+}
+.df-face p { position: relative; font-size: 1rem; line-height: 1.55; color: rgba(255, 255, 255, 0.9); }
+.df-back .ax-commit-tri { opacity: 0.45; }
+
+.df-card--1 .df-face { background: var(--ax-orange); color: var(--ax-dark); }
+.df-card--1 .df-face p { color: rgba(55, 24, 70, 0.92); }
+.df-card--1 .ax-commit-tri { background: rgba(55, 24, 70, 0.16); }
+.df-card--2 .df-face { background: #7030a0; }
+.df-card--2 .ax-commit-tri { animation-delay: -2s; }
+.df-card--3 .ax-commit-tri { background: rgba(241, 136, 71, 0.75); animation-delay: -4s; }
+
+@media (max-width: 900px) {
+  .df-head { grid-template-columns: 1fr; gap: 20px; }
+  .df-cards { grid-template-columns: 1fr; gap: 16px; }
+  .df-card { height: 300px; }
+  .df-face p { font-size: 0.95rem; line-height: 1.5; }
+}
+/* Mouvement réduit : pas de rotation, le verso remplace le recto en fondu. */
+@media (prefers-reduced-motion: reduce) {
+  .df-inner { transition: none; transform: none !important; }
+  .df-back { transform: none; opacity: 0; transition: opacity 0.2s ease; }
+  .df-card.is-flipped .df-back,
+  .df-card:focus-visible .df-back,
+  .df-card:hover .df-back { opacity: 1; }
+}

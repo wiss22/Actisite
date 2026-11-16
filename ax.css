@@ -254,6 +254,8 @@ a:hover > .ax-link::after { transform: translateX(4px) rotate(45deg); }
   letter-spacing: -0.035em;
   text-wrap: initial;
 }
+/* Titre de promesse : plus long, donc un cran plus petit pour tenir sur trois lignes. */
+.ax-page main .ax-slide-title--long { font-size: clamp(2.3rem, 5.1vw, 4.25rem); }
 
 .ax-hero-lead {
   max-width: 540px;

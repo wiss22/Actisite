@@ -6,6 +6,8 @@ export default defineCliConfig({
     dataset: 'production'
   },
   deployment: {
+    // Studio hébergé par Sanity : actinuance.sanity.studio (studio.actinuance.com y redirige).
+    appId: 'bjrynkdu66bntaeauyvdno6s',
     /**
      * Enable auto-updates for studios.
      * Learn more at https://www.sanity.io/docs/studio/latest-version-of-sanity#k47faf43faf56

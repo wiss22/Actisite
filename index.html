@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=20260914">
-  <link rel="stylesheet" href="ax.css?v=20261113i">
-  <link rel="stylesheet" href="ax-home.css?v=20261113k">
+  <link rel="stylesheet" href="ax.css?v=20261115c">
+  <link rel="stylesheet" href="ax-home.css?v=20261116h">
 </head>
 <body class="home-page ax-page">
   <a href="#main" class="ax-skip">Aller au contenu</a>
@@ -87,52 +87,43 @@
 
   <main id="main">
 
-    <section class="ax-hero" id="hero" data-slide="0" aria-roledescription="carrousel" aria-label="Offres à la une">
+    <section class="ax-hero" id="hero" data-slide="0">
       <div class="ax-hero-art" aria-hidden="true">
         <div class="ax-tri-s ax-tri-s--a"><div class="ax-tri ax-tri--a"><i></i></div></div>
         <div class="ax-tri-s ax-tri-s--b"><div class="ax-tri ax-tri--b"><i></i></div></div>
         <div class="ax-tri-s ax-tri-s--c"><div class="ax-tri ax-tri--c"><i></i></div></div>
         <div class="ax-tri-s ax-tri-s--d"><div class="ax-tri ax-tri--d"><i></i></div></div>
       </div>
-      <div class="ax-hero-inner">
-        <div class="ax-slides">
-          <div class="ax-slide is-active" id="ax-slide-0" role="tabpanel" aria-labelledby="ax-hero-tab-0">
-            <p class="ax-slide-label">Cyber for AI</p>
-            <h1 class="ax-slide-title">Sécurisez<br>vos <em>solutions IA</em></h1>
-            <p class="ax-hero-lead">Nous aidons les directions métier, risques, conformité et sécurité à structurer, arbitrer et exécuter leurs trajectoires d'intégration des solutions d'Intelligence Artificielle à grande échelle.</p>
-            <a href="/cyber-4-ai" class="ax-btn ax-btn--accent">Découvrir notre offre</a>
-            <p class="ax-slide-stat"><strong>13<span>ans</span></strong>d'expertise</p>
-          </div>
-          <div class="ax-slide" id="ax-slide-1" role="tabpanel" aria-labelledby="ax-hero-tab-1">
-            <p class="ax-slide-label">Audit et Conformité</p>
-            <h2 class="ax-slide-title">Pilotez vos <em>programmes</em><br>de conformité</h2>
-            <p class="ax-hero-lead">Nous aidons les directions métier, risques, conformité et sécurité à structurer, arbitrer et exécuter leurs trajectoires GRC à grande échelle.</p>
-            <a href="/audit-conformite" class="ax-btn ax-btn--accent">Découvrir notre approche</a>
-            <p class="ax-slide-stat"><strong>90<span>%</span></strong>de consultants certifiés</p>
-          </div>
-          <div class="ax-slide" id="ax-slide-2" role="tabpanel" aria-labelledby="ax-hero-tab-2">
-            <p class="ax-slide-label">Cyber Défense</p>
-            <h2 class="ax-slide-title">Sécurisez votre<br><em>socle technique</em><br>en profondeur</h2>
-            <p class="ax-hero-lead">Cloud, développement, systèmes industriels, remédiation&nbsp;: chaque environnement appelle une qualification spécifique et des solutions actionnables.</p>
-            <a href="/cyber-defense" class="ax-btn ax-btn--accent">Voir l'expertise</a>
-            <p class="ax-slide-stat"><strong>25<span>%</span></strong>de croissance en 2025</p>
-          </div>
+      <div class="ax-hero-inner ax-hero-inner--split">
+        <div class="ax-hero-copy">
+          <h1 class="ax-slide-title ax-slide-title--long">La cybersécurité,<br>de la stratégie<br>à <em>l'exécution</em></h1>
+          <p class="ax-hero-lead">Actinuance aide les grandes organisations à maîtriser leurs risques numériques et à mener leurs programmes cyber, aux côtés des RSSI, DSI et directions des risques.</p>
+          <a href="#contact" class="ax-btn ax-btn--accent">Échanger sur vos enjeux cyber</a>
         </div>
-        <div class="ax-hero-nav" role="tablist" aria-label="Offres à la une">
-          <button type="button" class="ax-hero-tab" role="tab" id="ax-hero-tab-0" aria-controls="ax-slide-0" aria-selected="true"><i></i>Cyber for AI</button>
-          <button type="button" class="ax-hero-tab" role="tab" id="ax-hero-tab-1" aria-controls="ax-slide-1" aria-selected="false" tabindex="-1"><i></i>Audit et Conformité</button>
-          <button type="button" class="ax-hero-tab" role="tab" id="ax-hero-tab-2" aria-controls="ax-slide-2" aria-selected="false" tabindex="-1"><i></i>Cyber Défense</button>
-        </div>
+        <!-- À la une : carrousel des actus saisies dans Sanity, rempli par ax-home.js. Masqué tant qu'il n'y a aucune actu, et sur mobile. -->
+        <aside class="ax-une" aria-roledescription="carrousel" aria-labelledby="ax-une-title" hidden>
+          <p class="ax-une-title" id="ax-une-title">À la une</p>
+          <ul id="axUneList"></ul>
+        </aside>
       </div>
     </section>
 
     <div class="ax-over">
 
     <section class="ax-section xh" id="expertises">
-      <div class="ax-wrap">
-        <h2 class="xh-title">Nos expertises</h2>
-      </div>
       <div class="xh-pin">
+        <div class="xh-head ax-wrap">
+          <div>
+            <p class="xh-kicker">Nos expertises</p>
+            <h2 class="xh-title">Quatre expertises pour <em>maîtriser vos risques cyber</em></h2>
+          </div>
+          <ol class="xh-index" aria-label="Aller à une expertise">
+            <li class="is-active"><button type="button"><span>01</span>Risques Digitaux</button></li>
+            <li><button type="button"><span>02</span>Cyber Défense</button></li>
+            <li><button type="button"><span>03</span>Audit et Conformité</button></li>
+            <li><button type="button"><span>04</span>Transfo Cyber</button></li>
+          </ol>
+        </div>
         <div class="xh-view">
           <div class="xh-track">
           <article class="xh-panel xh-panel--1" data-i="0">
@@ -170,7 +161,7 @@
                 <ul>
                   <li><a href="/cyber-cloud-defense" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">01</span><strong>Sécurité du cloud</strong></a></li>
                   <li><a href="/cyber-securite-developpement" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">02</span><strong>Sécurité du développement</strong></a></li>
-                  <li><a href="/cyber-resilience-operationnelle" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">03</span><strong>Résilience opérationnelle</strong></a></li>
+                  <li><a href="/cyber-resilience-operationnelle" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">03</span><strong>Gestion des vulnérabilités</strong></a></li>
                   <li><a href="/cyber-securite-industries" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">04</span><strong>Sécurité des industries</strong></a></li>
                 </ul>
               </div>
@@ -190,7 +181,7 @@
                 <p class="xh-offers-label">Les offres</p>
                 <ul>
                   <li><a href="/audit-organisationnel" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">01</span><strong>Audit et Contrôles</strong></a></li>
-                  <li><a href="/resilience-reglemenaire" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">02</span><strong>Résilience réglementaire</strong></a></li>
+                  <li><a href="/resilience-reglementaire" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">02</span><strong>Résilience réglementaire</strong></a></li>
                   <li><a href="/conformite-sectorielle" class="xh-offer"><span class="xh-offer-n" aria-hidden="true">03</span><strong>Conformité sectorielle</strong></a></li>
                 </ul>
               </div>
@@ -249,44 +240,55 @@
       </div>
     </section>
 
-    <section class="ax-section ax-join" id="rejoindre">
+    <section class="ax-section ax-join" id="difference">
       <div class="ax-join-art" aria-hidden="true">
         <div class="ax-tri-s"><div class="ax-tri ax-tri--h"><i></i></div></div>
         <div class="ax-tri-s"><div class="ax-tri ax-tri--j"><i></i></div></div>
       </div>
-      <div class="ax-wrap ax-split">
-        <div class="reveal">
-          <h2 class="ax-h2">Vous faire évoluer nous fait progresser.</h2>
-          <div class="ax-rows">
-            <div class="ax-row">
-              <h3>Expertise</h3>
-              <p>Au cœur de notre démarche, une conviction forte&nbsp;: exceller sur les sujets Cyber, Risques et Conformité pour intervenir au bon niveau, du cadrage stratégique à l'exécution opérationnelle.</p>
-            </div>
-            <div class="ax-row">
-              <h3>Exigence</h3>
-              <p>Nous délivrons des prestations de qualité et sur-mesure. Chaque accompagnement est structuré, personnalisé et orienté résultats pour répondre précisément aux enjeux de nos clients.</p>
-            </div>
-            <div class="ax-row">
-              <h3>Épanouissement</h3>
-              <p>Chaque consultant est une pièce maîtresse du cabinet. Nous proposons des missions alignées avec les talents, les compétences et les perspectives d'évolution de chacun.</p>
-            </div>
+      <div class="ax-wrap">
+        <div class="df-head reveal">
+          <div>
+            <p class="ax-kicker">Notre différence</p>
+            <h2 class="ax-h2">Une cybersécurité qui dépasse les recommandations.</h2>
           </div>
-          <div class="ax-actions">
-            <a href="/nous-rejoindre" class="ax-btn ax-btn--accent ax-btn--lg">Nous rejoindre</a>
-            <a href="/postes-ouverts" class="ax-link ax-link--light">Voir les positions ouvertes</a>
+          <div>
+            <p class="ax-lead">Chez Actinuance, nous sommes convaincus qu'une cybersécurité efficace ne se résume ni à la conformité à un référentiel, ni à la définition d'une stratégie.</p>
+            <p class="ax-lead">Elle doit répondre aux enjeux de l'entreprise, s'intégrer à ses opérations et se traduire en résultats concrets.</p>
           </div>
         </div>
-        <figure class="ax-photo reveal" data-delay="120">
-          <img
-            src="Photos/optimized/photogroupe-1600.jpg"
-            srcset="Photos/optimized/photogroupe-900.jpg 900w, Photos/optimized/photogroupe-1600.jpg 1600w"
-            sizes="(max-width: 1000px) 92vw, 540px"
-            width="1600" height="1067"
-            alt="L'équipe Actinuance réunie"
-            loading="lazy"
-            decoding="async"
-          />
-        </figure>
+        <!-- Cartes à retourner : titre au recto, explication au verso (survol, focus clavier ou toucher). -->
+        <div class="df-cards reveal" data-delay="120">
+          <article class="df-card df-card--1" tabindex="0">
+            <div class="df-inner">
+              <div class="df-face df-front"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h3>Une approche décloisonnée</h3>
+              </div>
+              <div class="df-face df-back"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <p>Nous réunissons les expertises en gouvernance, risques, conformité et sécurité technique pour assurer la cohérence entre les décisions stratégiques et leur mise en œuvre opérationnelle.</p>
+              </div>
+            </div>
+          </article>
+          <article class="df-card df-card--2" tabindex="0">
+            <div class="df-inner">
+              <div class="df-face df-front"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h3>Une compréhension des réalités métier</h3>
+              </div>
+              <div class="df-face df-back"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <p>Nous adaptons nos interventions aux enjeux sectoriels, aux contraintes opérationnelles et à la maturité de chaque organisation. Nos recommandations sont conçues pour être applicables, pas uniquement conformes.</p>
+              </div>
+            </div>
+          </article>
+          <article class="df-card df-card--3" tabindex="0">
+            <div class="df-inner">
+              <div class="df-face df-front"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <h3>Un engagement dans la mise en œuvre</h3>
+              </div>
+              <div class="df-face df-back"><i class="ax-commit-tri" aria-hidden="true"></i>
+                <p>Du cadrage initial au déploiement des dispositifs de sécurité, nous accompagnons nos clients dans la concrétisation de leurs transformations, avec une attention particulière portée à l'efficacité et à la pérennité des solutions.</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -466,6 +468,10 @@
             <p>Une posture transparente, des avis francs et une exigence constante sur la qualité des livrables.</p>
           </div>
         </div>
+        <div class="ax-actions ax-actions--join">
+          <a href="/nous-rejoindre" class="ax-btn ax-btn--accent ax-btn--lg">Nous rejoindre</a>
+          <a href="/postes-ouverts" class="ax-link">Voir les positions ouvertes</a>
+        </div>
       </div>
     </section>
 
@@ -477,7 +483,7 @@
       </div>
       <h2>Parlons de votre <em>projet.</em></h2>
       <p>Partagez-nous votre besoin, nous vous répondons sous 48h.</p>
-      <a href="mailto:contact@actinuance.com" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
+      <a href="mailto:contact@actinuance.com?subject=Actinuance%20-%20Echange%20sur%20vos%20enjeux%20cyber" class="ax-btn ax-btn--accent">contact@actinuance.com</a>
       <address>147 Rue de Rennes, 75006 Paris</address>
     </section>
 
@@ -535,8 +541,8 @@
   </footer>
   <script src="vendor/gsap.min.js"></script>
   <script src="vendor/ScrollTrigger.min.js"></script>
-  <script src="script.js?v=20261112e"></script>
+  <script src="script.js?v=20261116b"></script>
   <script src="ax.js?v=20261113g"></script>
-  <script src="ax-home.js?v=20261113k"></script>
+  <script src="ax-home.js?v=20261116f"></script>
 </body>
 </html>

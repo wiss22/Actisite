@@ -5,6 +5,7 @@ import {linkedinPostType} from './linkedinPost'
 import {offerRexType} from './offerRex'
 import {innovationMediaType} from './innovationMedia'
 import {teamMemberType} from './teamMember'
+import {homeFeaturedType} from './homeFeatured'
 
 export const schemaTypes = [
   teamMemberType,
@@ -15,4 +16,5 @@ export const schemaTypes = [
   linkedinPostType,
   jobOfferType,
   aiObservedVectorsType,
+  homeFeaturedType,
 ]

@@ -15,7 +15,7 @@
     { "source": "/transfo-cyber", "destination": "/transfo-cyber.html" },
     { "source": "/swift", "destination": "/swift.html" },
     { "source": "/audit-organisationnel", "destination": "/audit-organisationnel.html" },
-    { "source": "/resilience-reglemenaire", "destination": "/resilience-reglemenaire.html" },
+    { "source": "/resilience-reglementaire", "destination": "/resilience-reglementaire.html" },
     { "source": "/dora", "destination": "/dora.html" },
     { "source": "/cra", "destination": "/cra.html" },
     { "source": "/conformite-sectorielle", "destination": "/conformite-sectorielle.html" },

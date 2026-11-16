@@ -23,6 +23,7 @@
       ".claude/**",
       ".cursor/**",
       "Contenu offres/**",
+      "**/*.docx",
       "studio/**",
       "**/.*",
       "**/node_modules/**"
@@ -76,7 +77,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self' https:; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https:; connect-src 'self' https://*.sanity.io https://*.apicdn.sanity.io https://*.api.sanity.io; frame-src 'self' https:;"
+            "value": "default-src 'self' https:; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https:; connect-src 'self' https://*.sanity.io https://*.apicdn.sanity.io https://*.api.sanity.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://stats.g.doubleclick.net; frame-src 'self' https:;"
           }
         ]
       }
@@ -234,7 +235,17 @@
       },
       {
         "source": "/resilience-reglemenaire.html",
-        "destination": "/resilience-reglemenaire",
+        "destination": "/resilience-reglementaire",
+        "type": 301
+      },
+      {
+        "source": "/resilience-reglemenaire",
+        "destination": "/resilience-reglementaire",
+        "type": 301
+      },
+      {
+        "source": "/resilience-reglementaire.html",
+        "destination": "/resilience-reglementaire",
         "type": 301
       },
       {
@@ -249,7 +260,7 @@
       },
       {
         "source": "/audit-conformite-nis-dora.html",
-        "destination": "/resilience-reglemenaire",
+        "destination": "/resilience-reglementaire",
         "type": 301
       },
       {
@@ -424,8 +435,8 @@
         "destination": "/audit-organisationnel.html"
       },
       {
-        "source": "/resilience-reglemenaire",
-        "destination": "/resilience-reglemenaire.html"
+        "source": "/resilience-reglementaire",
+        "destination": "/resilience-reglementaire.html"
       },
       {
         "source": "/dora",
@@ -437,7 +448,7 @@
       },
       {
         "source": "/audit-conformite-nis-dora",
-        "destination": "/resilience-reglemenaire"
+        "destination": "/resilience-reglementaire.html"
       },
       {
         "source": "/conformite-sectorielle",

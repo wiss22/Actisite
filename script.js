@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     offres: 'Actinuance — Offers',
     'postes-ouverts': 'Open Roles — Actinuance',
     'audit-organisationnel': 'Organizational Audit — Actinuance',
-    'resilience-reglemenaire': 'NIS2 & DORA Compliance Audit — Actinuance',
+    'resilience-reglementaire': 'NIS2 & DORA Compliance Audit — Actinuance',
     dora: 'DORA — Actinuance',
     'conformite-sectorielle': 'Sectoral Compliance — Actinuance',
     swift: 'Swift CSP — Actinuance',
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'transfo-cyber',
       'cyber-4-ai',
       'audit-organisationnel',
-      'resilience-reglemenaire',
+      'resilience-reglementaire',
       'dora',
       'conformite-sectorielle',
       'swift',
@@ -1992,7 +1992,7 @@ document.addEventListener('DOMContentLoaded', () => {
       'cyber-cloud': 'Sécurité du cloud',
       'cyber-development': 'Sécurité du développement',
       'cyber-industries': 'Sécurité des industries',
-      'cyber-resilience-operationnelle': 'Résilience opérationnelle',
+      'cyber-resilience-operationnelle': 'Gestion des vulnérabilités',
       'risques-gouvernance': 'Gouvernance (Risques Digitaux)',
       'risques-resilience': 'Résilience (Risques Digitaux)',
       'risques-sensibilisation': 'Sensibilisation (Risques Digitaux)',
@@ -2267,3 +2267,178 @@ document.addEventListener('DOMContentLoaded', () => {
   try { localStorage.removeItem(LANG_STORAGE_KEY); } catch (_) {}
 
 });
+
+/* ══════════════════════════════════════════════
+   Cookies et mesure d'audience — Google Analytics 4 du projet Firebase
+   Rien n'est chargé ni déposé sans accord : un bandeau propose « Refuser » et
+   « Accepter » à égalité, le choix est gardé six mois dans le navigateur
+   (localStorage, clé actinuance_consent) et se modifie à tout moment par le lien
+   « Gérer les cookies » du pied de page ou tout élément [data-cookie-settings].
+   L'identifiant de mesure vient de Firebase Hosting (/__/firebase/init.json) ; en
+   local, le bandeau fonctionne mais aucune mesure n'est chargée.
+   Événements : pages vues (automatiques) et « contact_click » sur les liens e-mail.
+════════════════════════════════════════════════ */
+(() => {
+  const KEY = 'actinuance_consent';
+  const VALID_MS = 182 * 24 * 60 * 60 * 1000; // le choix est redemandé au bout de six mois
+  const COOKIE_SECONDS = 395 * 24 * 60 * 60;  // cookies de mesure : treize mois au plus
+  const isLocal = ['localhost', '127.0.0.1', '[::1]'].includes(window.location.hostname);
+  let measurementId = null;
+  let started = false;
+
+  const read = () => {
+    try {
+      const saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+      if (!saved || !['granted', 'denied'].includes(saved.analytics)) return null;
+      if (typeof saved.at !== 'number' || Date.now() - saved.at > VALID_MS) return null;
+      return saved.analytics;
+    } catch (_) {
+      return null;
+    }
+  };
+  const write = (value) => {
+    try { localStorage.setItem(KEY, JSON.stringify({ analytics: value, at: Date.now() })); } catch (_) {}
+  };
+
+  const getId = async () => {
+    if (measurementId || isLocal) return measurementId;
+    try {
+      const response = await fetch('/__/firebase/init.json');
+      if (!response.ok) return null;
+      const config = await response.json();
+      const id = config && config.measurementId;
+      if (typeof id === 'string' && /^G-[A-Z0-9]+$/.test(id)) measurementId = id;
+    } catch (_) {
+      // La mesure d'audience ne doit jamais gêner la navigation.
+    }
+    return measurementId;
+  };
+
+  const startAnalytics = async () => {
+    const id = await getId();
+    if (!id || read() !== 'granted') return;
+    window[`ga-disable-${id}`] = false;
+    if (started) return;
+    started = true;
+    window.dataLayer = window.dataLayer || [];
+    // gtag attend l'objet « arguments » tel quel dans dataLayer.
+    window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', id, {
+      cookie_expires: COOKIE_SECONDS,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    });
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = `https://www.googletagmanager.com/gtag/js?id=${id}`;
+    document.head.append(tag);
+  };
+
+  // Refus ou retrait : la mesure s'arrête et ses cookies sont supprimés.
+  const stopAnalytics = () => {
+    if (measurementId) window[`ga-disable-${measurementId}`] = true;
+    const host = window.location.hostname;
+    const domains = ['', host, `.${host}`, `.${host.split('.').slice(-2).join('.')}`];
+    document.cookie.split(';').map((item) => item.split('=')[0].trim())
+      .filter((name) => name === '_ga' || name.startsWith('_ga_'))
+      .forEach((name) => domains.forEach((domain) => {
+        document.cookie = `${name}=; Max-Age=0; path=/${domain ? `; domain=${domain}` : ''}`;
+      }));
+  };
+
+  document.addEventListener('click', (event) => {
+    if (!started || read() !== 'granted') return;
+    const link = event.target instanceof Element ? event.target.closest('a[href^="mailto:"]') : null;
+    if (!link) return;
+    const section = link.closest('section[id], footer, header');
+    window.gtag('event', 'contact_click', {
+      link_text: (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80),
+      page_section: section ? (section.id || section.tagName.toLowerCase()) : '',
+    });
+  });
+
+  /* ── Bandeau ── */
+  const css = `
+.ax-consent{position:fixed;z-index:2147483000;left:16px;bottom:16px;width:min(320px,calc(100vw - 32px));padding:14px 16px;border-radius:14px;background:#1c1230;color:#fff;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(12,6,28,.45);font-family:'Poppins',system-ui,sans-serif}
+.ax-consent[hidden]{display:none}
+.ax-consent-title{margin:0 0 4px;font-family:'Raleway',system-ui,sans-serif;font-size:.88rem;font-weight:700;line-height:1.3;color:#fff}
+.ax-consent-text{margin:0;font-size:.74rem;line-height:1.5;color:rgba(255,255,255,.78)}
+.ax-consent-text a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+.ax-consent-actions{display:flex;gap:8px;margin-top:12px}
+.ax-consent-btn{flex:1;min-height:34px;padding:0 12px;border-radius:999px;border:1px solid #fff;background:#fff;color:#1c1230;font:600 .76rem 'Poppins',system-ui,sans-serif;cursor:pointer;transition:background .2s,color .2s}
+.ax-consent-btn:hover{background:transparent;color:#fff}
+.ax-consent-btn:focus-visible,.ax-cookie-link:focus-visible{outline:2px solid #ff8a3d;outline-offset:3px}
+.footer-legal .ax-cookie-link{padding:0;border:0;background:none;font-family:'Poppins',sans-serif;font-size:.72rem;color:rgba(255,255,255,.2);cursor:pointer;transition:color .2s}
+.footer-legal .ax-cookie-link:hover{color:rgba(255,255,255,.5)}
+@media (max-width:520px){.ax-consent{left:10px;right:10px;bottom:10px;width:auto}.ax-consent-btn{min-height:40px}}
+@media (prefers-reduced-motion:no-preference){.ax-consent{animation:ax-consent-in .4s ease both}@keyframes ax-consent-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}}`;
+
+  let banner = null;
+  let opener = null;
+  const el = (tag, className, text) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text) node.textContent = text;
+    return node;
+  };
+  const choose = (value) => {
+    write(value);
+    if (value === 'granted') startAnalytics(); else stopAnalytics();
+    if (banner) banner.hidden = true;
+    if (opener && document.contains(opener)) opener.focus();
+    opener = null;
+  };
+  const openBanner = (from) => {
+    if (!banner) {
+      const style = document.createElement('style');
+      style.textContent = css;
+      document.head.append(style);
+      banner = el('section', 'ax-consent');
+      banner.setAttribute('role', 'dialog');
+      banner.setAttribute('aria-labelledby', 'axConsentTitle');
+      banner.setAttribute('aria-describedby', 'axConsentText');
+      const title = el('p', 'ax-consent-title', 'Mesure d’audience');
+      title.id = 'axConsentTitle';
+      const text = el('p', 'ax-consent-text', 'Avec votre accord, nous mesurons la fréquentation du site avec Google Analytics, sans cookie publicitaire. ');
+      text.id = 'axConsentText';
+      const more = el('a', '', 'En savoir plus');
+      more.href = '/protection-donnees#cookies';
+      text.append(more);
+      const actions = el('div', 'ax-consent-actions');
+      const refuse = el('button', 'ax-consent-btn', 'Refuser');
+      const accept = el('button', 'ax-consent-btn', 'Accepter');
+      refuse.type = 'button';
+      accept.type = 'button';
+      refuse.addEventListener('click', () => choose('denied'));
+      accept.addEventListener('click', () => choose('granted'));
+      actions.append(refuse, accept);
+      banner.append(title, text, actions);
+      document.body.append(banner);
+    }
+    banner.hidden = false;
+    opener = from || null;
+    if (from) banner.querySelector('.ax-consent-btn').focus();
+  };
+
+  const init = () => {
+    // Lien « Gérer les cookies » dans le pied de page de toutes les pages.
+    document.querySelectorAll('.footer-legal').forEach((legal) => {
+      const button = el('button', 'ax-cookie-link', 'Gérer les cookies');
+      button.type = 'button';
+      button.setAttribute('data-cookie-settings', '');
+      legal.append(button);
+    });
+    document.addEventListener('click', (event) => {
+      const trigger = event.target instanceof Element ? event.target.closest('[data-cookie-settings]') : null;
+      if (!trigger) return;
+      event.preventDefault();
+      openBanner(trigger);
+    });
+    const choice = read();
+    if (choice === 'granted') startAnalytics();
+    else if (choice === null) { stopAnalytics(); openBanner(null); }
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();

@@ -57,6 +57,7 @@
 .ax-darksec .ax-kicker { color: #ffa466; }
 .ax-darksec .ax-lead { color: var(--ax-on-dark); }
 .ax-darksec .ax-closing { color: #fff; }
+.ax-closing a { color: inherit; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 2px; }
 
 /* ─── Étapes de la démarche ─────────────────────── */
 .ax-steps {
