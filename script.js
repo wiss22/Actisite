@@ -2389,11 +2389,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (opener && document.contains(opener)) opener.focus();
     opener = null;
   };
+  // Styles du bandeau et du lien « Gérer les cookies », ajoutés une seule fois, dès le
+  // chargement : le lien du pied de page doit être stylé même si le bandeau ne s'ouvre pas.
+  let styled = false;
+  const addStyle = () => {
+    if (styled) return;
+    styled = true;
+    const style = document.createElement('style');
+    style.textContent = css;
+    document.head.append(style);
+  };
   const openBanner = (from) => {
+    addStyle();
     if (!banner) {
-      const style = document.createElement('style');
-      style.textContent = css;
-      document.head.append(style);
       banner = el('section', 'ax-consent');
       banner.setAttribute('role', 'dialog');
       banner.setAttribute('aria-labelledby', 'axConsentTitle');
@@ -2422,6 +2430,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const init = () => {
+    addStyle();
     // Lien « Gérer les cookies » dans le pied de page de toutes les pages.
     document.querySelectorAll('.footer-legal').forEach((legal) => {
       const button = el('button', 'ax-cookie-link', 'Gérer les cookies');

@@ -257,6 +257,54 @@
 /* Mode empilé : marges latérales comme le reste de la page. */
 .xh:not(.xh--h) .xh-track { max-width: 1168px; margin-inline: auto; padding-inline: 16px; }
 
+/* Mobile : les quatre expertises en liste courte (numéro, nom, flèche), sans
+   description ni offres. Toute la ligne mène à la page de l'expertise. */
+@media (max-width: 767px) {
+  .xh { padding-bottom: 56px; }
+  .xh.ax-section { padding-top: 48px; }
+  .xh-title { font-size: 1.75rem; }
+  .xh-track { gap: 10px; padding-top: 24px; }
+  .xh-panel { border-radius: 18px; box-shadow: none; }
+  .xh-orb, .xh-desc, .xh-cta, .xh-offers { display: none; }
+  .xh-body { display: block; padding: 0; }
+  .xh-intro h3 { margin: 0; font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; }
+  .xh-intro h3 a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 18px 20px 58px;
+  }
+  .xh-intro h3 a::after {
+    content: '→';
+    display: grid;
+    flex: none;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    margin-left: auto;
+    border-radius: 50%;
+    background: var(--mk);
+    color: var(--mk-ink);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .xh-intro h3 a:focus-visible { outline-offset: -4px; border-radius: 18px; }
+  /* Le grand numéro devient le petit numéro de la ligne. */
+  .xh-big {
+    z-index: 1;
+    top: 50%;
+    right: auto;
+    bottom: auto;
+    left: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--acc);
+    -webkit-text-stroke: 0;
+    transform: translateY(-50%);
+  }
+}
+
 /* ---------- Haut de page : présentation fixe + colonne « À la une » ---------- */
 .ax-hero-inner--split {
   display: grid;
@@ -454,7 +502,45 @@
 /* ---------- Section « Notre différence » et boutons de recrutement sous « Nos engagements » ---------- */
 .ax-join .ax-lead { font-size: 1.02rem; line-height: 1.6; color: rgba(255, 255, 255, 0.86); }
 .ax-join .ax-lead + .ax-lead { margin-top: 12px; }
-.ax-actions--join { margin-top: clamp(40px, 5vw, 56px); }
+.ax-actions--join { justify-content: center; margin-top: clamp(40px, 5vw, 56px); }
+
+/* « Découvrir l'équipe » : un vrai bouton sous le texte de présentation. */
+.ax-about-body .ax-btn--team { margin-top: 32px; gap: 10px; }
+.ax-btn--team::after { content: '→'; transition: transform 0.3s var(--ax-ease); }
+.ax-btn--team:hover::after { transform: translateX(4px); }
+
+/* Mobile : boutons empilés et centrés, chiffres en lignes, secteurs tous visibles. */
+@media (max-width: 760px) {
+  .ax-actions--join { flex-direction: column; gap: 18px; }
+  .ax-actions--join .ax-btn { width: 100%; max-width: 320px; }
+  .ax-about-body .ax-btn--team { width: 100%; }
+
+  /* Cinq chiffres : une ligne chacun (chiffre à gauche, libellé à droite). */
+  .ax-stats { grid-template-columns: 1fr; gap: 0; }
+  .ax-stat {
+    display: grid;
+    grid-template-columns: 112px 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .ax-stat:last-child { border-bottom: 1px solid var(--ax-line); }
+  .ax-page .ax-stat .number-val { font-size: 2.6rem; }
+  .ax-stat-unit { font-size: 1.4rem; }
+  .ax-stat-label { margin-top: 0; font-size: 0.92rem; }
+
+  /* Secteurs : les cinq onglets visibles, en pastilles qui passent à la ligne. */
+  .ax-seg {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    overflow: visible;
+    background: none;
+    border-radius: 0;
+  }
+  .ax-seg button { padding: 9px 16px; background: var(--ax-grey); font-size: 0.9rem; }
+}
 
 /* ---------- « Notre différence » : en-tête sur deux colonnes + trois cartes à retourner ---------- */
 .df-head {
@@ -528,6 +614,51 @@
   .df-cards { grid-template-columns: 1fr; gap: 16px; }
   .df-card { height: 300px; }
   .df-face p { font-size: 0.95rem; line-height: 1.5; }
+}
+/* Mobile : plus de cartes à retourner. Chaque point est une ligne simple, titre
+   puis explication, marquée d'un petit triangle de sa couleur. */
+@media (max-width: 767px) {
+  .df-cards { gap: 0; margin-top: 32px; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+  .df-card {
+    height: auto;
+    perspective: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    cursor: default;
+  }
+  .df-card:focus-visible { outline-offset: 0; }
+  .df-inner { height: auto; transform: none !important; transition: none; }
+  .df-face {
+    position: static;
+    padding: 0;
+    border-radius: 0;
+    background: none !important;
+    color: #fff !important;
+    backface-visibility: visible;
+    -webkit-backface-visibility: visible;
+  }
+  .df-front { position: relative; padding: 22px 0 0 26px; }
+  .df-back { transform: none; padding: 8px 0 22px 26px; }
+  .df-front .ax-commit-tri {
+    position: absolute;
+    top: 29px;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 12px;
+    height: 11px;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+  .df-back .ax-commit-tri { display: none; }
+  .df-card--1 .df-front .ax-commit-tri { background: var(--ax-orange); }
+  .df-card--2 .df-front .ax-commit-tri { background: #b57ee0; }
+  .df-card--3 .df-front .ax-commit-tri { background: rgba(255, 255, 255, 0.85); }
+  .df-face h3 { max-width: none; font-size: 1.15rem; line-height: 1.3; }
+  .df-face p,
+  .df-card--1 .df-face p { font-size: 0.92rem; line-height: 1.55; color: rgba(255, 255, 255, 0.72); }
 }
 /* Mouvement réduit : pas de rotation, le verso remplace le recto en fondu. */
 @media (prefers-reduced-motion: reduce) {
